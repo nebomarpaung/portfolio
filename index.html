@@ -4,6 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nebo Yok Jonah Marpaung — Geospatial Analyst</title>
+
+<meta name="description" content="Portofolio Nebo Yok Jonah Marpaung — Geospatial Analyst & Spatial Planning Specialist. Lulusan Geografi Universitas Indonesia, IPK 3.60. Spesialis ArcGIS, SMCA, Remote Sensing, dan Pemodelan Spasial.">
+<meta name="keywords" content="geospatial analyst, GIS, ArcGIS, QGIS, spatial analysis, remote sensing, SMCA, Indonesia, geography, MapBiomas">
+<meta name="author" content="Nebo Yok Jonah Marpaung">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nebo Yok Jonah Marpaung — Geospatial Analyst">
+<meta property="og:description" content="Lulusan Geografi UI, IPK 3.60. Spesialis analisis spasial, pemodelan lingkungan, dan perencanaan tata ruang. 1.500+ poligon deforestasi divalidasi.">
+<meta property="og:url" content="https://nebomarpaung.github.io/portfolio/">
+<meta property="og:image" content="https://nebomarpaung.github.io/portfolio/assets/images/sarjana/sidang.jpeg">
+<meta property="og:locale" content="id_ID">
+<meta property="og:site_name" content="NYJ Marpaung Portfolio">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nebo Yok Jonah Marpaung — Geospatial Analyst">
+<meta name="twitter:description" content="Lulusan Geografi UI, IPK 3.60. Spesialis analisis spasial, SMCA, dan remote sensing.">
+<meta name="twitter:image" content="https://nebomarpaung.github.io/portfolio/assets/images/sarjana/sidang.jpeg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%230B0D0F'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='Georgia,serif' fill='%23C8922A'>N</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%230B0D0F'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='Georgia,serif' fill='%23C8922A'>N</text></svg>">
+
+<!-- Preconnect for fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -187,16 +214,43 @@ footer{border-top:1px solid var(--border);padding:3rem 0}
   #lightbox-prev,#lightbox-next{display:none}
 }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Nebo Yok Jonah Marpaung",
+  "jobTitle": "Geospatial Analyst",
+  "description": "Lulusan Geografi Universitas Indonesia, spesialis analisis spasial, GIS, dan pemodelan lingkungan.",
+  "url": "https://nebomarpaung.github.io/portfolio/",
+  "email": "neboyokjonah@gmail.com",
+  "telephone": "+6282122002990",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bekasi",
+    "addressRegion": "Jawa Barat",
+    "addressCountry": "ID"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Universitas Indonesia"
+  },
+  "knowsAbout": ["GIS", "ArcGIS", "QGIS", "Remote Sensing", "Spatial Analysis", "SMCA", "Geomorfologi", "UAV Hyperspectral"],
+  "sameAs": [
+    "https://linkedin.com/in/neboyokjonah/"
+  ]
+}
+</script>
 </head>
 <body>
 
 <!-- LIGHTBOX -->
-<div id="lightbox">
-  <button id="lightbox-close" onclick="closeLightbox()">&#10005; Tutup</button>
-  <button id="lightbox-prev" onclick="lbNav(-1)">&#8249;</button>
-  <img id="lightbox-img" src="" alt="">
+<div id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+  <button id="lightbox-close" aria-label="Tutup lightbox" onclick="closeLightbox()">&#10005; Tutup</button>
+  <button id="lightbox-prev" aria-label="Gambar sebelumnya" onclick="lbNav(-1)">&#8249;</button>
+  <img id="lightbox-img" src="" alt="" loading="lazy">
   <p id="lightbox-caption"></p>
-  <button id="lightbox-next" onclick="lbNav(1)">&#8250;</button>
+  <button id="lightbox-next" aria-label="Gambar berikutnya" onclick="lbNav(1)">&#8250;</button>
 </div>
 
 <!-- NAV -->
@@ -207,7 +261,15 @@ footer{border-top:1px solid var(--border);padding:3rem 0}
     <li><a href="#stack">Technical Stack</a></li>
     <li><a href="#credentials">Credentials</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-ham" aria-label="Buka menu navigasi" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#works" onclick="closeMobileMenu()">Selected Works</a>
+  <a href="#stack" onclick="closeMobileMenu()">Technical Stack</a>
+  <a href="#credentials" onclick="closeMobileMenu()">Credentials</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -280,17 +342,17 @@ footer{border-top:1px solid var(--border);padding:3rem 0}
       {"src":"assets/map/nanas/tekstur tanah.jpg","cap":"Peta Tekstur Tanah"}
     ]'>
       <div class="map-gallery-main" onclick="openGallery(this,0)">
-        <img src="assets/map/nanas/kesesuaian.jpg" alt="Peta Kesesuaian Lahan Nanas">
+        <img src="assets/map/nanas/kesesuaian.jpg" alt="Peta Kesesuaian Lahan Nanas" loading="lazy">
         <span class="map-badge">Peta Kesesuaian Lahan</span>
         <span class="zoom-hint">Klik untuk fullscreen</span>
       </div>
       <div class="map-thumbnails">
-        <img class="map-thumb active" src="assets/map/nanas/kesesuaian.jpg" onclick="switchMain(this,0)" title="Kesesuaian">
-        <img class="map-thumb" src="assets/map/nanas/adm.jpg" onclick="switchMain(this,1)" title="Administrasi">
-        <img class="map-thumb" src="assets/map/nanas/ketinggian.jpg" onclick="switchMain(this,2)" title="Ketinggian">
-        <img class="map-thumb" src="assets/map/nanas/lereng.jpg" onclick="switchMain(this,3)" title="Lereng">
-        <img class="map-thumb" src="assets/map/nanas/penggunaanlahan.jpg" onclick="switchMain(this,4)" title="Penggunaan Lahan">
-        <img class="map-thumb" src="assets/map/nanas/tekstur tanah.jpg" onclick="switchMain(this,5)" title="Tekstur Tanah">
+        <img class="map-thumb active" src="assets/map/nanas/kesesuaian.jpg" onclick="switchMain(this,0)" title="Kesesuaian" loading="lazy">
+        <img class="map-thumb" src="assets/map/nanas/adm.jpg" onclick="switchMain(this,1)" title="Administrasi" loading="lazy">
+        <img class="map-thumb" src="assets/map/nanas/ketinggian.jpg" onclick="switchMain(this,2)" title="Ketinggian" loading="lazy">
+        <img class="map-thumb" src="assets/map/nanas/lereng.jpg" onclick="switchMain(this,3)" title="Lereng" loading="lazy">
+        <img class="map-thumb" src="assets/map/nanas/penggunaanlahan.jpg" onclick="switchMain(this,4)" title="Penggunaan Lahan" loading="lazy">
+        <img class="map-thumb" src="assets/map/nanas/tekstur tanah.jpg" onclick="switchMain(this,5)" title="Tekstur Tanah" loading="lazy">
       </div>
       <p class="map-caption">6 Peta Tematik · Kab. Purwakarta, Jawa Barat · 2023 · Klik thumbnail untuk berganti · Klik gambar utama untuk fullscreen</p>
     </div>
@@ -337,18 +399,18 @@ footer{border-top:1px solid var(--border);padding:3rem 0}
       {"src":"assets/map/kkl1/petarelief.jpg","cap":"Peta Relief"}
     ]'>
       <div class="map-gallery-main" onclick="openGallery(this,0)">
-        <img src="assets/map/kkl1/petageomorfologi.jpg" alt="Peta Geomorfologi">
+        <img src="assets/map/kkl1/petageomorfologi.jpg" alt="Peta Geomorfologi" loading="lazy">
         <span class="map-badge">Peta Geomorfologi</span>
         <span class="zoom-hint">Klik untuk fullscreen</span>
       </div>
       <div class="map-thumbnails">
-        <img class="map-thumb active" src="assets/map/kkl1/petageomorfologi.jpg" onclick="switchMain(this,0)" title="Geomorfologi">
-        <img class="map-thumb" src="assets/map/kkl1/petabedatinggi.jpg" onclick="switchMain(this,1)" title="Beda Tinggi">
-        <img class="map-thumb" src="assets/map/kkl1/petabentukanasal.jpg" onclick="switchMain(this,2)" title="Bentuk Asal">
-        <img class="map-thumb" src="assets/map/kkl1/petalereng.jpg" onclick="switchMain(this,3)" title="Lereng">
-        <img class="map-thumb" src="assets/map/kkl1/petalitologi.jpg" onclick="switchMain(this,4)" title="Litologi">
-        <img class="map-thumb" src="assets/map/kkl1/petapolaaliran.jpg" onclick="switchMain(this,5)" title="Pola Aliran">
-        <img class="map-thumb" src="assets/map/kkl1/petarelief.jpg" onclick="switchMain(this,6)" title="Relief">
+        <img class="map-thumb active" src="assets/map/kkl1/petageomorfologi.jpg" onclick="switchMain(this,0)" title="Geomorfologi" loading="lazy">
+        <img class="map-thumb" src="assets/map/kkl1/petabedatinggi.jpg" onclick="switchMain(this,1)" title="Beda Tinggi" loading="lazy">
+        <img class="map-thumb" src="assets/map/kkl1/petabentukanasal.jpg" onclick="switchMain(this,2)" title="Bentuk Asal" loading="lazy">
+        <img class="map-thumb" src="assets/map/kkl1/petalereng.jpg" onclick="switchMain(this,3)" title="Lereng" loading="lazy">
+        <img class="map-thumb" src="assets/map/kkl1/petalitologi.jpg" onclick="switchMain(this,4)" title="Litologi" loading="lazy">
+        <img class="map-thumb" src="assets/map/kkl1/petapolaaliran.jpg" onclick="switchMain(this,5)" title="Pola Aliran" loading="lazy">
+        <img class="map-thumb" src="assets/map/kkl1/petarelief.jpg" onclick="switchMain(this,6)" title="Relief" loading="lazy">
       </div>
       <p class="map-caption">7 Peta Tematik · Desa Cimanggu, Kab. Sukabumi · Sep 2022&#8202;&#8211;&#8202;Jan 2023 · Klik thumbnail untuk berganti · Klik gambar utama untuk fullscreen</p>
     </div>
@@ -394,17 +456,17 @@ footer{border-top:1px solid var(--border);padding:3rem 0}
       {"src":"assets/map/kkl2/tanah.jpg","cap":"Peta Jenis Tanah"}
     ]'>
       <div class="map-gallery-main" onclick="openGallery(this,0)">
-        <img src="assets/map/kkl2/rawan.jpg" alt="Peta Rawan Kekeringan">
+        <img src="assets/map/kkl2/rawan.jpg" alt="Peta Rawan Kekeringan" loading="lazy">
         <span class="map-badge">Peta Kerawanan Kekeringan</span>
         <span class="zoom-hint">Klik untuk fullscreen</span>
       </div>
       <div class="map-thumbnails">
-        <img class="map-thumb active" src="assets/map/kkl2/rawan.jpg" onclick="switchMain(this,0)" title="Kerawanan">
-        <img class="map-thumb" src="assets/map/kkl2/adm.jpg" onclick="switchMain(this,1)" title="Administrasi">
-        <img class="map-thumb" src="assets/map/kkl2/hujan.jpg" onclick="switchMain(this,2)" title="Curah Hujan">
-        <img class="map-thumb" src="assets/map/kkl2/lereng.jpg" onclick="switchMain(this,3)" title="Lereng">
-        <img class="map-thumb" src="assets/map/kkl2/pl.jpg" onclick="switchMain(this,4)" title="Penggunaan Lahan">
-        <img class="map-thumb" src="assets/map/kkl2/tanah.jpg" onclick="switchMain(this,5)" title="Jenis Tanah">
+        <img class="map-thumb active" src="assets/map/kkl2/rawan.jpg" onclick="switchMain(this,0)" title="Kerawanan" loading="lazy">
+        <img class="map-thumb" src="assets/map/kkl2/adm.jpg" onclick="switchMain(this,1)" title="Administrasi" loading="lazy">
+        <img class="map-thumb" src="assets/map/kkl2/hujan.jpg" onclick="switchMain(this,2)" title="Curah Hujan" loading="lazy">
+        <img class="map-thumb" src="assets/map/kkl2/lereng.jpg" onclick="switchMain(this,3)" title="Lereng" loading="lazy">
+        <img class="map-thumb" src="assets/map/kkl2/pl.jpg" onclick="switchMain(this,4)" title="Penggunaan Lahan" loading="lazy">
+        <img class="map-thumb" src="assets/map/kkl2/tanah.jpg" onclick="switchMain(this,5)" title="Jenis Tanah" loading="lazy">
       </div>
       <p class="map-caption">6 Peta Tematik · Kec. Panggang, Kab. Gunungkidul, DIY · 2023 · Klik thumbnail untuk berganti · Klik gambar utama untuk fullscreen</p>
     </div>
@@ -446,13 +508,13 @@ footer{border-top:1px solid var(--border);padding:3rem 0}
       {"src":"assets/map/pempar/Peta_Ambulance.png","cap":"Peta Aksesibilitas dan Jangkauan Ambulans Kota Depok"}
     ]'>
       <div class="map-gallery-main" onclick="openGallery(this,0)">
-        <img src="assets/map/pempar/Peta_Posyandu.png" alt="Peta Posyandu">
+        <img src="assets/map/pempar/Peta_Posyandu.png" alt="Peta Posyandu" loading="lazy">
         <span class="map-badge">Peta Jangkauan Posyandu</span>
         <span class="zoom-hint">Klik untuk fullscreen</span>
       </div>
       <div class="map-thumbnails">
-        <img class="map-thumb active" src="assets/map/pempar/Peta_Posyandu.png" onclick="switchMain(this,0)" title="Posyandu">
-        <img class="map-thumb" src="assets/map/pempar/Peta_Ambulance.png" onclick="switchMain(this,1)" title="Ambulans">
+        <img class="map-thumb active" src="assets/map/pempar/Peta_Posyandu.png" onclick="switchMain(this,0)" title="Posyandu" loading="lazy">
+        <img class="map-thumb" src="assets/map/pempar/Peta_Ambulance.png" onclick="switchMain(this,1)" title="Ambulans" loading="lazy">
       </div>
       <p class="map-caption">2 Peta Jangkauan · Kota Depok, Jawa Barat · 2024 · Klik thumbnail untuk berganti · Klik gambar utama untuk fullscreen</p>
     </div>
@@ -517,23 +579,23 @@ footer{border-top:1px solid var(--border);padding:3rem 0}
       {"src":"assets/map/skripsi/Layout WP 14x14 (tanpa zoom).png","cap":"Peta Water Productivity"}
     ]'>
       <div class="map-gallery-main" onclick="openGallery(this,0)">
-        <img src="assets/map/skripsi/Estimasi_kgm2.png" alt="Estimasi Produktivitas Padi">
+        <img src="assets/map/skripsi/Estimasi_kgm2.png" alt="Estimasi Produktivitas Padi" loading="lazy">
         <span class="map-badge" style="color:var(--amberlt)">Peta Estimasi Produktivitas</span>
         <span class="zoom-hint">Klik untuk fullscreen</span>
       </div>
       <div class="map-thumbnails">
-        <img class="map-thumb active" src="assets/map/skripsi/Estimasi_kgm2.png" onclick="switchMain(this,0)" title="Estimasi kg/m&#178;">
-        <img class="map-thumb" src="assets/map/skripsi/Aktual_kgm2.png" onclick="switchMain(this,1)" title="Aktual">
-        <img class="map-thumb" src="assets/map/skripsi/GRIDSAMPEL.png" onclick="switchMain(this,2)" title="Grid Sampel">
-        <img class="map-thumb" src="assets/map/skripsi/Layout ADM 14x14 (tanpa zoom).png" onclick="switchMain(this,3)" title="Administrasi">
-        <img class="map-thumb" src="assets/map/skripsi/Layout NDVI 14x14.png" onclick="switchMain(this,4)" title="NDVI">
-        <img class="map-thumb" src="assets/map/skripsi/Layout GNDVI 14x14.png" onclick="switchMain(this,5)" title="GNDVI">
-        <img class="map-thumb" src="assets/map/skripsi/Layout OSAVI 14x14.png" onclick="switchMain(this,6)" title="OSAVI">
-        <img class="map-thumb" src="assets/map/skripsi/Layout MCARI 14x14.png" onclick="switchMain(this,7)" title="MCARI">
-        <img class="map-thumb" src="assets/map/skripsi/Layout HEIGHT 14x14 (tanpa zoom).png" onclick="switchMain(this,8)" title="Ketinggian Kanopi">
-        <img class="map-thumb" src="assets/map/skripsi/Layout SLOPE 14x14 (tanpa zoom).png" onclick="switchMain(this,9)" title="Lereng">
-        <img class="map-thumb" src="assets/map/skripsi/Layout TL 14x14 (tanpa zoom).png" onclick="switchMain(this,10)" title="Suhu Permukaan">
-        <img class="map-thumb" src="assets/map/skripsi/Layout WP 14x14 (tanpa zoom).png" onclick="switchMain(this,11)" title="Water Productivity">
+        <img class="map-thumb active" src="assets/map/skripsi/Estimasi_kgm2.png" onclick="switchMain(this,0)" title="Estimasi kg/m&#178;" loading="lazy">
+        <img class="map-thumb" src="assets/map/skripsi/Aktual_kgm2.png" onclick="switchMain(this,1)" title="Aktual" loading="lazy">
+        <img class="map-thumb" src="assets/map/skripsi/GRIDSAMPEL.png" onclick="switchMain(this,2)" title="Grid Sampel" loading="lazy">
+        <img class="map-thumb" src="assets/map/skripsi/Layout ADM 14x14 (tanpa zoom).png" onclick="switchMain(this,3)" title="Administrasi" loading="lazy">
+        <img class="map-thumb" src="assets/map/skripsi/Layout NDVI 14x14.png" onclick="switchMain(this,4)" title="NDVI" loading="lazy">
+        <img class="map-thumb" src="assets/map/skripsi/Layout GNDVI 14x14.png" onclick="switchMain(this,5)" title="GNDVI" loading="lazy">
+        <img class="map-thumb" src="assets/map/skripsi/Layout OSAVI 14x14.png" onclick="switchMain(this,6)" title="OSAVI" loading="lazy">
+        <img class="map-thumb" src="assets/map/skripsi/Layout MCARI 14x14.png" onclick="switchMain(this,7)" title="MCARI" loading="lazy">
+        <img class="map-thumb" src="assets/map/skripsi/Layout HEIGHT 14x14 (tanpa zoom).png" onclick="switchMain(this,8)" title="Ketinggian Kanopi" loading="lazy">
+        <img class="map-thumb" src="assets/map/skripsi/Layout SLOPE 14x14 (tanpa zoom).png" onclick="switchMain(this,9)" title="Lereng" loading="lazy">
+        <img class="map-thumb" src="assets/map/skripsi/Layout TL 14x14 (tanpa zoom).png" onclick="switchMain(this,10)" title="Suhu Permukaan" loading="lazy">
+        <img class="map-thumb" src="assets/map/skripsi/Layout WP 14x14 (tanpa zoom).png" onclick="switchMain(this,11)" title="Water Productivity" loading="lazy">
       </div>
       <p class="map-caption">12 Peta &amp; Layout · Desa Parakansalak, Kab. Sukabumi · 2024 · Klik thumbnail untuk berganti · Klik gambar utama untuk fullscreen</p>
     </div>
@@ -645,7 +707,7 @@ footer{border-top:1px solid var(--border);padding:3rem 0}
                 {"src":"assets/images/sarjana/sidang.jpeg","cap":"Sidang Skripsi S1 · Universitas Indonesia · Juli 2025"}
               ]'>
                 <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)">
-                  <img src="assets/images/sarjana/sidang.jpeg" alt="Sidang Skripsi">
+                  <img src="assets/images/sarjana/sidang.jpeg" alt="Sidang Skripsi" loading="lazy">
                 </div>
               </div>
             </div>
@@ -675,10 +737,10 @@ footer{border-top:1px solid var(--border);padding:3rem 0}
                 {"src":"assets/images/auriga/auriga3.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"},
                 {"src":"assets/images/auriga/auriga4.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"}
               ]'>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/auriga/auriga1.jpeg" alt="Auriga 1"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/auriga/auriga2.jpeg" alt="Auriga 2"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img src="assets/images/auriga/auriga3.jpeg" alt="Auriga 3"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img src="assets/images/auriga/auriga4.jpeg" alt="Auriga 4"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/auriga/auriga1.jpeg" alt="Auriga 1" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/auriga/auriga2.jpeg" alt="Auriga 2" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img src="assets/images/auriga/auriga3.jpeg" alt="Auriga 3" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img src="assets/images/auriga/auriga4.jpeg" alt="Auriga 4" loading="lazy"></div>
               </div>
             </div>
           </div>
@@ -700,10 +762,10 @@ footer{border-top:1px solid var(--border);padding:3rem 0}
                 {"src":"assets/images/rdtr/msib3.jpeg","cap":"MSIB INSPIRING · Kementerian ATR/BPN · Kota Bima"},
                 {"src":"assets/images/rdtr/msib4.jpeg","cap":"MSIB INSPIRING · Kementerian ATR/BPN · Kota Bima"}
               ]'>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/rdtr/msib1.jpeg" alt="MSIB 1"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/rdtr/msib2.jpeg" alt="MSIB 2"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img src="assets/images/rdtr/msib3.jpeg" alt="MSIB 3"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img src="assets/images/rdtr/msib4.jpeg" alt="MSIB 4"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/rdtr/msib1.jpeg" alt="MSIB 1" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/rdtr/msib2.jpeg" alt="MSIB 2" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img src="assets/images/rdtr/msib3.jpeg" alt="MSIB 3" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img src="assets/images/rdtr/msib4.jpeg" alt="MSIB 4" loading="lazy"></div>
               </div>
             </div>
           </div>
@@ -722,8 +784,8 @@ footer{border-top:1px solid var(--border);padding:3rem 0}
                 {"src":"assets/images/enumerator/jica1.jpeg","cap":"JICA · Enumerator DRR Survey · Jakarta 2023"},
                 {"src":"assets/images/enumerator/jica2.jpeg","cap":"JICA · Enumerator DRR Survey · Jakarta 2023"}
               ]'>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/enumerator/jica1.jpeg" alt="JICA 1"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/enumerator/jica2.jpeg" alt="JICA 2"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/enumerator/jica1.jpeg" alt="JICA 1" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/enumerator/jica2.jpeg" alt="JICA 2" loading="lazy"></div>
               </div>
             </div>
           </div>
@@ -757,14 +819,14 @@ footer{border-top:1px solid var(--border);padding:3rem 0}
                 {"src":"assets/images/kepalahmd/kepala7.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"},
                 {"src":"assets/images/kepalahmd/kepala8.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"}
               ]'>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/kepalahmd/kepala1.jpg" alt="Kepala 1"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/kepalahmd/kepala2.jpg" alt="Kepala 2"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img src="assets/images/kepalahmd/kepala3.jpg" alt="Kepala 3"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img src="assets/images/kepalahmd/kepala4.jpg" alt="Kepala 4"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),4)"><img src="assets/images/kepalahmd/kepala5.jpg" alt="Kepala 5"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),5)"><img src="assets/images/kepalahmd/kepala6.jpg" alt="Kepala 6"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),6)"><img src="assets/images/kepalahmd/kepala7.jpg" alt="Kepala 7"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),7)"><img src="assets/images/kepalahmd/kepala8.jpg" alt="Kepala 8"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/kepalahmd/kepala1.jpg" alt="Kepala 1" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/kepalahmd/kepala2.jpg" alt="Kepala 2" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img src="assets/images/kepalahmd/kepala3.jpg" alt="Kepala 3" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img src="assets/images/kepalahmd/kepala4.jpg" alt="Kepala 4" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),4)"><img src="assets/images/kepalahmd/kepala5.jpg" alt="Kepala 5" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),5)"><img src="assets/images/kepalahmd/kepala6.jpg" alt="Kepala 6" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),6)"><img src="assets/images/kepalahmd/kepala7.jpg" alt="Kepala 7" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),7)"><img src="assets/images/kepalahmd/kepala8.jpg" alt="Kepala 8" loading="lazy"></div>
               </div>
             </div>
           </div>
@@ -786,10 +848,10 @@ footer{border-top:1px solid var(--border);padding:3rem 0}
                 {"src":"assets/images/stafhmd/staf3.jpg","cap":"HMD Geografi FMIPA UI · Staf Biro Administrasi"},
                 {"src":"assets/images/stafhmd/staf4.jpg","cap":"HMD Geografi FMIPA UI · Staf Biro Administrasi"}
               ]'>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/stafhmd/staf1.jpg" alt="Staf 1"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/stafhmd/staf2.jpg" alt="Staf 2"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img src="assets/images/stafhmd/staf3.jpg" alt="Staf 3"></div>
-                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img src="assets/images/stafhmd/staf4.jpg" alt="Staf 4"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/stafhmd/staf1.jpg" alt="Staf 1" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/stafhmd/staf2.jpg" alt="Staf 2" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img src="assets/images/stafhmd/staf3.jpg" alt="Staf 3" loading="lazy"></div>
+                <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img src="assets/images/stafhmd/staf4.jpg" alt="Staf 4" loading="lazy"></div>
               </div>
             </div>
           </div>
@@ -815,7 +877,7 @@ footer{border-top:1px solid var(--border);padding:3rem 0}
               <div class="photo-gallery-grid cols2" style="max-width:340px" data-images='[
                 {"src":"assets/sertifikat/inspiring.jpg","cap":"Sertifikat RDTR Drafter · MSIB INSPIRING · Kementerian ATR/BPN · 2024"}
               ]'>
-                <div class="photo-item" style="aspect-ratio:16/11" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/sertifikat/inspiring.jpg" alt="Sertifikat RDTR"></div>
+                <div class="photo-item" style="aspect-ratio:16/11" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/sertifikat/inspiring.jpg" alt="Sertifikat RDTR" loading="lazy"></div>
               </div>
             </div>
           </div>
@@ -899,6 +961,17 @@ document.querySelectorAll(".project-item,.cred-item").forEach(function(el){
   el.style.opacity="0";el.style.transform="translateY(20px)";el.style.transition="opacity 0.55s ease,transform 0.55s ease";
   io.observe(el);
 });
+
+function toggleMobileMenu(){
+  var m=document.getElementById("mobile-menu");
+  var h=document.getElementById("nav-ham");
+  m.classList.toggle("open");
+  h.classList.toggle("open");
+}
+function closeMobileMenu(){
+  document.getElementById("mobile-menu").classList.remove("open");
+  document.getElementById("nav-ham").classList.remove("open");
+}
 </script>
 </body>
 </html>
