@@ -376,15 +376,15 @@ footer{border-bottom:3px solid #000;background:#FFFFFF}
 .credentials-banner{
   position:relative;
   width:100%;
-  min-height:500px;
-  background:#C84630;
+  min-height:540px;
+  background:#D9A05B;
   border-bottom:2px solid #000;
   overflow:hidden;
 }
 .credentials-banner .banner-crop{
   display:block;
   width:100%;
-  height:500px;
+  height:540px;
   object-fit:cover;
   object-position:center 52%;
   filter:grayscale(100%) contrast(110%);
@@ -392,13 +392,14 @@ footer{border-bottom:3px solid #000;background:#FFFFFF}
 }
 .credentials-overlay{
   position:absolute;
-  left:1.5rem;
-  bottom:1.5rem;
-  max-width:min(820px,calc(100% - 3rem));
-  background:#2E5C40;
-  color:#FFFFFF;
+  left:0;
+  bottom:0;
+  width:75%;
+  max-width:none;
+  background:#D9A05B;
+  color:#000000;
   border:2px solid #000;
-  padding:1rem 1.25rem 1.15rem;
+  padding:1.2rem 1.5rem 1.3rem;
 }
 .credentials-overlay-tag{
   margin-bottom:.45rem;
@@ -423,13 +424,14 @@ footer{border-bottom:3px solid #000;background:#FFFFFF}
 @media(max-width:900px){
   .personal-photo-grid{grid-template-columns:1fr;}
   .personal-break-photo{height:320px;}
-  .credentials-banner,.credentials-banner .banner-crop{height:420px;min-height:420px;}
+  .credentials-banner,.credentials-banner .banner-crop{height:500px;min-height:500px;}
+  .credentials-overlay{width:75%;}
 }
 @media(max-width:700px){
   .personal-photo-break{padding:1rem;}
   .personal-break-photo{height:250px;}
-  .credentials-banner,.credentials-banner .banner-crop{height:360px;min-height:360px;}
-  .credentials-overlay{left:1rem;bottom:1rem;max-width:calc(100% - 2rem);padding:.8rem .9rem 1rem;}
+  .credentials-banner,.credentials-banner .banner-crop{height:460px;min-height:460px;}
+  .credentials-overlay{left:0;bottom:0;width:100%;max-width:none;padding:.8rem .9rem 1rem;}
   .credentials-overlay-title{font-size:clamp(1.85rem,9vw,3.2rem);}
 }
 </style>
@@ -440,7 +442,7 @@ footer{border-bottom:3px solid #000;background:#FFFFFF}
 <img alt="" id="lightbox-img" loading="lazy" src=""/>
 <p id="lightbox-caption"></p>
 <button aria-label="Gambar berikutnya" id="lightbox-next" onclick="lbNav(1)">›</button>
-</div><header class="masthead"><div class="masthead-kicker"><span>LAPORAN LAPANGAN GEOSPASIAL / PORTOFOLIO</span><span>BEKASI, JAWA BARAT · 2025–2026</span></div><div class="masthead-name">NEBO YOK JONAH MARPAUNG</div><div class="masthead-rule"></div></header><nav class="site-nav">
+</div><header class="masthead"><div class="masthead-kicker"><span>DATA GEOSPASIAL</span><span>KOTA BEKASI, JAWA BARAT</span></div><div class="masthead-name">PORTOFOLIO</div><div class="masthead-rule"></div></header><nav class="site-nav">
 <a class="nav-logo" href="#hero">Nebo</a>
 <ul class="nav-links">
 <li><a href="#works">Karya Terpilih</a></li>
