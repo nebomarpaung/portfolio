@@ -217,18 +217,19 @@ button{border-radius:0 !important;font-family:'Montserrat',sans-serif !important
 .inline-editorial figcaption{padding-top:.15rem}
 
 /* INSTRUMEN TEKNIS */
-.stack-index{display:grid;grid-template-columns:58px 1fr;border:2px solid #000;background:#FFFFFF}
-.stack-rail{writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Montserrat',sans-serif !important;font-size:10px;font-weight:700;text-align:center;padding:.8rem;background:var(--red);color:#FFFFFF;border-right:2px solid #000;text-transform:uppercase;letter-spacing:.1em}
-.stack-index-content{min-width:0}
-.stack-grid{display:grid;grid-template-columns:repeat(2,1fr)}
-.stack-cell{min-width:0;border-right:1px solid #000;border-bottom:1px solid #000;padding:1rem;background:#FFFFFF}
-.stack-cell:last-child{grid-column:1/-1}
-.stack-cell-title{border-bottom:1px solid #000;padding-bottom:.5rem;margin-bottom:.65rem;font-family:'Montserrat',sans-serif !important;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em}
-.skill-list{list-style:none;display:grid;gap:.35rem}
-.skill-list li{font-size:14px;line-height:1.45;border-bottom:1px solid #000;padding-bottom:.3rem}
-.skill-list li::before{content:"/ ";font-family:'Montserrat',sans-serif !important;font-weight:700}
-.skill-note{float:right;font-family:'Montserrat',sans-serif !important;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
-.language-line{margin-top:1rem;border-top:1px solid #000;padding-top:.65rem;font-family:'Montserrat',sans-serif !important;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em}
+.stack-editorial{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid #000;background:#FFFFFF;margin-top:1.5rem}
+.stack-panel{display:grid;grid-template-columns:50px minmax(0,1fr);min-width:0;min-height:300px;border-right:1px solid #000;background:#FFFFFF}
+.stack-panel:nth-child(4){border-right:0}
+.stack-panel-wide{grid-column:1/-1;min-height:175px;border-top:1px solid #000;border-right:0;grid-template-columns:50px minmax(0,1fr)}
+.stack-panel-rail{display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;transform:rotate(180deg);background:#000;color:#FFFFFF;border-right:1px solid #000;padding:.7rem .45rem;font-family:'Montserrat',sans-serif !important;font-size:9px;font-weight:700;line-height:1;letter-spacing:.12em;text-transform:uppercase}
+.stack-panel-content{min-width:0;padding:1.2rem 1rem}
+.stack-list{list-style:none;display:grid;gap:.8rem;margin:0;padding:0}
+.stack-list li{position:relative;padding-left:1rem;font-family:'Lora',serif !important;font-size:15px;font-weight:400;line-height:1.45;border:0}
+.stack-list li::before{content:"";position:absolute;left:0;top:.68em;width:7px;height:7px;background:var(--red)}
+.stack-note{float:right;margin-left:.5rem;font-family:'Montserrat',sans-serif !important;font-size:8px;font-weight:700;line-height:1;text-transform:uppercase;letter-spacing:.08em}
+.competency-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 1.5rem}
+.competency-grid .stack-list{gap:.7rem}
+.stack-language{margin-top:1.2rem;padding-top:.7rem;border-top:1px solid #000;font-family:'Montserrat',sans-serif !important;font-size:9px;font-weight:700;line-height:1.4;text-transform:uppercase;letter-spacing:.09em}
 
 /* BANNER */
 .banner-wrap{border-bottom:2px solid #000;background:var(--red);padding:1rem 1.5rem}
@@ -309,6 +310,9 @@ footer{border-bottom:3px solid #000;background:#FFFFFF}
 .beyond-copy p{position:relative;width:210px;max-width:none;margin-top:1rem;font-size:14px;line-height:1.5;overflow:visible;}
 .beyond-desk > div:last-child{position:absolute;inset:0;display:block;min-width:0;width:100%;height:100%;overflow:hidden;}
 .beyond-desk .portrait-crop{display:block;width:100%;height:100%;margin:0;object-fit:cover;object-position:center;transform:scale(1.18);transform-origin:center center;}
+
+.stack-editorial{width:100%;}
+@media(max-width:1000px){.stack-editorial{grid-template-columns:repeat(2,minmax(0,1fr))}.stack-panel:nth-child(2){border-right:0}.stack-panel:nth-child(3),.stack-panel:nth-child(4){border-top:1px solid #000}.stack-panel-wide{grid-column:1/-1}}
 
 /* RESPONSIF */
 @media(max-width:900px){
@@ -440,6 +444,8 @@ footer{border-bottom:3px solid #000;background:#FFFFFF}
   .credentials-overlay{left:0;bottom:0;width:100%;max-width:none;padding:.8rem .9rem 1rem;}
   .credentials-overlay-title{font-size:clamp(1.85rem,9vw,3.2rem);}
 }
+
+@media(max-width:700px){.stack-editorial{grid-template-columns:1fr}.stack-panel,.stack-panel-wide{grid-column:auto;min-height:auto;border-right:0;border-top:0;border-bottom:1px solid #000}.stack-panel:nth-child(2),.stack-panel:nth-child(3),.stack-panel:nth-child(4){border-top:0}.stack-panel-wide{border-bottom:0}.competency-grid{grid-template-columns:1fr;gap:.7rem}.stack-panel-content{padding:1rem}.stack-list{gap:.65rem}}
 </style>
 </head>
 <body><div aria-labelledby="lightbox-caption" aria-modal="true" id="lightbox" role="dialog">
@@ -716,48 +722,7 @@ footer{border-bottom:3px solid #000;background:#FFFFFF}
 <span class="kw">Pemetaan Komunitas</span><span class="kw">Aksesibilitas Spasial</span><span class="kw">Pemodelan Jangkauan</span><span class="kw">StoryMaps ArcGIS</span><span class="kw">FGD Kebijakan</span><span class="kw">Hibah DPPM UI</span>
 </div>
 </div>
-</div></div></div></section><section aria-label="Arsip visual pribadi" class="personal-photo-break"><div class="personal-photo-grid"><img alt="Dokumentasi visual pribadi" class="editorial-photo personal-break-photo" loading="lazy" src="assets/images/diri/LINE_ALBUM_T3_240518_9.jpg"/><img alt="Dokumentasi visual pribadi" class="editorial-photo personal-break-photo" loading="lazy" src="assets/images/diri/LINE_ALBUM_HG 4 KL B_230703_17.jpg"/></div></section><section class="section" id="stack"><div class="section-inner"><p class="section-tag">Instrumen Teknis</p><h2 class="section-title">Alat &amp; Kerangka Kerja<br/><em>yang Saya Gunakan</em></h2><div class="stack-index"><div class="stack-rail">INDEKS / INSTRUMEN / METODE</div><div class="stack-index-content"><div class="stack-grid"><div class="stack-cell">
-<p class="stack-cell-title">Instrumen Geospasial</p>
-<ul class="skill-list">
-<li>ArcGIS Pro</li>
-<li>ArcMap</li><li>QGIS</li><li>StoryMaps ArcGIS</li><li>Survey123</li>
-</ul>
-</div><div class="stack-cell">
-<p class="stack-cell-title">Analisis Spasial</p>
-<ul class="skill-list">
-<li>Analisis Multikriteria Spasial (SMCA)</li>
-<li>Analytic Hierarchy Process (AHP)</li>
-<li>Analisis Interseksi &amp; Tumpangsusun</li>
-<li>Pemodelan Spasial &amp; Geostatistik</li>
-<li>Inspeksi Visual Kendali Grid</li>
-</ul>
-</div><div class="stack-cell">
-<p class="stack-cell-title">Penginderaan Jauh</p>
-<ul class="skill-list">
-<li>Citra UAV Hiperspektral <span class="skill-note">Skripsi</span></li>
-<li>Penginderaan Jauh Multitemporal</li>
-<li>Validasi Poligon Deforestasi</li>
-<li>DEM Nasional BIG</li>
-</ul>
-</div><div class="stack-cell">
-<p class="stack-cell-title">Lapangan &amp; Data</p>
-<ul class="skill-list">
-<li>Survei &amp; Pemetaan Lapangan</li>
-<li>Diskusi Kelompok Terarah (FGD)</li>
-<li>Penulisan Laporan &amp; Makalah Ilmiah</li>
-<li>Paket Microsoft Office</li>
-</ul>
-</div><div class="stack-cell">
-<p class="stack-cell-title">Kompetensi</p>
-<ul class="skill-list">
-<li>Manajemen Proyek</li>
-<li>Kepemimpinan Tim Lintas Fungsi</li>
-<li>Analisis &amp; Sintesis Data</li>
-<li>Komunikasi Teknis</li>
-<li>Adaptabilitas &amp; Agility</li>
-<li>Quality Assurance (QA)</li>
-</ul>
-</div></div><p>Bahasa: Indonesia (Asli) · Inggris (Kemampuan Kerja Profesional)</p></div></div></div></section><div aria-label="Kredensial &amp; Pengalaman" class="credentials-banner"><img alt="Dokumentasi lapangan" class="editorial-photo banner-crop" src="assets/images/diri/IMG_4474.JPG"/><div class="credentials-overlay"><p class="credentials-overlay-tag">Kredensial &amp; Pengalaman</p><h2 class="credentials-overlay-title">Pendidikan, Pengalaman,<br/><em>Organisasi &amp; Sertifikasi</em></h2></div></div><section class="section" id="credentials"><div class="section-inner"><div class="timeline"><div class="cred-subsection">
+</div></div></div></section><section aria-label="Arsip visual pribadi" class="personal-photo-break"><div class="personal-photo-grid"><img alt="Dokumentasi visual pribadi" class="editorial-photo personal-break-photo" loading="lazy" src="assets/images/diri/LINE_ALBUM_T3_240518_9.jpg"/><img alt="Dokumentasi visual pribadi" class="editorial-photo personal-break-photo" loading="lazy" src="assets/images/diri/LINE_ALBUM_HG 4 KL B_230703_17.jpg"/></div></section><section class="section" id="stack"><div class="section-inner"><p class="section-tag">Instrumen Teknis</p><h2 class="section-title">Alat &amp; Kerangka Kerja<br/><em>yang Saya Gunakan</em></h2><div class="stack-editorial"><section class="stack-panel"><div class="stack-panel-rail">Instrumen Geospasial</div><div class="stack-panel-content"><ul class="stack-list"><li>ArcGIS Pro</li><li>ArcMap</li><li>QGIS</li><li>StoryMaps ArcGIS</li><li>Survey123</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Analisis Spasial</div><div class="stack-panel-content"><ul class="stack-list"><li>Analisis Multikriteria Spasial (SMCA)</li><li>Analytic Hierarchy Process (AHP)</li><li>Analisis Interseksi &amp; Tumpangsusun</li><li>Pemodelan Spasial &amp; Geostatistik</li><li>Inspeksi Visual Kendali Grid</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Penginderaan Jauh</div><div class="stack-panel-content"><ul class="stack-list"><li>Citra UAV Hiperspektral <span class="stack-note">Skripsi</span></li><li>Penginderaan Jauh Multitemporal</li><li>Validasi Poligon Deforestasi</li><li>DEM Nasional BIG</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Lapangan &amp; Data</div><div class="stack-panel-content"><ul class="stack-list"><li>Survei &amp; Pemetaan Lapangan</li><li>Diskusi Kelompok Terarah (FGD)</li><li>Penulisan Laporan &amp; Makalah Ilmiah</li><li>Paket Microsoft Office</li></ul></div></section><section class="stack-panel stack-panel-wide"><div class="stack-panel-rail">Kompetensi</div><div class="stack-panel-content"><div class="competency-grid"><ul class="stack-list"><li>Manajemen Proyek</li><li>Komunikasi Teknis</li></ul><ul class="stack-list"><li>Kepemimpinan Tim Lintas Fungsi</li><li>Adaptabilitas &amp; Agility</li></ul><ul class="stack-list"><li>Analisis &amp; Sintesis Data</li><li>Quality Assurance (QA)</li></ul></div></div></section></div><div class="stack-language">Bahasa: Indonesia (Asli) · Inggris (Kemampuan Kerja Profesional)</div></div></section><div aria-label="Kredensial &amp; Pengalaman" class="credentials-banner"><img alt="Dokumentasi lapangan" class="editorial-photo banner-crop" src="assets/images/diri/IMG_4474.JPG"/><div class="credentials-overlay"><p class="credentials-overlay-tag">Kredensial &amp; Pengalaman</p><h2 class="credentials-overlay-title">Pendidikan, Pengalaman,<br/><em>Organisasi &amp; Sertifikasi</em></h2></div></div><section class="section" id="credentials"><div class="section-inner"><div class="timeline"><div class="cred-subsection">
 <p class="cred-sub-label">Pendidikan</p>
 <div class="cred-list">
 <div class="cred-item">
