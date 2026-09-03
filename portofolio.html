@@ -45,6 +45,7 @@
   --green:#2E5C40;
   --red:#C84630;
   --mustard:#D9A05B;
+  --gold:#B8860B;
 }
 
 *,*::before,*::after{
@@ -86,7 +87,6 @@ h2,
 h3,
 .project-title,
 .display-title,
-.masthead-name,
 .beyond-copy h2,
 .classified-big{
   font-family:'Playfair Display',serif !important;
@@ -96,7 +96,7 @@ h3,
 .eyebrow,
 .section-tag,
 .nav-links a,
-.nav-logo,
+.nav-brand,
 .masthead-kicker,
 .classified-small,
 .footer-meta,
@@ -140,61 +140,37 @@ a{color:inherit;}
 button{font-family:'Montserrat',sans-serif !important;}
 ::selection{background:var(--mustard);color:#000;}
 
-/* HEADER */
-.masthead{
-  width:100%;
-  background:#FFFFFF;
-  border-top:3px solid #000;
-  border-bottom:2px solid #000;
-  padding:.65rem 1.5rem .45rem;
-}
-
-.masthead-kicker{
-  display:flex;
-  justify-content:space-between;
-  gap:1rem;
-  border-bottom:1px solid #000;
-  padding-bottom:.5rem;
-  font-size:9px;
-  line-height:1.2;
-  letter-spacing:.1em;
-}
-
-.masthead-name{
-  font-size:clamp(4rem,8vw,8rem);
-  line-height:.86;
-  letter-spacing:-.055em;
-  text-transform:uppercase;
-  padding:.45rem 0 .15rem;
-  overflow-wrap:anywhere;
-}
-
-.masthead-rule{border-top:1px solid #000;}
-
-/* NAV */
+/* ===== NAVIGASI ===== */
 .site-nav{
   position:sticky;
   top:0;
   z-index:100;
   display:grid;
-  grid-template-columns:1fr auto;
+  grid-template-columns:auto 1fr auto;
   align-items:center;
   width:100%;
   background:#FFFFFF;
   border-bottom:1px solid #000;
   padding:.65rem 1.5rem;
+  gap:1rem;
 }
 
-.nav-logo{
-  font-size:10px;
-  letter-spacing:.08em;
-  text-decoration:none;
+.nav-brand{
+  font-family:'Montserrat',sans-serif !important;
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:#000;
+  white-space:nowrap;
 }
 
 .nav-links{
   display:flex;
   gap:1.2rem;
   list-style:none;
+  justify-self:end;
+  margin:0;
 }
 
 .nav-links a{
@@ -203,9 +179,12 @@ button{font-family:'Montserrat',sans-serif !important;}
   border-bottom:2px solid transparent;
   padding-bottom:.2rem;
   letter-spacing:.15em;
+  font-weight:700;
 }
 
-.nav-links a:hover{border-bottom-color:#000;}
+.nav-links a:hover{
+  border-bottom-color:#000;
+}
 
 .nav-hamburger{
   display:none;
@@ -213,6 +192,7 @@ button{font-family:'Montserrat',sans-serif !important;}
   border:1px solid #000;
   padding:.4rem;
   cursor:pointer;
+  justify-self:end;
 }
 
 .nav-hamburger span{
@@ -242,7 +222,7 @@ button{font-family:'Montserrat',sans-serif !important;}
   letter-spacing:.1em;
 }
 
-/* GLOBAL SECTIONS — FULL WIDTH, NO CENTERED MAX-WIDTH */
+/* GLOBAL SECTIONS */
 .page{width:100%;background:#FFFFFF;}
 .section{width:100%;background:#FFFFFF;border-bottom:2px solid #000;}
 .section-inner{
@@ -279,150 +259,101 @@ button{font-family:'Montserrat',sans-serif !important;}
   line-height:1.55;
 }
 
-/* HERO */
-.editor-note{
-  display:grid;
-  grid-template-columns:minmax(270px,1fr) minmax(0,2fr);
-  width:100%;
-  background:#FFFFFF;
-  border-bottom:2px solid #000;
+/* ===== HERO FULLSCREEN ===== */
+.hero-full {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #000;
+  overflow: hidden;
+  background: #000;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(110%);
+  display: block;
+}
+.hero-overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  padding: 2rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+.hero-content .hero-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(4rem, 12vw, 7.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  margin-bottom: 0.25rem;
+}
+.hero-content .hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.9rem, 1.8vw, 1.4rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #D9A05B;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+.hero-ticker {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-top: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-ticker-item {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 0.8rem 0.3rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.hero-ticker-item:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-2px);
+}
+.hero-ticker-item .stat-number {
+  font-size: 1.8rem;
+  color: #fff;
+  display: block;
+  font-weight: 700;
+}
+.hero-ticker-item .stat-label {
+  font-size: 8px;
+  color: #ddd;
+  display: block;
+  margin-top: 0.15rem;
+  letter-spacing: 0.08em;
 }
 
-.editor-note-media{
-  padding:1.25rem;
-  border-right:2px solid #000;
-  background:var(--mustard);
-}
-
-.editor-note-media .editorial-photo{
-  width:100%;
-  aspect-ratio:3/4;
-  object-fit:cover;
-  object-position:center;
-  filter:grayscale(100%) contrast(110%);
-  border:1px solid #000;
-}
-
-.editor-note-copy{padding:1.35rem;}
-
-.hero-eyebrow{font-family:'Montserrat',sans-serif !important;}
-
-.editor-note-copy h1{
-  font-size:clamp(2.8rem,6vw,6.6rem);
-  line-height:.88;
-  margin:.7rem 0 .65rem;
-  max-width:13ch;
-}
-
-.hero-intro{
-  max-width:80ch;
-  font-size:15px;
-  line-height:1.55;
-  margin-bottom:.8rem;
-}
-
-.hero-contact,
-.hero-cta{display:none !important;}
-
-/* TELEMETRI */
-.telemetry{
-  position:relative;
-  height:1.5em;
-  display:block;
-  overflow:hidden;
-  margin:.15rem 0 .45rem;
-  font-size:10px;
-  line-height:1.4;
-  white-space:nowrap;
-  letter-spacing:.03em;
-}
-
-.telemetry .tline{
-  position:absolute;
-  left:0;
-  top:0;
-  display:block;
-  width:0;
-  overflow:hidden;
-  white-space:nowrap;
-  border-right:1px solid #000;
-  padding-right:.18rem;
-}
-
-.telemetry .t1{animation:telemetryOne 12s linear infinite,telemetryCursor .65s steps(1,end) infinite;}
-.telemetry .t2{animation:telemetryTwo 12s linear infinite,telemetryCursor .65s steps(1,end) infinite;}
-.telemetry .t3{animation:telemetryThree 12s linear infinite,telemetryCursor .65s steps(1,end) infinite;}
-
-@keyframes telemetryOne{
-  0%,6%{width:0;opacity:1}
-  18%{width:43ch;opacity:1}
-  27%{width:43ch;opacity:1}
-  38%{width:0;opacity:1}
-  39%,100%{width:0;opacity:0}
-}
-
-@keyframes telemetryTwo{
-  0%,38%{width:0;opacity:0}
-  44%{width:0;opacity:1}
-  56%{width:39ch;opacity:1}
-  65%{width:39ch;opacity:1}
-  75%{width:0;opacity:1}
-  76%,100%{width:0;opacity:0}
-}
-
-@keyframes telemetryThree{
-  0%,75%{width:0;opacity:0}
-  81%{width:0;opacity:1}
-  93%{width:52ch;opacity:1}
-  98%{width:0;opacity:1}
-  99%,100%{width:0;opacity:0}
-}
-
-@keyframes telemetryCursor{50%{border-right-color:transparent;}}
-
-/* HERO TICKER 2×2 */
-.ticker{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  width:100%;
-  border:2px solid #000;
-  margin-top:1rem;
-  background:#FFFFFF;
-}
-
-.ticker-item{
-  padding:.65rem .85rem;
-  min-width:0;
-  background:#FFFFFF;
-}
-
-.ticker-item:nth-child(odd){border-right:1px solid #000;}
-.ticker-item:nth-child(1),
-.ticker-item:nth-child(2){border-bottom:1px solid #000;}
-
-.stat-number{
-  display:block;
-  font-family:'Inter',sans-serif !important;
-  font-size:1.35rem;
-  line-height:1.1;
-  font-weight:700 !important;
-  letter-spacing:-.03em;
-  font-variant-numeric:tabular-nums !important;
-}
-
-.stat-label{
-  display:block;
-  margin-top:.25rem;
-  font-family:'Inter',sans-serif !important;
-  font-size:9px;
-  line-height:1.2;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  font-variant-numeric:tabular-nums !important;
-}
-
-/* KARYA */
+/* ===== KARYA ===== */
 .works-head{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -545,105 +476,75 @@ button{font-family:'Montserrat',sans-serif !important;}
   letter-spacing:.08em;
 }
 
-.key-stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  border:1px solid #000;
-  margin:1rem 0;
-  background:#FFFFFF;
+/* ===== KEY STATS ===== */
+.key-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin: 1.2rem 0;
+}
+.key-stats > div {
+  background: #f8f6f0;
+  border: 1px solid #000;
+  padding: 0.9rem 0.5rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.key-stats > div:hover {
+  background: #eae7de;
+  transform: scale(1.02);
+}
+.key-stats .kn {
+  display: block;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #000;
+}
+.key-stats .kl {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #333;
 }
 
-.key-stats>div{
-  padding:.7rem;
-  border-right:1px solid #000;
+/* ===== PROJECT PMI ===== */
+.project-pmi {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+  border: none;
+}
+.project-pmi > div {
+  background: #faf9f5;
+  border: 1px solid #000;
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+.project-pmi > div:hover {
+  background: #f2efe8;
+  transform: translateY(-2px);
+}
+.pmi-label {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+.pmi-text {
+  font-size: 14px;
+  line-height: 1.55;
 }
 
-.key-stats>div:last-child{border-right:0;}
-
-.kn{
-  display:block;
-  font-size:18px;
-  line-height:1;
-  letter-spacing:-.03em;
-}
-
-.kl{
-  display:block;
-  margin-top:.35rem;
-  font-size:9px;
-  line-height:1.3;
-  text-transform:uppercase;
-  letter-spacing:.07em;
-}
-
-.project-pmi{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  border-top:2px solid #000;
-  border-left:1px solid #000;
-  margin-top:1rem;
-}
-
-.project-pmi>div{
-  padding:.8rem;
-  border-right:1px solid #000;
-  border-bottom:1px solid #000;
-}
-
-.pmi-label{
-  display:block;
-  border-bottom:1px solid #000;
-  padding-bottom:.35rem;
-  margin-bottom:.45rem;
-  font-size:9px;
-}
-
-.pmi-text{font-size:14px;line-height:1.55;}
-
-.keyword-strip{
-  display:flex;
-  gap:.35rem;
-  flex-wrap:wrap;
-  margin-top:.8rem;
-}
-
-.kw{
-  display:inline-block;
-  border:1px solid #000;
-  padding:.22rem .45rem;
-  background:#FFFFFF;
-  font-family:'Montserrat',sans-serif !important;
-  font-size:9px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.06em;
-}
-
-.storymaps-strip{
-  display:flex;
-  gap:.5rem;
-  flex-wrap:wrap;
-  margin-top:.7rem;
-}
-
-.storymaps-btn{
-  display:inline-flex;
-  align-items:center;
-  background:var(--green);
-  color:#FFFFFF;
-  border:1px solid #000;
-  padding:.5rem .65rem;
-  text-decoration:none;
-  font-family:'Montserrat',sans-serif !important;
-  font-size:9px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-}
-
-/* PETA */
+/* ===== MAP & LAINNYA (tidak diubah) ===== */
 .map-gallery{margin:1rem 0;}
-
 .map-gallery-main{
   position:relative;
   overflow:hidden;
@@ -651,17 +552,14 @@ button{font-family:'Montserrat',sans-serif !important;}
   cursor:zoom-in;
   background:#FFFFFF;
 }
-
 .map-gallery-main img{
   width:100%;
   height:clamp(250px,43vw,540px);
   object-fit:cover;
 }
-
 .featured-story .map-gallery-main img{
   height:clamp(330px,55vw,720px);
 }
-
 .zoom-hint,
 .map-badge{
   position:absolute;
@@ -672,10 +570,8 @@ button{font-family:'Montserrat',sans-serif !important;}
   text-transform:uppercase;
   letter-spacing:.08em;
 }
-
 .zoom-hint{right:0;bottom:0;}
 .map-badge{left:0;top:0;}
-
 .map-thumbnails{
   display:flex;
   gap:.35rem;
@@ -683,7 +579,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   padding:.4rem 0;
   border-bottom:1px solid #000;
 }
-
 .map-thumb{
   flex:0 0 88px;
   width:88px;
@@ -693,13 +588,11 @@ button{font-family:'Montserrat',sans-serif !important;}
   cursor:pointer;
   filter:none !important;
 }
-
 .map-thumb.active,
 .map-thumb:hover{
   outline:2px solid #000;
   outline-offset:-2px;
 }
-
 .map-caption{
   font-size:9px;
   line-height:1.35;
@@ -708,7 +601,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   text-transform:uppercase;
   letter-spacing:.05em;
 }
-
 .inline-editorial{
   display:grid;
   grid-template-columns:minmax(180px,320px) minmax(0,1fr);
@@ -718,7 +610,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   border-bottom:1px solid #000;
   padding:.8rem 0;
 }
-
 .inline-editorial .editorial-photo{
   width:100%;
   height:190px;
@@ -727,7 +618,7 @@ button{font-family:'Montserrat',sans-serif !important;}
   border:1px solid #000;
 }
 
-/* INSTRUMEN TEKNIS */
+/* STACK */
 .stack-editorial{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
@@ -737,7 +628,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   border:1px solid #000;
   background:#FFFFFF;
 }
-
 .stack-panel{
   display:grid;
   grid-template-columns:50px minmax(0,1fr);
@@ -746,16 +636,13 @@ button{font-family:'Montserrat',sans-serif !important;}
   border-right:1px solid #000;
   background:#FFFFFF;
 }
-
 .stack-panel:nth-child(4){border-right:0;}
-
 .stack-panel-wide{
   grid-column:1/-1;
   min-height:175px;
   border-top:1px solid #000;
   border-right:0;
 }
-
 .stack-panel-rail{
   display:flex;
   align-items:center;
@@ -770,12 +657,10 @@ button{font-family:'Montserrat',sans-serif !important;}
   line-height:1;
   letter-spacing:.12em;
 }
-
 .stack-panel-content{
   min-width:0;
   padding:1.2rem 1rem;
 }
-
 .stack-list{
   list-style:none;
   display:grid;
@@ -783,14 +668,12 @@ button{font-family:'Montserrat',sans-serif !important;}
   margin:0;
   padding:0;
 }
-
 .stack-list li{
   position:relative;
   padding-left:1rem;
   font-size:15px;
   line-height:1.45;
 }
-
 .stack-list li::before{
   content:"";
   position:absolute;
@@ -800,7 +683,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   height:7px;
   background:var(--red);
 }
-
 .stack-note{
   float:right;
   margin-left:.5rem;
@@ -808,15 +690,12 @@ button{font-family:'Montserrat',sans-serif !important;}
   line-height:1;
   letter-spacing:.08em;
 }
-
 .competency-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:0 1.5rem;
 }
-
 .competency-grid .stack-list{gap:.7rem;}
-
 .stack-language{
   margin-top:1.2rem;
   padding-top:.7rem;
@@ -826,7 +705,7 @@ button{font-family:'Montserrat',sans-serif !important;}
   letter-spacing:.09em;
 }
 
-/* DUA FOTO PRIBADI, TANPA CAPTION */
+/* PERSONAL PHOTO */
 .personal-photo-break{
   width:100%;
   background:#FFFFFF;
@@ -834,13 +713,11 @@ button{font-family:'Montserrat',sans-serif !important;}
   border-bottom:2px solid #000;
   padding:1rem 1.5rem;
 }
-
 .personal-photo-grid{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-columns:repeat(3,1fr);
   gap:1rem;
 }
-
 .personal-break-photo{
   width:100%;
   height:280px;
@@ -849,7 +726,7 @@ button{font-family:'Montserrat',sans-serif !important;}
   border:1px solid #000;
 }
 
-/* BANNER KREDENSIAL */
+/* CREDENTIALS */
 .credentials-banner{
   position:relative;
   width:100%;
@@ -859,7 +736,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   border-bottom:2px solid #000;
   overflow:hidden;
 }
-
 .credentials-banner .banner-crop{
   display:block;
   width:100%;
@@ -869,7 +745,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   filter:grayscale(100%) contrast(110%);
   border:0;
 }
-
 .credentials-overlay{
   position:absolute;
   left:0;
@@ -882,7 +757,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   border:2px solid #000;
   padding:1.2rem 1.5rem 1.3rem;
 }
-
 .credentials-overlay-tag{
   margin-bottom:.45rem;
   font-family:'Montserrat',sans-serif !important;
@@ -892,7 +766,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   text-transform:uppercase;
   letter-spacing:.15em;
 }
-
 .credentials-overlay-title{
   margin:0;
   font-family:'Playfair Display',serif !important;
@@ -902,14 +775,11 @@ button{font-family:'Montserrat',sans-serif !important;}
   letter-spacing:-.035em;
   color:#FFFFFF;
 }
-
 .credentials-overlay-title em{font-style:italic;}
 #credentials .section-inner{padding-top:0;}
 
-/* KREDENSIAL */
 .timeline{border-top:2px solid #000;}
 .cred-subsection{border-bottom:2px solid #000;}
-
 .cred-sub-label{
   padding:.8rem 1rem;
   background:var(--green);
@@ -920,13 +790,11 @@ button{font-family:'Montserrat',sans-serif !important;}
   text-transform:uppercase;
   letter-spacing:.15em;
 }
-
 .cred-item{
   display:grid;
   grid-template-columns:190px minmax(0,1fr);
   border-top:1px solid #000;
 }
-
 .cred-year{
   background:#000;
   color:#FFFFFF;
@@ -936,25 +804,21 @@ button{font-family:'Montserrat',sans-serif !important;}
   text-transform:uppercase;
   letter-spacing:.06em;
 }
-
 .cred-item>div{
   padding:1rem;
   background:#FFFFFF;
   min-width:0;
 }
-
 .cred-title{
   font-size:clamp(1.7rem,2.5vw,2.8rem);
   line-height:1.02;
   margin-bottom:.35rem;
 }
-
 .cred-sub{
   font-size:14px;
   line-height:1.5;
   margin-top:.35rem;
 }
-
 .cred-badge{
   display:inline-block;
   margin-top:.6rem;
@@ -965,9 +829,7 @@ button{font-family:'Montserrat',sans-serif !important;}
   line-height:1.2;
   letter-spacing:.08em;
 }
-
 .photo-gallery{margin-top:.8rem;}
-
 .photo-gallery>p{
   font-family:'Montserrat',sans-serif !important;
   font-size:9px;
@@ -976,16 +838,13 @@ button{font-family:'Montserrat',sans-serif !important;}
   text-transform:uppercase;
   letter-spacing:.12em;
 }
-
 .photo-gallery-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:.4rem;
 }
-
 .photo-gallery-grid.cols2{grid-template-columns:repeat(2,1fr);}
 .photo-gallery-grid.cols3{grid-template-columns:repeat(3,1fr);}
-
 .photo-item{
   position:relative;
   overflow:hidden;
@@ -994,7 +853,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   cursor:zoom-in;
   background:#FFFFFF;
 }
-
 .photo-item img{
   width:100%;
   height:100%;
@@ -1002,9 +860,7 @@ button{font-family:'Montserrat',sans-serif !important;}
   filter:grayscale(100%) contrast(110%);
   border:1px solid #000;
 }
-
 .certificate-gallery .photo-item img{filter:none !important;}
-
 .org-inline{
   display:grid;
   grid-template-columns:1fr minmax(180px,320px);
@@ -1015,7 +871,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   border-bottom:1px solid #000;
   padding:.8rem 0;
 }
-
 .org-inline img{
   width:100%;
   height:190px;
@@ -1025,7 +880,7 @@ button{font-family:'Montserrat',sans-serif !important;}
   border:1px solid #000;
 }
 
-/* EXPEDISI LAPANGAN — FULL BLEED FOTO, PANEL KECIL */
+/* EXPEDISI */
 .beyond-desk{
   position:relative;
   display:block;
@@ -1037,7 +892,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   border:2px solid #000;
   overflow:hidden;
 }
-
 .beyond-copy{
   position:absolute;
   left:0;
@@ -1050,7 +904,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   border-right:2px solid #000;
   overflow:visible;
 }
-
 .beyond-copy h2{
   position:relative;
   width:560px;
@@ -1064,7 +917,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   overflow-wrap:normal;
   word-break:normal;
 }
-
 .beyond-copy p{
   position:relative;
   width:210px;
@@ -1072,7 +924,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   font-size:14px;
   line-height:1.5;
 }
-
 .beyond-desk > div:last-child{
   position:absolute;
   inset:0;
@@ -1081,7 +932,6 @@ button{font-family:'Montserrat',sans-serif !important;}
   height:100%;
   overflow:hidden;
 }
-
 .beyond-desk .portrait-crop{
   display:block;
   width:100%;
@@ -1104,13 +954,11 @@ button{font-family:'Montserrat',sans-serif !important;}
   text-transform:uppercase;
   letter-spacing:.15em;
 }
-
 .classified{
   border-top:2px solid #000;
   display:grid;
   grid-template-columns:1fr 1fr 1fr;
 }
-
 .classified-block{
   min-height:210px;
   padding:1rem;
@@ -1120,17 +968,14 @@ button{font-family:'Montserrat',sans-serif !important;}
   justify-content:space-between;
   text-decoration:none;
 }
-
 .classified-block:last-child{border-right:0;}
 .classified-block.email{background:var(--green);color:#FFFFFF;}
 .classified-block.whatsapp{background:var(--red);color:#FFFFFF;}
 .classified-block.linkedin{background:var(--mustard);color:#000000;}
-
 .classified-small{
   font-size:10px;
   letter-spacing:.08em;
 }
-
 .classified-big{
   font-size:clamp(2.4rem,6vw,6rem);
   line-height:.82;
@@ -1138,13 +983,11 @@ button{font-family:'Montserrat',sans-serif !important;}
   text-transform:uppercase;
   overflow-wrap:anywhere;
 }
-
 footer{
   width:100%;
   border-bottom:3px solid #000;
   background:#FFFFFF;
 }
-
 .footer-meta{
   display:flex;
   justify-content:space-between;
@@ -1166,16 +1009,13 @@ footer{
   flex-direction:column;
   padding:1.5rem;
 }
-
 #lightbox.active{display:flex;}
-
 #lightbox-img{
   max-width:94vw;
   max-height:80vh;
   object-fit:contain;
   border:2px solid #000;
 }
-
 #lightbox-caption{
   margin-top:.7rem;
   font-family:'Montserrat',sans-serif !important;
@@ -1186,7 +1026,6 @@ footer{
   text-align:center;
   max-width:850px;
 }
-
 #lightbox-close,
 #lightbox-prev,
 #lightbox-next{
@@ -1201,22 +1040,10 @@ footer{
   text-transform:uppercase;
   letter-spacing:.06em;
 }
-
 #lightbox-close{top:1rem;right:1rem;}
 #lightbox-prev,#lightbox-next{top:50%;transform:translateY(-50%);width:46px;height:46px;font-size:22px;}
 #lightbox-prev{left:1rem;}
 #lightbox-next{right:1rem;}
-
-/* FULL-WIDTH GUARD — cegah gap samping akibat wrapper lama */
-#works > .section-inner,
-#stack > .section-inner,
-#credentials > .section-inner,
-.section-inner{
-  width:100%;
-  max-width:none;
-  margin-left:0;
-  margin-right:0;
-}
 
 /* RESPONSIF */
 @media(max-width:1000px){
@@ -1226,7 +1053,6 @@ footer{
   .stack-panel:nth-child(4){border-top:1px solid #000;}
   .stack-panel-wide{grid-column:1/-1;}
 }
-
 @media(max-width:900px){
   .works-head{grid-template-columns:1fr;}
   .works-head>div{border-right:0;}
@@ -1242,102 +1068,104 @@ footer{
   .personal-break-photo{height:320px;}
   .beyond-desk{height:345px;min-height:345px;}
 }
-
 @media(max-width:700px){
-  .masthead{padding-left:1rem;padding-right:1rem;}
-  .masthead-kicker{flex-direction:column;gap:.35rem;}
-  .masthead-name{font-size:clamp(3rem,14vw,5rem);white-space:normal;line-height:.88;}
-
-  .site-nav{padding:.65rem 1rem;}
+  .site-nav{grid-template-columns:auto 1fr auto;padding:.65rem 1rem;}
   .nav-links{display:none;}
   .nav-hamburger{display:block;}
-
+  .nav-brand{font-size:12px;}
   .section-inner{padding:1.25rem 1rem;}
-
   .project-item{grid-template-columns:2rem 1fr;padding:1rem;}
   .project-title,.featured-story .project-title{font-size:1.9rem;}
-
-  .ticker{grid-template-columns:repeat(2,1fr);}
-  .ticker-item{padding:.6rem .7rem;}
-  .stat-number{font-size:1.15rem;}
-  .stat-label{font-size:8px;}
-
+  .hero-ticker{grid-template-columns:repeat(2,1fr);gap:0.3rem;}
+  .hero-ticker-item{padding:0.6rem 0.2rem;}
   .key-stats{grid-template-columns:1fr 1fr;}
   .photo-gallery-grid{grid-template-columns:repeat(2,1fr);}
   .org-inline,.inline-editorial{grid-template-columns:1fr;}
-
   .stack-editorial{grid-template-columns:1fr;}
-  .stack-panel,
-  .stack-panel-wide{
-    grid-column:auto;
-    min-height:auto;
-    border-right:0;
-    border-top:0;
-    border-bottom:1px solid #000;
+  .stack-panel,.stack-panel-wide{
+    grid-column:auto;min-height:auto;border-right:0;border-top:0;border-bottom:1px solid #000;
   }
-  .stack-panel:nth-child(2),
-  .stack-panel:nth-child(3),
-  .stack-panel:nth-child(4){border-top:0;}
+  .stack-panel:nth-child(2),.stack-panel:nth-child(3),.stack-panel:nth-child(4){border-top:0;}
   .stack-panel-wide{border-bottom:0;}
   .competency-grid{grid-template-columns:1fr;gap:.7rem;}
   .stack-panel-content{padding:1rem;}
   .stack-list{gap:.65rem;}
-
   .credentials-banner,.credentials-banner .banner-crop{height:460px;min-height:460px;}
   .credentials-overlay{width:100%;padding:.8rem .9rem 1rem;}
   .credentials-overlay-title{font-size:clamp(1.85rem,9vw,3.2rem);}
-
   .beyond-desk{height:520px;min-height:520px;}
   .beyond-copy{position:absolute;width:100%;height:auto;border-right:0;border-bottom:2px solid #000;padding:1rem;}
   .beyond-copy h2{width:auto;max-width:9ch;}
   .beyond-copy p{width:auto;}
-
   .classified{grid-template-columns:1fr;}
   .classified-block{min-height:155px;border-right:0;border-bottom:1px solid #000;}
   .classified-block:last-child{border-bottom:0;}
   .footer-meta{flex-direction:column;}
-
   #lightbox-prev,#lightbox-next{display:none;}
   .telemetry,.telemetry .tline{font-size:9px;}
 }
-
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 </style>
 </head>
-<body><div aria-labelledby="lightbox-caption" aria-modal="true" id="lightbox" role="dialog">
+<body>
+<div aria-labelledby="lightbox-caption" aria-modal="true" id="lightbox" role="dialog">
 <button aria-label="Tutup lightbox" id="lightbox-close" onclick="closeLightbox()">✕ Tutup</button>
 <button aria-label="Gambar sebelumnya" id="lightbox-prev" onclick="lbNav(-1)">‹</button>
 <img alt="" id="lightbox-img" loading="lazy" src=""/>
 <p id="lightbox-caption"></p>
 <button aria-label="Gambar berikutnya" id="lightbox-next" onclick="lbNav(1)">›</button>
-</div><header class="masthead"><div class="masthead-kicker"><span>PORTOFOLIO</span><span>KOTA BEKASI, JAWA BARAT</span></div><div class="masthead-name">NEBO MARPAUNG</div><div class="masthead-rule"></div></header><nav class="site-nav">
-<a class="nav-logo" href="#hero">Nebo</a>
-<ul class="nav-links">
-<li><a href="#works">Karya Terpilih</a></li>
-<li><a href="#stack">Instrumen Teknis</a></li>
-<li><a href="#credentials">Kredensial &amp; Pengalaman</a></li>
-</ul>
-<div class="nav-right">
-<button aria-label="Buka menu navigasi" class="nav-hamburger" id="nav-ham" onclick="toggleMobileMenu()">
-<span></span><span></span><span></span>
-</button>
 </div>
-</nav><div class="mobile-menu" id="mobile-menu">
-<a href="#works" onclick="closeMobileMenu()">Karya Terpilih</a>
-<a href="#stack" onclick="closeMobileMenu()">Instrumen Teknis</a>
-<a href="#credentials" onclick="closeMobileMenu()">Kredensial &amp; Pengalaman</a>
-</div><main class="page"><section class="section editor-note" id="hero"><div class="editor-note-media"><img alt="Kerja Lapangan Penulis" class="editorial-photo" loading="eager" src="assets/images/diri/LINE_ALBUM_HG 4 KL B_230703_7.jpg"/></div><div class="editor-note-copy"><p class="hero-eyebrow fade-up">Analis Geospasial &amp; Spesialis Perencanaan Tata Ruang</p><p aria-label="Siaran telemetri geospasial" class="telemetry"><span class="tline t1">&gt; MENGINISIASI KONEKSI SATELIT... [MEMUAT]</span><span class="tline t2">&gt; MENARIK DATA GEOSPASIAL... [BERHASIL]</span><span class="tline t3">&gt; KALIBRASI KOORDINAT: BEKASI, JAWA BARAT... [AKURAT]</span></p><h1 class="hero-title fade-up d1">Memetakan Masalah.<br/>Merancang Solusi.</h1><p class="hero-intro fade-up d3">Lulusan Geografi Universitas Indonesia yang mengubah data spasial kompleks menjadi keputusan berbasis bukti dari pemantauan deforestasi skala nasional hingga analisis kesesuaian lahan dan perencanaan tata ruang detail.</p><div class="ticker"><div class="ticker-item"><span class="stat-number">3.670+</span><span class="stat-label">Poligon Diproses</span></div><div class="ticker-item"><span class="stat-number">3.800+</span><span class="stat-label">Poligon Diaudit (QA)</span></div><div class="ticker-item"><span class="stat-number">Rp 28 Juta</span><span class="stat-label">Hibah Penelitian</span></div><div class="ticker-item"><span class="stat-number">3.60</span><span class="stat-label">IPK Geografi UI</span></div></div></div></section><section class="section" id="works"><div class="section-inner"><div class="works-head"><div><p class="section-tag">Karya Terpilih</p><h2 class="section-title">Lima Proyek<br/><em>yang Membentuk</em><br/>Cara Saya Bekerja</h2></div><div><p class="section-desc">Dari geomorfologi pesisir, kesesuaian lahan pertanian, kerawanan bencana, aksesibilitas layanan publik, hingga presisi agrikultur berbasis sensor hiperspektral. Kombinasi proyek individu dan kolaboratif yang mencerminkan kemampuan bekerja mandiri maupun dalam tim lintas disiplin.</p><div class="works-legend"><span class="badge-individu">■ Individu</span><span class="badge-kolaboratif">■ Kolaboratif</span></div></div></div><div class="front-page"><div class="front-page-label">LAPORAN UTAMA / KISAH GEOSPASIAL TERPILIH</div><div aria-label="Laporan utama: Skripsi UAV hiperspektral" class="project-item featured-story">
+
+<!-- ===== NAVIGASI ===== -->
+<nav class="site-nav">
+  <div class="nav-brand">PORTOFOLIO</div>
+  <ul class="nav-links">
+    <li><a href="#works">Karya Terpilih</a></li>
+    <li><a href="#stack">Instrumen Teknis</a></li>
+    <li><a href="#credentials">Kredensial &amp; Pengalaman</a></li>
+  </ul>
+  <button aria-label="Buka menu navigasi" class="nav-hamburger" id="nav-ham" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#works" onclick="closeMobileMenu()">Karya Terpilih</a>
+  <a href="#stack" onclick="closeMobileMenu()">Instrumen Teknis</a>
+  <a href="#credentials" onclick="closeMobileMenu()">Kredensial &amp; Pengalaman</a>
+</div>
+
+<main class="page">
+  <!-- ===== HERO ===== -->
+  <section class="hero-full" id="hero">
+    <div class="hero-bg">
+      <img src="assets/images/diri/IMG_4828.JPG" alt="Nebo" loading="eager" />
+      <div class="hero-overlay-dark"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-name">NEBO</h1>
+      <p class="hero-title">Analis Geospasial</p>
+      <div class="hero-ticker">
+        <div class="hero-ticker-item"><span class="stat-number">3.670+</span><span class="stat-label">Poligon Tervalidasi</span></div>
+        <div class="hero-ticker-item"><span class="stat-number">2.500+</span><span class="stat-label">Poligon Diaudit</span></div>
+        <div class="hero-ticker-item"><span class="stat-number">Rp28 Juta</span><span class="stat-label">Hibah Penelitian</span></div>
+        <div class="hero-ticker-item"><span class="stat-number">3.60</span><span class="stat-label">IPK Geografi UI</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KARYA ===== -->
+  <section class="section" id="works"><div class="section-inner"><div class="works-head"><div><p class="section-tag">Karya Terpilih</p><h2 class="section-title">Lima Proyek<br/><em>yang Membentuk</em><br/>Cara Saya Bekerja</h2></div><div><p class="section-desc">Dari geomorfologi pesisir, kesesuaian lahan pertanian, kerawanan bencana, aksesibilitas layanan publik, hingga presisi agrikultur berbasis sensor hiperspektral. Kombinasi proyek individu dan kolaboratif yang mencerminkan kemampuan bekerja mandiri maupun dalam tim lintas disiplin.</p><div class="works-legend"><span class="badge-individu">■ Individu</span><span class="badge-kolaboratif">■ Kolaboratif</span></div></div></div><div class="front-page"><div class="front-page-label">LAPORAN UTAMA / KISAH GEOSPASIAL TERPILIH</div><div aria-label="Laporan utama: Skripsi UAV hiperspektral" class="project-item featured-story">
 <span class="project-num">05</span>
 <div><div class="featured-kicker">SKRIPSI / UAV HIPERSPEKTRAL</div>
 <div class="project-meta">
 <h3 class="project-title">Estimasi Produktivitas Padi via Citra UAV Hiperspektral</h3>
 <span class="project-tag">Skripsi · Unggulan</span>
 <span class="badge-individu">Individu</span>
-<span class="project-loc">Desa Parakansalak, Kab. Sukabumi · 2024 2025</span>
+<span class="project-loc">Desa Parakansalak, Kab. Sukabumi · 2024 - 2025</span>
 </div>
 <p>
-      Kajian Spasial Estimasi Produktivitas Padi menggunakan Citra UAV Hiperspektral dengan Metode ISE-PLS<br/>
-<span>Kajian Spasial Estimasi Produktivitas Padi menggunakan Citra UAV Hiperspektral dengan Metode ISE-PLS Metode · Universitas Indonesia · 2025</span>
+<span>Kajian Spasial Estimasi Produktivitas Padi menggunakan Citra UAV Hiperspektral dengan Metode ISE-PLS di Desa Parakansalak, Kabupaten Sukabumi</span>
 </p>
 <div class="map-gallery" data-images='[
       {"src":"assets/map/skripsi/Estimasi_kgm2.png","cap":"Peta Estimasi Produktivitas Padi (kg/m\u00b2)"},
@@ -1578,7 +1406,25 @@ footer{
 <span class="kw">Pemetaan Komunitas</span><span class="kw">Aksesibilitas Spasial</span><span class="kw">Pemodelan Jangkauan</span><span class="kw">StoryMaps ArcGIS</span><span class="kw">FGD Kebijakan</span><span class="kw">Hibah DPPM UI</span>
 </div>
 </div>
-</div></div></div></section><section aria-label="Arsip visual pribadi" class="personal-photo-break"><div class="personal-photo-grid"><img alt="Dokumentasi visual pribadi" class="editorial-photo personal-break-photo" loading="lazy" src="assets/images/diri/LINE_ALBUM_T3_240518_9.jpg"/><img alt="Dokumentasi visual pribadi" class="editorial-photo personal-break-photo" loading="lazy" src="assets/images/diri/LINE_ALBUM_HG 4 KL B_230703_17.jpg"/></div></section><section class="section" id="stack"><div class="section-inner"><p class="section-tag">Instrumen Teknis</p><h2 class="section-title">Alat &amp; Kerangka Kerja<br/><em>yang Saya Gunakan</em></h2><div class="stack-editorial"><section class="stack-panel"><div class="stack-panel-rail">Instrumen Geospasial</div><div class="stack-panel-content"><ul class="stack-list"><li>ArcGIS Pro</li><li>ArcMap</li><li>QGIS</li><li>StoryMaps ArcGIS</li><li>Survey123</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Analisis Spasial</div><div class="stack-panel-content"><ul class="stack-list"><li>Analisis Multikriteria Spasial (SMCA)</li><li>Analytic Hierarchy Process (AHP)</li><li>Analisis Interseksi &amp; Tumpangsusun</li><li>Pemodelan Spasial &amp; Geostatistik</li><li>Inspeksi Visual Kendali Grid</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Penginderaan Jauh</div><div class="stack-panel-content"><ul class="stack-list"><li>Citra UAV Hiperspektral <span class="stack-note">Skripsi</span></li><li>Penginderaan Jauh Multitemporal</li><li>Validasi Poligon Deforestasi</li><li>DEM Nasional BIG</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Lapangan &amp; Data</div><div class="stack-panel-content"><ul class="stack-list"><li>Survei &amp; Pemetaan Lapangan</li><li>Diskusi Kelompok Terarah (FGD)</li><li>Penulisan Laporan &amp; Makalah Ilmiah</li><li>Paket Microsoft Office</li></ul></div></section><section class="stack-panel stack-panel-wide"><div class="stack-panel-rail">Kompetensi</div><div class="stack-panel-content"><div class="competency-grid"><ul class="stack-list"><li>Manajemen Proyek</li><li>Komunikasi Teknis</li></ul><ul class="stack-list"><li>Kepemimpinan Tim Lintas Fungsi</li><li>Adaptabilitas &amp; Agility</li></ul><ul class="stack-list"><li>Analisis &amp; Sintesis Data</li><li>Quality Assurance (QA)</li></ul></div></div></section></div><div class="stack-language">BAHASA: INDONESIA (ASLI) · INGGRIS (KEMAMPUAN KERJA PROFESIONAL)</div></div></section><div aria-label="Kredensial &amp; Pengalaman" class="credentials-banner"><img alt="Dokumentasi lapangan" class="editorial-photo banner-crop" src="assets/images/diri/IMG_4474.JPG"/><div class="credentials-overlay"><p class="credentials-overlay-tag">Kredensial &amp; Pengalaman</p><h2 class="credentials-overlay-title">Pendidikan, Pengalaman,<br/><em>Organisasi &amp; Sertifikasi</em></h2></div></div><section class="section" id="credentials"><div class="section-inner"><div class="timeline"><div class="cred-subsection">
+</div></div></div></section>
+
+  <!-- ===== PERSONAL PHOTO BREAK ===== -->
+  <section aria-label="Arsip visual pribadi" class="personal-photo-break">
+    <div class="personal-photo-grid">
+      <img class="personal-break-photo" loading="lazy" src="assets/images/diri/LINE_ALBUM_HG 4 KL B_230703_7.jpg" alt="Dokumentasi 1"/>
+      <img class="personal-break-photo" loading="lazy" src="assets/images/diri/LINE_ALBUM_T3_240518_9.jpg" alt="Dokumentasi 2"/>
+      <img class="personal-break-photo" loading="lazy" src="assets/images/diri/LINE_ALBUM_HG 4 KL B_230703_17.jpg" alt="Dokumentasi 3"/>
+    </div>
+  </section>
+
+  <!-- ===== STACK ===== -->
+  <section class="section" id="stack"><div class="section-inner"><p class="section-tag">Instrumen Teknis</p><h2 class="section-title">Alat &amp; Kerangka Kerja<br/><em>yang Saya Gunakan</em></h2><div class="stack-editorial"><section class="stack-panel"><div class="stack-panel-rail">Instrumen Geospasial</div><div class="stack-panel-content"><ul class="stack-list"><li>ArcGIS Pro</li><li>ArcMap</li><li>QGIS</li><li>StoryMaps ArcGIS</li><li>Survey123</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Analisis Spasial</div><div class="stack-panel-content"><ul class="stack-list"><li>Analisis Multikriteria Spasial (SMCA)</li><li>Analytic Hierarchy Process (AHP)</li><li>Analisis Interseksi &amp; Tumpangsusun</li><li>Pemodelan Spasial &amp; Geostatistik</li><li>Inspeksi Visual Kendali Grid</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Penginderaan Jauh</div><div class="stack-panel-content"><ul class="stack-list"><li>Citra UAV Hiperspektral <span class="stack-note">Skripsi</span></li><li>Penginderaan Jauh Multitemporal</li><li>Validasi Poligon Deforestasi</li><li>DEM Nasional BIG</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Lapangan &amp; Data</div><div class="stack-panel-content"><ul class="stack-list"><li>Survei &amp; Pemetaan Lapangan</li><li>Diskusi Kelompok Terarah (FGD)</li><li>Penulisan Laporan &amp; Makalah Ilmiah</li><li>Paket Microsoft Office</li></ul></div></section><section class="stack-panel stack-panel-wide"><div class="stack-panel-rail">Kompetensi</div><div class="stack-panel-content"><div class="competency-grid"><ul class="stack-list"><li>Manajemen Proyek</li><li>Komunikasi Teknis</li></ul><ul class="stack-list"><li>Kepemimpinan Tim Lintas Fungsi</li><li>Adaptabilitas &amp; Agility</li></ul><ul class="stack-list"><li>Analisis &amp; Sintesis Data</li><li>Quality Assurance (QA)</li></ul></div></div></section></div><div class="stack-language">BAHASA: INDONESIA (ASLI) · INGGRIS (KEMAMPUAN KERJA PROFESIONAL)</div></div></section>
+
+  <!-- ===== KREDENSIAL BANNER ===== -->
+  <div aria-label="Kredensial &amp; Pengalaman" class="credentials-banner"><img alt="Dokumentasi lapangan" class="editorial-photo banner-crop" src="assets/images/diri/IMG_4474.JPG"/><div class="credentials-overlay"><p class="credentials-overlay-tag">Kredensial &amp; Pengalaman</p><h2 class="credentials-overlay-title">Pendidikan, Pengalaman,<br/><em>Organisasi &amp; Sertifikasi</em></h2></div></div>
+
+  <!-- ===== CREDENTIALS ===== -->
+  <section class="section" id="credentials"><div class="section-inner"><div class="timeline"><div class="cred-subsection">
 <p class="cred-sub-label">Pendidikan</p>
 <div class="cred-list">
 <div class="cred-item">
@@ -1628,6 +1474,7 @@ footer{
 </div>
 </div>
 </div>
+</div>
 <div class="cred-item">
 <span class="cred-year">Ags 2023   Jan 2024</span>
 <div>
@@ -1651,6 +1498,7 @@ footer{
 </div>
 </div>
 </div>
+</div>
 <div class="cred-item">
 <span class="cred-year">Jul   Okt 2023</span>
 <div>
@@ -1665,6 +1513,7 @@ footer{
               ]'>
 <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img alt="JICA 1" loading="lazy" src="assets/images/enumerator/jica1.jpeg"/></div>
 <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img alt="JICA 2" loading="lazy" src="assets/images/enumerator/jica2.jpeg"/></div>
+</div>
 </div>
 </div>
 </div>
@@ -1704,6 +1553,7 @@ footer{
 </div>
 </div>
 </div>
+</div>
 <div class="cred-item">
 <span class="cred-year">Mar 2022   Feb 2023</span>
 <div>
@@ -1723,6 +1573,7 @@ footer{
 <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img alt="Staf 2" loading="lazy" src="assets/images/stafhmd/staf2.jpg"/></div>
 <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img alt="Staf 3" loading="lazy" src="assets/images/stafhmd/staf3.jpg"/></div>
 <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img alt="Staf 4" loading="lazy" src="assets/images/stafhmd/staf4.jpg"/></div>
+</div>
 </div>
 </div>
 </div>
@@ -1749,7 +1600,23 @@ footer{
 </div>
 </div>
 </div>
-</div></div></div></section><section aria-labelledby="beyond-title" class="section"><div class="section-inner"><div class="beyond-desk"><div class="beyond-copy"><h2 id="beyond-title">EKSPEDISI LAPANGAN</h2><p>Kerja lapangan menuntut navigasi, logistik, koordinasi, dan ketangguhan. Peta menjadi rekaman fisik ketika medan menggantikan meja kerja.</p></div><div><img alt="Ketangguhan Lapangan" class="editorial-photo portrait-crop" loading="lazy" src="assets/images/diri/IMG_5193.JPG"/></div></div></div></section></main><footer><div class="classified-head">Kontak &amp; Jejaring</div><div class="classified"><a class="classified-block email" href="https://mail.google.com/mail/u/0/?fs=1&amp;to=neboyokjonah@gmail.com&amp;tf=cm" rel="noopener noreferrer" target="_blank"><span class="classified-small">SUREL</span><span class="classified-big">NEBOYOKJONAH@GMAIL.COM</span></a><a class="classified-block whatsapp" href="https://wa.me/6282122002990" rel="noopener noreferrer" target="_blank"><span class="classified-small">WHATSAPP</span><span class="classified-big">+62 821 2200 2990</span></a><a class="classified-block linkedin" href="https://linkedin.com/in/neboyokjonah/" rel="noopener noreferrer" target="_blank"><span class="classified-small">LINKEDIN</span><span class="classified-big">IN/NEBOYOKJONAH</span></a></div><div class="footer-meta"><span>Nebo Yok Jonah Marpaung · Analis Geospasial</span><span>Bekasi, Jawa Barat</span></div></footer><script>
+</div></div></div></section>
+
+  <!-- ===== EXPEDISI LAPANGAN ===== -->
+  <section aria-labelledby="beyond-title" class="section"><div class="section-inner"><div class="beyond-desk"><div class="beyond-copy"><h2 id="beyond-title">EKSPEDISI LAPANGAN</h2><p>Kerja lapangan menuntut navigasi, logistik, koordinasi, dan ketangguhan. Peta menjadi rekaman fisik ketika medan menggantikan meja kerja.</p></div><div><img alt="Ketangguhan Lapangan" class="editorial-photo portrait-crop" loading="lazy" src="assets/images/diri/IMG_5193.JPG"/></div></div></div></section>
+</main>
+
+<footer>
+  <div class="classified-head">Kontak &amp; Jejaring</div>
+  <div class="classified">
+    <a class="classified-block email" href="https://mail.google.com/mail/u/0/?fs=1&amp;to=neboyokjonah@gmail.com&amp;tf=cm" rel="noopener noreferrer" target="_blank"><span class="classified-small">SUREL</span><span class="classified-big">NEBOYOKJONAH@GMAIL.COM</span></a>
+    <a class="classified-block whatsapp" href="https://wa.me/6282122002990" rel="noopener noreferrer" target="_blank"><span class="classified-small">WHATSAPP</span><span class="classified-big">+62 821 2200 2990</span></a>
+    <a class="classified-block linkedin" href="https://linkedin.com/in/neboyokjonah/" rel="noopener noreferrer" target="_blank"><span class="classified-small">LINKEDIN</span><span class="classified-big">IN/NEBOYOKJONAH</span></a>
+  </div>
+  <div class="footer-meta"><span>Nebo Yok Jonah Marpaung · Analis Geospasial</span><span>Bekasi, Jawa Barat</span></div>
+</footer>
+
+<script>
 /* ─── LIGHTBOX ─── */
 var lb={images:[],idx:0};
 function openLightbox(imgs,i){
@@ -1824,5 +1691,6 @@ function closeMobileMenu(){
   if(m)m.classList.remove("open");
   if(h)h.classList.remove("open");
 }
-</script></body>
+</script>
+</body>
 </html>
