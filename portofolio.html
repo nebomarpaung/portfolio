@@ -489,6 +489,11 @@ button{font-family:'Montserrat',sans-serif !important;}
   padding: 0.9rem 0.5rem;
   text-align: center;
   transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
 }
 .key-stats > div:hover {
   background: #eae7de;
@@ -537,13 +542,37 @@ button{font-family:'Montserrat',sans-serif !important;}
   padding-bottom: 0.3rem;
   margin-bottom: 0.5rem;
   font-weight: 700;
+  text-align: center;
 }
 .pmi-text {
   font-size: 14px;
   line-height: 1.55;
 }
 
-/* ===== MAP & LAINNYA (tidak diubah) ===== */
+/* ===== KEYWORD STRIP ===== */
+.keyword-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid #000;
+}
+.kw {
+  display: inline-block;
+  background: #f0ede6;
+  border: 1px solid #000;
+  padding: 0.15rem 0.6rem;
+  font-size: 8.5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #000;
+  line-height: 1.4;
+}
+
+/* ===== MAP & LAINNYA ===== */
 .map-gallery{margin:1rem 0;}
 .map-gallery-main{
   position:relative;
@@ -593,14 +622,27 @@ button{font-family:'Montserrat',sans-serif !important;}
   outline:2px solid #000;
   outline-offset:-2px;
 }
-.map-caption{
-  font-size:9px;
-  line-height:1.35;
-  text-align:left;
-  margin-top:.45rem;
-  text-transform:uppercase;
-  letter-spacing:.05em;
+
+/* ===== MAP CAPTION (DUA POIN, KECIL, TIDAK BOLD) ===== */
+.map-caption {
+  font-size: 8px;
+  line-height: 1.4;
+  text-align: left;
+  margin-top: 0.45rem;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-weight: 400 !important;
+  list-style: none;
 }
+.map-caption .map-caption-line {
+  display: block;
+  font-weight: 400;
+}
+.map-caption .map-caption-line::before {
+  content: "• ";
+  font-weight: 400;
+}
+
 .inline-editorial{
   display:grid;
   grid-template-columns:minmax(180px,320px) minmax(0,1fr);
@@ -942,7 +984,7 @@ button{font-family:'Montserrat',sans-serif !important;}
   transform-origin:center center;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 .classified-head{
   padding:.7rem 1.5rem;
   border-top:2px solid #000;
@@ -983,6 +1025,47 @@ button{font-family:'Montserrat',sans-serif !important;}
   text-transform:uppercase;
   overflow-wrap:anywhere;
 }
+
+/* Tambahan footer informasi halaman */
+.page-footer {
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  padding: 0.6rem 1.5rem;
+  background: #faf9f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 60px;
+}
+.page-footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  color: #000;
+}
+.page-footer-inner span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.page-footer-inner .label {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #333;
+}
+.page-footer-inner .value {
+  font-weight: 500;
+}
+
 footer{
   width:100%;
   border-bottom:3px solid #000;
@@ -1100,6 +1183,7 @@ footer{
   .classified{grid-template-columns:1fr;}
   .classified-block{min-height:155px;border-right:0;border-bottom:1px solid #000;}
   .classified-block:last-child{border-bottom:0;}
+  .page-footer-inner{flex-direction:column;gap:0.5rem;}
   .footer-meta{flex-direction:column;}
   #lightbox-prev,#lightbox-next{display:none;}
   .telemetry,.telemetry .tline{font-size:9px;}
@@ -1155,18 +1239,14 @@ footer{
   </section>
 
   <!-- ===== KARYA ===== -->
-  <section class="section" id="works"><div class="section-inner"><div class="works-head"><div><p class="section-tag">Karya Terpilih</p><h2 class="section-title">Lima Proyek<br/><em>yang Membentuk</em><br/>Cara Saya Bekerja</h2></div><div><p class="section-desc">Dari geomorfologi pesisir, kesesuaian lahan pertanian, kerawanan bencana, aksesibilitas layanan publik, hingga presisi agrikultur berbasis sensor hiperspektral. Kombinasi proyek individu dan kolaboratif yang mencerminkan kemampuan bekerja mandiri maupun dalam tim lintas disiplin.</p><div class="works-legend"><span class="badge-individu">■ Individu</span><span class="badge-kolaboratif">■ Kolaboratif</span></div></div></div><div class="front-page"><div class="front-page-label">LAPORAN UTAMA / KISAH GEOSPASIAL TERPILIH</div><div aria-label="Laporan utama: Skripsi UAV hiperspektral" class="project-item featured-story">
+  <section class="section" id="works"><div class="section-inner"><div class="works-head"><div><p class="section-tag">Karya Terpilih</p><h2 class="section-title">Lima Proyek<br/><em>yang Membentuk</em><br/>Cara Saya Bekerja</h2></div><div><p class="section-desc">Dari geomorfologi pesisir, kesesuaian lahan pertanian, kerawanan bencana, aksesibilitas layanan publik, hingga presisi agrikultur berbasis sensor hiperspektral. Kombinasi proyek individu dan kolaboratif yang mencerminkan kemampuan bekerja mandiri maupun dalam tim lintas disiplin.</p><div class="works-legend"><span class="badge-individu">■ Individu</span><span class="badge-kolaboratif">■ Kolaboratif</span></div></div></div><div class="front-page"><div class="front-page-label">KISAH GEOSPASIAL</div><div aria-label="Laporan utama: Tugas Akhir UAV hiperspektral" class="project-item featured-story">
 <span class="project-num">05</span>
-<div><div class="featured-kicker">SKRIPSI / UAV HIPERSPEKTRAL</div>
+<div><div class="featured-kicker">Tugas Akhir</div>
 <div class="project-meta">
 <h3 class="project-title">Estimasi Produktivitas Padi via Citra UAV Hiperspektral</h3>
-<span class="project-tag">Skripsi · Unggulan</span>
 <span class="badge-individu">Individu</span>
 <span class="project-loc">Desa Parakansalak, Kab. Sukabumi · 2024 - 2025</span>
 </div>
-<p>
-<span>Kajian Spasial Estimasi Produktivitas Padi menggunakan Citra UAV Hiperspektral dengan Metode ISE-PLS di Desa Parakansalak, Kabupaten Sukabumi</span>
-</p>
 <div class="map-gallery" data-images='[
       {"src":"assets/map/skripsi/Estimasi_kgm2.png","cap":"Peta Estimasi Produktivitas Padi (kg/m\u00b2)"},
       {"src":"assets/map/skripsi/Aktual_kgm2.png","cap":"Peta Produktivitas Aktual Lapangan"},
@@ -1200,10 +1280,13 @@ footer{
 <img class="map-thumb" loading="lazy" onclick="switchMain(this,10)" src="assets/map/skripsi/Layout TL 14x14 (tanpa zoom).png" title="Suhu Permukaan"/>
 <img class="map-thumb" loading="lazy" onclick="switchMain(this,11)" src="assets/map/skripsi/Layout WP 14x14 (tanpa zoom).png" title="Produktivitas Air"/>
 </div>
-<p class="map-caption">12 Peta &amp; Tata Letak · Desa Parakansalak, Kab. Sukabumi · 2024 · Klik thumbnail untuk berganti · Klik gambar utama untuk layar penuh</p>
+<p class="map-caption">
+<span class="map-caption-line">Klik thumbnail untuk berganti</span>
+<span class="map-caption-line">Klik gambar utama untuk layar penuh</span>
+</p>
 </div>
 <div class="key-stats">
-<div><p class="kn">R² = 0,8335</p><p class="kl">Akurasi Model ISE-PLS</p></div>
+<div><p class="kn">R² = 0,83</p><p class="kl">Akurasi Model ISE-PLS</p></div>
 <div><p class="kn">100 → 8 Band</p><p class="kl">Reduksi Dimensi (64 HST)</p></div>
 <div><p class="kn">90 Sampel</p><p class="kl">Grid 1×1m · 7 Petak</p></div>
 <div><p class="kn">RMSE 0,021</p><p class="kl">Batas Galat</p></div>
@@ -1247,7 +1330,10 @@ footer{
 <img class="map-thumb" loading="lazy" onclick="switchMain(this,4)" src="assets/map/nanas/penggunaanlahan.jpg" title="Penggunaan Lahan"/>
 <img class="map-thumb" loading="lazy" onclick="switchMain(this,5)" src="assets/map/nanas/tekstur tanah.jpg" title="Tekstur Tanah"/>
 </div>
-<p class="map-caption">6 Peta Tematik · Kab. Purwakarta, Jawa Barat · 2023 · Klik thumbnail untuk berganti · Klik gambar utama untuk layar penuh</p>
+<p class="map-caption">
+<span class="map-caption-line">Klik thumbnail untuk berganti</span>
+<span class="map-caption-line">Klik gambar utama untuk layar penuh</span>
+</p>
 </div>
 <div class="key-stats">
 <div><p class="kn">5 Kelas</p><p class="kl">Kesesuaian Lahan</p></div>
@@ -1296,7 +1382,10 @@ footer{
 <img class="map-thumb" loading="lazy" onclick="switchMain(this,5)" src="assets/map/kkl1/petapolaaliran.jpg" title="Pola Aliran"/>
 <img class="map-thumb" loading="lazy" onclick="switchMain(this,6)" src="assets/map/kkl1/petarelief.jpg" title="Relief"/>
 </div>
-<p class="map-caption">7 Peta Tematik · Desa Cimanggu, Kab. Sukabumi · Sep 2022 Jan 2023 · Klik thumbnail untuk berganti · Klik gambar utama untuk layar penuh</p>
+<p class="map-caption">
+<span class="map-caption-line">Klik thumbnail untuk berganti</span>
+<span class="map-caption-line">Klik gambar utama untuk layar penuh</span>
+</p>
 </div>
 <div class="key-stats">
 <div><p class="kn">7 Peta</p><p class="kl">Tematik Geomorfologi</p></div>
@@ -1343,7 +1432,10 @@ footer{
 <img class="map-thumb" loading="lazy" onclick="switchMain(this,4)" src="assets/map/kkl2/pl.jpg" title="Penggunaan Lahan"/>
 <img class="map-thumb" loading="lazy" onclick="switchMain(this,5)" src="assets/map/kkl2/tanah.jpg" title="Jenis Tanah"/>
 </div>
-<p class="map-caption">6 Peta Tematik · Kec. Panggang, Kab. Gunungkidul, DIY · 2023 · Klik thumbnail untuk berganti · Klik gambar utama untuk layar penuh</p>
+<p class="map-caption">
+<span class="map-caption-line">Klik thumbnail untuk berganti</span>
+<span class="map-caption-line">Klik gambar utama untuk layar penuh</span>
+</p>
 </div>
 <div class="key-stats">
 <div><p class="kn">65,39%</p><p class="kl">Wilayah Tingkat Tinggi</p></div>
@@ -1382,18 +1474,21 @@ footer{
 <img class="map-thumb active" loading="lazy" onclick="switchMain(this,0)" src="assets/map/pempar/Peta_Posyandu.png" title="Posyandu"/>
 <img class="map-thumb" loading="lazy" onclick="switchMain(this,1)" src="assets/map/pempar/Peta_Ambulance.png" title="Ambulans"/>
 </div>
-<p class="map-caption">2 Peta Jangkauan · Kota Depok, Jawa Barat · 2024 · Klik thumbnail untuk berganti · Klik gambar utama untuk layar penuh</p>
+<p class="map-caption">
+<span class="map-caption-line">Klik thumbnail untuk berganti</span>
+<span class="map-caption-line">Klik gambar utama untuk layar penuh</span>
+</p>
 </div>
 <div class="key-stats">
 <div><p class="kn">33</p><p class="kl">Posyandu Dipetakan</p></div>
 <div><p class="kn">58</p><p class="kl">Penyedia Layanan Ambulans</p></div>
-<div><p class="kn">IDR 28M</p><p class="kl">Hibah DPPM UI + FMIPA UI</p></div>
+<div><p class="kn">Rp28 jt</p><p class="kl">Hibah DPPM UI + FMIPA UI</p></div>
 <div><p class="kn">9 Kelompok</p><p class="kl">Tim Survei Lapangan</p></div>
 </div>
 <div class="project-pmi">
 <div><p class="pmi-label">Masalah</p><p class="pmi-text">Kesenjangan cakupan ambulans dan Posyandu di Kota Depok <strong>belum terpetakan secara spasial</strong> tanpa data jangkauan berbasis lokasi, distribusi sumber daya kesehatan kota tidak memiliki pijakan geografis yang kuat untuk pengambilan kebijakan.</p></div>
-<div><p class="pmi-label">Metode</p><p class="pmi-text">Koordinasi <strong>9 kelompok survei lapangan</strong> untuk memetakan 33 Posyandu dan 58 penyedia ambulans. Pemodelan jangkauan dan aksesibilitas spasial, pelatihan geospasial untuk <strong>81 peserta</strong>, dan FGD bersama Dinas Kesehatan Kota Depok sebagai validasi kebijakan. Hasil disajikan melalui StoryMaps ArcGIS.</p></div>
-<div><p class="pmi-label">Dampak</p><p class="pmi-text">Mengamankan hibah <strong>IDR 28.000.000</strong> dari dua institusi (DPPM UI: IDR 20M, FMIPA UI: IDR 8M). Peta distribusi menjadi <strong>basis rekomendasi kebijakan</strong> redistribusi Posyandu dan ambulans kepada Dinas Kesehatan Kota Depok. Dipublikasikan melalui StoryMaps.</p></div>
+<div><p class="pmi-label">Metode</p><p class="pmi-text">Koordinasi <strong>9 kelompok survei lapangan</strong> untuk memetakan 33 Posyandu dan 58 penyedia ambulans. Pemodelan jangkauan dan aksesibilitas spasial, pelatihan geospasial untuk <strong>81 peserta</strong>, dan FGD bersama Dinas Kesehatan Kota Depok sebagai validasi kebijakan. Hasil disajikan melalui StoryMaps.</p></div>
+<div><p class="pmi-label">Dampak</p><p class="pmi-text">Mengamankan hibah <strong>Rp28.000.000</strong> dari dua institusi (DPPM UI: Rp20 juta, FMIPA UI: Rp8 juta). Peta distribusi menjadi <strong>basis rekomendasi kebijakan</strong> redistribusi Posyandu dan ambulans kepada Dinas Kesehatan Kota Depok. Dipublikasikan melalui StoryMaps.</p></div>
 </div>
 <div>
 <p>Lihat Hasil Peta Interaktif ↗</p>
@@ -1403,7 +1498,7 @@ footer{
 </div>
 </div>
 <div class="keyword-strip">
-<span class="kw">Pemetaan Komunitas</span><span class="kw">Aksesibilitas Spasial</span><span class="kw">Pemodelan Jangkauan</span><span class="kw">StoryMaps ArcGIS</span><span class="kw">FGD Kebijakan</span><span class="kw">Hibah DPPM UI</span>
+<span class="kw">Pemetaan Komunitas</span><span class="kw">Aksesibilitas Spasial</span><span class="kw">Pemodelan Jangkauan</span><span class="kw">StoryMaps</span><span class="kw">FGD Kebijakan</span><span class="kw">Hibah DPPM UI</span>
 </div>
 </div>
 </div></div></div></section>
@@ -1418,7 +1513,7 @@ footer{
   </section>
 
   <!-- ===== STACK ===== -->
-  <section class="section" id="stack"><div class="section-inner"><p class="section-tag">Instrumen Teknis</p><h2 class="section-title">Alat &amp; Kerangka Kerja<br/><em>yang Saya Gunakan</em></h2><div class="stack-editorial"><section class="stack-panel"><div class="stack-panel-rail">Instrumen Geospasial</div><div class="stack-panel-content"><ul class="stack-list"><li>ArcGIS Pro</li><li>ArcMap</li><li>QGIS</li><li>StoryMaps ArcGIS</li><li>Survey123</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Analisis Spasial</div><div class="stack-panel-content"><ul class="stack-list"><li>Analisis Multikriteria Spasial (SMCA)</li><li>Analytic Hierarchy Process (AHP)</li><li>Analisis Interseksi &amp; Tumpangsusun</li><li>Pemodelan Spasial &amp; Geostatistik</li><li>Inspeksi Visual Kendali Grid</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Penginderaan Jauh</div><div class="stack-panel-content"><ul class="stack-list"><li>Citra UAV Hiperspektral <span class="stack-note">Skripsi</span></li><li>Penginderaan Jauh Multitemporal</li><li>Validasi Poligon Deforestasi</li><li>DEM Nasional BIG</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Lapangan &amp; Data</div><div class="stack-panel-content"><ul class="stack-list"><li>Survei &amp; Pemetaan Lapangan</li><li>Diskusi Kelompok Terarah (FGD)</li><li>Penulisan Laporan &amp; Makalah Ilmiah</li><li>Paket Microsoft Office</li></ul></div></section><section class="stack-panel stack-panel-wide"><div class="stack-panel-rail">Kompetensi</div><div class="stack-panel-content"><div class="competency-grid"><ul class="stack-list"><li>Manajemen Proyek</li><li>Komunikasi Teknis</li></ul><ul class="stack-list"><li>Kepemimpinan Tim Lintas Fungsi</li><li>Adaptabilitas &amp; Agility</li></ul><ul class="stack-list"><li>Analisis &amp; Sintesis Data</li><li>Quality Assurance (QA)</li></ul></div></div></section></div><div class="stack-language">BAHASA: INDONESIA (ASLI) · INGGRIS (KEMAMPUAN KERJA PROFESIONAL)</div></div></section>
+  <section class="section" id="stack"><div class="section-inner"><p class="section-tag">Instrumen Teknis</p><h2 class="section-title">Alat &amp; Kerangka Kerja<br/><em>yang Saya Gunakan</em></h2><div class="stack-editorial"><section class="stack-panel"><div class="stack-panel-rail">Instrumen Geospasial</div><div class="stack-panel-content"><ul class="stack-list"><li>ArcGIS Pro</li><li>ArcMap</li><li>QGIS</li><li>StoryMaps</li><li>Survey123</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Analisis Spasial</div><div class="stack-panel-content"><ul class="stack-list"><li>Analisis Multikriteria Spasial (SMCA)</li><li>Analytic Hierarchy Process (AHP)</li><li>Analisis Interseksi &amp; Tumpangsusun</li><li>Pemodelan Spasial &amp; Geostatistik</li><li>Inspeksi Visual Kendali Grid</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Penginderaan Jauh</div><div class="stack-panel-content"><ul class="stack-list"><li>Citra UAV Hiperspektral <span class="stack-note"></span></li><li>Penginderaan Jauh Multitemporal</li><li>Validasi Poligon Deforestasi</li><li>DEM Nasional BIG</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Lapangan &amp; Data</div><div class="stack-panel-content"><ul class="stack-list"><li>Survei &amp; Pemetaan Lapangan</li><li>Diskusi Kelompok Terarah (FGD)</li><li>Penulisan Laporan &amp; Makalah Ilmiah</li><li></li></ul></div></section><section class="stack-panel stack-panel-wide"><div class="stack-panel-rail">Kompetensi</div><div class="stack-panel-content"><div class="competency-grid"><ul class="stack-list"><li>Manajemen Proyek</li><li>Komunikasi Teknis</li></ul><ul class="stack-list"><li>Kepemimpinan Tim Lintas Fungsi</li><li>Adaptabilitas &amp; Agility</li></ul><ul class="stack-list"><li>Analisis &amp; Sintesis Data</li><li>Quality Assurance (QA)</li></ul></div></div></section></div><div class="stack-language">BAHASA: INDONESIA (BAHASA IBU) · INGGRIS (KEMAMPUAN KERJA PROFESIONAL)</div></div></section>
 
   <!-- ===== KREDENSIAL BANNER ===== -->
   <div aria-label="Kredensial &amp; Pengalaman" class="credentials-banner"><img alt="Dokumentasi lapangan" class="editorial-photo banner-crop" src="assets/images/diri/IMG_4474.JPG"/><div class="credentials-overlay"><p class="credentials-overlay-tag">Kredensial &amp; Pengalaman</p><h2 class="credentials-overlay-title">Pendidikan, Pengalaman,<br/><em>Organisasi &amp; Sertifikasi</em></h2></div></div>
@@ -1428,12 +1523,11 @@ footer{
 <p class="cred-sub-label">Pendidikan</p>
 <div class="cred-list">
 <div class="cred-item">
-<span class="cred-year">2021   2025</span>
+<span class="cred-year"> Agu 2021 - Jul 2025</span>
 <div>
 <p class="cred-title">Sarjana Geografi</p>
 <p class="cred-sub">Universitas Indonesia · Fakultas MIPA · Depok</p>
 <p class="cred-sub">IPK: <strong>3.60 / 4.00</strong> · 126 SKS · Lulus Juli 2025</p>
-<p class="cred-sub">Skripsi: Kajian Spasial Estimasi Produktivitas Padi menggunakan Citra UAV Hiperspektral dengan Metode ISE-PLS di Desa Parakansalak, Kabupaten Sukabumi</p>
 <span class="cred-badge">Sangat Memuaskan</span>
 <div class="photo-gallery">
 <p>Dokumentasi</p>
@@ -1452,12 +1546,11 @@ footer{
 <p class="cred-sub-label">Pengalaman Kerja</p>
 <div class="cred-list">
 <div class="cred-item">
-<span class="cred-year">Mar 2025   Agt 2026</span>
+<span class="cred-year"> Mar 2025 - Sep 2026</span>
 <div>
-<p class="cred-title">Dukungan Teknis → Auditor QA</p>
-<p class="cred-sub">Yayasan Auriga Nusantara (MapBiomas Indonesia) · Jakarta</p>
+<p class="cred-title">Technical Support</p>
+<p class="cred-sub">MapBiomas Indonesia (Yayasan Auriga Nusantara) · Jakarta</p>
 <p class="cred-sub">Memvalidasi 2.878 poligon (rasio approval 78%), unggul 28% di atas rata-rata tim nasional. Mengaudit 3.800+ poligon (2.500 poligon tim, 1.300 STADI) untuk Laporan Status Deforestasi Indonesia.</p>
-<span class="cred-badge">Purna Waktu · Aktif</span>
 <div class="photo-gallery">
 <p>Dokumentasi</p>
 <div class="photo-gallery-grid" data-images='[
@@ -1476,9 +1569,9 @@ footer{
 </div>
 </div>
 <div class="cred-item">
-<span class="cred-year">Ags 2023   Jan 2024</span>
+<span class="cred-year"> Agu 2023 - Jan 2024</span>
 <div>
-<p class="cred-title">Tim Penyusun RDTR Magang</p>
+<p class="cred-title">Tim Penyusun RDTR</p>
 <p class="cred-sub">Kementerian ATR/BPN · DPUPR Kota Bima · Nusa Tenggara Barat</p>
 <p class="cred-sub">Menyusun 15 jenis peta tematik struktural dan memfasilitasi integrasi masukan spasial dari 100+ peserta konsultasi publik ke dalam dokumen RDTR final.</p>
 <span class="cred-badge">MSIB INSPIRING · Kementerian ATR/BPN</span>
@@ -1500,9 +1593,9 @@ footer{
 </div>
 </div>
 <div class="cred-item">
-<span class="cred-year">Jul   Okt 2023</span>
+<span class="cred-year"> Jul 2023 - Okt 2023</span>
 <div>
-<p class="cred-title">Enumerator Survei Manajemen Risiko Bencana</p>
+<p class="cred-title">Enumerator</p>
 <p class="cred-sub">Japan International Cooperation Agency (JICA) · Jakarta</p>
 <p class="cred-sub">Mengidentifikasi 3 kesenjangan struktural dalam manajemen risiko bencana melalui wawancara terstruktur dengan pemangku kepentingan utama (BNPB, BAPPENAS).</p>
 <div class="photo-gallery">
@@ -1523,12 +1616,11 @@ footer{
 <p class="cred-sub-label">Organisasi</p>
 <div class="cred-list">
 <div class="cred-item">
-<span class="cred-year">Feb 2023   Feb 2024</span>
+<span class="cred-year"> Feb 2023 - Feb 2024</span>
 <div>
 <p class="cred-title">Kepala Biro Administrasi dan Kesekretariatan</p>
 <p class="cred-sub">HMD Geografi FMIPA UI · Depok</p>
 <p class="cred-sub">Memimpin biro 8 staf, mengoptimalkan alur administrasi untuk seluruh departemen HMD. Meluncurkan situs web terintegrasi (carrd.co) untuk sentralisasi dokumen. Memimpin proyek 2 bulan untuk 3 kegiatan (Musyawarah Kerja, Peluncuran Perdana, Pembentukan Tim) sebagai Koordinator Proyek. Sebagai Komite Pengarah <strong>SEMTA 2023</strong> (120+ peserta).</p>
-<span class="cred-badge">Kepala Biro</span>
 <div class="photo-gallery">
 <p>Dokumentasi</p>
 <div class="photo-gallery-grid" data-images='[
@@ -1555,12 +1647,11 @@ footer{
 </div>
 </div>
 <div class="cred-item">
-<span class="cred-year">Mar 2022   Feb 2023</span>
+<span class="cred-year"> Mar 2022 - Feb 2023</span>
 <div>
 <p class="cred-title">Staf Biro Administrasi dan Kesekretariatan</p>
 <p class="cred-sub">HMD Geografi FMIPA UI · Depok</p>
 <p class="cred-sub">Merintis dan mengarahkan <strong>“Seminar Kesekretariatan 2022”</strong> sebagai Koordinator Proyek. Memproses dan mengaudit 25+ dokumen administratif untuk 3 departemen inti. Mencapai tingkat kehadiran <strong>60%</strong> dari fungsionaris 12 biro dan departemen.</p>
-<span class="cred-badge">Staf Biro</span>
 <div class="photo-gallery">
 <p>Dokumentasi</p>
 <div class="photo-gallery-grid cols2" data-images='[
@@ -1588,7 +1679,6 @@ footer{
 <p class="cred-title">Perancang Tata Ruang Detail (RDTR) Bersertifikat</p>
 <p class="cred-sub">MSIB INSPIRING Program · Kementerian ATR/BPN · Republik Indonesia</p>
 <p class="cred-sub">Sertifikasi kompetensi nasional penyusunan Rencana Detail Tata Ruang yang mencakup pemetaan tematik, zonasi, dan peraturan zonasi.</p>
-<span class="cred-badge">Bersertifikat Nasional</span>
 <div class="photo-gallery certificate-gallery">
 <p>Sertifikat</p>
 <div class="photo-gallery-grid cols2" data-images='[
@@ -1610,9 +1700,18 @@ footer{
   <div class="classified-head">Kontak &amp; Jejaring</div>
   <div class="classified">
     <a class="classified-block email" href="https://mail.google.com/mail/u/0/?fs=1&amp;to=neboyokjonah@gmail.com&amp;tf=cm" rel="noopener noreferrer" target="_blank"><span class="classified-small">SUREL</span><span class="classified-big">NEBOYOKJONAH@GMAIL.COM</span></a>
-    <a class="classified-block whatsapp" href="https://wa.me/6282122002990" rel="noopener noreferrer" target="_blank"><span class="classified-small">WHATSAPP</span><span class="classified-big">+62 821 2200 2990</span></a>
+    <a class="classified-block whatsapp" href="https://wa.me/6282122002990" rel="noopener noreferrer" target="_blank"><span class="classified-small">WHATSAPP</span><span class="classified-big">(+62) 821-2200-2990</span></a>
     <a class="classified-block linkedin" href="https://linkedin.com/in/neboyokjonah/" rel="noopener noreferrer" target="_blank"><span class="classified-small">LINKEDIN</span><span class="classified-big">IN/NEBOYOKJONAH</span></a>
   </div>
+
+  <!-- ===== PAGE FOOTER TAMBAHAN ===== -->
+  <div class="page-footer">
+    <div class="page-footer-inner">
+      <span><span class="label">Page Last Updated:</span> <span class="value" id="last-updated"></span></span>
+      <span><span class="label">Page Editor:</span> <span class="value">Nebo Marpaung</span></span>
+    </div>
+  </div>
+
   <div class="footer-meta"><span>Nebo Yok Jonah Marpaung · Analis Geospasial</span><span>Bekasi, Jawa Barat</span></div>
 </footer>
 
@@ -1691,6 +1790,14 @@ function closeMobileMenu(){
   if(m)m.classList.remove("open");
   if(h)h.classList.remove("open");
 }
+
+/* ─── SET LAST UPDATED ─── */
+(function(){
+  var now = new Date();
+  var options = { year: 'numeric', month: 'long', day: 'numeric' };
+  var dateStr = now.toLocaleDateString('id-ID', options);
+  document.getElementById('last-updated').textContent = dateStr;
+})();
 </script>
 </body>
 </html>
