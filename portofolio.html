@@ -276,19 +276,122 @@
       .nav-hamburger{display:block}
       .nav-brand{font-size:12px}
       .section-inner{padding:1.25rem 1rem}
-      .project-item{grid-template-columns:2rem 1fr;padding:1rem}
-      .project-title,.featured-story .project-title{font-size:1.9rem}
+      
+      /* PROJECT ITEM — PERBAIKAN UTAMA UNTUK LIMA PROYEK */
+      .project-item{
+        grid-template-columns:1.8rem minmax(0,1fr) !important;
+        gap:0.6rem !important;
+        padding:0.8rem 0.8rem !important;
+      }
+      .project-num{
+        font-size:9px !important;
+        padding-top:0.1rem !important;
+      }
+      .project-title,.featured-story .project-title{
+        font-size:clamp(1.4rem,5vw,1.9rem) !important;
+        max-width:100% !important;
+        flex:0 0 100% !important;
+      }
+      .project-meta{
+        gap:0.3rem !important;
+        margin-bottom:0.5rem !important;
+      }
+      .project-tag, .project-loc{
+        font-size:7px !important;
+      }
+      .badge-individu, .badge-kolaboratif{
+        font-size:7px !important;
+        padding:0.15rem 0.35rem !important;
+      }
+
+      /* MAP GALLERY - perbaikan tinggi gambar */
+      .map-gallery-main img{
+        height:clamp(160px,45vw,220px) !important;
+      }
+      .featured-story .map-gallery-main img{
+        height:clamp(200px,50vw,280px) !important;
+      }
+      .map-thumbnails{
+        gap:0.2rem !important;
+        padding:0.2rem 0 !important;
+      }
+      .map-thumb{
+        flex:0 0 50px !important;
+        width:50px !important;
+        height:36px !important;
+        min-height:36px !important;
+      }
+      .map-caption{
+        font-size:6.5px !important;
+      }
+      .zoom-hint, .map-badge{
+        font-size:6px !important;
+        padding:0.2rem 0.4rem !important;
+      }
+
+      /* DUAL MAP */
+      .dual-map-grid{
+        grid-template-columns:1fr !important;
+        gap:0.8rem !important;
+      }
+      .dual-map-item .map-wrap img{
+        height:clamp(160px,40vw,220px) !important;
+      }
+      .dual-map-btn{
+        font-size:7px !important;
+        padding:0.3rem 0.4rem !important;
+        min-height:36px !important;
+      }
+
+      /* KEY STATS */
+      .key-stats{
+        grid-template-columns:1fr 1fr !important;
+        gap:0.3rem !important;
+        margin:0.8rem 0 !important;
+      }
+      .key-stats>div{
+        padding:0.3rem 0.2rem !important;
+        min-height:44px !important;
+      }
+      .key-stats .kn{
+        font-size:clamp(0.9rem,3.5vw,1.2rem) !important;
+      }
+      .key-stats .kl{
+        font-size:6px !important;
+      }
+
+      /* PMI */
+      .project-pmi{
+        grid-template-columns:1fr !important;
+        gap:0.4rem !important;
+        margin-top:0.8rem !important;
+      }
+      .project-pmi>div{
+        padding:0.6rem 0.7rem !important;
+      }
+      .pmi-text{
+        font-size:12px !important;
+      }
+      .pmi-label{
+        font-size:7px !important;
+        text-align:left !important;
+      }
+
+      /* KEYWORD STRIP */
+      .keyword-strip{
+        gap:0.2rem 0.4rem !important;
+        padding-top:0.5rem !important;
+        margin-top:0.6rem !important;
+      }
+      .kw{
+        font-size:6.5px !important;
+        padding:0.1rem 0.4rem !important;
+      }
 
       /* HERO */
       .hero-ticker{grid-template-columns:repeat(2,1fr);gap:.3rem}
       .hero-ticker-item{padding:.6rem .2rem}
       .hero-content .hero-name{font-size:clamp(2.8rem,14vw,4rem) !important}
-
-      /* KEY STATS */
-      .key-stats{grid-template-columns:1fr 1fr;gap:.3rem}
-      .key-stats>div{padding:.4rem .2rem;min-height:54px}
-      .key-stats .kn{font-size:clamp(1rem,4vw,1.4rem) !important}
-      .key-stats .kl{font-size:6.5px}
 
       /* PHOTO GALLERY */
       .photo-gallery-grid{grid-template-columns:repeat(2,1fr)}
@@ -322,16 +425,6 @@
       .beyond-copy h2{width:auto;max-width:14ch;font-size:clamp(1.6rem,6vw,2.8rem)}
       .beyond-copy p{width:auto;font-size:13px;margin-top:.5rem}
 
-      /* DUAL MAP */
-      .dual-map-grid{grid-template-columns:1fr}
-      .dual-map-item .map-wrap img{height:clamp(180px,45vw,260px) !important}
-
-      /* MAP GALLERY */
-      .map-gallery-main img{height:clamp(180px,50vw,280px) !important}
-      .map-thumbnails{gap:.2rem;padding:.2rem 0}
-      .map-thumb{flex:0 0 56px !important;width:56px !important;height:40px !important;min-height:44px}
-      .map-caption{font-size:7px}
-
       /* CLASSIFIED */
       .classified{grid-template-columns:1fr}
       .classified-block{min-height:120px;border-right:0;border-bottom:1px solid #000}
@@ -351,18 +444,19 @@
     /* ===== PERBAIKAN UNTUK HP SANGAT KECIL (≤ 375px) ===== */
     @media (max-width: 375px) {
       .hero-content .hero-name{font-size:clamp(2.4rem,12vw,3.2rem) !important}
-      .project-title,.featured-story .project-title{font-size:1.5rem !important}
-      .key-stats .kn{font-size:1rem !important}
-      .key-stats>div{padding:.3rem .1rem !important;min-height:48px !important}
+      .project-title,.featured-story .project-title{font-size:clamp(1.2rem,4.5vw,1.5rem) !important}
+      .key-stats .kn{font-size:0.9rem !important}
+      .key-stats>div{padding:.2rem .1rem !important;min-height:40px !important}
       .credentials-overlay-title{font-size:clamp(1.2rem,5vw,1.8rem) !important}
       .section-title{font-size:clamp(1.6rem,6vw,2.4rem) !important}
       .stack-list li{font-size:12px !important}
-      .pmi-text{font-size:12px !important}
+      .pmi-text{font-size:11px !important}
       .cred-title{font-size:clamp(1.2rem,4vw,1.6rem) !important}
       .beyond-copy h2{font-size:clamp(1.4rem,5vw,2rem) !important;max-width:12ch}
       .classified-big{font-size:clamp(1.5rem,6vw,2.2rem) !important}
-      .dual-map-item .map-wrap img{height:clamp(150px,40vw,200px) !important}
-      .map-gallery-main img{height:clamp(150px,45vw,220px) !important}
+      .dual-map-item .map-wrap img{height:clamp(130px,35vw,180px) !important}
+      .map-gallery-main img{height:clamp(130px,40vw,180px) !important}
+      .map-thumb{flex:0 0 40px !important;width:40px !important;height:30px !important;min-height:30px !important}
     }
 
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -943,7 +1037,17 @@ document.querySelectorAll(".project-item,.cred-item,.beyond-desk").forEach(funct
 function toggleMobileMenu(){var m=document.getElementById("mobile-menu");var h=document.getElementById("nav-ham");if(!m||!h)return;m.classList.toggle("open");h.classList.toggle("open");}
 function closeMobileMenu(){var m=document.getElementById("mobile-menu");var h=document.getElementById("nav-ham");if(m)m.classList.remove("open");if(h)h.classList.remove("open");}
 
-(function(){var now=new Date();var options={year:'numeric',month:'long',day:'numeric'};document.getElementById('last-updated').textContent=now.toLocaleDateString('id-ID',options);})();
+(function(){
+  var now = new Date();
+  // UTC+7 (WIB)
+  var utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  var wib = new Date(utc + (7 * 3600000));
+  var options = { year:'numeric', month:'long', day:'numeric' };
+  var dateStr = wib.toLocaleDateString('id-ID', options);
+  var hours = String(wib.getHours()).padStart(2,'0');
+  var minutes = String(wib.getMinutes()).padStart(2,'0');
+  document.getElementById('last-updated').textContent = dateStr + ', ' + hours + ':' + minutes + ' WIB';
+})();
 </script>
 </body>
 </html>
