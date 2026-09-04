@@ -36,6 +36,10 @@
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&amp;family=Lora:ital,wght@0,400;0,700;1,400&amp;family=Montserrat:wght@600;700&amp;family=Playfair+Display:wght@700;900&amp;display=swap" rel="stylesheet"/>
+  
+  <!-- Chart.js untuk dashboard validasi -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -274,6 +278,89 @@
     #lightbox-prev,#lightbox-next{top:50%;transform:translateY(-50%);width:46px;height:46px;font-size:22px}
     #lightbox-prev{left:1rem}
     #lightbox-next{right:1rem}
+
+    /* ============================================================ */
+    /* ===== DASHBOARD VALIDATOR (ditambahkan) ===== */
+    /* ============================================================ */
+    #validator-dashboard .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    #validator-dashboard .card {
+      background: #ffffff;
+      border: 2px solid #1a1a1a;
+      padding: 1.5rem 1.2rem 1.2rem;
+      box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
+      width: 100%;
+    }
+    #validator-dashboard .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #2E5C40;
+      text-align: center;
+      margin-bottom: 1rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      max-width: 100%;
+    }
+    #validator-dashboard .chart-container {
+      position: relative;
+      height: 420px;
+      width: 100%;
+    }
+    #validator-dashboard .insight {
+      font-size: 0.9rem;
+      color: #333;
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      background: #f8f6f0;
+      border-left: 4px solid #2E5C40;
+      line-height: 1.6;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+      word-wrap: break-word;
+    }
+    #validator-dashboard .insight strong {
+      color: #C84630;
+    }
+
+    @media (max-width: 900px) {
+      #validator-dashboard .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      #validator-dashboard .card {
+        padding: 1rem;
+      }
+      #validator-dashboard .chart-container {
+        height: 320px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #validator-dashboard .card {
+        padding: 0.6rem;
+      }
+      #validator-dashboard .card-title {
+        font-size: 0.85rem;
+      }
+      #validator-dashboard .chart-container {
+        height: 250px;
+      }
+      #validator-dashboard .insight {
+        font-size: 0.75rem;
+        padding: 0.4rem;
+      }
+    }
 
     /* ============================================================ */
     /* ===== RESPONSIVE: TABLET & HP ===== */
@@ -816,8 +903,37 @@
         <div>
           <p class="cred-title">Technical Support</p>
           <p class="cred-sub" style="display:flex; justify-content:space-between; align-items:center;"><strong>MapBiomas Indonesia (Yayasan Auriga Nusantara)</strong><strong>Jakarta Selatan</strong></p>
+
+          <!-- ===== DASHBOARD VALIDATOR ===== -->
+          <div id="validator-dashboard" style="margin-top: 0.5rem;">
+            <div class="grid">
+              <div class="card">
+                <h2 class="card-title">Dual-Axis: Approved vs Rejection Rate</h2>
+                <div class="chart-container">
+                  <canvas id="chartDual"></canvas>
+                </div>
+                <div class="insight">
+                  <strong>Nebo</strong> memiliki Approved terbanyak (2.878) dan Rejection Rate terendah (20,2%).
+                </div>
+              </div>
+              <div class="card">
+                <h2 class="card-title">Scatter Plot: Approved vs Rejection Rate</h2>
+                <div class="chart-container">
+                  <canvas id="chartScatter"></canvas>
+                </div>
+                <div class="insight">
+                  <strong>Nebo</strong> berada di kuadran kanan bawah (High Approved, Low Rejection).<br />
+                  Di atas median Approved (2.000) dan di bawah median Rejection Rate (33,2%).<br />
+                  Ini adalah <strong>outlier positif</strong>.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ===== AKHIR DASHBOARD ===== -->
+
           <p style="margin-top:.8rem;">Saat pertama bergabung di MapBiomas Indonesia sebagai Technical Support, tugas saya terdengar sederhana: memvalidasi titik-titik deforestasi yang terdeteksi satelit di seluruh Indonesia. Setiap lahan yang ditandai perlu diperiksa satu per satu, apakah benar-benar menunjukkan tanda kehilangan tutupan hutan. Semakin lama saya mengerjakannya, semakin saya menyadari bahwa kesan &ldquo;sederhana&rdquo; itu menyesatkan, sebab setiap poligon yang saya validasi berpotensi menjadi bagian dari laporan yang digunakan untuk kebijakan nasional.</p>
           <p style="margin-top:.4rem;">Target awal saya adalah <strong>1.100 poligon</strong>, dan target tersebut berhasil saya selesaikan <strong>tiga bulan lebih cepat dari jadwal</strong>, dengan total keseluruhan mencapai <strong>lebih dari 3.670 poligon</strong> sepanjang masa kerja. Konsistensi tersebut membuat saya dipercaya menjadi <strong>Auditor QA</strong>, mengaudit ulang <strong>lebih dari 2.500 poligon</strong> yang sebelumnya divalidasi oleh rekan tim, serta menginspeksi <strong>lebih dari 1.300 poligon</strong> untuk laporan status deforestasi nasional sebagai lapisan pemeriksaan kedua sebelum data tersebut sampai ke tangan pembuat kebijakan. Dari pengalaman ini saya belajar bahwa ketelitian dalam pekerjaan yang tampak remeh di level data seringkali justru menjadi fondasi dari kebijakan iklim berskala besar.</p>
+
           <div class="photo-gallery">
             <div class="photo-gallery-grid" data-images='[{"src":"assets/images/auriga/auriga1.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"},{"src":"assets/images/auriga/auriga2.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"},{"src":"assets/images/auriga/auriga3.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"},{"src":"assets/images/auriga/auriga4.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"}]'>
               <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/auriga/auriga1.jpeg" alt="Auriga 1" loading="lazy"/></div>
@@ -1051,24 +1167,26 @@ function closeMobileMenu(){var m=document.getElementById("mobile-menu");var h=do
   document.getElementById('last-updated').textContent = formatted;
 })();
 
-// --- SKELETON LOADING UNTUK SEMUA GAMBAR ---
 document.addEventListener('DOMContentLoaded', function() {
   var imgs = document.querySelectorAll('img');
   imgs.forEach(function(img) {
-    if (img.complete && img.naturalWidth > 0) {
-      return;
-    }
     img.classList.add('skeleton');
-    img.addEventListener('load', function() {
-      this.classList.remove('skeleton');
-    });
-    img.addEventListener('error', function() {
-      this.classList.remove('skeleton');
-    });
+
+    function removeSkeleton() {
+      img.classList.remove('skeleton');
+    }
+
+    if (img.complete && img.naturalWidth > 0) {
+      removeSkeleton();
+    } else {
+      img.addEventListener('load', removeSkeleton);
+      img.addEventListener('error', function() {
+        removeSkeleton();
+      });
+    }
   });
 });
 
-// --- Pencegahan shortcut copy, inspect, dll. ---
 document.addEventListener('keydown', function(e) {
   if (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U')) {
     e.preventDefault();
@@ -1079,6 +1197,247 @@ document.addEventListener('keydown', function(e) {
     return false;
   }
 });
+
+(function() {
+  const w = window.innerWidth;
+  const isTabletOrMobile = w < 900;
+  const isSmallMobile = w <= 480;
+
+  const fontMain = isSmallMobile ? 9 : (isTabletOrMobile ? 11 : 14);
+  const fontSmall = isSmallMobile ? 8 : (isTabletOrMobile ? 10 : 12);
+  const fontTitle = isSmallMobile ? 9 : (isTabletOrMobile ? 11 : 14);
+  const legendPadding = isSmallMobile ? 8 : (isTabletOrMobile ? 12 : 20);
+
+  const rawData = [
+    { nama: "Nebo", approved: 2878, rejRate: 20.2 },
+    { nama: "V3", approved: 2363, rejRate: 20.4 },
+    { nama: "V8", approved: 2581, rejRate: 30.6 },
+    { nama: "V25", approved: 2510, rejRate: 31.4 },
+    { nama: "V15", approved: 2311, rejRate: 32.1 },
+    { nama: "V17", approved: 2782, rejRate: 32.5 },
+    { nama: "V26", approved: 2526, rejRate: 33.1 },
+    { nama: "V39", approved: 2399, rejRate: 31.8 },
+    { nama: "V41", approved: 1463, rejRate: 33.2 },
+    { nama: "V40", approved: 1376, rejRate: 38.1 },
+    { nama: "V18", approved: 1393, rejRate: 39.2 },
+    { nama: "V23", approved: 2002, rejRate: 40.7 },
+    { nama: "V9", approved: 1177, rejRate: 46.8 },
+    { nama: "V22", approved: 1173, rejRate: 47.3 },
+    { nama: "V30", approved: 1641, rejRate: 48.9 },
+    { nama: "V27", approved: 2029, rejRate: 52.1 },
+    { nama: "V21", approved: 1729, rejRate: 52.9 },
+    { nama: "V32", approved: 1439, rejRate: 63.4 }
+  ];
+
+  const sorted = [...rawData].sort((a, b) => b.approved - a.approved);
+  const labels = sorted.map(d => d.nama);
+  const approvedVals = sorted.map(d => d.approved);
+  const rejVals = sorted.map(d => d.rejRate);
+
+  const barColors = sorted.map(d => d.nama.includes("Nebo") ? "#2E5C40" : "#b0b0b0");
+  const pointColors = sorted.map(d => d.nama.includes("Nebo") ? "#C84630" : "#b0b0b0");
+
+  new Chart(document.getElementById('chartDual'), {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Approved',
+          data: approvedVals,
+          backgroundColor: barColors,
+          borderColor: sorted.map(d => d.nama.includes("Nebo") ? "#1a3d2a" : "#888"),
+          borderWidth: 1.5,
+          order: 1,
+          yAxisID: 'y',
+          borderRadius: 2
+        },
+        {
+          label: 'Rejection Rate (%)',
+          data: rejVals,
+          type: 'line',
+          borderColor: '#C84630',
+          backgroundColor: 'rgba(200,70,48,0.08)',
+          pointBackgroundColor: pointColors,
+          pointBorderColor: sorted.map(d => d.nama.includes("Nebo") ? "#a03020" : "#888"),
+          pointBorderWidth: 2,
+          pointRadius: isSmallMobile ? 3 : (isTabletOrMobile ? 4 : 5),
+          pointHoverRadius: isSmallMobile ? 5 : (isTabletOrMobile ? 7 : 8),
+          borderWidth: 3,
+          tension: 0.15,
+          fill: true,
+          order: 0,
+          yAxisID: 'y1'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            font: { family: 'Inter', size: fontMain, weight: '700' },
+            boxWidth: isSmallMobile ? 8 : 12,
+            padding: legendPadding,
+            usePointStyle: true,
+            pointStyle: 'circle'
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              let label = ctx.dataset.label || '';
+              let val = ctx.parsed.y;
+              if (ctx.dataset.label === 'Approved') return label + ': ' + val.toLocaleString();
+              return label + ': ' + val.toFixed(1) + '%';
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: { 
+            font: { family: 'Inter', size: fontSmall, weight: '600' }, 
+            maxRotation: 45, 
+            minRotation: 30,
+            maxTicksLimit: isSmallMobile ? 6 : (isTabletOrMobile ? 8 : 12),
+            autoSkip: true,
+            padding: 8
+          }
+        },
+        y: {
+          position: 'left',
+          beginAtZero: true,
+          grid: { color: '#eae7de' },
+          ticks: { font: { family: 'Inter', size: fontSmall }, callback: v => v.toLocaleString(), padding: 8 },
+          title: { display: true, text: 'Approved', font: { family: 'Inter', size: fontTitle, weight: '700' }, color: '#2E5C40' }
+        },
+        y1: {
+          position: 'right',
+          beginAtZero: true,
+          max: 70,
+          grid: { drawOnChartArea: false },
+          ticks: { font: { family: 'Inter', size: fontSmall }, callback: v => v + '%', padding: 8 },
+          title: { display: true, text: 'Rejection Rate (%)', font: { family: 'Inter', size: fontTitle, weight: '700' }, color: '#C84630' }
+        }
+      }
+    }
+  });
+
+  const medianApproved = 2000;
+  const rejReference = 33.2;
+
+  const neboScatter = rawData.filter(d => d.nama.includes("Nebo")).map(d => ({ x: d.approved, y: d.rejRate, nama: d.nama }));
+  const otherScatter = rawData.filter(d => !d.nama.includes("Nebo")).map(d => ({ x: d.approved, y: d.rejRate, nama: d.nama }));
+
+  new Chart(document.getElementById('chartScatter'), {
+    type: 'scatter',
+    data: {
+      datasets: [
+        {
+          label: 'Validator Lain',
+          data: otherScatter,
+          backgroundColor: '#b0b0b0',
+          borderColor: '#888',
+          borderWidth: 1,
+          pointRadius: isSmallMobile ? 4 : (isTabletOrMobile ? 5 : 7),
+          pointHoverRadius: isSmallMobile ? 6 : (isTabletOrMobile ? 8 : 11),
+          showLine: false
+        },
+        {
+          label: 'Nebo',
+          data: neboScatter,
+          backgroundColor: '#D9A05B',
+          borderColor: '#D9A05B',
+          borderWidth: 3,
+          pointRadius: isSmallMobile ? 7 : (isTabletOrMobile ? 10 : 14),
+          pointHoverRadius: isSmallMobile ? 10 : (isTabletOrMobile ? 14 : 18),
+          showLine: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            font: { size: fontMain, weight: '700' },
+            boxWidth: isSmallMobile ? 8 : 14,
+            padding: legendPadding,
+            usePointStyle: true,
+            pointStyle: 'circle'
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              const raw = ctx.raw;
+              return raw.nama + ': Approved ' + raw.x.toLocaleString() + ' · Rej ' + raw.y.toFixed(1) + '%';
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          min: 1000,
+          max: 3000,
+          grid: { color: '#eae7de' },
+          ticks: { font: { size: fontSmall }, stepSize: 1000, callback: v => v.toLocaleString(), padding: 8 },
+          title: { display: true, text: 'Total Approved', font: { size: fontTitle, weight: '700' }, color: '#2E5C40' }
+        },
+        y: {
+          min: 0,
+          max: 70,
+          grid: { color: '#eae7de' },
+          ticks: { font: { size: fontSmall }, stepSize: 10, callback: v => v + '%', padding: 8 },
+          title: { display: true, text: 'Rejection Rate (%)', font: { size: fontTitle, weight: '700' }, color: '#C84630' }
+        }
+      }
+    },
+    plugins: [{
+      id: 'medianLines',
+      beforeDatasetsDraw(chart) {
+        const xScale = chart.scales.x;
+        const yScale = chart.scales.y;
+        const ctx = chart.ctx;
+
+        const xPos = xScale.getPixelForValue(medianApproved);
+        const yTop = yScale.getPixelForValue(0);
+        const yBottom = yScale.getPixelForValue(70);
+
+        ctx.save();
+        ctx.setLineDash([8, 6]);
+        ctx.strokeStyle = '#2E5C40';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(xPos, yTop);
+        ctx.lineTo(xPos, yBottom);
+        ctx.stroke();
+        ctx.restore();
+
+        const yPos = yScale.getPixelForValue(rejReference);
+        const xLeft = chart.chartArea.left;
+        const xRight = chart.chartArea.right;
+
+        ctx.save();
+        ctx.setLineDash([8, 6]);
+        ctx.strokeStyle = '#C84630';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(xLeft, yPos);
+        ctx.lineTo(xRight, yPos);
+        ctx.stroke();
+        ctx.restore();
+      }
+    }]
+  });
+})();
 </script>
 </body>
 </html>
