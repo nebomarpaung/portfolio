@@ -1,1206 +1,312 @@
 <!DOCTYPE html>
-
 <html lang="id">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Nebo Yok Jonah Marpaung | Analis Geospasial</title>
-<meta content="Nebo Yok Jonah Marpaung, Analis Geospasial dan Spesialis Perencanaan Tata Ruang. Lulusan Geografi Universitas Indonesia, IPK 3.60, dengan pengalaman analisis spasial, penginderaan jauh, validasi deforestasi, dan pemetaan tata ruang." name="description"/>
-<meta content="analis geospasial, GIS, ArcGIS, QGIS, analisis spasial, penginderaan jauh, SMCA, Indonesia, geografi, MapBiomas" name="keywords"/>
-<meta content="Nebo Yok Jonah Marpaung" name="author"/>
-<meta content="index, follow" name="robots"/>
-<meta content="website" property="og:type"/>
-<meta content="Nebo Yok Jonah Marpaung | Analis Geospasial" property="og:title"/>
-<meta content="Lulusan Geografi UI, IPK 3.60. Spesialis analisis spasial, pemodelan lingkungan, perencanaan tata ruang, dan validasi data geospasial." property="og:description"/>
-<meta content="https://nebomarpaung.github.io/portfolio/" property="og:url"/>
-<meta content="https://nebomarpaung.github.io/portfolio/assets/images/sarjana/sidang.jpeg" property="og:image"/>
-<meta content="id_ID" property="og:locale"/>
-<meta content="Nebo Yok Jonah Marpaung" property="og:site_name"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Nebo Yok Jonah Marpaung | Analis Geospasial" name="twitter:title"/>
-<meta content="Lulusan Geografi UI, IPK 3.60. Spesialis analisis spasial, pemodelan lingkungan, perencanaan tata ruang, dan validasi data geospasial." name="twitter:description"/>
-<meta content="https://nebomarpaung.github.io/portfolio/assets/images/sarjana/sidang.jpeg" name="twitter:image"/>
-<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;rect width='100' height='100' fill='%23000'/&gt;&lt;text x='50' y='72' text-anchor='middle' font-size='62' font-family='Playfair Display' fill='%23FFF'&gt;N&lt;/text&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/>
-<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;rect width='100' height='100' fill='%23000'/&gt;&lt;text x='50' y='72' text-anchor='middle' font-size='62' font-family='Playfair Display' fill='%23FFF'&gt;N&lt;/text&gt;&lt;/svg&gt;" rel="apple-touch-icon"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&amp;family=Lora:ital,wght@0,400;0,700;1,400&amp;family=Montserrat:wght@600;700&amp;family=Playfair+Display:wght@700;900&amp;display=swap" rel="stylesheet"/>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Nebo Yok Jonah Marpaung",
-  "jobTitle": "Analis Geospasial",
-  "description": "Lulusan Geografi Universitas Indonesia, spesialis analisis spasial, GIS, dan pemodelan lingkungan.",
-  "url": "https://nebomarpaung.github.io/portfolio/",
-  "address": {"@type":"PostalAddress","addressLocality":"Bekasi","addressRegion":"Jawa Barat","addressCountry":"ID"},
-  "alumniOf": {"@type":"CollegeOrUniversity","name":"Universitas Indonesia"},
-  "knowsAbout": ["GIS","ArcGIS","QGIS","Penginderaan Jauh","Analisis Spasial","SMCA","Geomorfologi","UAV Hiperspektral"]
-}
-</script>
-<style>
-:root{
-  --paper:#FFFFFF;
-  --ink:#000000;
-  --green:#2E5C40;
-  --red:#C84630;
-  --mustard:#D9A05B;
-  --gold:#B8860B;
-}
-
-*,*::before,*::after{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  border-radius:0 !important;
-}
-
-html{
-  scroll-behavior:smooth;
-  background:#FFFFFF;
-}
-
-body{
-  width:100%;
-  margin:0;
-  background:#FFFFFF;
-  color:#000000;
-  font-family:'Lora',serif !important;
-  font-size:15px;
-  line-height:1.5;
-  font-weight:400;
-  overflow-x:hidden;
-}
-
-p,
-.pmi-text,
-.cred-sub,
-.skill-list li,
-.hero-intro,
-.section-desc{
-  font-family:'Lora',serif !important;
-  font-weight:400;
-}
-
-h1,
-h2,
-h3,
-.project-title,
-.display-title,
-.beyond-copy h2,
-.classified-big{
-  font-family:'Playfair Display',serif !important;
-  font-weight:700;
-}
-
-.eyebrow,
-.section-tag,
-.nav-links a,
-.nav-brand,
-.masthead-kicker,
-.classified-small,
-.footer-meta,
-.stack-rail,
-.stack-panel-rail,
-.stack-note,
-.stack-language,
-.editorial-caption,
-figcaption,
-.cred-badge{
-  font-family:'Montserrat',sans-serif !important;
-  font-weight:700;
-  text-transform:uppercase;
-}
-
-.stat-number,
-.kn,
-.kl,
-.stat-label,
-.project-tag,
-.pmi-label,
-.telemetry,
-.project-loc,
-.map-caption,
-.map-badge,
-.zoom-hint,
-.cred-year,
-.coordinates,
-.logic-text{
-  font-family:'Inter',sans-serif !important;
-  font-weight:700;
-  font-variant-numeric:tabular-nums !important;
-}
-
-img{
-  display:block;
-  max-width:100%;
-}
-
-a{color:inherit;}
-button{font-family:'Montserrat',sans-serif !important;}
-::selection{background:var(--mustard);color:#000;}
-
-/* ===== NAVIGASI ===== */
-.site-nav{
-  position:sticky;
-  top:0;
-  z-index:100;
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  align-items:center;
-  width:100%;
-  background:#FFFFFF;
-  border-bottom:1px solid #000;
-  padding:.65rem 1.5rem;
-  gap:1rem;
-}
-
-.nav-brand{
-  font-family:'Montserrat',sans-serif !important;
-  font-weight:700;
-  font-size:14px;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  color:#000;
-  white-space:nowrap;
-}
-
-.nav-links{
-  display:flex;
-  gap:1.2rem;
-  list-style:none;
-  justify-self:end;
-  margin:0;
-}
-
-.nav-links a{
-  font-size:10px;
-  text-decoration:none;
-  border-bottom:2px solid transparent;
-  padding-bottom:.2rem;
-  letter-spacing:.15em;
-  font-weight:700;
-}
-
-.nav-links a:hover{
-  border-bottom-color:#000;
-}
-
-.nav-hamburger{
-  display:none;
-  background:#FFFFFF;
-  border:1px solid #000;
-  padding:.4rem;
-  cursor:pointer;
-  justify-self:end;
-}
-
-.nav-hamburger span{
-  display:block;
-  width:20px;
-  height:2px;
-  background:#000;
-  margin:3px;
-}
-
-.mobile-menu{
-  display:none;
-  background:#FFFFFF;
-  border-bottom:2px solid #000;
-}
-
-.mobile-menu.open{display:grid;}
-
-.mobile-menu a{
-  padding:.8rem 1rem;
-  border-bottom:1px solid #000;
-  font-family:'Montserrat',sans-serif !important;
-  font-size:10px;
-  font-weight:700;
-  text-decoration:none;
-  text-transform:uppercase;
-  letter-spacing:.1em;
-}
-
-/* GLOBAL SECTIONS */
-.page{width:100%;background:#FFFFFF;}
-.section{width:100%;background:#FFFFFF;border-bottom:2px solid #000;}
-.section-inner{
-  width:100%;
-  max-width:none;
-  margin:0;
-  padding:2rem 1.5rem;
-}
-
-.section-tag{
-  display:flex;
-  align-items:center;
-  gap:.7rem;
-  margin-bottom:.8rem;
-  font-size:10px;
-  letter-spacing:.15em;
-}
-
-.section-tag::after{
-  content:"";
-  display:block;
-  flex:1;
-  border-top:1px solid #000;
-}
-
-.section-title,
-.display-title{
-  font-size:clamp(2rem,4vw,3.5rem);
-  line-height:.98;
-}
-
-.section-desc{
-  font-size:14px;
-  line-height:1.55;
-}
-
-/* ===== HERO FULLSCREEN ===== */
-.hero-full {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 2px solid #000;
-  overflow: hidden;
-  background: #000;
-}
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.hero-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(100%) contrast(110%);
-  display: block;
-}
-.hero-overlay-dark {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  z-index: 1;
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: #ffffff;
-  padding: 2rem 1.5rem;
-  max-width: 900px;
-  margin: 0 auto;
-  width: 100%;
-}
-.hero-content .hero-name {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: clamp(4rem, 12vw, 7.5rem);
-  line-height: 0.9;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.6);
-  margin-bottom: 0.25rem;
-}
-.hero-content .hero-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: clamp(0.9rem, 1.8vw, 1.4rem);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #D9A05B;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-}
-.hero-ticker {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-  margin-top: 2rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.hero-ticker-item {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,0.15);
-  padding: 0.8rem 0.3rem;
-  text-align: center;
-  transition: all 0.2s ease;
-}
-.hero-ticker-item:hover {
-  background: rgba(255,255,255,0.18);
-  transform: translateY(-2px);
-}
-.hero-ticker-item .stat-number {
-  font-size: 1.8rem;
-  color: #fff;
-  display: block;
-  font-weight: 700;
-}
-.hero-ticker-item .stat-label {
-  font-size: 8px;
-  color: #ddd;
-  display: block;
-  margin-top: 0.15rem;
-  letter-spacing: 0.08em;
-}
-
-/* ===== KARYA ===== */
-.works-head{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  border-bottom:2px solid #000;
-}
-
-.works-head>div{
-  padding:1.5rem;
-  border-right:1px solid #000;
-}
-
-.works-head>div:last-child{border-right:0;}
-
-.works-head>div:first-child{
-  background:var(--green);
-  color:#FFFFFF;
-  border-right:2px solid #000;
-}
-
-.works-legend{
-  display:flex;
-  gap:.45rem;
-  flex-wrap:wrap;
-  margin-top:.8rem;
-}
-
-.badge-individu,
-.badge-kolaboratif{
-  display:inline-block;
-  border:1px solid #000;
-  padding:.24rem .5rem;
-  background:#FFFFFF;
-  color:#000;
-  font-family:'Montserrat',sans-serif !important;
-  font-size:9px;
-  font-weight:700;
-  line-height:1.2;
-  text-transform:uppercase;
-  letter-spacing:.06em;
-}
-
-.badge-individu{background:var(--mustard);}
-.badge-kolaboratif{background:var(--green);color:#FFFFFF;}
-
-.front-page{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  border-left:1px solid #000;
-}
-
-.front-page-label{
-  grid-column:1/-1;
-  padding:.55rem 1rem;
-  background:#FFFFFF;
-  border-bottom:2px solid #000;
-  font-family:'Montserrat',sans-serif !important;
-  font-size:10px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.15em;
-}
-
-.featured-story{
-  grid-column:1/-1 !important;
-  background:var(--mustard);
-  border-bottom:2px solid #000;
-}
-
-.project-item{
-  display:grid;
-  grid-template-columns:3rem minmax(0,1fr);
-  gap:1rem;
-  padding:1.5rem;
-  border-right:1px solid #000;
-  border-bottom:1px solid #000;
-  background:#FFFFFF;
-  min-width:0;
-}
-
-.featured-story .project-title{
-  font-size:clamp(2.4rem,5vw,4.6rem);
-  max-width:17ch;
-}
-
-.project-num{
-  font-family:'Montserrat',sans-serif !important;
-  font-size:11px;
-  font-weight:700;
-  padding-top:.2rem;
-}
-
-.project-meta{
-  display:flex;
-  align-items:baseline;
-  gap:.5rem;
-  flex-wrap:wrap;
-  margin-bottom:.8rem;
-}
-
-.project-title{
-  font-size:clamp(1.8rem,3vw,3rem);
-  line-height:1;
-  max-width:28ch;
-}
-
-.project-tag{
-  display:inline-block;
-  border:1px solid #000;
-  padding:.23rem .45rem;
-  background:#FFFFFF;
-  color:#000;
-  font-size:9px;
-  line-height:1.25;
-}
-
-.project-loc{
-  font-size:9px;
-  line-height:1.3;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-}
-
-/* ===== KEY STATS ===== */
-.key-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-  margin: 1.2rem 0;
-}
-.key-stats > div {
-  background: #f8f6f0;
-  border: 1px solid #000;
-  padding: 0.9rem 0.5rem;
-  text-align: center;
-  transition: all 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 80px;
-}
-.key-stats > div:hover {
-  background: #eae7de;
-  transform: scale(1.02);
-}
-.key-stats .kn {
-  display: block;
-  font-size: 1.6rem;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: #000;
-}
-.key-stats .kl {
-  display: block;
-  margin-top: 0.2rem;
-  font-size: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: #333;
-}
-
-/* ===== PROJECT PMI ===== */
-.project-pmi {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
-  margin-top: 1.2rem;
-  border: none;
-}
-.project-pmi > div {
-  background: #faf9f5;
-  border: 1px solid #000;
-  padding: 1rem;
-  transition: all 0.2s ease;
-}
-.project-pmi > div:hover {
-  background: #f2efe8;
-  transform: translateY(-2px);
-}
-.pmi-label {
-  display: block;
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border-bottom: 1px solid #000;
-  padding-bottom: 0.3rem;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-  text-align: center;
-}
-.pmi-text {
-  font-size: 14px;
-  line-height: 1.55;
-}
-
-/* ===== KEYWORD STRIP ===== */
-.keyword-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 0.6rem;
-  margin-top: 1rem;
-  padding-top: 0.8rem;
-  border-top: 1px solid #000;
-}
-.kw {
-  display: inline-block;
-  background: #f0ede6;
-  border: 1px solid #000;
-  padding: 0.15rem 0.6rem;
-  font-size: 8.5px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #000;
-  line-height: 1.4;
-}
-
-/* ===== MAP & LAINNYA ===== */
-.map-gallery{margin:1rem 0;}
-.map-gallery-main{
-  position:relative;
-  overflow:hidden;
-  border:2px solid #000;
-  cursor:zoom-in;
-  background:#FFFFFF;
-}
-.map-gallery-main img{
-  width:100%;
-  height:clamp(250px,43vw,540px);
-  object-fit:cover;
-}
-.featured-story .map-gallery-main img{
-  height:clamp(330px,55vw,720px);
-}
-.zoom-hint,
-.map-badge{
-  position:absolute;
-  background:#000;
-  color:#FFFFFF;
-  padding:.45rem .6rem;
-  font-size:9px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-}
-.zoom-hint{right:0;bottom:0;}
-.map-badge{left:0;top:0;}
-.map-thumbnails{
-  display:flex;
-  gap:.35rem;
-  overflow-x:auto;
-  padding:.4rem 0;
-  border-bottom:1px solid #000;
-}
-.map-thumb{
-  flex:0 0 88px;
-  width:88px;
-  height:60px;
-  object-fit:cover;
-  border:1px solid #000;
-  cursor:pointer;
-  filter:none !important;
-}
-.map-thumb.active,
-.map-thumb:hover{
-  outline:2px solid #000;
-  outline-offset:-2px;
-}
-
-/* ===== MAP CAPTION (DUA POIN, KECIL, TIDAK BOLD) ===== */
-.map-caption {
-  font-size: 8px;
-  line-height: 1.4;
-  text-align: left;
-  margin-top: 0.45rem;
-  text-transform: none;
-  letter-spacing: 0.02em;
-  font-weight: 400 !important;
-  list-style: none;
-}
-.map-caption .map-caption-line {
-  display: block;
-  font-weight: 400;
-}
-.map-caption .map-caption-line::before {
-  content: "• ";
-  font-weight: 400;
-}
-
-.inline-editorial{
-  display:grid;
-  grid-template-columns:minmax(180px,320px) minmax(0,1fr);
-  gap:.8rem;
-  align-items:start;
-  border-top:1px solid #000;
-  border-bottom:1px solid #000;
-  padding:.8rem 0;
-}
-.inline-editorial .editorial-photo{
-  width:100%;
-  height:190px;
-  object-fit:cover;
-  filter:grayscale(100%) contrast(110%);
-  border:1px solid #000;
-}
-
-/* STACK */
-.stack-editorial{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  width:100%;
-  max-width:none;
-  margin:1.5rem 0 0;
-  border:1px solid #000;
-  background:#FFFFFF;
-}
-.stack-panel{
-  display:grid;
-  grid-template-columns:50px minmax(0,1fr);
-  min-width:0;
-  min-height:300px;
-  border-right:1px solid #000;
-  background:#FFFFFF;
-}
-.stack-panel:nth-child(4){border-right:0;}
-.stack-panel-wide{
-  grid-column:1/-1;
-  min-height:175px;
-  border-top:1px solid #000;
-  border-right:0;
-}
-.stack-panel-rail{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  writing-mode:vertical-rl;
-  transform:rotate(180deg);
-  background:#000;
-  color:#FFFFFF;
-  border-right:1px solid #000;
-  padding:.7rem .45rem;
-  font-size:9px;
-  line-height:1;
-  letter-spacing:.12em;
-}
-.stack-panel-content{
-  min-width:0;
-  padding:1.2rem 1rem;
-}
-.stack-list{
-  list-style:none;
-  display:grid;
-  gap:.8rem;
-  margin:0;
-  padding:0;
-}
-.stack-list li{
-  position:relative;
-  padding-left:1rem;
-  font-size:15px;
-  line-height:1.45;
-}
-.stack-list li::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:.68em;
-  width:7px;
-  height:7px;
-  background:var(--red);
-}
-.stack-note{
-  float:right;
-  margin-left:.5rem;
-  font-size:8px;
-  line-height:1;
-  letter-spacing:.08em;
-}
-.competency-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:0 1.5rem;
-}
-.competency-grid .stack-list{gap:.7rem;}
-.stack-language{
-  margin-top:1.2rem;
-  padding-top:.7rem;
-  border-top:1px solid #000;
-  font-size:9px;
-  line-height:1.4;
-  letter-spacing:.09em;
-}
-
-/* PERSONAL PHOTO */
-.personal-photo-break{
-  width:100%;
-  background:#FFFFFF;
-  border-top:2px solid #000;
-  border-bottom:2px solid #000;
-  padding:1rem 1.5rem;
-}
-.personal-photo-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1rem;
-}
-.personal-break-photo{
-  width:100%;
-  height:280px;
-  object-fit:cover;
-  filter:grayscale(100%) contrast(110%);
-  border:1px solid #000;
-}
-
-/* CREDENTIALS */
-.credentials-banner{
-  position:relative;
-  width:100%;
-  height:540px;
-  min-height:540px;
-  background:#D9A05B;
-  border-bottom:2px solid #000;
-  overflow:hidden;
-}
-.credentials-banner .banner-crop{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center 75%;
-  filter:grayscale(100%) contrast(110%);
-  border:0;
-}
-.credentials-overlay{
-  position:absolute;
-  left:0;
-  bottom:0;
-  z-index:3;
-  width:75%;
-  max-width:none;
-  background:#D9A05B;
-  color:#000000;
-  border:2px solid #000;
-  padding:1.2rem 1.5rem 1.3rem;
-}
-.credentials-overlay-tag{
-  margin-bottom:.45rem;
-  font-family:'Montserrat',sans-serif !important;
-  font-size:10px;
-  font-weight:700;
-  line-height:1.3;
-  text-transform:uppercase;
-  letter-spacing:.15em;
-}
-.credentials-overlay-title{
-  margin:0;
-  font-family:'Playfair Display',serif !important;
-  font-weight:700;
-  font-size:clamp(2.2rem,4.8vw,5.2rem);
-  line-height:.92;
-  letter-spacing:-.035em;
-  color:#FFFFFF;
-}
-.credentials-overlay-title em{font-style:italic;}
-#credentials .section-inner{padding-top:0;}
-
-.timeline{border-top:2px solid #000;}
-.cred-subsection{border-bottom:2px solid #000;}
-.cred-sub-label{
-  padding:.8rem 1rem;
-  background:var(--green);
-  color:#FFFFFF;
-  font-family:'Montserrat',sans-serif !important;
-  font-size:10px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.15em;
-}
-.cred-item{
-  display:grid;
-  grid-template-columns:190px minmax(0,1fr);
-  border-top:1px solid #000;
-}
-.cred-year{
-  background:#000;
-  color:#FFFFFF;
-  padding:1rem;
-  font-size:10px;
-  line-height:1.35;
-  text-transform:uppercase;
-  letter-spacing:.06em;
-}
-.cred-item>div{
-  padding:1rem;
-  background:#FFFFFF;
-  min-width:0;
-}
-.cred-title{
-  font-size:clamp(1.7rem,2.5vw,2.8rem);
-  line-height:1.02;
-  margin-bottom:.35rem;
-}
-.cred-sub{
-  font-size:14px;
-  line-height:1.5;
-  margin-top:.35rem;
-}
-.cred-badge{
-  display:inline-block;
-  margin-top:.6rem;
-  border:1px solid #000;
-  background:#FFFFFF;
-  padding:.23rem .45rem;
-  font-size:9px;
-  line-height:1.2;
-  letter-spacing:.08em;
-}
-.photo-gallery{margin-top:.8rem;}
-.photo-gallery>p{
-  font-family:'Montserrat',sans-serif !important;
-  font-size:9px;
-  font-weight:700;
-  margin-bottom:.6rem;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-}
-.photo-gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:.4rem;
-}
-.photo-gallery-grid.cols2{grid-template-columns:repeat(2,1fr);}
-.photo-gallery-grid.cols3{grid-template-columns:repeat(3,1fr);}
-.photo-item{
-  position:relative;
-  overflow:hidden;
-  border:1px solid #000;
-  aspect-ratio:4/3;
-  cursor:zoom-in;
-  background:#FFFFFF;
-}
-.photo-item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  filter:grayscale(100%) contrast(110%);
-  border:1px solid #000;
-}
-.certificate-gallery .photo-item img{filter:none !important;}
-.org-inline{
-  display:grid;
-  grid-template-columns:1fr minmax(180px,320px);
-  gap:1rem;
-  align-items:start;
-  margin-top:.9rem;
-  border-top:1px solid #000;
-  border-bottom:1px solid #000;
-  padding:.8rem 0;
-}
-.org-inline img{
-  width:100%;
-  height:190px;
-  object-fit:cover;
-  object-position:center;
-  filter:grayscale(100%) contrast(110%);
-  border:1px solid #000;
-}
-
-/* EXPEDISI */
-.beyond-desk{
-  position:relative;
-  display:block;
-  width:100%;
-  height:345px;
-  min-height:345px;
-  margin-top:1.5rem;
-  background:var(--mustard);
-  border:2px solid #000;
-  overflow:hidden;
-}
-.beyond-copy{
-  position:absolute;
-  left:0;
-  top:0;
-  z-index:3;
-  width:220px;
-  height:100%;
-  padding:1rem;
-  background:var(--mustard);
-  border-right:2px solid #000;
-  overflow:visible;
-}
-.beyond-copy h2{
-  position:relative;
-  width:560px;
-  max-width:none;
-  font-size:clamp(2.4rem,4vw,4.4rem);
-  line-height:.88;
-  text-transform:uppercase;
-  letter-spacing:-.025em;
-  overflow:visible;
-  white-space:normal;
-  overflow-wrap:normal;
-  word-break:normal;
-}
-.beyond-copy p{
-  position:relative;
-  width:210px;
-  margin-top:1rem;
-  font-size:14px;
-  line-height:1.5;
-}
-.beyond-desk > div:last-child{
-  position:absolute;
-  inset:0;
-  z-index:1;
-  width:100%;
-  height:100%;
-  overflow:hidden;
-}
-.beyond-desk .portrait-crop{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  transform:scale(1.18);
-  transform-origin:center center;
-}
-
-/* ===== FOOTER ===== */
-.classified-head{
-  padding:.7rem 1.5rem;
-  border-top:2px solid #000;
-  border-bottom:1px solid #000;
-  background:#FFFFFF;
-  font-family:'Montserrat',sans-serif !important;
-  font-size:10px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.15em;
-}
-.classified{
-  border-top:2px solid #000;
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-}
-.classified-block{
-  min-height:210px;
-  padding:1rem;
-  border-right:1px solid #000;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  text-decoration:none;
-}
-.classified-block:last-child{border-right:0;}
-.classified-block.email{background:var(--green);color:#FFFFFF;}
-.classified-block.whatsapp{background:var(--red);color:#FFFFFF;}
-.classified-block.linkedin{background:var(--mustard);color:#000000;}
-.classified-small{
-  font-size:10px;
-  letter-spacing:.08em;
-}
-.classified-big{
-  font-size:clamp(2.4rem,6vw,6rem);
-  line-height:.82;
-  letter-spacing:-.045em;
-  text-transform:uppercase;
-  overflow-wrap:anywhere;
-}
-
-/* Tambahan footer informasi halaman */
-.page-footer {
-  border-top: 2px solid #000;
-  border-bottom: 2px solid #000;
-  padding: 0.6rem 1.5rem;
-  background: #faf9f5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 60px;
-}
-.page-footer-inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem 2.5rem;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  font-weight: 500;
-  color: #000;
-}
-.page-footer-inner span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-.page-footer-inner .label {
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  color: #333;
-}
-.page-footer-inner .value {
-  font-weight: 500;
-}
-
-footer{
-  width:100%;
-  border-bottom:3px solid #000;
-  background:#FFFFFF;
-}
-.footer-meta{
-  display:flex;
-  justify-content:space-between;
-  gap:1rem;
-  padding:1rem 1.5rem;
-  font-size:9px;
-  letter-spacing:.06em;
-}
-
-/* LIGHTBOX */
-#lightbox{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  background:#FFFFFF;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  padding:1.5rem;
-}
-#lightbox.active{display:flex;}
-#lightbox-img{
-  max-width:94vw;
-  max-height:80vh;
-  object-fit:contain;
-  border:2px solid #000;
-}
-#lightbox-caption{
-  margin-top:.7rem;
-  font-family:'Montserrat',sans-serif !important;
-  font-size:10px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  text-align:center;
-  max-width:850px;
-}
-#lightbox-close,
-#lightbox-prev,
-#lightbox-next{
-  position:fixed;
-  background:#000;
-  color:#FFFFFF;
-  border:1px solid #000;
-  font-size:10px;
-  font-weight:700;
-  padding:.6rem;
-  cursor:pointer;
-  text-transform:uppercase;
-  letter-spacing:.06em;
-}
-#lightbox-close{top:1rem;right:1rem;}
-#lightbox-prev,#lightbox-next{top:50%;transform:translateY(-50%);width:46px;height:46px;font-size:22px;}
-#lightbox-prev{left:1rem;}
-#lightbox-next{right:1rem;}
-
-/* RESPONSIF */
-@media(max-width:1000px){
-  .stack-editorial{grid-template-columns:repeat(2,minmax(0,1fr));}
-  .stack-panel:nth-child(2){border-right:0;}
-  .stack-panel:nth-child(3),
-  .stack-panel:nth-child(4){border-top:1px solid #000;}
-  .stack-panel-wide{grid-column:1/-1;}
-}
-@media(max-width:900px){
-  .works-head{grid-template-columns:1fr;}
-  .works-head>div{border-right:0;}
-  .works-head>div:first-child{border-right:0;border-bottom:2px solid #000;}
-  .front-page{grid-template-columns:1fr;}
-  .featured-story{grid-column:1 !important;}
-  .project-pmi{grid-template-columns:1fr;}
-  .cred-item{grid-template-columns:1fr;}
-  .cred-year{border-bottom:1px solid #000;}
-  .credentials-banner,.credentials-banner .banner-crop{height:500px;min-height:500px;}
-  .credentials-overlay{width:75%;}
-  .personal-photo-grid{grid-template-columns:1fr;}
-  .personal-break-photo{height:320px;}
-  .beyond-desk{height:345px;min-height:345px;}
-}
-@media(max-width:700px){
-  .site-nav{grid-template-columns:auto 1fr auto;padding:.65rem 1rem;}
-  .nav-links{display:none;}
-  .nav-hamburger{display:block;}
-  .nav-brand{font-size:12px;}
-  .section-inner{padding:1.25rem 1rem;}
-  .project-item{grid-template-columns:2rem 1fr;padding:1rem;}
-  .project-title,.featured-story .project-title{font-size:1.9rem;}
-  .hero-ticker{grid-template-columns:repeat(2,1fr);gap:0.3rem;}
-  .hero-ticker-item{padding:0.6rem 0.2rem;}
-  .key-stats{grid-template-columns:1fr 1fr;}
-  .photo-gallery-grid{grid-template-columns:repeat(2,1fr);}
-  .org-inline,.inline-editorial{grid-template-columns:1fr;}
-  .stack-editorial{grid-template-columns:1fr;}
-  .stack-panel,.stack-panel-wide{
-    grid-column:auto;min-height:auto;border-right:0;border-top:0;border-bottom:1px solid #000;
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Portofolio Nebo</title>
+  <meta content="Nebo Yok Jonah Marpaung, Analis Geospasial dan Spesialis Perencanaan Tata Ruang. Lulusan Geografi Universitas Indonesia, IPK 3.60, dengan pengalaman analisis spasial, penginderaan jauh, validasi deforestasi, dan pemetaan tata ruang." name="description"/>
+  <meta content="analis geospasial, GIS, ArcGIS, QGIS, analisis spasial, penginderaan jauh, SMCA, Indonesia, geografi, MapBiomas" name="keywords"/>
+  <meta content="Nebo Yok Jonah Marpaung" name="author"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="website" property="og:type"/>
+  <meta content="Nebo Yok Jonah Marpaung | Analis Geospasial" property="og:title"/>
+  <meta content="Lulusan Geografi UI, IPK 3.60. Spesialis analisis spasial, pemodelan lingkungan, perencanaan tata ruang, dan validasi data geospasial." property="og:description"/>
+  <meta content="https://nebomarpaung.github.io/portfolio/" property="og:url"/>
+  <meta content="https://nebomarpaung.github.io/portfolio/assets/images/sarjana/sidang.jpeg" property="og:image"/>
+  <meta content="id_ID" property="og:locale"/>
+  <meta content="Nebo Yok Jonah Marpaung" property="og:site_name"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Nebo Yok Jonah Marpaung | Analis Geospasial" name="twitter:title"/>
+  <meta content="Lulusan Geografi UI, IPK 3.60. Spesialis analisis spasial, pemodelan lingkungan, perencanaan tata ruang, dan validasi data geospasial." name="twitter:description"/>
+  <meta content="https://nebomarpaung.github.io/portfolio/assets/images/sarjana/sidang.jpeg" name="twitter:image"/>
+  <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;circle cx='50' cy='50' r='50' fill='%232E5C40'/&gt;&lt;text x='50' y='72' text-anchor='middle' font-size='62' font-family='Playfair Display' fill='%23FFF'&gt;N&lt;/text&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/>
+  <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;circle cx='50' cy='50' r='50' fill='%232E5C40'/&gt;&lt;text x='50' y='72' text-anchor='middle' font-size='62' font-family='Playfair Display' fill='%23FFF'&gt;N&lt;/text&gt;&lt;/svg&gt;" rel="apple-touch-icon"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&amp;family=Lora:ital,wght@0,400;0,700;1,400&amp;family=Montserrat:wght@600;700&amp;family=Playfair+Display:wght@700;900&amp;display=swap" rel="stylesheet"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nebo Yok Jonah Marpaung",
+    "jobTitle": "Analis Geospasial",
+    "description": "Lulusan Geografi Universitas Indonesia, spesialis analisis spasial, GIS, dan pemodelan lingkungan.",
+    "url": "https://nebomarpaung.github.io/portfolio/",
+    "address": {"@type":"PostalAddress","addressLocality":"Bekasi","addressRegion":"Jawa Barat","addressCountry":"ID"},
+    "alumniOf": {"@type":"CollegeOrUniversity","name":"Universitas Indonesia"},
+    "knowsAbout": ["GIS","ArcGIS","QGIS","Penginderaan Jauh","Analisis Spasial","SMCA","Geomorfologi","UAV Hiperspektral"]
   }
-  .stack-panel:nth-child(2),.stack-panel:nth-child(3),.stack-panel:nth-child(4){border-top:0;}
-  .stack-panel-wide{border-bottom:0;}
-  .competency-grid{grid-template-columns:1fr;gap:.7rem;}
-  .stack-panel-content{padding:1rem;}
-  .stack-list{gap:.65rem;}
-  .credentials-banner,.credentials-banner .banner-crop{height:460px;min-height:460px;}
-  .credentials-overlay{width:100%;padding:.8rem .9rem 1rem;}
-  .credentials-overlay-title{font-size:clamp(1.85rem,9vw,3.2rem);}
-  .beyond-desk{height:520px;min-height:520px;}
-  .beyond-copy{position:absolute;width:100%;height:auto;border-right:0;border-bottom:2px solid #000;padding:1rem;}
-  .beyond-copy h2{width:auto;max-width:9ch;}
-  .beyond-copy p{width:auto;}
-  .classified{grid-template-columns:1fr;}
-  .classified-block{min-height:155px;border-right:0;border-bottom:1px solid #000;}
-  .classified-block:last-child{border-bottom:0;}
-  .page-footer-inner{flex-direction:column;gap:0.5rem;}
-  .footer-meta{flex-direction:column;}
-  #lightbox-prev,#lightbox-next{display:none;}
-  .telemetry,.telemetry .tline{font-size:9px;}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
-</style>
+  </script>
+  <style>
+    :root{--paper:#fff;--ink:#000;--green:#2E5C40;--red:#C84630;--mustard:#D9A05B;--gold:#B8860B}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+    html{scroll-behavior:smooth;background:#fff}
+    body{width:100%;margin:0;background:#fff;color:#000;font-family:'Lora',serif;font-size:15px;line-height:1.5;font-weight:400;overflow-x:hidden}
+    p,.pmi-text,.cred-sub,.section-desc{font-family:'Lora',serif;font-weight:400}
+    h1,h2,h3,.project-title,.display-title,.beyond-copy h2,.classified-big{font-family:'Playfair Display',serif;font-weight:700}
+    .section-tag,.nav-links a,.nav-brand,.classified-small,.stack-panel-rail,.stack-language,.cred-badge{font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase}
+    .stat-number,.kn,.kl,.stat-label,.project-tag,.pmi-label,.project-loc,.map-caption,.map-badge,.zoom-hint,.cred-year{font-family:'Inter',sans-serif;font-weight:700;font-variant-numeric:tabular-nums}
+    img{display:block;max-width:100%}
+    a{color:inherit}
+    button{font-family:'Montserrat',sans-serif}
+    ::selection{background:var(--mustard);color:#000}
+
+    .site-nav{position:sticky;top:0;z-index:100;display:grid;grid-template-columns:auto 1fr auto;align-items:center;width:100%;background:#fff;border-bottom:1px solid #000;padding:.65rem 1.5rem;gap:1rem}
+    .nav-brand{font-size:14px;letter-spacing:.1em;color:#000;white-space:nowrap}
+    .nav-links{display:flex;gap:1.2rem;list-style:none;justify-self:end;margin:0}
+    .nav-links a{font-size:10px;text-decoration:none;border-bottom:2px solid transparent;padding-bottom:.2rem;letter-spacing:.15em}
+    .nav-links a:hover{border-bottom-color:#000}
+    .nav-hamburger{display:none;background:#fff;border:1px solid #000;padding:.4rem;cursor:pointer;justify-self:end}
+    .nav-hamburger span{display:block;width:20px;height:2px;background:#000;margin:3px}
+    .mobile-menu{display:none;background:#fff;border-bottom:2px solid #000}
+    .mobile-menu.open{display:grid}
+    .mobile-menu a{padding:.8rem 1rem;border-bottom:1px solid #000;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.1em}
+
+    .page{width:100%;background:#fff}
+    .section{width:100%;background:#fff;border-bottom:2px solid #000}
+    .section-inner{width:100%;max-width:none;margin:0;padding:2rem 1.5rem}
+    .section-tag{display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem;font-size:10px;letter-spacing:.15em}
+    .section-tag::after{content:"";display:block;flex:1;border-top:1px solid #000}
+    .section-title,.display-title{font-size:clamp(2rem,4vw,3.5rem);line-height:.98}
+    .section-desc{font-size:14px;line-height:1.55}
+
+    .hero-full{position:relative;width:100%;min-height:100vh;display:flex;align-items:center;justify-content:center;border-bottom:2px solid #000;overflow:hidden;background:#000}
+    .hero-bg{position:absolute;inset:0;z-index:0}
+    .hero-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%) contrast(110%);display:block}
+    .hero-overlay-dark{position:absolute;inset:0;background:rgba(0,0,0,0.4);z-index:1}
+    .hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:2rem 1.5rem;max-width:900px;margin:0 auto;width:100%}
+    .hero-content .hero-name{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(4rem,12vw,7.5rem);line-height:.9;letter-spacing:-.02em;text-transform:uppercase;text-shadow:0 4px 20px rgba(0,0,0,0.6);margin-bottom:.25rem}
+    .hero-content .hero-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(.9rem,1.8vw,1.4rem);letter-spacing:.2em;text-transform:uppercase;color:var(--mustard);text-shadow:0 2px 10px rgba(0,0,0,0.5)}
+    .hero-ticker{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:2rem;max-width:700px;margin-left:auto;margin-right:auto}
+    .hero-ticker-item{background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.15);padding:.8rem .3rem;text-align:center;transition:all .2s}
+    .hero-ticker-item:hover{background:rgba(255,255,255,0.18);transform:translateY(-2px)}
+    .hero-ticker-item .stat-number{font-size:1.8rem;color:#fff;display:block}
+    .hero-ticker-item .stat-label{font-size:8px;color:#ddd;display:block;margin-top:.15rem;letter-spacing:.08em}
+
+    .works-head{display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid #000}
+    .works-head>div{padding:1.5rem;border-right:1px solid #000}
+    .works-head>div:last-child{border-right:0}
+    .works-head>div:first-child{background:var(--green);color:#fff;border-right:2px solid #000}
+    .works-legend{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.8rem}
+    .badge-individu,.badge-kolaboratif{display:inline-block;border:1px solid #000;padding:.24rem .5rem;background:#fff;color:#000;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;line-height:1.2;text-transform:uppercase;letter-spacing:.06em}
+    .badge-individu{background:var(--mustard)}
+    .badge-kolaboratif{background:var(--green);color:#fff}
+
+    .front-page{display:grid;grid-template-columns:1fr 1fr;border-left:1px solid #000}
+    .front-page-label{grid-column:1/-1;padding:.55rem 1rem;background:#fff;border-bottom:2px solid #000;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em}
+    .featured-story{grid-column:1/-1;background:var(--mustard);border-bottom:2px solid #000}
+    .project-item{display:grid;grid-template-columns:3rem minmax(0,1fr);gap:1rem;padding:1.5rem;border-right:1px solid #000;border-bottom:1px solid #000;background:#fff;min-width:0}
+    .featured-story .project-title{font-size:clamp(2.4rem,5vw,4.6rem);max-width:17ch}
+    .project-num{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;padding-top:.2rem}
+    .project-meta{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;margin-bottom:.8rem}
+.project-title{font-size:clamp(1.8rem,3vw,3rem);line-height:1;max-width:28ch;flex:0 0 100%;margin-bottom:.25rem}
+    .project-tag{display:inline-block;border:1px solid #000;padding:.23rem .45rem;background:#fff;color:#000;font-size:9px;line-height:1.25}
+    .project-loc{font-size:9px;line-height:1.3;text-transform:uppercase;letter-spacing:.08em}
+
+    .key-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin:1.2rem 0}
+    .key-stats>div{background:#f8f6f0;border:1px solid #000;padding:.9rem .5rem;text-align:center;transition:all .2s;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80px}
+    .key-stats>div:hover{background:#eae7de;transform:scale(1.02)}
+    .key-stats .kn{display:block;font-size:1.6rem;line-height:1.2;letter-spacing:-.02em;color:#000}
+    .key-stats .kl{display:block;margin-top:.2rem;font-size:8px;text-transform:uppercase;letter-spacing:.07em;color:#333}
+
+    .project-pmi{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:1.2rem;border:none}
+    .project-pmi>div{background:#faf9f5;border:1px solid #000;padding:1rem;transition:all .2s}
+    .project-pmi>div:hover{background:#f2efe8;transform:translateY(-2px)}
+    .pmi-label{display:block;font-size:9px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid #000;padding-bottom:.3rem;margin-bottom:.5rem;font-weight:700;text-align:center}
+    .pmi-text{font-size:14px;line-height:1.55}
+
+    .keyword-strip{display:flex;flex-wrap:wrap;gap:.4rem .6rem;margin-top:1rem;padding-top:.8rem;border-top:1px solid #000}
+    .kw{display:inline-block;background:#f0ede6;border:1px solid #000;padding:.15rem .6rem;font-size:8.5px;font-family:'Montserrat',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#000;line-height:1.4}
+
+    /* ===== DUAL MAP GRID (khusus proyek #4) ===== */
+    .dual-map-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+    .dual-map-item {
+      border: 1px solid #000;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+    .dual-map-item .map-wrap {
+      position: relative;
+      cursor: zoom-in;
+      overflow: hidden;
+      border-bottom: 1px solid #000;
+    }
+    .dual-map-item .map-wrap img {
+      width: 100%;
+      height: clamp(200px, 28vw, 380px);
+      object-fit: cover;
+      display: block;
+    }
+    .dual-map-item .map-wrap .zoom-hint {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background: #000;
+      color: #fff;
+      padding: 0.25rem 0.6rem;
+      font-size: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      pointer-events: none;
+    }
+    .dual-map-item .map-wrap .map-badge {
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #000;
+      color: #fff;
+      padding: 0.25rem 0.6rem;
+      font-size: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      pointer-events: none;
+    }
+    .dual-map-footer {
+      padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+      background: #faf9f5;
+      border-top: 1px solid #000;
+    }
+    .dual-map-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #000;
+      color: #fff;
+      padding: 0.45rem 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border: 1px solid #000;
+      transition: all 0.2s ease;
+    }
+    .dual-map-btn:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .map-gallery{margin:1rem 0}
+    .map-gallery-main{position:relative;overflow:hidden;border:2px solid #000;cursor:zoom-in;background:#fff}
+    .map-gallery-main img{width:100%;height:clamp(250px,43vw,540px);object-fit:cover}
+    .featured-story .map-gallery-main img{height:clamp(330px,55vw,720px)}
+    .zoom-hint,.map-badge{position:absolute;background:#000;color:#fff;padding:.45rem .6rem;font-size:9px;text-transform:uppercase;letter-spacing:.08em}
+    .zoom-hint{right:0;bottom:0}
+    .map-badge{left:0;top:0}
+    .map-thumbnails{display:flex;gap:.35rem;overflow-x:auto;padding:.4rem 0;border-bottom:1px solid #000}
+    .map-thumb{flex:0 0 88px;width:88px;height:60px;object-fit:cover;border:1px solid #000;cursor:pointer}
+    .map-thumb.active,.map-thumb:hover{outline:2px solid #000;outline-offset:-2px}
+    .map-caption{font-size:8px;line-height:1.4;text-align:left;margin-top:.45rem;text-transform:none;letter-spacing:.02em;font-weight:400;list-style:none}
+    .map-caption .map-caption-line{display:block;font-weight:400}
+    .map-caption .map-caption-line::before{content:"• ";font-weight:400}
+
+    .stack-editorial{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%;max-width:none;margin:1.5rem 0 0;border:1px solid #000;background:#fff}
+    .stack-panel{display:grid;grid-template-columns:50px minmax(0,1fr);min-width:0;min-height:300px;border-right:1px solid #000;background:#fff}
+    .stack-panel:nth-child(4){border-right:0}
+    .stack-panel-wide{grid-column:1/-1;min-height:175px;border-top:1px solid #000;border-right:0}
+    .stack-panel-rail{display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;transform:rotate(180deg);background:#000;color:#fff;border-right:1px solid #000;padding:.7rem .45rem;font-size:9px;line-height:1;letter-spacing:.12em}
+    .stack-panel-content{min-width:0;padding:1.2rem 1rem}
+    .stack-list{list-style:none;display:grid;gap:.8rem;margin:0;padding:0}
+    .stack-list li{position:relative;padding-left:1rem;font-size:15px;line-height:1.45}
+    .stack-list li::before{content:"";position:absolute;left:0;top:.68em;width:7px;height:7px;background:var(--red)}
+    .competency-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 1.5rem}
+    .competency-grid .stack-list{gap:.7rem}
+    .stack-language{margin-top:1.2rem;padding-top:.7rem;border-top:1px solid #000;font-size:9px;line-height:1.4;letter-spacing:.09em}
+
+    .personal-photo-break{width:100%;background:#fff;border-top:2px solid #000;border-bottom:2px solid #000;padding:1rem 1.5rem}
+    .personal-photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .personal-break-photo{width:100%;height:280px;object-fit:cover;filter:grayscale(100%) contrast(110%);border:1px solid #000}
+
+    .credentials-banner{position:relative;width:100%;height:540px;min-height:540px;background:var(--mustard);border-bottom:2px solid #000;overflow:hidden}
+    .credentials-banner .banner-crop{display:block;width:100%;height:100%;object-fit:cover;object-position:center 75%;filter:grayscale(100%) contrast(110%);border:0}
+    .credentials-overlay{position:absolute;left:0;bottom:0;z-index:3;width:75%;max-width:none;background:var(--mustard);color:#000;border:2px solid #000;padding:1.2rem 1.5rem 1.3rem}
+    .credentials-overlay-tag{margin-bottom:.45rem;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;line-height:1.3;text-transform:uppercase;letter-spacing:.15em}
+    .credentials-overlay-title{margin:0;font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(2.2rem,4.8vw,5.2rem);line-height:.92;letter-spacing:-.035em;color:#fff}
+    .credentials-overlay-title em{font-style:italic}
+    #credentials .section-inner{padding-top:0}
+
+    .timeline{border-top:2px solid #000}
+    .cred-subsection{border-bottom:2px solid #000}
+    .cred-sub-label{padding:.8rem 1rem;background:var(--green);color:#fff;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em}
+    .cred-item{display:grid;grid-template-columns:190px minmax(0,1fr);border-top:1px solid #000}
+    .cred-year{background:#000;color:#fff;padding:1rem;font-size:10px;line-height:1.35;text-transform:uppercase;letter-spacing:.06em}
+    .cred-item>div{padding:1rem;background:#fff;min-width:0}
+    .cred-title{font-size:clamp(1.7rem,2.5vw,2.8rem);line-height:1.02;margin-bottom:.35rem}
+    .cred-sub{font-size:14px;line-height:1.5;margin-top:.35rem}
+    .cred-badge{display:inline-block;margin-top:.6rem;border:1px solid #000;background:#fff;padding:.23rem .45rem;font-size:9px;line-height:1.25;letter-spacing:.08em}
+
+    .photo-gallery{margin-top:.8rem}
+    .photo-gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem}
+    .photo-gallery-grid.cols2{grid-template-columns:repeat(2,1fr)}
+    .photo-gallery-grid.cols3{grid-template-columns:repeat(3,1fr)}
+    .photo-item{position:relative;overflow:hidden;border:1px solid #000;aspect-ratio:4/3;cursor:zoom-in;background:#fff}
+    .photo-item img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%) contrast(110%);border:1px solid #000}
+    .certificate-gallery .photo-item img{filter:none}
+
+    .beyond-desk{position:relative;display:block;width:100%;height:345px;min-height:345px;margin-top:1.5rem;background:var(--mustard);border:2px solid #000;overflow:hidden}
+    .beyond-copy{position:absolute;left:0;top:0;z-index:3;width:220px;height:100%;padding:1rem;background:var(--mustard);border-right:2px solid #000;overflow:visible}
+    .beyond-copy h2{position:relative;width:560px;max-width:none;font-size:clamp(2.4rem,4vw,4.4rem);line-height:.88;text-transform:uppercase;letter-spacing:-.025em;overflow:visible;white-space:normal;overflow-wrap:normal;word-break:normal}
+    .beyond-copy p{position:relative;width:210px;margin-top:1rem;font-size:14px;line-height:1.5}
+    .beyond-desk>div:last-child{position:absolute;inset:0;z-index:1;width:100%;height:100%;overflow:hidden}
+    .beyond-desk .portrait-crop{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.18);transform-origin:center center}
+
+    .classified-head{padding:.7rem 1.5rem;border-top:2px solid #000;border-bottom:1px solid #000;background:#fff;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em}
+    .classified{border-top:2px solid #000;display:grid;grid-template-columns:1fr 1fr 1fr}
+    .classified-block{min-height:210px;padding:1rem;border-right:1px solid #000;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none}
+    .classified-block:last-child{border-right:0}
+    .classified-block.email{background:var(--green);color:#fff}
+    .classified-block.whatsapp{background:var(--red);color:#fff}
+    .classified-block.linkedin{background:var(--mustard);color:#000}
+    .classified-small{font-size:10px;letter-spacing:.08em}
+    .classified-big{font-size:clamp(2.4rem,6vw,6rem);line-height:.82;letter-spacing:-.045em;text-transform:uppercase;overflow-wrap:anywhere}
+
+    .page-footer{border-top:2px solid #000;border-bottom:2px solid #000;padding:.6rem 1.5rem;background:#faf9f5;display:flex;justify-content:center;align-items:center;text-align:center;min-height:60px}
+    .page-footer-inner{display:flex;flex-wrap:wrap;gap:1.5rem 2.5rem;justify-content:center;align-items:center;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.04em;font-weight:500;color:#000}
+    .page-footer-inner span{display:inline-flex;align-items:center;gap:.3rem}
+    .page-footer-inner .label{font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.08em;color:#333}
+    .page-footer-inner .value{font-weight:500}
+    footer{width:100%;border-bottom:3px solid #000;background:#fff}
+    .footer-meta{display:flex;justify-content:space-between;gap:1rem;padding:1rem 1.5rem;font-size:9px;letter-spacing:.06em}
+
+    #lightbox{display:none;position:fixed;inset:0;z-index:9999;background:#fff;align-items:center;justify-content:center;flex-direction:column;padding:1.5rem}
+    #lightbox.active{display:flex}
+    #lightbox-img{max-width:94vw;max-height:80vh;object-fit:contain;border:2px solid #000}
+    #lightbox-caption{margin-top:.7rem;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;text-align:center;max-width:850px}
+    #lightbox-close,#lightbox-prev,#lightbox-next{position:fixed;background:#000;color:#fff;border:1px solid #000;font-size:10px;font-weight:700;padding:.6rem;cursor:pointer;text-transform:uppercase;letter-spacing:.06em}
+    #lightbox-close{top:1rem;right:1rem}
+    #lightbox-prev,#lightbox-next{top:50%;transform:translateY(-50%);width:46px;height:46px;font-size:22px}
+    #lightbox-prev{left:1rem}
+    #lightbox-next{right:1rem}
+
+    @media(max-width:1000px){.stack-editorial{grid-template-columns:repeat(2,minmax(0,1fr));}.stack-panel:nth-child(2){border-right:0}.stack-panel:nth-child(3),.stack-panel:nth-child(4){border-top:1px solid #000}.stack-panel-wide{grid-column:1/-1}}
+    @media(max-width:900px){.works-head{grid-template-columns:1fr}.works-head>div{border-right:0}.works-head>div:first-child{border-right:0;border-bottom:2px solid #000}.front-page{grid-template-columns:1fr}.featured-story{grid-column:1}.project-pmi{grid-template-columns:1fr}.cred-item{grid-template-columns:1fr}.cred-year{border-bottom:1px solid #000}.credentials-banner,.credentials-banner .banner-crop{height:500px;min-height:500px}.credentials-overlay{width:75%}.personal-photo-grid{grid-template-columns:1fr}.personal-break-photo{height:320px}.beyond-desk{height:345px;min-height:345px}}
+    @media(max-width:700px){.site-nav{grid-template-columns:auto 1fr auto;padding:.65rem 1rem}.nav-links{display:none}.nav-hamburger{display:block}.nav-brand{font-size:12px}.section-inner{padding:1.25rem 1rem}.project-item{grid-template-columns:2rem 1fr;padding:1rem}.project-title,.featured-story .project-title{font-size:1.9rem}.hero-ticker{grid-template-columns:repeat(2,1fr);gap:.3rem}.hero-ticker-item{padding:.6rem .2rem}.key-stats{grid-template-columns:1fr 1fr}.photo-gallery-grid{grid-template-columns:repeat(2,1fr)}.stack-editorial{grid-template-columns:1fr}.stack-panel,.stack-panel-wide{grid-column:auto;min-height:auto;border-right:0;border-top:0;border-bottom:1px solid #000}.stack-panel:nth-child(2),.stack-panel:nth-child(3),.stack-panel:nth-child(4){border-top:0}.stack-panel-wide{border-bottom:0}.competency-grid{grid-template-columns:1fr;gap:.7rem}.stack-panel-content{padding:1rem}.stack-list{gap:.65rem}.credentials-banner,.credentials-banner .banner-crop{height:460px;min-height:460px}.credentials-overlay{width:100%;padding:.8rem .9rem 1rem}.credentials-overlay-title{font-size:clamp(1.85rem,9vw,3.2rem)}.beyond-desk{height:520px;min-height:520px}.beyond-copy{position:absolute;width:100%;height:auto;border-right:0;border-bottom:2px solid #000;padding:1rem}.beyond-copy h2{width:auto;max-width:9ch}.beyond-copy p{width:auto}.classified{grid-template-columns:1fr}.classified-block{min-height:155px;border-right:0;border-bottom:1px solid #000}.classified-block:last-child{border-bottom:0}.page-footer-inner{flex-direction:column;gap:.5rem}.footer-meta{flex-direction:column}#lightbox-prev,#lightbox-next{display:none}
+      .dual-map-grid { grid-template-columns: 1fr; }
+      .dual-map-item .map-wrap img { height: 280px; }
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-<div aria-labelledby="lightbox-caption" aria-modal="true" id="lightbox" role="dialog">
-<button aria-label="Tutup lightbox" id="lightbox-close" onclick="closeLightbox()">✕ Tutup</button>
-<button aria-label="Gambar sebelumnya" id="lightbox-prev" onclick="lbNav(-1)">‹</button>
-<img alt="" id="lightbox-img" loading="lazy" src=""/>
-<p id="lightbox-caption"></p>
-<button aria-label="Gambar berikutnya" id="lightbox-next" onclick="lbNav(1)">›</button>
+<div id="lightbox" role="dialog" aria-labelledby="lightbox-caption" aria-modal="true">
+  <button id="lightbox-close" onclick="closeLightbox()">✕ Tutup</button>
+  <button id="lightbox-prev" onclick="lbNav(-1)">‹</button>
+  <img id="lightbox-img" alt="" loading="lazy"/>
+  <p id="lightbox-caption"></p>
+  <button id="lightbox-next" onclick="lbNav(1)">›</button>
 </div>
 
-<!-- ===== NAVIGASI ===== -->
 <nav class="site-nav">
   <div class="nav-brand">PORTOFOLIO</div>
   <ul class="nav-links">
@@ -1208,11 +314,10 @@ footer{
     <li><a href="#stack">Instrumen Teknis</a></li>
     <li><a href="#credentials">Kredensial &amp; Pengalaman</a></li>
   </ul>
-  <button aria-label="Buka menu navigasi" class="nav-hamburger" id="nav-ham" onclick="toggleMobileMenu()">
+  <button class="nav-hamburger" id="nav-ham" onclick="toggleMobileMenu()" aria-label="Buka menu navigasi">
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 <div class="mobile-menu" id="mobile-menu">
   <a href="#works" onclick="closeMobileMenu()">Karya Terpilih</a>
   <a href="#stack" onclick="closeMobileMenu()">Instrumen Teknis</a>
@@ -1220,10 +325,9 @@ footer{
 </div>
 
 <main class="page">
-  <!-- ===== HERO ===== -->
   <section class="hero-full" id="hero">
     <div class="hero-bg">
-      <img src="assets/images/diri/IMG_4828.JPG" alt="Nebo" loading="eager" />
+      <img src="assets/images/diri/IMG_4828.JPG" alt="Nebo" loading="eager"/>
       <div class="hero-overlay-dark"></div>
     </div>
     <div class="hero-content">
@@ -1238,566 +342,535 @@ footer{
     </div>
   </section>
 
-  <!-- ===== KARYA ===== -->
-  <section class="section" id="works"><div class="section-inner"><div class="works-head"><div><p class="section-tag">Karya Terpilih</p><h2 class="section-title">Lima Proyek<br/><em>yang Membentuk</em><br/>Cara Saya Bekerja</h2></div><div><p class="section-desc">Dari geomorfologi pesisir, kesesuaian lahan pertanian, kerawanan bencana, aksesibilitas layanan publik, hingga presisi agrikultur berbasis sensor hiperspektral. Kombinasi proyek individu dan kolaboratif yang mencerminkan kemampuan bekerja mandiri maupun dalam tim lintas disiplin.</p><div class="works-legend"><span class="badge-individu">■ Individu</span><span class="badge-kolaboratif">■ Kolaboratif</span></div></div></div><div class="front-page"><div class="front-page-label">KISAH GEOSPASIAL</div><div aria-label="Laporan utama: Tugas Akhir UAV hiperspektral" class="project-item featured-story">
-<span class="project-num">05</span>
-<div><div class="featured-kicker">Tugas Akhir</div>
-<div class="project-meta">
-<h3 class="project-title">Estimasi Produktivitas Padi via Citra UAV Hiperspektral</h3>
-<span class="badge-individu">Individu</span>
-<span class="project-loc">Desa Parakansalak, Kab. Sukabumi · 2024 - 2025</span>
-</div>
-<div class="map-gallery" data-images='[
-      {"src":"assets/map/skripsi/Estimasi_kgm2.png","cap":"Peta Estimasi Produktivitas Padi (kg/m\u00b2)"},
-      {"src":"assets/map/skripsi/Aktual_kgm2.png","cap":"Peta Produktivitas Aktual Lapangan"},
-      {"src":"assets/map/skripsi/GRIDSAMPEL.png","cap":"Grid Sampel 1\u00d71m · 7 Petak Sawah"},
-      {"src":"assets/map/skripsi/Layout ADM 14x14 (tanpa zoom).png","cap":"Peta Administrasi Wilayah Kajian"},
-      {"src":"assets/map/skripsi/Layout NDVI 14x14.png","cap":"Indeks Vegetasi NDVI"},
-      {"src":"assets/map/skripsi/Layout GNDVI 14x14.png","cap":"Indeks Vegetasi GNDVI"},
-      {"src":"assets/map/skripsi/Layout OSAVI 14x14.png","cap":"Indeks Vegetasi OSAVI"},
-      {"src":"assets/map/skripsi/Layout MCARI 14x14.png","cap":"Indeks Klorofil MCARI"},
-      {"src":"assets/map/skripsi/Layout HEIGHT 14x14 (tanpa zoom).png","cap":"Peta Ketinggian Kanopi"},
-      {"src":"assets/map/skripsi/Layout SLOPE 14x14 (tanpa zoom).png","cap":"Peta Kemiringan Lahan"},
-      {"src":"assets/map/skripsi/Layout TL 14x14 (tanpa zoom).png","cap":"Peta Suhu Permukaan"},
-      {"src":"assets/map/skripsi/Layout WP 14x14 (tanpa zoom).png","cap":"Peta Produktivitas Air"}
-    ]'>
-<div class="map-gallery-main" onclick="openGallery(this,0)">
-<img alt="Estimasi Produktivitas Padi" loading="lazy" src="assets/map/skripsi/Estimasi_kgm2.png"/>
-<span class="map-badge">Peta Estimasi Produktivitas</span>
-<span class="zoom-hint">Klik untuk layar penuh</span>
-</div>
-<div class="map-thumbnails">
-<img class="map-thumb active" loading="lazy" onclick="switchMain(this,0)" src="assets/map/skripsi/Estimasi_kgm2.png" title="Estimasi kg/m²"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,1)" src="assets/map/skripsi/Aktual_kgm2.png" title="Aktual"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,2)" src="assets/map/skripsi/GRIDSAMPEL.png" title="Grid Sampel"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,3)" src="assets/map/skripsi/Layout ADM 14x14 (tanpa zoom).png" title="Administrasi"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,4)" src="assets/map/skripsi/Layout NDVI 14x14.png" title="NDVI"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,5)" src="assets/map/skripsi/Layout GNDVI 14x14.png" title="GNDVI"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,6)" src="assets/map/skripsi/Layout OSAVI 14x14.png" title="OSAVI"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,7)" src="assets/map/skripsi/Layout MCARI 14x14.png" title="MCARI"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,8)" src="assets/map/skripsi/Layout HEIGHT 14x14 (tanpa zoom).png" title="Ketinggian Kanopi"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,9)" src="assets/map/skripsi/Layout SLOPE 14x14 (tanpa zoom).png" title="Lereng"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,10)" src="assets/map/skripsi/Layout TL 14x14 (tanpa zoom).png" title="Suhu Permukaan"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,11)" src="assets/map/skripsi/Layout WP 14x14 (tanpa zoom).png" title="Produktivitas Air"/>
-</div>
-<p class="map-caption">
-<span class="map-caption-line">Klik thumbnail untuk berganti</span>
-<span class="map-caption-line">Klik gambar utama untuk layar penuh</span>
-</p>
-</div>
-<div class="key-stats">
-<div><p class="kn">R² = 0,83</p><p class="kl">Akurasi Model ISE-PLS</p></div>
-<div><p class="kn">100 → 8 Band</p><p class="kl">Reduksi Dimensi (64 HST)</p></div>
-<div><p class="kn">90 Sampel</p><p class="kl">Grid 1×1m · 7 Petak</p></div>
-<div><p class="kn">RMSE 0,021</p><p class="kl">Batas Galat</p></div>
-</div>
-<div class="project-pmi">
-<div><p class="pmi-label">Masalah</p><p class="pmi-text">Konsumsi beras nasional diproyeksikan mencapai <strong>31,7 juta ton pada 2045</strong> sementara produksi turun 2,05% menjadi 30,90 juta ton (2023). Metode estimasi konvensional tidak mampu menangkap <strong>variabilitas spasial produktivitas</strong> secara efisien dan presisi.</p></div>
-<div><p class="pmi-label">Metode</p><p class="pmi-text">Metode <strong>ISE-PLS (Iterative Stepwise Elimination   Partial Least Squares)</strong> pada citra UAV BlackBird V2 hiperspektral (100 band). Akuisisi fase pembungaan (64 HST) dan pengisian bulir (73 HST). Band <strong>red-edge (755 760 nm) dan NIR (930 935 nm)</strong> teridentifikasi sebagai band dominan.</p></div>
-<div><p class="pmi-label">Dampak</p><p class="pmi-text">ISE-PLS mereduksi 100 band menjadi <strong>8 band tanpa kehilangan akurasi signifikan (R²=0,8335)</strong>. Estimasi spasial produktivitas 0,391 0,634 kg/m² mencerminkan pengaruh irigasi terasering dan mikrotopografi. Predikat <strong>Sangat Memuaskan · Lulus Juli 2025</strong>.</p></div>
-</div>
-<div class="keyword-strip">
-<span class="kw">UAV Hiperspektral</span><span class="kw">ISE-PLS</span><span class="kw">Indeks Vegetasi</span><span class="kw">Penginderaan Jauh</span><span class="kw">BlackBird V2</span><span class="kw">Produktivitas Padi</span><span class="kw">Red-edge NIR</span><span class="kw">UI 2025</span>
-</div>
-</div>
-</div><div class="project-item">
-<span class="project-num">01</span>
-<div>
-<div class="project-meta">
-<h3 class="project-title">Kesesuaian Lahan Tanaman Nanas di Kabupaten Purwakarta</h3>
-<span class="project-tag">SMCA · Analisis Interseksi</span>
-<span class="badge-individu">Individu</span>
-<span class="project-loc">Kabupaten Purwakarta · 2023</span>
-</div>
-<div class="map-gallery" data-images='[
-      {"src":"assets/map/nanas/kesesuaian.jpg","cap":"Peta Kesesuaian Lahan Tanaman Nanas"},
-      {"src":"assets/map/nanas/adm.jpg","cap":"Peta Administrasi Kabupaten Purwakarta"},
-      {"src":"assets/map/nanas/ketinggian.jpg","cap":"Peta Ketinggian"},
-      {"src":"assets/map/nanas/lereng.jpg","cap":"Peta Kemiringan Lereng"},
-      {"src":"assets/map/nanas/penggunaanlahan.jpg","cap":"Peta Penggunaan Lahan"},
-      {"src":"assets/map/nanas/tekstur tanah.jpg","cap":"Peta Tekstur Tanah"}
-    ]'>
-<div class="map-gallery-main" onclick="openGallery(this,0)">
-<img alt="Peta Kesesuaian Lahan Nanas" loading="lazy" src="assets/map/nanas/kesesuaian.jpg"/>
-<span class="map-badge">Peta Kesesuaian Lahan</span>
-<span class="zoom-hint">Klik untuk layar penuh</span>
-</div>
-<div class="map-thumbnails">
-<img class="map-thumb active" loading="lazy" onclick="switchMain(this,0)" src="assets/map/nanas/kesesuaian.jpg" title="Kesesuaian"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,1)" src="assets/map/nanas/adm.jpg" title="Administrasi"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,2)" src="assets/map/nanas/ketinggian.jpg" title="Ketinggian"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,3)" src="assets/map/nanas/lereng.jpg" title="Lereng"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,4)" src="assets/map/nanas/penggunaanlahan.jpg" title="Penggunaan Lahan"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,5)" src="assets/map/nanas/tekstur tanah.jpg" title="Tekstur Tanah"/>
-</div>
-<p class="map-caption">
-<span class="map-caption-line">Klik thumbnail untuk berganti</span>
-<span class="map-caption-line">Klik gambar utama untuk layar penuh</span>
-</p>
-</div>
-<div class="key-stats">
-<div><p class="kn">5 Kelas</p><p class="kl">Kesesuaian Lahan</p></div>
-<div><p class="kn">34,27%</p><p class="kl">Wilayah Cukup Sesuai (S2s)</p></div>
-<div><p class="kn">45,33%</p><p class="kl">Wilayah Tidak Sesuai (N)</p></div>
-<div><p class="kn">4 Variabel</p><p class="kl">Elevasi · Lereng · Tanah · Lahan</p></div>
-</div>
-<div class="project-pmi">
-<div><p class="pmi-label">Masalah</p><p class="pmi-text">Potensi agrowisata nanas di Kabupaten Purwakarta belum terpetakan secara spasial <strong>perencanaan pengembangan sektor pertanian tidak memiliki basis data lokasi optimal</strong> yang dapat digunakan pemerintah daerah maupun petani.</p></div>
-<div><p class="pmi-label">Metode</p><p class="pmi-text"><strong>Analisis Multikriteria Spasial (SMCA)</strong> dengan Analisis Interseksi pada 4 variabel: elevasi (DEMNAS BIG), lereng, tekstur tanah (FAO-UNESCO), dan penggunaan lahan (RBI BIG). Matriks kesesuaian FAO 1976 menghasilkan <strong>5 kelas</strong> (S1s, S2, S2s, S3e, N). Dikerjakan via ArcGIS Pro 3.1.1.</p></div>
-<div><p class="pmi-label">Dampak</p><p class="pmi-text">Mengidentifikasi <strong>34,27% wilayah cukup sesuai (S2s)</strong> dan memetakan faktor pembatas utama: lereng curam (&gt;20%) dan dominasi tekstur liat. Hanya bagian selatan bertekstur lempung yang potensial. Diterbitkan sebagai makalah ilmiah.</p></div>
-</div>
-<div class="keyword-strip">
-<span class="kw">SMCA</span><span class="kw">Analisis Interseksi</span><span class="kw">Kesesuaian Lahan</span><span class="kw">ArcGIS Pro 3.1</span><span class="kw">FAO 1976</span><span class="kw">Tanaman Nanas</span>
-</div>
-</div>
-</div><div class="project-item">
-<span class="project-num">02</span>
-<div>
-<div class="project-meta">
-<h3 class="project-title">Kajian Geomorfologi Desa Cimanggu, Palabuhanratu</h3>
-<span class="project-tag">Geomorfologi · Pemetaan Lapangan</span>
-<span class="badge-kolaboratif">Kolaboratif</span>
-<span class="project-loc">Desa Cimanggu, Kab. Sukabumi · 2022</span>
-</div>
-<div class="map-gallery" data-images='[
-      {"src":"assets/map/kkl1/petageomorfologi.jpg","cap":"Peta Geomorfologi Desa Cimanggu"},
-      {"src":"assets/map/kkl1/petabedatinggi.jpg","cap":"Peta Beda Tinggi Lereng"},
-      {"src":"assets/map/kkl1/petabentukanasal.jpg","cap":"Peta Bentuk Asal Lahan"},
-      {"src":"assets/map/kkl1/petalereng.jpg","cap":"Peta Kemiringan Lereng"},
-      {"src":"assets/map/kkl1/petalitologi.jpg","cap":"Peta Litologi"},
-      {"src":"assets/map/kkl1/petapolaaliran.jpg","cap":"Peta Pola Aliran Sungai"},
-      {"src":"assets/map/kkl1/petarelief.jpg","cap":"Peta Relief"}
-    ]'>
-<div class="map-gallery-main" onclick="openGallery(this,0)">
-<img alt="Peta Geomorfologi" loading="lazy" src="assets/map/kkl1/petageomorfologi.jpg"/>
-<span class="map-badge">Peta Geomorfologi</span>
-<span class="zoom-hint">Klik untuk layar penuh</span>
-</div>
-<div class="map-thumbnails">
-<img class="map-thumb active" loading="lazy" onclick="switchMain(this,0)" src="assets/map/kkl1/petageomorfologi.jpg" title="Geomorfologi"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,1)" src="assets/map/kkl1/petabedatinggi.jpg" title="Beda Tinggi"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,2)" src="assets/map/kkl1/petabentukanasal.jpg" title="Bentuk Asal"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,3)" src="assets/map/kkl1/petalereng.jpg" title="Lereng"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,4)" src="assets/map/kkl1/petalitologi.jpg" title="Litologi"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,5)" src="assets/map/kkl1/petapolaaliran.jpg" title="Pola Aliran"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,6)" src="assets/map/kkl1/petarelief.jpg" title="Relief"/>
-</div>
-<p class="map-caption">
-<span class="map-caption-line">Klik thumbnail untuk berganti</span>
-<span class="map-caption-line">Klik gambar utama untuk layar penuh</span>
-</p>
-</div>
-<div class="key-stats">
-<div><p class="kn">7 Peta</p><p class="kl">Tematik Geomorfologi</p></div>
-<div><p class="kn">22 Orang</p><p class="kl">Tim (20 Mhs + 2 Dosen)</p></div>
-<div><p class="kn">135+</p><p class="kl">Audiens Presentasi</p></div>
-<div><p class="kn">ISBN + HAKI</p><p class="kl">Publikasi &amp; Peta Terdaftar</p></div>
-</div>
-<div class="project-pmi">
-<div><p class="pmi-label">Masalah</p><p class="pmi-text">Desa Cimanggu, pesisir selatan Sukabumi, memiliki geomorfologi beragam (perbukitan, dataran pesisir, sistem sungai) namun <strong>belum terdokumentasi secara ilmiah dan tervalidasi lapangan</strong> sebagai basis data spasial awal wilayah yang dapat digunakan pemerintah daerah.</p></div>
-<div><p class="pmi-label">Metode</p><p class="pmi-text">Interpretasi bentuk lahan dari <strong>DEM Nasional BIG</strong> (resolusi 5m, IFSAR/TerraSAR-X/ALOS PALSAR) menggunakan ArcGIS Pro 3.0.2. Klasifikasi berdasarkan Zuidam (1983), Dessaunetes (1977), Verstappen (2011). Menghasilkan <strong>7 peta tentatif</strong> yang divalidasi 5 hari di lapangan bersama tim 22 orang.</p></div>
-<div><p class="pmi-label">Dampak</p><p class="pmi-text">Sebagai <strong>Ketua Kelas dan peneliti Kelompok Fokus Geomorfologi</strong> memimpin logistik tim 22 orang dan mempresentasikan temuan kepada <strong>135+ audiens</strong> termasuk 12 dosen dan pejabat daerah. Laporan diterbitkan sebagai <strong>buku ber-ISBN</strong> dan peta resmi terdaftar di <strong>HAKI</strong>.</p></div>
-</div>
-<div class="keyword-strip">
-<span class="kw">DEM Nasional BIG</span><span class="kw">Geomorfologi</span><span class="kw">Zuidam 1983</span><span class="kw">ArcGIS Pro 3.0</span><span class="kw">Validasi Lapangan</span><span class="kw">HAKI</span><span class="kw">ISBN</span>
-</div>
-</div>
-</div><div class="project-item">
-<span class="project-num">03</span>
-<div>
-<div class="project-meta">
-<h3 class="project-title">Kajian Spasial Wilayah Rawan Kekeringan Kecamatan Panggang</h3>
-<span class="project-tag">SMCA · Skoring Sturges</span>
-<span class="badge-individu">Individu</span>
-<span class="project-loc">Kec. Panggang, Kab. Gunungkidul · 2023</span>
-</div>
-<div class="map-gallery" data-images='[
-      {"src":"assets/map/kkl2/rawan.jpg","cap":"Peta Wilayah Rawan Kekeringan Kecamatan Panggang"},
-      {"src":"assets/map/kkl2/adm.jpg","cap":"Peta Administrasi Kecamatan Panggang"},
-      {"src":"assets/map/kkl2/hujan.jpg","cap":"Peta Curah Hujan"},
-      {"src":"assets/map/kkl2/lereng.jpg","cap":"Peta Kemiringan Lereng"},
-      {"src":"assets/map/kkl2/pl.jpg","cap":"Peta Penggunaan Lahan"},
-      {"src":"assets/map/kkl2/tanah.jpg","cap":"Peta Jenis Tanah"}
-    ]'>
-<div class="map-gallery-main" onclick="openGallery(this,0)">
-<img alt="Peta Rawan Kekeringan" loading="lazy" src="assets/map/kkl2/rawan.jpg"/>
-<span class="map-badge">Peta Kerawanan Kekeringan</span>
-<span class="zoom-hint">Klik untuk layar penuh</span>
-</div>
-<div class="map-thumbnails">
-<img class="map-thumb active" loading="lazy" onclick="switchMain(this,0)" src="assets/map/kkl2/rawan.jpg" title="Kerawanan"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,1)" src="assets/map/kkl2/adm.jpg" title="Administrasi"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,2)" src="assets/map/kkl2/hujan.jpg" title="Curah Hujan"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,3)" src="assets/map/kkl2/lereng.jpg" title="Lereng"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,4)" src="assets/map/kkl2/pl.jpg" title="Penggunaan Lahan"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,5)" src="assets/map/kkl2/tanah.jpg" title="Jenis Tanah"/>
-</div>
-<p class="map-caption">
-<span class="map-caption-line">Klik thumbnail untuk berganti</span>
-<span class="map-caption-line">Klik gambar utama untuk layar penuh</span>
-</p>
-</div>
-<div class="key-stats">
-<div><p class="kn">65,39%</p><p class="kl">Wilayah Tingkat Tinggi</p></div>
-<div><p class="kn">5 Kelas</p><p class="kl">Kerawanan via Sturges</p></div>
-<div><p class="kn">30 Titik</p><p class="kl">Validasi Lapangan · 3 Hari</p></div>
-<div><p class="kn">99,80 km²</p><p class="kl">Luas Area · 6 Desa</p></div>
-</div>
-<div class="project-pmi">
-<div><p class="pmi-label">Masalah</p><p class="pmi-text">Kecamatan Panggang di pesisir selatan Gunungkidul menghadapi kekeringan meteorologis kronis, namun <strong>belum memiliki peta kerawanan berbasis spasial yang tervalidasi</strong> sebagai landasan kebijakan mitigasi dan referensi BPBD setempat.</p></div>
-<div><p class="pmi-label">Metode</p><p class="pmi-text">SMCA dengan <strong>Analisis Interseksi dan Skoring Sturges</strong> pada 4 variabel: curah hujan (BMKG 2022), lereng (DEMNAS BIG), jenis tanah (FAO-UNESCO), penggunaan lahan (RBI BIG). Formula <em>TKK = CH + PL + KT + JT</em>. Skor 140 205, interval kelas 13. Validasi <strong>30 titik lapangan selama 3 hari</strong>.</p></div>
-<div><p class="pmi-label">Dampak</p><p class="pmi-text"><strong>65,39% wilayah berkelas Tinggi</strong> terkonsentrasi di Girimulyo, Girisekar, Giriwungu, dan Girisuko dipicu curah hujan rendah (1.000 1.500 mm/tahun), dominasi tanah litosol, dan lereng curam. Makalah ilmiah dan peta siap sebagai referensi kebijakan mitigasi bencana.</p></div>
-</div>
-<div class="keyword-strip">
-<span class="kw">SMCA</span><span class="kw">Skoring Sturges</span><span class="kw">Kekeringan Meteorologis</span><span class="kw">Analisis Interseksi</span><span class="kw">DEMNAS BIG</span><span class="kw">Gunungkidul</span>
-</div>
-</div>
-</div><div class="project-item">
-<span class="project-num">04</span>
-<div>
-<div class="project-meta">
-<h3 class="project-title">Pemetaan Aksesibilitas Layanan Kesehatan Kota Depok</h3>
-<span class="project-tag">Pemetaan Komunitas · Hibah Penelitian</span>
-<span class="badge-kolaboratif">Kolaboratif</span>
-<span class="project-loc">Kota Depok, Jawa Barat · 2024</span>
-</div>
-<div class="map-gallery" data-images='[
-      {"src":"assets/map/pempar/Peta_Posyandu.png","cap":"Peta Aksesibilitas dan Jangkauan Posyandu Kota Depok"},
-      {"src":"assets/map/pempar/Peta_Ambulance.png","cap":"Peta Aksesibilitas dan Jangkauan Ambulans Kota Depok"}
-    ]'>
-<div class="map-gallery-main" onclick="openGallery(this,0)">
-<img alt="Peta Posyandu" loading="lazy" src="assets/map/pempar/Peta_Posyandu.png"/>
-<span class="map-badge">Peta Jangkauan Posyandu</span>
-<span class="zoom-hint">Klik untuk layar penuh</span>
-</div>
-<div class="map-thumbnails">
-<img class="map-thumb active" loading="lazy" onclick="switchMain(this,0)" src="assets/map/pempar/Peta_Posyandu.png" title="Posyandu"/>
-<img class="map-thumb" loading="lazy" onclick="switchMain(this,1)" src="assets/map/pempar/Peta_Ambulance.png" title="Ambulans"/>
-</div>
-<p class="map-caption">
-<span class="map-caption-line">Klik thumbnail untuk berganti</span>
-<span class="map-caption-line">Klik gambar utama untuk layar penuh</span>
-</p>
-</div>
-<div class="key-stats">
-<div><p class="kn">33</p><p class="kl">Posyandu Dipetakan</p></div>
-<div><p class="kn">58</p><p class="kl">Penyedia Layanan Ambulans</p></div>
-<div><p class="kn">Rp28 jt</p><p class="kl">Hibah DPPM UI + FMIPA UI</p></div>
-<div><p class="kn">9 Kelompok</p><p class="kl">Tim Survei Lapangan</p></div>
-</div>
-<div class="project-pmi">
-<div><p class="pmi-label">Masalah</p><p class="pmi-text">Kesenjangan cakupan ambulans dan Posyandu di Kota Depok <strong>belum terpetakan secara spasial</strong> tanpa data jangkauan berbasis lokasi, distribusi sumber daya kesehatan kota tidak memiliki pijakan geografis yang kuat untuk pengambilan kebijakan.</p></div>
-<div><p class="pmi-label">Metode</p><p class="pmi-text">Koordinasi <strong>9 kelompok survei lapangan</strong> untuk memetakan 33 Posyandu dan 58 penyedia ambulans. Pemodelan jangkauan dan aksesibilitas spasial, pelatihan geospasial untuk <strong>81 peserta</strong>, dan FGD bersama Dinas Kesehatan Kota Depok sebagai validasi kebijakan. Hasil disajikan melalui StoryMaps.</p></div>
-<div><p class="pmi-label">Dampak</p><p class="pmi-text">Mengamankan hibah <strong>Rp28.000.000</strong> dari dua institusi (DPPM UI: Rp20 juta, FMIPA UI: Rp8 juta). Peta distribusi menjadi <strong>basis rekomendasi kebijakan</strong> redistribusi Posyandu dan ambulans kepada Dinas Kesehatan Kota Depok. Dipublikasikan melalui StoryMaps.</p></div>
-</div>
-<div>
-<p>Lihat Hasil Peta Interaktif ↗</p>
-<div class="storymaps-strip">
-<a class="storymaps-btn" href="https://arcg.is/1vKT9e2" target="_blank">Peta Interaktif Posyandu</a>
-<a class="storymaps-btn" href="https://arcg.is/Tv9TX0" target="_blank">Peta Interaktif Ambulans</a>
-</div>
-</div>
-<div class="keyword-strip">
-<span class="kw">Pemetaan Komunitas</span><span class="kw">Aksesibilitas Spasial</span><span class="kw">Pemodelan Jangkauan</span><span class="kw">StoryMaps</span><span class="kw">FGD Kebijakan</span><span class="kw">Hibah DPPM UI</span>
-</div>
-</div>
-</div></div></div></section>
+  <section class="section" id="works"><div class="section-inner"><div class="works-head"><div><p class="section-tag">Karya Terpilih</p><h2 class="section-title">Lima Proyek<br/><em>yang Membentuk</em><br/>Cara Saya Bekerja</h2></div><div><p class="section-desc">Dari geomorfologi pesisir, kesesuaian lahan pertanian, kerawanan bencana, aksesibilitas layanan publik, hingga presisi agrikultur berbasis sensor hiperspektral. Kombinasi proyek individu dan kolaboratif yang mencerminkan kemampuan bekerja mandiri maupun dalam tim lintas disiplin.</p><div class="works-legend"><span class="badge-individu">■ Individu</span><span class="badge-kolaboratif">■ Kolaboratif</span></div></div></div><div class="front-page"><div class="front-page-label">KISAH GEOSPASIAL</div>
 
-  <!-- ===== PERSONAL PHOTO BREAK ===== -->
-  <section aria-label="Arsip visual pribadi" class="personal-photo-break">
+<div class="project-item featured-story">
+  <span class="project-num">05</span>
+  <div>
+    <div class="project-meta">
+      <h3 class="project-title">Estimasi Produktivitas Padi via Citra UAV Hiperspektral</h3>
+      <span class="badge-individu">Individu</span>
+      <span class="project-loc">Desa Parakansalak, Kabupaten Sukabumi · 2024 - 2025</span>
+    </div>
+    <div class="map-gallery" data-images='[{"src":"assets/map/skripsi/Estimasi_kgm2.png","cap":"Peta Estimasi Produktivitas Padi (kg/m\u00b2)"},{"src":"assets/map/skripsi/Aktual_kgm2.png","cap":"Peta Produktivitas Aktual Lapangan"},{"src":"assets/map/skripsi/GRIDSAMPEL.png","cap":"Grid Sampel 1\u00d71m · 7 Petak Sawah"},{"src":"assets/map/skripsi/Layout ADM 14x14 (tanpa zoom).png","cap":"Peta Administrasi Wilayah Kajian"},{"src":"assets/map/skripsi/Layout NDVI 14x14.png","cap":"Indeks Vegetasi NDVI"},{"src":"assets/map/skripsi/Layout GNDVI 14x14.png","cap":"Indeks Vegetasi GNDVI"},{"src":"assets/map/skripsi/Layout OSAVI 14x14.png","cap":"Indeks Vegetasi OSAVI"},{"src":"assets/map/skripsi/Layout MCARI 14x14.png","cap":"Indeks Klorofil MCARI"},{"src":"assets/map/skripsi/Layout HEIGHT 14x14 (tanpa zoom).png","cap":"Peta Ketinggian Kanopi"},{"src":"assets/map/skripsi/Layout SLOPE 14x14 (tanpa zoom).png","cap":"Peta Kemiringan Lahan"},{"src":"assets/map/skripsi/Layout TL 14x14 (tanpa zoom).png","cap":"Peta Suhu Permukaan"},{"src":"assets/map/skripsi/Layout WP 14x14 (tanpa zoom).png","cap":"Peta Produktivitas Air"}]'>
+      <div class="map-gallery-main" onclick="openGallery(this,0)">
+        <img src="assets/map/skripsi/Estimasi_kgm2.png" alt="Estimasi Produktivitas Padi" loading="lazy"/>
+        <span class="map-badge">Peta Estimasi Produktivitas</span>
+        <span class="zoom-hint">Klik untuk layar penuh</span>
+      </div>
+      <div class="map-thumbnails">
+        <img class="map-thumb active" src="assets/map/skripsi/Estimasi_kgm2.png" onclick="switchMain(this,0)" title="Estimasi kg/m²" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/skripsi/Aktual_kgm2.png" onclick="switchMain(this,1)" title="Aktual" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/skripsi/GRIDSAMPEL.png" onclick="switchMain(this,2)" title="Grid Sampel" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/skripsi/Layout ADM 14x14 (tanpa zoom).png" onclick="switchMain(this,3)" title="Administrasi" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/skripsi/Layout NDVI 14x14.png" onclick="switchMain(this,4)" title="NDVI" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/skripsi/Layout GNDVI 14x14.png" onclick="switchMain(this,5)" title="GNDVI" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/skripsi/Layout OSAVI 14x14.png" onclick="switchMain(this,6)" title="OSAVI" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/skripsi/Layout MCARI 14x14.png" onclick="switchMain(this,7)" title="MCARI" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/skripsi/Layout HEIGHT 14x14 (tanpa zoom).png" onclick="switchMain(this,8)" title="Ketinggian Kanopi" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/skripsi/Layout SLOPE 14x14 (tanpa zoom).png" onclick="switchMain(this,9)" title="Lereng" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/skripsi/Layout TL 14x14 (tanpa zoom).png" onclick="switchMain(this,10)" title="Suhu Permukaan" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/skripsi/Layout WP 14x14 (tanpa zoom).png" onclick="switchMain(this,11)" title="Produktivitas Air" loading="lazy"/>
+      </div>
+      <p class="map-caption"><span class="map-caption-line">Klik thumbnail untuk berganti</span><span class="map-caption-line">Klik gambar utama untuk layar penuh</span></p>
+    </div>
+    <div class="key-stats">
+      <div><p class="kn">R² = 0,83</p><p class="kl">Akurasi Model ISE-PLS</p></div>
+      <div><p class="kn">100 → 8 Band</p><p class="kl">Reduksi Dimensi (64 HST)</p></div>
+      <div><p class="kn">90 Sampel</p><p class="kl">Grid 1×1m · 7 Petak</p></div>
+      <div><p class="kn">RMSE 0,021</p><p class="kl">Batas Galat</p></div>
+    </div>
+    <div class="project-pmi">
+      <div><p class="pmi-label">Masalah</p><p class="pmi-text">Konsumsi beras nasional diproyeksikan mencapai <strong>31,7 juta ton pada 2045</strong> sementara produksi turun 2,05% menjadi 30,90 juta ton (2023). Metode estimasi konvensional tidak mampu menangkap <strong>variabilitas spasial produktivitas</strong> secara efisien dan presisi.</p></div>
+      <div><p class="pmi-label">Metode</p><p class="pmi-text">Metode <strong>ISE-PLS (Iterative Stepwise Elimination   Partial Least Squares)</strong> pada citra UAV BlackBird V2 hiperspektral (100 band). Akuisisi fase pembungaan (64 HST) dan pengisian bulir (73 HST). Band <strong>red-edge (755 760 nm) dan NIR (930 935 nm)</strong> teridentifikasi sebagai band dominan.</p></div>
+      <div><p class="pmi-label">Dampak</p><p class="pmi-text">ISE-PLS mereduksi 100 band menjadi <strong>8 band tanpa kehilangan akurasi signifikan (R²=0,8335)</strong>. Estimasi spasial produktivitas 0,391 0,634 kg/m² mencerminkan pengaruh irigasi terasering dan mikrotopografi. Predikat <strong>Sangat Memuaskan · Lulus Juli 2025</strong>.</p></div>
+    </div>
+    <div class="keyword-strip">
+      <span class="kw">UAV Hiperspektral</span><span class="kw">ISE-PLS</span><span class="kw">Indeks Vegetasi</span><span class="kw">Penginderaan Jauh</span><span class="kw">BlackBird V2</span><span class="kw">Produktivitas Padi</span><span class="kw">Red-edge NIR</span><span class="kw">UI 2025</span>
+    </div>
+  </div>
+</div>
+
+<div class="project-item">
+  <span class="project-num">01</span>
+  <div>
+    <div class="project-meta">
+      <h3 class="project-title">Kesesuaian Lahan Tanaman Nanas di Kabupaten Purwakarta</h3>
+      <span class="project-tag">SMCA · Analisis Interseksi</span>
+      <span class="badge-individu">Individu</span>
+      <span class="project-loc">Kabupaten Purwakarta · 2023</span>
+    </div>
+    <div class="map-gallery" data-images='[{"src":"assets/map/nanas/kesesuaian.jpg","cap":"Peta Kesesuaian Lahan Tanaman Nanas"},{"src":"assets/map/nanas/adm.jpg","cap":"Peta Administrasi Kabupaten Purwakarta"},{"src":"assets/map/nanas/ketinggian.jpg","cap":"Peta Ketinggian"},{"src":"assets/map/nanas/lereng.jpg","cap":"Peta Kemiringan Lereng"},{"src":"assets/map/nanas/penggunaanlahan.jpg","cap":"Peta Penggunaan Lahan"},{"src":"assets/map/nanas/tekstur tanah.jpg","cap":"Peta Tekstur Tanah"}]'>
+      <div class="map-gallery-main" onclick="openGallery(this,0)">
+        <img src="assets/map/nanas/kesesuaian.jpg" alt="Peta Kesesuaian Lahan Nanas" loading="lazy"/>
+        <span class="map-badge">Peta Kesesuaian Lahan</span>
+        <span class="zoom-hint">Klik untuk layar penuh</span>
+      </div>
+      <div class="map-thumbnails">
+        <img class="map-thumb active" src="assets/map/nanas/kesesuaian.jpg" onclick="switchMain(this,0)" title="Kesesuaian" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/nanas/adm.jpg" onclick="switchMain(this,1)" title="Administrasi" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/nanas/ketinggian.jpg" onclick="switchMain(this,2)" title="Ketinggian" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/nanas/lereng.jpg" onclick="switchMain(this,3)" title="Lereng" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/nanas/penggunaanlahan.jpg" onclick="switchMain(this,4)" title="Penggunaan Lahan" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/nanas/tekstur tanah.jpg" onclick="switchMain(this,5)" title="Tekstur Tanah" loading="lazy"/>
+      </div>
+      <p class="map-caption"><span class="map-caption-line">Klik thumbnail untuk berganti</span><span class="map-caption-line">Klik gambar utama untuk layar penuh</span></p>
+    </div>
+    <div class="key-stats">
+      <div><p class="kn">5 Kelas</p><p class="kl">Kesesuaian Lahan</p></div>
+      <div><p class="kn">34,27%</p><p class="kl">Wilayah Cukup Sesuai (S2s)</p></div>
+      <div><p class="kn">45,33%</p><p class="kl">Wilayah Tidak Sesuai (N)</p></div>
+      <div><p class="kn">4 Variabel</p><p class="kl">Elevasi · Lereng · Tanah · Lahan</p></div>
+    </div>
+    <div class="project-pmi">
+      <div><p class="pmi-label">Masalah</p><p class="pmi-text">Potensi agrowisata nanas di Kabupaten Purwakarta belum terpetakan secara spasial <strong>perencanaan pengembangan sektor pertanian tidak memiliki basis data lokasi optimal</strong> yang dapat digunakan pemerintah daerah maupun petani.</p></div>
+      <div><p class="pmi-label">Metode</p><p class="pmi-text"><strong>Analisis Multikriteria Spasial (SMCA)</strong> dengan Analisis Interseksi pada 4 variabel: elevasi (DEMNAS BIG), lereng, tekstur tanah (FAO-UNESCO), dan penggunaan lahan (RBI BIG). Matriks kesesuaian FAO 1976 menghasilkan <strong>5 kelas</strong> (S1s, S2, S2s, S3e, N). Dikerjakan via ArcGIS Pro 3.1.1.</p></div>
+      <div><p class="pmi-label">Dampak</p><p class="pmi-text">Mengidentifikasi <strong>34,27% wilayah cukup sesuai (S2s)</strong> dan memetakan faktor pembatas utama: lereng curam (&gt;20%) dan dominasi tekstur liat. Hanya bagian selatan bertekstur lempung yang potensial. Diterbitkan sebagai makalah ilmiah.</p></div>
+    </div>
+    <div class="keyword-strip">
+      <span class="kw">SMCA</span><span class="kw">Analisis Interseksi</span><span class="kw">Kesesuaian Lahan</span><span class="kw">ArcGIS Pro 3.1</span><span class="kw">FAO 1976</span><span class="kw">Tanaman Nanas</span>
+    </div>
+  </div>
+</div>
+
+<div class="project-item">
+  <span class="project-num">02</span>
+  <div>
+    <div class="project-meta">
+      <h3 class="project-title">Kajian Geomorfologi Desa Cimanggu, Palabuhanratu</h3>
+      <span class="project-tag">Geomorfologi · Pemetaan Lapangan</span>
+      <span class="badge-kolaboratif">Kolaboratif</span>
+      <span class="project-loc">Desa Cimanggu, Kab. Sukabumi · 2022</span>
+    </div>
+    <div class="map-gallery" data-images='[{"src":"assets/map/kkl1/petageomorfologi.jpg","cap":"Peta Geomorfologi Desa Cimanggu"},{"src":"assets/map/kkl1/petabedatinggi.jpg","cap":"Peta Beda Tinggi Lereng"},{"src":"assets/map/kkl1/petabentukanasal.jpg","cap":"Peta Bentuk Asal Lahan"},{"src":"assets/map/kkl1/petalereng.jpg","cap":"Peta Kemiringan Lereng"},{"src":"assets/map/kkl1/petalitologi.jpg","cap":"Peta Litologi"},{"src":"assets/map/kkl1/petapolaaliran.jpg","cap":"Peta Pola Aliran Sungai"},{"src":"assets/map/kkl1/petarelief.jpg","cap":"Peta Relief"}]'>
+      <div class="map-gallery-main" onclick="openGallery(this,0)">
+        <img src="assets/map/kkl1/petageomorfologi.jpg" alt="Peta Geomorfologi" loading="lazy"/>
+        <span class="map-badge">Peta Geomorfologi</span>
+        <span class="zoom-hint">Klik untuk layar penuh</span>
+      </div>
+      <div class="map-thumbnails">
+        <img class="map-thumb active" src="assets/map/kkl1/petageomorfologi.jpg" onclick="switchMain(this,0)" title="Geomorfologi" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/kkl1/petabedatinggi.jpg" onclick="switchMain(this,1)" title="Beda Tinggi" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/kkl1/petabentukanasal.jpg" onclick="switchMain(this,2)" title="Bentuk Asal" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/kkl1/petalereng.jpg" onclick="switchMain(this,3)" title="Lereng" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/kkl1/petalitologi.jpg" onclick="switchMain(this,4)" title="Litologi" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/kkl1/petapolaaliran.jpg" onclick="switchMain(this,5)" title="Pola Aliran" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/kkl1/petarelief.jpg" onclick="switchMain(this,6)" title="Relief" loading="lazy"/>
+      </div>
+      <p class="map-caption"><span class="map-caption-line">Klik thumbnail untuk berganti</span><span class="map-caption-line">Klik gambar utama untuk layar penuh</span></p>
+    </div>
+    <div class="key-stats">
+      <div><p class="kn">7 Peta</p><p class="kl">Tematik Geomorfologi</p></div>
+      <div><p class="kn">22 Orang</p><p class="kl">Tim (20 Mhs + 2 Dosen)</p></div>
+      <div><p class="kn">135+</p><p class="kl">Audiens Presentasi</p></div>
+      <div><p class="kn">ISBN + HAKI</p><p class="kl">Publikasi &amp; Peta Terdaftar</p></div>
+    </div>
+    <div class="project-pmi">
+      <div><p class="pmi-label">Masalah</p><p class="pmi-text">Desa Cimanggu, pesisir selatan Sukabumi, memiliki geomorfologi beragam (perbukitan, dataran pesisir, sistem sungai) namun <strong>belum terdokumentasi secara ilmiah dan tervalidasi lapangan</strong> sebagai basis data spasial awal wilayah yang dapat digunakan pemerintah daerah.</p></div>
+      <div><p class="pmi-label">Metode</p><p class="pmi-text">Interpretasi bentuk lahan dari <strong>DEM Nasional BIG</strong> (resolusi 5m, IFSAR/TerraSAR-X/ALOS PALSAR) menggunakan ArcGIS Pro 3.0.2. Klasifikasi berdasarkan Zuidam (1983), Dessaunetes (1977), Verstappen (2011). Menghasilkan <strong>7 peta tentatif</strong> yang divalidasi 5 hari di lapangan bersama tim 22 orang.</p></div>
+      <div><p class="pmi-label">Dampak</p><p class="pmi-text">Sebagai <strong>Ketua Kelas dan peneliti Kelompok Fokus Geomorfologi</strong> memimpin logistik tim 22 orang dan mempresentasikan temuan kepada <strong>135+ audiens</strong> termasuk 12 dosen dan pejabat daerah. Laporan diterbitkan sebagai <strong>buku ber-ISBN</strong> dan peta resmi terdaftar di <strong>HAKI</strong>.</p></div>
+    </div>
+    <div class="keyword-strip">
+      <span class="kw">DEM Nasional BIG</span><span class="kw">Geomorfologi</span><span class="kw">Zuidam 1983</span><span class="kw">ArcGIS Pro 3.0</span><span class="kw">Validasi Lapangan</span><span class="kw">HAKI</span><span class="kw">ISBN</span>
+    </div>
+  </div>
+</div>
+
+<div class="project-item">
+  <span class="project-num">03</span>
+  <div>
+    <div class="project-meta">
+      <h3 class="project-title">Kajian Spasial Wilayah Rawan Kekeringan Kecamatan Panggang</h3>
+      <span class="project-tag">SMCA · Skoring Sturges</span>
+      <span class="badge-individu">Individu</span>
+      <span class="project-loc">Kec. Panggang, Kab. Gunungkidul · 2023</span>
+    </div>
+    <div class="map-gallery" data-images='[{"src":"assets/map/kkl2/rawan.jpg","cap":"Peta Wilayah Rawan Kekeringan Kecamatan Panggang"},{"src":"assets/map/kkl2/adm.jpg","cap":"Peta Administrasi Kecamatan Panggang"},{"src":"assets/map/kkl2/hujan.jpg","cap":"Peta Curah Hujan"},{"src":"assets/map/kkl2/lereng.jpg","cap":"Peta Kemiringan Lereng"},{"src":"assets/map/kkl2/pl.jpg","cap":"Peta Penggunaan Lahan"},{"src":"assets/map/kkl2/tanah.jpg","cap":"Peta Jenis Tanah"}]'>
+      <div class="map-gallery-main" onclick="openGallery(this,0)">
+        <img src="assets/map/kkl2/rawan.jpg" alt="Peta Rawan Kekeringan" loading="lazy"/>
+        <span class="map-badge">Peta Kerawanan Kekeringan</span>
+        <span class="zoom-hint">Klik untuk layar penuh</span>
+      </div>
+      <div class="map-thumbnails">
+        <img class="map-thumb active" src="assets/map/kkl2/rawan.jpg" onclick="switchMain(this,0)" title="Kerawanan" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/kkl2/adm.jpg" onclick="switchMain(this,1)" title="Administrasi" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/kkl2/hujan.jpg" onclick="switchMain(this,2)" title="Curah Hujan" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/kkl2/lereng.jpg" onclick="switchMain(this,3)" title="Lereng" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/kkl2/pl.jpg" onclick="switchMain(this,4)" title="Penggunaan Lahan" loading="lazy"/>
+        <img class="map-thumb" src="assets/map/kkl2/tanah.jpg" onclick="switchMain(this,5)" title="Jenis Tanah" loading="lazy"/>
+      </div>
+      <p class="map-caption"><span class="map-caption-line">Klik thumbnail untuk berganti</span><span class="map-caption-line">Klik gambar utama untuk layar penuh</span></p>
+    </div>
+    <div class="key-stats">
+      <div><p class="kn">65,39%</p><p class="kl">Wilayah Tingkat Tinggi</p></div>
+      <div><p class="kn">5 Kelas</p><p class="kl">Kerawanan via Sturges</p></div>
+      <div><p class="kn">30 Titik</p><p class="kl">Validasi Lapangan · 3 Hari</p></div>
+      <div><p class="kn">99,80 km²</p><p class="kl">Luas Area · 6 Desa</p></div>
+    </div>
+    <div class="project-pmi">
+      <div><p class="pmi-label">Masalah</p><p class="pmi-text">Kecamatan Panggang di pesisir selatan Gunungkidul menghadapi kekeringan meteorologis kronis, namun <strong>belum memiliki peta kerawanan berbasis spasial yang tervalidasi</strong> sebagai landasan kebijakan mitigasi dan referensi BPBD setempat.</p></div>
+      <div><p class="pmi-label">Metode</p><p class="pmi-text">SMCA dengan <strong>Analisis Interseksi dan Skoring Sturges</strong> pada 4 variabel: curah hujan (BMKG 2022), lereng (DEMNAS BIG), jenis tanah (FAO-UNESCO), penggunaan lahan (RBI BIG). Formula <em>TKK = CH + PL + KT + JT</em>. Skor 140 205, interval kelas 13. Validasi <strong>30 titik lapangan selama 3 hari</strong>.</p></div>
+      <div><p class="pmi-label">Dampak</p><p class="pmi-text"><strong>65,39% wilayah berkelas Tinggi</strong> terkonsentrasi di Girimulyo, Girisekar, Giriwungu, dan Girisuko dipicu curah hujan rendah (1.000 1.500 mm/tahun), dominasi tanah litosol, dan lereng curam. Makalah ilmiah dan peta siap sebagai referensi kebijakan mitigasi bencana.</p></div>
+    </div>
+    <div class="keyword-strip">
+      <span class="kw">SMCA</span><span class="kw">Skoring Sturges</span><span class="kw">Kekeringan Meteorologis</span><span class="kw">Analisis Interseksi</span><span class="kw">DEMNAS BIG</span><span class="kw">Gunungkidul</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROYEK NOMOR 4 (DIPERBAIKI) ===== -->
+<div class="project-item">
+  <span class="project-num">04</span>
+  <div>
+    <div class="project-meta">
+      <h3 class="project-title">Pemetaan Aksesibilitas Layanan Kesehatan Kota Depok</h3>
+      <span class="project-tag">Pemetaan Komunitas · Hibah Penelitian</span>
+      <span class="badge-kolaboratif">Kolaboratif</span>
+      <span class="project-loc">Kota Depok, Jawa Barat · 2024</span>
+    </div>
+
+    <!-- DUAL MAP: Posyandu (kiri) & Ambulans (kanan) -->
+    <div class="dual-map-grid">
+      <!-- Posyandu -->
+      <div class="dual-map-item">
+        <div class="map-wrap" onclick="openLightbox([{'src':'assets/map/pempar/Peta_Posyandu.png','cap':'Peta Aksesibilitas dan Jangkauan Posyandu Kota Depok'}], 0)">
+          <img src="assets/map/pempar/Peta_Posyandu.png" alt="Peta Posyandu" loading="lazy"/>
+          <span class="map-badge">POSYANDU</span>
+          <span class="zoom-hint">KLIK LAYAR PENUH</span>
+        </div>
+        <div class="dual-map-footer">
+          <a href="https://arcg.is/1vKT9e2" target="_blank" class="dual-map-btn">BUKA INTERAKTIF →</a>
+        </div>
+      </div>
+
+      <!-- Ambulans -->
+      <div class="dual-map-item">
+        <div class="map-wrap" onclick="openLightbox([{'src':'assets/map/pempar/Peta_Ambulance.png','cap':'Peta Aksesibilitas dan Jangkauan Ambulans Kota Depok'}], 0)">
+          <img src="assets/map/pempar/Peta_Ambulance.png" alt="Peta Ambulans" loading="lazy"/>
+          <span class="map-badge">AMBULANS</span>
+          <span class="zoom-hint">KLIK LAYAR PENUH</span>
+        </div>
+        <div class="dual-map-footer">
+          <a href="https://arcg.is/Tv9TX0" target="_blank" class="dual-map-btn">BUKA INTERAKTIF →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAPTION DITAMBAHKAN DI SINI (di atas key-stats) -->
+    <p class="map-caption"><span class="map-caption-line">Klik thumbnail untuk berganti</span><span class="map-caption-line">Klik gambar utama untuk layar penuh</span></p>
+
+    <div class="key-stats">
+      <div><p class="kn">33</p><p class="kl">Posyandu Dipetakan</p></div>
+      <div><p class="kn">58</p><p class="kl">Penyedia Layanan Ambulans</p></div>
+      <div><p class="kn">Rp28 jt</p><p class="kl">Hibah DPPM UI + FMIPA UI</p></div>
+      <div><p class="kn">9 Kelompok</p><p class="kl">Tim Survei Lapangan</p></div>
+    </div>
+    <div class="project-pmi">
+      <div><p class="pmi-label">Masalah</p><p class="pmi-text">Kesenjangan cakupan ambulans dan Posyandu di Kota Depok <strong>belum terpetakan secara spasial</strong> tanpa data jangkauan berbasis lokasi, distribusi sumber daya kesehatan kota tidak memiliki pijakan geografis yang kuat untuk pengambilan kebijakan.</p></div>
+      <div><p class="pmi-label">Metode</p><p class="pmi-text">Koordinasi <strong>9 kelompok survei lapangan</strong> untuk memetakan 33 Posyandu dan 58 penyedia ambulans. Pemodelan jangkauan dan aksesibilitas spasial, pelatihan geospasial untuk <strong>81 peserta</strong>, dan FGD bersama Dinas Kesehatan Kota Depok sebagai validasi kebijakan. Hasil disajikan melalui StoryMaps.</p></div>
+      <div><p class="pmi-label">Dampak</p><p class="pmi-text">Mengamankan hibah <strong>Rp28.000.000</strong> dari dua institusi (DPPM UI: Rp20 juta, FMIPA UI: Rp8 juta). Peta distribusi menjadi <strong>basis rekomendasi kebijakan</strong> redistribusi Posyandu dan ambulans kepada Dinas Kesehatan Kota Depok. Dipublikasikan melalui StoryMaps.</p></div>
+    </div>
+    <div class="keyword-strip">
+      <span class="kw">Pemetaan Komunitas</span><span class="kw">Aksesibilitas Spasial</span><span class="kw">Pemodelan Jangkauan</span><span class="kw">StoryMaps</span><span class="kw">FGD Kebijakan</span><span class="kw">Hibah DPPM UI</span>
+    </div>
+  </div>
+</div>
+
+</div></div></section>
+
+  <section class="personal-photo-break">
     <div class="personal-photo-grid">
-      <img class="personal-break-photo" loading="lazy" src="assets/images/diri/LINE_ALBUM_HG 4 KL B_230703_7.jpg" alt="Dokumentasi 1"/>
-      <img class="personal-break-photo" loading="lazy" src="assets/images/diri/LINE_ALBUM_T3_240518_9.jpg" alt="Dokumentasi 2"/>
-      <img class="personal-break-photo" loading="lazy" src="assets/images/diri/LINE_ALBUM_HG 4 KL B_230703_17.jpg" alt="Dokumentasi 3"/>
+      <img class="personal-break-photo" src="assets/images/diri/LINE_ALBUM_HG 4 KL B_230703_7.jpg" alt="Dokumentasi 1" loading="lazy"/>
+      <img class="personal-break-photo" src="assets/images/diri/LINE_ALBUM_T3_240518_9.jpg" alt="Dokumentasi 2" loading="lazy"/>
+      <img class="personal-break-photo" src="assets/images/diri/LINE_ALBUM_HG 4 KL B_230703_17.jpg" alt="Dokumentasi 3" loading="lazy"/>
     </div>
   </section>
 
-  <!-- ===== STACK ===== -->
-  <section class="section" id="stack"><div class="section-inner"><p class="section-tag">Instrumen Teknis</p><h2 class="section-title">Alat &amp; Kerangka Kerja<br/><em>yang Saya Gunakan</em></h2><div class="stack-editorial"><section class="stack-panel"><div class="stack-panel-rail">Instrumen Geospasial</div><div class="stack-panel-content"><ul class="stack-list"><li>ArcGIS Pro</li><li>ArcMap</li><li>QGIS</li><li>StoryMaps</li><li>Survey123</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Analisis Spasial</div><div class="stack-panel-content"><ul class="stack-list"><li>Analisis Multikriteria Spasial (SMCA)</li><li>Analytic Hierarchy Process (AHP)</li><li>Analisis Interseksi &amp; Tumpangsusun</li><li>Pemodelan Spasial &amp; Geostatistik</li><li>Inspeksi Visual Kendali Grid</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Penginderaan Jauh</div><div class="stack-panel-content"><ul class="stack-list"><li>Citra UAV Hiperspektral <span class="stack-note"></span></li><li>Penginderaan Jauh Multitemporal</li><li>Validasi Poligon Deforestasi</li><li>DEM Nasional BIG</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Lapangan &amp; Data</div><div class="stack-panel-content"><ul class="stack-list"><li>Survei &amp; Pemetaan Lapangan</li><li>Diskusi Kelompok Terarah (FGD)</li><li>Penulisan Laporan &amp; Makalah Ilmiah</li><li></li></ul></div></section><section class="stack-panel stack-panel-wide"><div class="stack-panel-rail">Kompetensi</div><div class="stack-panel-content"><div class="competency-grid"><ul class="stack-list"><li>Manajemen Proyek</li><li>Komunikasi Teknis</li></ul><ul class="stack-list"><li>Kepemimpinan Tim Lintas Fungsi</li><li>Adaptabilitas &amp; Agility</li></ul><ul class="stack-list"><li>Analisis &amp; Sintesis Data</li><li>Quality Assurance (QA)</li></ul></div></div></section></div><div class="stack-language">BAHASA: INDONESIA (BAHASA IBU) · INGGRIS (KEMAMPUAN KERJA PROFESIONAL)</div></div></section>
+  <section class="section" id="stack"><div class="section-inner"><p class="section-tag">Instrumen Teknis</p><h2 class="section-title">Alat &amp; Kerangka Kerja<br/><em>yang Saya Gunakan</em></h2><div class="stack-editorial">
+    <section class="stack-panel">
+      <div class="stack-panel-rail">Instrumen Geospasial</div>
+      <div class="stack-panel-content">
+        <ul class="stack-list">
+          <li>ArcGIS Pro</li>
+          <li>ArcMap</li>
+          <li>QGIS</li>
+          <li>ENVI</li>
+          <li>StoryMaps</li>
+          <li>Survey123</li>
+          <li>Google Earth Engine (GEE)</li>
+          <li>GeoJSON</li>
+          <li>Python untuk Pemrosesan Data Spasial</li>
+        </ul>
+      </div>
+    </section>
+    <section class="stack-panel"><div class="stack-panel-rail">Analisis Spasial</div><div class="stack-panel-content"><ul class="stack-list"><li>Analisis Multikriteria Spasial (SMCA)</li><li>Analytic Hierarchy Process (AHP)</li><li>Analisis Interseksi &amp; Tumpangsusun</li><li>Pemodelan Spasial &amp; Geostatistik</li><li>Inspeksi Visual Kendali Grid</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Penginderaan Jauh</div><div class="stack-panel-content"><ul class="stack-list"><li>Citra UAV Hiperspektral</li><li>Penginderaan Jauh Multitemporal</li><li>Validasi Poligon Deforestasi</li><li>DEM Nasional BIG</li></ul></div></section><section class="stack-panel"><div class="stack-panel-rail">Lapangan &amp; Data</div><div class="stack-panel-content"><ul class="stack-list"><li>Survei &amp; Pemetaan Lapangan</li><li>Diskusi Kelompok Terarah (FGD)</li><li>Penulisan Laporan &amp; Makalah Ilmiah</li></ul></div></section><section class="stack-panel stack-panel-wide"><div class="stack-panel-rail">Kompetensi</div><div class="stack-panel-content"><div class="competency-grid"><ul class="stack-list"><li>Manajemen Proyek</li><li>Komunikasi Teknis</li></ul><ul class="stack-list"><li>Kepemimpinan Tim Lintas Fungsi</li><li>Adaptabilitas &amp; Agility</li></ul><ul class="stack-list"><li>Analisis &amp; Sintesis Data</li><li>Quality Assurance (QA)</li></ul></div></div></section></div><div class="stack-language">BAHASA: INDONESIA (BAHASA IBU) · INGGRIS (KEMAMPUAN KERJA PROFESIONAL)</div></div></section>
 
-  <!-- ===== KREDENSIAL BANNER ===== -->
-  <div aria-label="Kredensial &amp; Pengalaman" class="credentials-banner"><img alt="Dokumentasi lapangan" class="editorial-photo banner-crop" src="assets/images/diri/IMG_4474.JPG"/><div class="credentials-overlay"><p class="credentials-overlay-tag">Kredensial &amp; Pengalaman</p><h2 class="credentials-overlay-title">Pendidikan, Pengalaman,<br/><em>Organisasi &amp; Sertifikasi</em></h2></div></div>
+  <div class="credentials-banner"><img class="banner-crop" src="assets/images/diri/IMG_4474.JPG" alt="Dokumentasi lapangan"/><div class="credentials-overlay"><p class="credentials-overlay-tag">Kredensial &amp; Pengalaman</p><h2 class="credentials-overlay-title">Pendidikan, Pengalaman,<br/><em>Organisasi &amp; Sertifikasi</em></h2></div></div>
 
-  <!-- ===== CREDENTIALS ===== -->
   <section class="section" id="credentials"><div class="section-inner"><div class="timeline"><div class="cred-subsection">
-<p class="cred-sub-label">Pendidikan</p>
-<div class="cred-list">
-<div class="cred-item">
-<span class="cred-year"> Agu 2021 - Jul 2025</span>
-<div>
-<p class="cred-title">Sarjana Geografi</p>
-<p class="cred-sub">Universitas Indonesia · Fakultas MIPA · Depok</p>
-<p class="cred-sub">IPK: <strong>3.60 / 4.00</strong> · 126 SKS · Lulus Juli 2025</p>
-<span class="cred-badge">Sangat Memuaskan</span>
-<div class="photo-gallery">
-<p>Dokumentasi</p>
-<div class="photo-gallery-grid cols2" data-images='[
-                {"src":"assets/images/sarjana/sidang.jpeg","cap":"Sidang Skripsi S1 · Universitas Indonesia · Juli 2025"}
-              ]'>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)">
-<img alt="Sidang Skripsi" loading="lazy" src="assets/images/sarjana/sidang.jpeg"/>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="cred-subsection">
-<p class="cred-sub-label">Pengalaman Kerja</p>
-<div class="cred-list">
-<div class="cred-item">
-<span class="cred-year"> Mar 2025 - Sep 2026</span>
-<div>
-<p class="cred-title">Technical Support</p>
-<p class="cred-sub">MapBiomas Indonesia (Yayasan Auriga Nusantara) · Jakarta</p>
-<p class="cred-sub">Memvalidasi 2.878 poligon (rasio approval 78%), unggul 28% di atas rata-rata tim nasional. Mengaudit 3.800+ poligon (2.500 poligon tim, 1.300 STADI) untuk Laporan Status Deforestasi Indonesia.</p>
-<div class="photo-gallery">
-<p>Dokumentasi</p>
-<div class="photo-gallery-grid" data-images='[
-                {"src":"assets/images/auriga/auriga1.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"},
-                {"src":"assets/images/auriga/auriga2.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"},
-                {"src":"assets/images/auriga/auriga3.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"},
-                {"src":"assets/images/auriga/auriga4.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"}
-              ]'>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img alt="Auriga 1" loading="lazy" src="assets/images/auriga/auriga1.jpeg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img alt="Auriga 2" loading="lazy" src="assets/images/auriga/auriga2.jpeg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img alt="Auriga 3" loading="lazy" src="assets/images/auriga/auriga3.jpeg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img alt="Auriga 4" loading="lazy" src="assets/images/auriga/auriga4.jpeg"/></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cred-item">
-<span class="cred-year"> Agu 2023 - Jan 2024</span>
-<div>
-<p class="cred-title">Tim Penyusun RDTR</p>
-<p class="cred-sub">Kementerian ATR/BPN · DPUPR Kota Bima · Nusa Tenggara Barat</p>
-<p class="cred-sub">Menyusun 15 jenis peta tematik struktural dan memfasilitasi integrasi masukan spasial dari 100+ peserta konsultasi publik ke dalam dokumen RDTR final.</p>
-<span class="cred-badge">MSIB INSPIRING · Kementerian ATR/BPN</span>
-<div class="photo-gallery">
-<p>Dokumentasi</p>
-<div class="photo-gallery-grid" data-images='[
-                {"src":"assets/images/rdtr/msib1.jpeg","cap":"MSIB INSPIRING · Kementerian ATR/BPN · Kota Bima"},
-                {"src":"assets/images/rdtr/msib2.jpeg","cap":"MSIB INSPIRING · Kementerian ATR/BPN · Kota Bima"},
-                {"src":"assets/images/rdtr/msib3.jpeg","cap":"MSIB INSPIRING · Kementerian ATR/BPN · Kota Bima"},
-                {"src":"assets/images/rdtr/msib4.jpeg","cap":"MSIB INSPIRING · Kementerian ATR/BPN · Kota Bima"}
-              ]'>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img alt="MSIB 1" loading="lazy" src="assets/images/rdtr/msib1.jpeg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img alt="MSIB 2" loading="lazy" src="assets/images/rdtr/msib2.jpeg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img alt="MSIB 3" loading="lazy" src="assets/images/rdtr/msib3.jpeg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img alt="MSIB 4" loading="lazy" src="assets/images/rdtr/msib4.jpeg"/></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cred-item">
-<span class="cred-year"> Jul 2023 - Okt 2023</span>
-<div>
-<p class="cred-title">Enumerator</p>
-<p class="cred-sub">Japan International Cooperation Agency (JICA) · Jakarta</p>
-<p class="cred-sub">Mengidentifikasi 3 kesenjangan struktural dalam manajemen risiko bencana melalui wawancara terstruktur dengan pemangku kepentingan utama (BNPB, BAPPENAS).</p>
-<div class="photo-gallery">
-<p>Dokumentasi</p>
-<div class="photo-gallery-grid cols2" data-images='[
-                {"src":"assets/images/enumerator/jica1.jpeg","cap":"JICA · Enumerator DRR Survey · Jakarta 2023"},
-                {"src":"assets/images/enumerator/jica2.jpeg","cap":"JICA · Enumerator DRR Survey · Jakarta 2023"}
-              ]'>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img alt="JICA 1" loading="lazy" src="assets/images/enumerator/jica1.jpeg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img alt="JICA 2" loading="lazy" src="assets/images/enumerator/jica2.jpeg"/></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="cred-subsection">
-<p class="cred-sub-label">Organisasi</p>
-<div class="cred-list">
-<div class="cred-item">
-<span class="cred-year"> Feb 2023 - Feb 2024</span>
-<div>
-<p class="cred-title">Kepala Biro Administrasi dan Kesekretariatan</p>
-<p class="cred-sub">HMD Geografi FMIPA UI · Depok</p>
-<p class="cred-sub">Memimpin biro 8 staf, mengoptimalkan alur administrasi untuk seluruh departemen HMD. Meluncurkan situs web terintegrasi (carrd.co) untuk sentralisasi dokumen. Memimpin proyek 2 bulan untuk 3 kegiatan (Musyawarah Kerja, Peluncuran Perdana, Pembentukan Tim) sebagai Koordinator Proyek. Sebagai Komite Pengarah <strong>SEMTA 2023</strong> (120+ peserta).</p>
-<div class="photo-gallery">
-<p>Dokumentasi</p>
-<div class="photo-gallery-grid" data-images='[
-                {"src":"assets/images/kepalahmd/kepala1.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"},
-                {"src":"assets/images/kepalahmd/kepala2.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"},
-                {"src":"assets/images/kepalahmd/kepala3.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"},
-                {"src":"assets/images/kepalahmd/kepala4.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"},
-                {"src":"assets/images/kepalahmd/kepala5.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"},
-                {"src":"assets/images/kepalahmd/kepala6.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"},
-                {"src":"assets/images/kepalahmd/kepala7.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"},
-                {"src":"assets/images/kepalahmd/kepala8.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"}
-              ]'>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img alt="Kepala 1" loading="lazy" src="assets/images/kepalahmd/kepala1.jpg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img alt="Kepala 2" loading="lazy" src="assets/images/kepalahmd/kepala2.jpg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img alt="Kepala 3" loading="lazy" src="assets/images/kepalahmd/kepala3.jpg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img alt="Kepala 4" loading="lazy" src="assets/images/kepalahmd/kepala4.jpg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),4)"><img alt="Kepala 5" loading="lazy" src="assets/images/kepalahmd/kepala5.jpg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),5)"><img alt="Kepala 6" loading="lazy" src="assets/images/kepalahmd/kepala6.jpg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),6)"><img alt="Kepala 7" loading="lazy" src="assets/images/kepalahmd/kepala7.jpg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),7)"><img alt="Kepala 8" loading="lazy" src="assets/images/kepalahmd/kepala8.jpg"/></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cred-item">
-<span class="cred-year"> Mar 2022 - Feb 2023</span>
-<div>
-<p class="cred-title">Staf Biro Administrasi dan Kesekretariatan</p>
-<p class="cred-sub">HMD Geografi FMIPA UI · Depok</p>
-<p class="cred-sub">Merintis dan mengarahkan <strong>“Seminar Kesekretariatan 2022”</strong> sebagai Koordinator Proyek. Memproses dan mengaudit 25+ dokumen administratif untuk 3 departemen inti. Mencapai tingkat kehadiran <strong>60%</strong> dari fungsionaris 12 biro dan departemen.</p>
-<div class="photo-gallery">
-<p>Dokumentasi</p>
-<div class="photo-gallery-grid cols2" data-images='[
-                {"src":"assets/images/stafhmd/staf1.jpg","cap":"HMD Geografi FMIPA UI · Staf Biro Administrasi"},
-                {"src":"assets/images/stafhmd/staf2.jpg","cap":"HMD Geografi FMIPA UI · Staf Biro Administrasi"},
-                {"src":"assets/images/stafhmd/staf3.jpg","cap":"HMD Geografi FMIPA UI · Staf Biro Administrasi"},
-                {"src":"assets/images/stafhmd/staf4.jpg","cap":"HMD Geografi FMIPA UI · Staf Biro Administrasi"}
-              ]'>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img alt="Staf 1" loading="lazy" src="assets/images/stafhmd/staf1.jpg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img alt="Staf 2" loading="lazy" src="assets/images/stafhmd/staf2.jpg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img alt="Staf 3" loading="lazy" src="assets/images/stafhmd/staf3.jpg"/></div>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img alt="Staf 4" loading="lazy" src="assets/images/stafhmd/staf4.jpg"/></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="cred-subsection">
-<p class="cred-sub-label">Sertifikasi</p>
-<div class="cred-list">
-<div class="cred-item">
-<span class="cred-year">2024</span>
-<div>
-<p class="cred-title">Perancang Tata Ruang Detail (RDTR) Bersertifikat</p>
-<p class="cred-sub">MSIB INSPIRING Program · Kementerian ATR/BPN · Republik Indonesia</p>
-<p class="cred-sub">Sertifikasi kompetensi nasional penyusunan Rencana Detail Tata Ruang yang mencakup pemetaan tematik, zonasi, dan peraturan zonasi.</p>
-<div class="photo-gallery certificate-gallery">
-<p>Sertifikat</p>
-<div class="photo-gallery-grid cols2" data-images='[
-                {"src":"assets/sertifikat/inspiring.jpg","cap":"Sertifikat Perancang RDTR · MSIB INSPIRING · Kementerian ATR/BPN · 2024"}
-              ]'>
-<div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img alt="Sertifikat RDTR" loading="lazy" src="assets/sertifikat/inspiring.jpg"/></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div></div></div></section>
+    <p class="cred-sub-label">Pendidikan</p>
+    <div class="cred-list">
+      <div class="cred-item">
+        <span class="cred-year">Agu 2021 - Jul 2025</span>
+        <div>
+          <p class="cred-title">Geografi (S.Si.)</p>
+          <p class="cred-sub" style="display:flex; justify-content:space-between; align-items:center;">
+            <strong>FMIPA -  Universitas Indonesia</strong>
+            <strong>Kota Depok</strong>
+          </p>
+          <div class="key-stats" style="margin-top:0.5rem; grid-template-columns: repeat(3, 1fr); gap: 0.3rem;">
+            <div style="padding: 0.4rem 0.3rem; min-height: 50px;">
+              <p class="kn" style="font-size: 1.1rem;">3.60/4.00</p>
+              <p class="kl" style="font-size: 7px;">IPK</p>
+            </div>
+            <div style="padding: 0.4rem 0.3rem; min-height: 50px;">
+              <p class="kn" style="font-size: 1.1rem;">126</p>
+              <p class="kl" style="font-size: 7px;">SKS</p>
+            </div>
+            <div style="padding: 0.4rem 0.3rem; min-height: 50px;">
+              <p class="kn" style="font-size: 1.1rem;">Sangat Memuaskan</p>
+              <p class="kl" style="font-size: 7px;">Predikat</p>
+            </div>
+          </div>
+          <div class="photo-gallery">
+            <div class="photo-gallery-grid cols2" data-images='[{"src":"assets/images/sarjana/sidang.jpeg","cap":"Sidang Skripsi S1 · Universitas Indonesia · Juli 2025"}]'>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)">
+                <img src="assets/images/sarjana/sidang.jpeg" alt="Sidang Skripsi" loading="lazy"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- ===== EXPEDISI LAPANGAN ===== -->
-  <section aria-labelledby="beyond-title" class="section"><div class="section-inner"><div class="beyond-desk"><div class="beyond-copy"><h2 id="beyond-title">EKSPEDISI LAPANGAN</h2><p>Kerja lapangan menuntut navigasi, logistik, koordinasi, dan ketangguhan. Peta menjadi rekaman fisik ketika medan menggantikan meja kerja.</p></div><div><img alt="Ketangguhan Lapangan" class="editorial-photo portrait-crop" loading="lazy" src="assets/images/diri/IMG_5193.JPG"/></div></div></div></section>
+  <div class="cred-subsection">
+    <p class="cred-sub-label">Pengalaman Kerja</p>
+    <div class="cred-list">
+      <div class="cred-item">
+        <span class="cred-year">Mar 2025 - Sep 2026</span>
+        <div>
+          <p class="cred-title">Technical Support</p>
+          <p class="cred-sub" style="display:flex; justify-content:space-between; align-items:center;"><strong>MapBiomas Indonesia (Yayasan Auriga Nusantara)</strong><strong>Jakarta Selatan</strong></p>
+          <p style="margin-top:.8rem;">Saat pertama bergabung di MapBiomas Indonesia sebagai Technical Support, tugas saya terdengar sederhana: memvalidasi titik-titik deforestasi yang terdeteksi satelit di seluruh Indonesia. Setiap lahan yang ditandai perlu diperiksa satu per satu, apakah benar-benar menunjukkan tanda kehilangan tutupan hutan. Semakin lama saya mengerjakannya, semakin saya menyadari bahwa kesan &ldquo;sederhana&rdquo; itu menyesatkan, sebab setiap poligon yang saya validasi berpotensi menjadi bagian dari laporan yang digunakan untuk kebijakan nasional.</p>
+          <p style="margin-top:.4rem;">Target awal saya adalah <strong>1.100 poligon</strong>, dan target tersebut berhasil saya selesaikan <strong>tiga bulan lebih cepat dari jadwal</strong>, dengan total keseluruhan mencapai <strong>lebih dari 3.670 poligon</strong> sepanjang masa kerja. Konsistensi tersebut membuat saya dipercaya menjadi <strong>Auditor QA</strong>, mengaudit ulang <strong>lebih dari 2.500 poligon</strong> yang sebelumnya divalidasi oleh rekan tim, serta menginspeksi <strong>lebih dari 1.300 poligon</strong> untuk laporan status deforestasi nasional sebagai lapisan pemeriksaan kedua sebelum data tersebut sampai ke tangan pembuat kebijakan. Dari pengalaman ini saya belajar bahwa ketelitian dalam pekerjaan yang tampak remeh di level data seringkali justru menjadi fondasi dari kebijakan iklim berskala besar.</p>
+          <div class="photo-gallery">
+            <div class="photo-gallery-grid" data-images='[{"src":"assets/images/auriga/auriga1.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"},{"src":"assets/images/auriga/auriga2.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"},{"src":"assets/images/auriga/auriga3.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"},{"src":"assets/images/auriga/auriga4.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"}]'>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/auriga/auriga1.jpeg" alt="Auriga 1" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/auriga/auriga2.jpeg" alt="Auriga 2" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img src="assets/images/auriga/auriga3.jpeg" alt="Auriga 3" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img src="assets/images/auriga/auriga4.jpeg" alt="Auriga 4" loading="lazy"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cred-item">
+        <span class="cred-year">Agu 2023 - Jan 2024</span>
+        <div>
+          <p class="cred-title">Tim Penyusun RDTR</p>
+          <p class="cred-sub" style="display:flex; justify-content:space-between; align-items:center;"><strong>Kementerian ATR/BPN · DPUPR Kota Bima</strong><strong>Kota Bima</strong></p>
+          <p style="margin-top:.8rem;">Magang di DPUPR Kota Bima menjadi momen pertama saya melihat langsung bagaimana data spasial berubah menjadi keputusan kebijakan yang nyata. Saya menyusun <strong>15 peta tematik dan struktural</strong> yang mencakup penggunaan lahan, transportasi, hingga kawasan rawan bencana, dan seluruhnya menjadi bagian dari Rencana Detail Tata Ruang, termasuk revisi peraturan zonasi di dalamnya.</p>
+          <p style="margin-top:.4rem;">Bagian yang paling membekas justru bukan peta yang dihasilkan, melainkan proses memfasilitasi sesi konsultasi publik bersama <strong>lebih dari 100 warga</strong>, kemudian menyelesaikan laporan akhir dan <strong>20 peta teknis</strong> bersama tim yang terdiri atas <strong>11 peserta magang</strong>. Pengalaman tersebut mengajarkan saya bahwa perencanaan tata ruang yang baik tidak hanya soal ketepatan peta, melainkan juga memastikan suara masyarakat yang terdampak benar-benar didengar dalam prosesnya.</p>
+          <div class="photo-gallery">
+            <div class="photo-gallery-grid" data-images='[{"src":"assets/images/rdtr/msib1.jpeg","cap":"MSIB INSPIRING · Kementerian ATR/BPN · Kota Bima"},{"src":"assets/images/rdtr/msib2.jpeg","cap":"MSIB INSPIRING · Kementerian ATR/BPN · Kota Bima"},{"src":"assets/images/rdtr/msib3.jpeg","cap":"MSIB INSPIRING · Kementerian ATR/BPN · Kota Bima"},{"src":"assets/images/rdtr/msib4.jpeg","cap":"MSIB INSPIRING · Kementerian ATR/BPN · Kota Bima"}]'>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/rdtr/msib1.jpeg" alt="MSIB 1" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/rdtr/msib2.jpeg" alt="MSIB 2" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img src="assets/images/rdtr/msib3.jpeg" alt="MSIB 3" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img src="assets/images/rdtr/msib4.jpeg" alt="MSIB 4" loading="lazy"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cred-item">
+        <span class="cred-year">Jul 2023 - Okt 2023</span>
+        <div>
+          <p class="cred-title">Enumerator</p>
+          <p class="cred-sub" style="display:flex; justify-content:space-between; align-items:center;"><strong>Japan International Cooperation Agency (JICA)</strong><strong>Jakarta Pusat</strong></p>
+          <p style="margin-top:.8rem;">Sebagai Enumerator dalam survei baseline JICA mengenai kesiapan manajemen risiko bencana di Indonesia, saya bekerja sama dengan lembaga seperti <strong>BNPB</strong> dan <strong>BAPPENAS</strong>, turut menyusun kuesioner, serta melakukan wawancara mendalam dengan pemangku kepentingan utama di pemerintahan.</p>
+          <p style="margin-top:.4rem;">Peran ini mengajarkan saya bahwa pengumpulan data yang baik pada dasarnya adalah latihan mendengarkan secara saksama. Kesenjangan yang ditemukan dalam hal koordinasi, sumber daya, dan kesiapsiagaan komunitas bukan sekadar angka dalam laporan, melainkan gambaran nyata dari tantangan yang dapat menentukan bagaimana masyarakat merespons saat bencana benar-benar terjadi.</p>
+          <div class="photo-gallery">
+            <div class="photo-gallery-grid cols2" data-images='[{"src":"assets/images/enumerator/jica1.jpeg","cap":"JICA · Enumerator DRR Survey · Jakarta 2023"},{"src":"assets/images/enumerator/jica2.jpeg","cap":"JICA · Enumerator DRR Survey · Jakarta 2023"}]'>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/enumerator/jica1.jpeg" alt="JICA 1" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/enumerator/jica2.jpeg" alt="JICA 2" loading="lazy"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cred-subsection">
+    <p class="cred-sub-label">Organisasi</p>
+    <div class="cred-list">
+      <div class="cred-item">
+        <span class="cred-year">Jul 2025 - Des 2025</span>
+        <div>
+          <p class="cred-title">Tim Sekretaris</p>
+          <p class="cred-sub" style="display:flex; justify-content:space-between; align-items:center;"><strong>GNSS Indonesia Summit & Expo 2025</strong><strong>Jakarta Pusat &amp; Kota Depok</strong></p>
+          <p style="margin-top:.8rem;" class="cred-sub">Menjabat sebagai <b>Sekretaris</b> untuk penyelenggaraan <b>GNSS Indonesia Summit and Expo</b>, acara GNSS nasional perdana yang digagas oleh Universitas Indonesia, menjadi pengalaman yang menuntut kemampuan koordinasi tingkat tinggi. Acara berlangsung selama <b>lima hari</b> dengan format <b>dwibahasa</b>, melibatkan komite penyelenggara yang terdiri dari <b>lebih 80 anggota</b>.</p>
+          <p style="margin-top:.4rem;" class="cred-sub">Dalam peran ini, saya berkontribusi menyusun <b>proposal acara dalam dua bahasa</b>, Indonesia dan Inggris, dengan memastikan akurasi dan kesetaraan makna antar kedua versi. Saya juga terlibat dalam penyusunan <b>lebih dari 20 sesi acara</b> sepanjang lima hari pelaksanaan, sembari menjaga konsistensi konten di kedua bahasa.</p>
+          <p style="margin-top:.4rem;" class="cred-sub">Pengalaman ini memberi saya pemahaman mendalam bahwa <b>dokumentasi yang terstruktur</b> bukan sekadar tugas administratif, melainkan fondasi yang menjaga keselarasan tim besar di tengah ritme kerja yang cepat dan dinamis.</p>
+          <div class="photo-gallery">
+            <div class="photo-gallery-grid" data-images='[{"src":"assets/images/gnss/815406_0.jpg","cap":"GNSS Indonesia Summit & Expo 2025 · Sekretariat"},{"src":"assets/images/gnss/815407_0.jpg","cap":"GNSS Indonesia Summit & Expo 2025 · Sekretariat"},{"src":"assets/images/gnss/815408_0.jpg","cap":"GNSS Indonesia Summit & Expo 2025 · Sekretariat"},{"src":"assets/images/gnss/815409_0.jpg","cap":"GNSS Indonesia Summit & Expo 2025 · Sekretariat"}]'>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/gnss/815406_0.jpg" alt="GNSS 1" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/gnss/815407_0.jpg" alt="GNSS 2" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img src="assets/images/gnss/815408_0.jpg" alt="GNSS 3" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img src="assets/images/gnss/815409_0.jpg" alt="GNSS 4" loading="lazy"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cred-item">
+        <span class="cred-year">Feb 2023 - Feb 2024</span>
+        <div>
+          <p class="cred-title">Kepala Biro Administrasi dan Kesekretariatan</p>
+          <p class="cred-sub" style="display:flex; justify-content:space-between; align-items:center;"><strong>HMD Geografi FMIPA UI</strong><strong>Kota Depok</strong></p>
+          <p style="margin-top:.8rem;" class="cred-sub">Memimpin biro 8 staf, mengoptimalkan alur administrasi untuk seluruh departemen HMD. Meluncurkan situs web terintegrasi (carrd.co) untuk sentralisasi dokumen. Memimpin proyek 2 bulan untuk 3 kegiatan (Musyawarah Kerja, Peluncuran Perdana, Pembentukan Tim) sebagai Koordinator Proyek. Sebagai Komite Pengarah <strong>SEMTA 2023</strong> (120+ peserta).</p>
+          <div class="photo-gallery">
+            <div class="photo-gallery-grid" data-images='[{"src":"assets/images/kepalahmd/kepala1.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"},{"src":"assets/images/kepalahmd/kepala2.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"},{"src":"assets/images/kepalahmd/kepala3.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"},{"src":"assets/images/kepalahmd/kepala4.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"},{"src":"assets/images/kepalahmd/kepala5.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"},{"src":"assets/images/kepalahmd/kepala6.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"},{"src":"assets/images/kepalahmd/kepala7.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"},{"src":"assets/images/kepalahmd/kepala8.jpg","cap":"HMD Geografi FMIPA UI · Kepala Biro Administrasi"}]'>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/kepalahmd/kepala1.jpg" alt="Kepala 1" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/kepalahmd/kepala2.jpg" alt="Kepala 2" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img src="assets/images/kepalahmd/kepala3.jpg" alt="Kepala 3" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img src="assets/images/kepalahmd/kepala4.jpg" alt="Kepala 4" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),4)"><img src="assets/images/kepalahmd/kepala5.jpg" alt="Kepala 5" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),5)"><img src="assets/images/kepalahmd/kepala6.jpg" alt="Kepala 6" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),6)"><img src="assets/images/kepalahmd/kepala7.jpg" alt="Kepala 7" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),7)"><img src="assets/images/kepalahmd/kepala8.jpg" alt="Kepala 8" loading="lazy"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cred-item">
+        <span class="cred-year">Mar 2022 - Feb 2023</span>
+        <div>
+          <p class="cred-title">Staf Biro Administrasi dan Kesekretariatan</p>
+          <p class="cred-sub" style="display:flex; justify-content:space-between; align-items:center;"><strong>HMD Geografi FMIPA UI</strong><strong>Kota Depok</strong></p>
+          <p style="margin-top:.8rem;" class="cred-sub">Merintis dan mengarahkan <strong>“Seminar Kesekretariatan 2022”</strong> sebagai Koordinator Proyek. Memproses dan mengaudit 25+ dokumen administratif untuk 3 departemen inti. Mencapai tingkat kehadiran <strong>60%</strong> dari fungsionaris 12 biro dan departemen.</p>
+          <div class="photo-gallery">
+            <div class="photo-gallery-grid cols2" data-images='[{"src":"assets/images/stafhmd/staf1.jpg","cap":"HMD Geografi FMIPA UI · Staf Biro Administrasi"},{"src":"assets/images/stafhmd/staf2.jpg","cap":"HMD Geografi FMIPA UI · Staf Biro Administrasi"},{"src":"assets/images/stafhmd/staf3.jpg","cap":"HMD Geografi FMIPA UI · Staf Biro Administrasi"},{"src":"assets/images/stafhmd/staf4.jpg","cap":"HMD Geografi FMIPA UI · Staf Biro Administrasi"}]'>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/stafhmd/staf1.jpg" alt="Staf 1" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/stafhmd/staf2.jpg" alt="Staf 2" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img src="assets/images/stafhmd/staf3.jpg" alt="Staf 3" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img src="assets/images/stafhmd/staf4.jpg" alt="Staf 4" loading="lazy"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cred-item">
+        <span class="cred-year">Jul 2019 - Feb 2020</span>
+        <div>
+          <p class="cred-title">Team Leader</p>
+          <p class="cred-sub" style="display:flex; justify-content:space-between; align-items:center;"><strong>Rohani Kristen SMAN 6 Bekasi</strong><strong>Kota Bekasi</strong></p>
+          <p style="margin-top:.8rem;" class="cred-sub">Menjabat sebagai <b>Team Leader</b> di Rohani Kristen SMAN 6 Bekasi, bekerja sama dengan sekretaris, bendahara, tim multimedia, dan koordinator angkatan siswa, menjadi pengalaman kepemimpinan organisasi pertama yang benar-benar berarti bagi saya sebelum memasuki bangku kuliah. Mengoordinasikan <b>ibadah persekutuan doa setiap Jumat</b> dan <b>saat teduh setiap pagi</b> yang dihadiri <b>lebih dari 120 siswa</b> secara konsisten mengasah kemampuan berbicara di depan umum dan keterlibatan dengan audiens saya, dengan cara yang tidak bisa didapatkan dari ruang kelas mana pun.</p>
+          <p style="margin-top:.4rem;" class="cred-sub">Selain kegiatan rutin mingguan, saya membimbing <b>delapan anggota</b> melalui program pengembangan diri bernama <b>Kelompok Tumbuh Bersama</b>, memimpin upaya penggalangan dana yang rata-rata mencapai <b>Rp250.000 per minggu</b> untuk mendukung kegiatan amal dan perjalanan misi, serta mengawasi acara tahunan besar termasuk <b>Perayaan Natal dan Retreat 2019</b>. Pengalaman ini mengajarkan saya sejak dini bahwa kepemimpinan bukan sekadar memberi instruksi, melainkan tentang secara konsisten hadir untuk orang lain, minggu demi minggu.</p>
+          <div class="photo-gallery">
+            <div class="photo-gallery-grid" data-images='[{"src":"assets/images/rohkris/1.jpg","cap":"Rohani Kristen SMAN 6 Bekasi · Team Leader"},{"src":"assets/images/rohkris/2.jpg","cap":"Rohani Kristen SMAN 6 Bekasi · Team Leader"},{"src":"assets/images/rohkris/3.jpg","cap":"Rohani Kristen SMAN 6 Bekasi · Team Leader"},{"src":"assets/images/rohkris/4.jpg","cap":"Rohani Kristen SMAN 6 Bekasi · Team Leader"},{"src":"assets/images/rohkris/5.jpg","cap":"Rohani Kristen SMAN 6 Bekasi · Team Leader"},{"src":"assets/images/rohkris/6.jpg","cap":"Rohani Kristen SMAN 6 Bekasi · Team Leader"},{"src":"assets/images/rohkris/7.jpg","cap":"Rohani Kristen SMAN 6 Bekasi · Team Leader"},{"src":"assets/images/rohkris/8.jpg","cap":"Rohani Kristen SMAN 6 Bekasi · Team Leader"}]'>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/rohkris/1.jpg" alt="Rohkris 1" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),1)"><img src="assets/images/rohkris/2.jpg" alt="Rohkris 2" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),2)"><img src="assets/images/rohkris/3.jpg" alt="Rohkris 3" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),3)"><img src="assets/images/rohkris/4.jpg" alt="Rohkris 4" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),4)"><img src="assets/images/rohkris/5.jpg" alt="Rohkris 5" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),5)"><img src="assets/images/rohkris/6.jpg" alt="Rohkris 6" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),6)"><img src="assets/images/rohkris/7.jpg" alt="Rohkris 7" loading="lazy"/></div>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),7)"><img src="assets/images/rohkris/8.jpg" alt="Rohkris 8" loading="lazy"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cred-subsection">
+    <p class="cred-sub-label">Kepanitiaan</p>
+    <div class="cred-list">
+      <div class="cred-item"><span class="cred-year">Jul 2023 – Sep 2023</span><div><p class="cred-title">Sekretaris</p><p class="cred-sub">Syukuran Akbar dan Pesta Kelulusan Geografi 2023</p><p class="cred-sub" style="margin-top:.4rem;">Mengelola <b>dokumentasi resmi</b> untuk Syukuran Akbar dan Pesta Kelulusan Geografi 2023, yang pada dasarnya merupakan dua acara sekaligus, mengajarkan saya seberapa besar beban administratif yang berada di balik satu perayaan. Setiap detail, mulai dari daftar kehadiran hingga surat resmi, harus dipastikan rapi untuk kedua acara tersebut. Peran ini bukan yang paling terlihat pada hari acara berlangsung, namun merupakan jenis pekerjaan yang memastikan tidak ada hal yang terlewat bagi semua pihak yang terlibat.</p></div></div>
+      <div class="cred-item"><span class="cred-year">Agu 2023 – Sep 2023</span><div><p class="cred-title">Steering Committee</p><p class="cred-sub">Seminar Tugas Akhir (SEMTA) 2023</p><p class="cred-sub" style="margin-top:.4rem;">Bertugas dalam <b>Steering Committee SEMTA 2023</b> berarti mengambil jarak dari pekerjaan teknis dan justru memberikan pengawasan strategis serta bimbingan kepada Biro Kestari. Ini merupakan bentuk kepemimpinan yang berbeda dari yang biasa saya jalani, yaitu mengarahkan, bukan mengerjakan langsung. Membantu memastikan seminar ini menjangkau <b>lebih dari 120 peserta</b> mengajarkan saya bahwa terkadang kontribusi paling berharga bukanlah berada di ruangan menjalankan acara, melainkan memastikan orang yang menjalankannya mendapat dukungan dan arahan yang mereka butuhkan.</p></div></div>
+      <div class="cred-item"><span class="cred-year">Feb 2023 – Jun 2023</span><div><p class="cred-title">Staf Logistik</p><p class="cred-sub">Kuliah Kerja Lapang 2 (Kabupaten Gunungkidul)</p><p class="cred-sub" style="margin-top:.4rem;">Pekerjaan logistik jarang mendapat sorotan, namun mengelolanya untuk KKL 2 mengajarkan saya betapa banyak detail yang jarang disadari orang di balik sebuah perjalanan riset. Saya menangani <b>pengadaan dan distribusi</b> spanduk serta perlengkapan kesehatan, lalu mengoordinasikan makan harian dan camilan, sarapan, siang, dan malam, untuk <b>138 mahasiswa dan 13 dosen</b> selama lima hari, sekaligus mengelola pasokan <b>24 dus air mineral</b>. Mengawasi kebutuhan perlengkapan umum untuk kelancaran kegiatan lapangan membuat saya menyadari bahwa hasil riset yang baik sering kali bergantung pada logistik yang tidak diperhatikan orang lain sampai terjadi masalah.</p></div></div>
+      <div class="cred-item"><span class="cred-year">Feb 2023 – Mar 2023</span><div><p class="cred-title">Project Officer</p><p class="cred-sub">Musyawarah Kerja, Grand Launching, &amp; Team Building 2023</p><p class="cred-sub" style="margin-top:.4rem;">Mengoordinasikan tiga acara organisasi, yaitu Musyawarah Kerja, Grand Launching, dan Team Building, dalam rentang waktu <b>dua bulan</b> untuk pengurus HMD Geografi 2023, mendorong saya untuk berpikir secara paralel, bukan menangani satu acara pada satu waktu. Yang membuat proyek ini berbeda adalah penerapan <b>sistem pengukuran kinerja</b> untuk mengevaluasi hasil setiap acara terhadap target yang telah ditetapkan sebelumnya. Hal ini mengubah cara saya memandang keberhasilan proyek, bukan sekadar apakah acaranya terselenggara, tetapi apakah acara itu benar-benar mencapai apa yang telah ditetapkan.</p></div></div>
+      <div class="cred-item"><span class="cred-year">Agu 2022 – Jan 2023</span><div><p class="cred-title">Ketua Kelas</p><p class="cred-sub">Kuliah Kerja Lapang 1 (Desa Cimanggu)</p><p class="cred-sub" style="margin-top:.4rem;">Memimpin kelas beranggotakan <b>22 orang</b> selama lima hari kegiatan lapangan geografi berarti mengemban dua peran sekaligus: koordinator dan peneliti. Sebagai koordinator, saya menjadi <b>penghubung utama dan penanggung jawab logistik</b> dengan pihak desa, mengurus akomodasi dan logistik di empat dusun sekaligus meneliti enam tema geografi berbeda. Sebagai peneliti Geomorfologi, saya melakukan <b>pemodelan spasial dan validasi lapangan</b>, lalu mempresentasikan temuan kami kepada lebih dari <b>140 pemangku kepentingan</b>, termasuk pejabat pemerintah. Yang paling saya banggakan adalah mengoordinasikan keenam tema riset tersebut menjadi satu <b>publikasi resmi</b>, Buku Publikasi Desa Cimanggu, merancang sampulnya, dan mengembangkan <b>tata letak peta geomorfologi standar</b> yang dapat digunakan oleh seluruh kelas. Memiliki <b>peta geomorfologi kami terdaftar HAKI</b> membuat kerja keras lima hari itu terasa menghasilkan sesuatu yang benar-benar bertahan.</p></div></div>
+      <div class="cred-item"><span class="cred-year">Apr 2022 – Jun 2022</span><div><p class="cred-title">Project Officer</p><p class="cred-sub">Seminar Kesekretariatan 2022</p><p class="cred-sub" style="margin-top:.4rem;">Memimpin perencanaan dan pelaksanaan Seminar Kesekretariatan 2022 dari awal hingga akhir berarti membangun sebuah workshop dari nol dengan satu tujuan spesifik, yaitu <b>menstandardisasi prosedur administrasi</b> di lingkup HMD Geografi. Mencapai <b>tingkat kehadiran 60 persen</b> dari fungsionaris di 12 biro dan departemen berbeda menunjukkan bahwa konten yang disampaikan benar-benar relevan, bukan sekadar kewajiban menghadiri workshop administratif.</p></div></div>
+      <div class="cred-item"><span class="cred-year">Jan 2020 – Feb 2020</span><div><p class="cred-title">Project Officer</p><p class="cred-sub">Musyawarah Besar dan Regenerasi ROHKRIS 2018/2019</p><p class="cred-sub" style="margin-top:.4rem;">Memimpin Musyawarah Besar dan Regenerasi ROHKRIS berarti mengawasi <b>suksesi kepemimpinan itu sendiri</b>, bukan sekadar menjalankan program. Saya menangani sosialisasi peserta serta tantangan koordinasi internal secara langsung, lalu menyusun <b>laporan pertanggungjawaban lengkap</b> yang mencakup eksekusi, keuangan, dan hasil kegiatan. Mengelola proses regenerasi kepemimpinan, alih-alih memimpin acara secara langsung, memberi saya perspektif berbeda tentang kesuksesan: bukan tentang seberapa baik saya memimpin, melainkan seberapa siap orang berikutnya untuk melanjutkan.</p></div></div>
+      <div class="cred-item"><span class="cred-year">Nov 2019 – Jan 2020</span><div><p class="cred-title">Sekretaris</p><p class="cred-sub">Ibadah dan Perayaan Natal SMAN 6 Bekasi Tahun 2019</p><p class="cred-sub" style="margin-top:.4rem;">Menjabat sebagai Sekretaris untuk Ibadah dan Perayaan Natal SMAN 6 Bekasi, salah satu acara tahunan besar sekolah, mengajarkan saya bahwa <b>dokumentasi yang baik</b> adalah yang sesungguhnya menjaga sebuah kepanitiaan tetap berjalan. Saya mengelola seluruh kebutuhan administratif dan <b>dokumentasi resmi</b>, menjadwalkan serta mengoordinasikan setiap rapat kepanitiaan, dan memastikan seluruh anggota tetap mendapat informasi yang sama sepanjang acara berlangsung. Menangani korespondensi resmi dan menjaga <b>arsip terpusat</b> untuk seluruh materi acara mungkin tampak seperti detail kecil pada saat itu, namun ternyata menjadi hal yang secara tepat menjaga keselarasan seluruh tim hingga acara selesai.</p></div></div>
+      <div class="cred-item"><span class="cred-year">Okt 2019 – Des 2019</span><div><p class="cred-title">Staf Logistik</p><p class="cred-sub">Retreat Rohkris SMAN 6 Bekasi Tahun 2019</p><p class="cred-sub" style="margin-top:.4rem;">Menangani logistik untuk Retreat Rohkris 2019 berarti mengelola anggaran hingga ke detail terkecil, mulai dari <b>satu juta rupiah</b> untuk pengadaan lentera, spanduk, alat tulis, dan stiker dengan total <b>Rp290.400</b>. Pengalaman ini mengajarkan saya bahwa bahkan anggaran sekecil apa pun tetap memerlukan <b>kedisiplinan yang sama</b> seperti anggaran besar, agar segala sesuatunya benar-benar siap tepat waktu.</p></div></div>
+    </div>
+  </div>
+
+  <div class="cred-subsection">
+    <p class="cred-sub-label">Sertifikasi</p>
+    <div class="cred-list">
+      <div class="cred-item">
+        <span class="cred-year">2024</span>
+        <div>
+          <p class="cred-title">Perencana Detail Tata Ruang (RDTR) Bersertifikat</p>
+          <p class="cred-sub" style="display:flex; justify-content:space-between; align-items:center;"><strong>MSIB INSPIRING Program</strong><strong>Kementerian ATR/BPN</strong></p>
+          <p style="margin-top:.8rem;" class="cred-sub">Menyelesaikan <strong>15 modul kompetensi</strong> dalam program magang bersertifikat, mencakup penyusunan <strong>Rencana Detail Tata Ruang (RDTR)</strong>, analisis kebijakan spasial dan sektoral, pembuatan peta rencana pola dan struktur ruang, penyusunan peraturan zonasi, hingga penerapan <strong>Sistem Informasi Geografis</strong> untuk analisis geografi baik hard skill maupun soft skill seperti problem solving dan teamwork dengan <strong>nilai 80/100 di seluruh modul</strong>.</p>
+          <div class="photo-gallery certificate-gallery">
+            <div class="photo-gallery-grid cols2" data-images='[{"src":"assets/sertifikat/inspiring.jpg","cap":"Sertifikat Perancang RDTR · MSIB INSPIRING · Kementerian ATR/BPN · 2024"}]'>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/sertifikat/inspiring.jpg" alt="Sertifikat RDTR" loading="lazy"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cred-item">
+        <span class="cred-year">2026</span>
+        <div>
+          <p class="cred-title">Visualisasi Transit Oriented Development (TOD) Mapping</p>
+          <p class="cred-sub" style="display:flex; justify-content:space-between; align-items:center;"><strong>Kelas GIS Lanjut</strong><strong>Aksara Lab Indonesia</strong></p>
+          <p style="margin-top:.8rem;" class="cred-sub">Mengikuti pelatihan intensif Kelas GIS Lanjutan bertema <strong>Transit Oriented Development (TOD) Mapping</strong>, mencakup pengolahan data spasial shapefile untuk penggunaan lahan, jalan, dan jalur rel, hingga <strong>visualisasi 3D kawasan stasiun</strong> menggunakan plugin QGIS2threejs. Materi juga meliputi pengukuran aksesibilitas jangkauan pejalan kaki dari stasiun — sebuah kompetensi yang relevan langsung dengan perencanaan transportasi dan tata ruang berbasis transit. Meraih indeks penilaian kumulatif <strong>9/10 dengan predikat Sangat Baik</strong>.</p>
+          <div class="photo-gallery certificate-gallery">
+            <div class="photo-gallery-grid cols2" data-images='[{"src":"assets/sertifikat/TOD.jpg","cap":"Sertifikat TOD Mapping · Aksara Lab Indonesia · 2026"}]'>
+              <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/sertifikat/TOD.jpg" alt="Sertifikat TOD" loading="lazy"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div></section>
+
+  <section class="section"><div class="section-inner"><div class="beyond-desk"><div class="beyond-copy"><h2 id="beyond-title">EKSPEDISI LAPANGAN</h2><p>Kerja lapangan menuntut navigasi, logistik, koordinasi, dan ketangguhan. Peta menjadi rekaman fisik ketika medan menggantikan meja kerja.</p></div><div><img class="portrait-crop" src="assets/images/diri/IMG_5193.JPG" alt="Ketangguhan Lapangan" loading="lazy"/></div></div></div></section>
 </main>
 
 <footer>
   <div class="classified-head">Kontak &amp; Jejaring</div>
   <div class="classified">
-    <a class="classified-block email" href="https://mail.google.com/mail/u/0/?fs=1&amp;to=neboyokjonah@gmail.com&amp;tf=cm" rel="noopener noreferrer" target="_blank"><span class="classified-small">SUREL</span><span class="classified-big">NEBOYOKJONAH@GMAIL.COM</span></a>
-    <a class="classified-block whatsapp" href="https://wa.me/6282122002990" rel="noopener noreferrer" target="_blank"><span class="classified-small">WHATSAPP</span><span class="classified-big">(+62) 821-2200-2990</span></a>
-    <a class="classified-block linkedin" href="https://linkedin.com/in/neboyokjonah/" rel="noopener noreferrer" target="_blank"><span class="classified-small">LINKEDIN</span><span class="classified-big">IN/NEBOYOKJONAH</span></a>
+    <a class="classified-block email" href="https://mail.google.com/mail/u/0/?fs=1&amp;to=neboyokjonah@gmail.com&amp;tf=cm" rel="noopener" target="_blank"><span class="classified-small">SUREL</span><span class="classified-big">NEBOYOKJONAH@GMAIL.COM</span></a>
+    <a class="classified-block whatsapp" href="https://wa.me/6282122002990" rel="noopener" target="_blank"><span class="classified-small">WHATSAPP</span><span class="classified-big">(+62) 821-2200-2990</span></a>
+    <a class="classified-block linkedin" href="https://linkedin.com/in/neboyokjonah/" rel="noopener" target="_blank"><span class="classified-small">LINKEDIN</span><span class="classified-big">IN/NEBOYOKJONAH</span></a>
   </div>
-
-  <!-- ===== PAGE FOOTER TAMBAHAN ===== -->
   <div class="page-footer">
     <div class="page-footer-inner">
       <span><span class="label">Page Last Updated:</span> <span class="value" id="last-updated"></span></span>
-      <span><span class="label">Page Editor:</span> <span class="value">Nebo Marpaung</span></span>
+      <span><span class="label">Page Editor:</span> <span class="value">Nebo</span></span>
     </div>
   </div>
-
-  <div class="footer-meta"><span>Nebo Yok Jonah Marpaung · Analis Geospasial</span><span>Bekasi, Jawa Barat</span></div>
+  <div class="footer-meta"><span>Nebo Yok Jonah Marpaung</span><span>Bekasi, Jawa Barat</span></div>
 </footer>
 
 <script>
-/* ─── LIGHTBOX ─── */
 var lb={images:[],idx:0};
-function openLightbox(imgs,i){
-  lb.images=imgs;lb.idx=i;renderLB();
-  document.getElementById("lightbox").classList.add("active");
-  document.body.style.overflow="hidden";
-}
-function closeLightbox(){
-  document.getElementById("lightbox").classList.remove("active");
-  document.body.style.overflow="";
-}
-function renderLB(){
-  var it=lb.images[lb.idx];
-  document.getElementById("lightbox-img").src=it.src;
-  document.getElementById("lightbox-img").alt=it.cap||"";
-  document.getElementById("lightbox-caption").textContent=(it.cap||"")+" ("+(lb.idx+1)+" / "+lb.images.length+")";
-}
+function openLightbox(imgs,i){lb.images=imgs;lb.idx=i;renderLB();document.getElementById("lightbox").classList.add("active");document.body.style.overflow="hidden";}
+function closeLightbox(){document.getElementById("lightbox").classList.remove("active");document.body.style.overflow="";}
+function renderLB(){var it=lb.images[lb.idx];document.getElementById("lightbox-img").src=it.src;document.getElementById("lightbox-img").alt=it.cap||"";document.getElementById("lightbox-caption").textContent=(it.cap||"")+" ("+(lb.idx+1)+" / "+lb.images.length+")";}
 function lbNav(d){lb.idx=(lb.idx+d+lb.images.length)%lb.images.length;renderLB();}
-function openGallery(mainEl,startIdx){
-  var g=mainEl.closest(".map-gallery");
-  openLightbox(JSON.parse(g.dataset.images),startIdx);
-}
-function openPhotoGallery(grid,startIdx){
-  openLightbox(JSON.parse(grid.dataset.images),startIdx);
-}
-function switchMain(thumb,idx){
-  var g=thumb.closest(".map-gallery");
-  var imgs=JSON.parse(g.dataset.images);
-  var it=imgs[idx];
-  g.querySelector(".map-gallery-main img").src=it.src;
-  var b=g.querySelector(".map-badge");if(b)b.textContent=it.cap;
-  g.querySelectorAll(".map-thumb").forEach(function(t,i){t.classList.toggle("active",i===idx);});
-  g.querySelector(".map-gallery-main").onclick=function(){openLightbox(imgs,idx);};
-}
-document.addEventListener("keydown",function(e){
-  var box=document.getElementById("lightbox");
-  if(!box.classList.contains("active"))return;
-  if(e.key==="Escape")closeLightbox();
-  if(e.key==="ArrowRight")lbNav(1);
-  if(e.key==="ArrowLeft")lbNav(-1);
-});
-document.getElementById("lightbox").addEventListener("click",function(e){
-  if(e.target===this)closeLightbox();
-});
+function openGallery(mainEl,startIdx){var g=mainEl.closest(".map-gallery");openLightbox(JSON.parse(g.dataset.images),startIdx);}
+function openPhotoGallery(grid,startIdx){openLightbox(JSON.parse(grid.dataset.images),startIdx);}
+function switchMain(thumb,idx){var g=thumb.closest(".map-gallery");var imgs=JSON.parse(g.dataset.images);var it=imgs[idx];g.querySelector(".map-gallery-main img").src=it.src;var b=g.querySelector(".map-badge");if(b)b.textContent=it.cap;g.querySelectorAll(".map-thumb").forEach(function(t,i){t.classList.toggle("active",i===idx);});g.querySelector(".map-gallery-main").onclick=function(){openLightbox(imgs,idx);};}
+document.addEventListener("keydown",function(e){var box=document.getElementById("lightbox");if(!box.classList.contains("active"))return;if(e.key==="Escape")closeLightbox();if(e.key==="ArrowRight")lbNav(1);if(e.key==="ArrowLeft")lbNav(-1);});
+document.getElementById("lightbox").addEventListener("click",function(e){if(e.target===this)closeLightbox();});
 
-/* ─── SCROLL REVEAL ─── */
-var io=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting){
-      e.target.style.opacity="1";
-      e.target.style.transform="translateY(0)";
-      io.unobserve(e.target);
-    }
-  });
-},{threshold:0.08});
-document.querySelectorAll(".project-item,.cred-item,.inline-editorial,.org-inline,.beyond-desk").forEach(function(el){
-  el.style.opacity="0";el.style.transform="translateY(14px)";el.style.transition="opacity .45s ease,transform .45s ease";
-  io.observe(el);
-});
+var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";io.unobserve(e.target);}});},{threshold:0.08});
+document.querySelectorAll(".project-item,.cred-item,.beyond-desk").forEach(function(el){el.style.opacity="0";el.style.transform="translateY(14px)";el.style.transition="opacity .45s ease,transform .45s ease";io.observe(el);});
 
-/* ─── MOBILE MENU ─── */
-function toggleMobileMenu(){
-  var m=document.getElementById("mobile-menu");
-  var h=document.getElementById("nav-ham");
-  if(!m||!h)return;
-  m.classList.toggle("open");
-  h.classList.toggle("open");
-}
-function closeMobileMenu(){
-  var m=document.getElementById("mobile-menu");
-  var h=document.getElementById("nav-ham");
-  if(m)m.classList.remove("open");
-  if(h)h.classList.remove("open");
-}
+function toggleMobileMenu(){var m=document.getElementById("mobile-menu");var h=document.getElementById("nav-ham");if(!m||!h)return;m.classList.toggle("open");h.classList.toggle("open");}
+function closeMobileMenu(){var m=document.getElementById("mobile-menu");var h=document.getElementById("nav-ham");if(m)m.classList.remove("open");if(h)h.classList.remove("open");}
 
-/* ─── SET LAST UPDATED ─── */
-(function(){
-  var now = new Date();
-  var options = { year: 'numeric', month: 'long', day: 'numeric' };
-  var dateStr = now.toLocaleDateString('id-ID', options);
-  document.getElementById('last-updated').textContent = dateStr;
-})();
+(function(){var now=new Date();var options={year:'numeric',month:'long',day:'numeric'};document.getElementById('last-updated').textContent=now.toLocaleDateString('id-ID',options);})();
 </script>
 </body>
 </html>
