@@ -84,7 +84,7 @@
     .hero-content .hero-name{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3.5rem,12vw,7.5rem);line-height:.9;letter-spacing:-.02em;text-transform:uppercase;text-shadow:0 4px 20px rgba(0,0,0,0.6);margin-bottom:.25rem}
     .hero-content .hero-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(.9rem,1.8vw,1.4rem);letter-spacing:.2em;text-transform:uppercase;color:var(--mustard);text-shadow:0 2px 10px rgba(0,0,0,0.5)}
     .hero-ticker{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:2rem;max-width:700px;margin-left:auto;margin-right:auto}
-    .hero-ticker-item{background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.15);padding:.8rem .3rem;text-align:center;transition:all .2s}
+    .hero-ticker-item{background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.15);padding:.8rem .3rem;text-align:center;transition:all .2s;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90px}
     .hero-ticker-item:hover{background:rgba(255,255,255,0.18);transform:translateY(-2px)}
     .hero-ticker-item .stat-number{font-size:1.8rem;color:#fff;display:block}
     .hero-ticker-item .stat-label{font-size:8px;color:#ddd;display:block;margin-top:.15rem;letter-spacing:.08em}
@@ -332,6 +332,7 @@
       .key-stats>div{padding:.6rem .4rem !important;min-height:64px !important}
       .key-stats .kn{font-size:clamp(1.4rem,5vw,1.8rem) !important}
       .key-stats .kl{font-size:9px !important}
+      .cred-item .key-stats { grid-template-columns: 1fr !important; }
 
       /* PMI */
       .project-pmi{grid-template-columns:1fr !important;gap:.6rem !important}
@@ -348,7 +349,7 @@
       .stack-panel:nth-child(2),.stack-panel:nth-child(3),.stack-panel:nth-child(4){border-top:0 !important}
       .stack-panel-wide{border-bottom:0 !important}
       .stack-panel{grid-template-columns:40px minmax(0,1fr) !important}
-      .stack-panel-rail{writing-mode:horizontal-tb !important;transform:none !important;padding:.5rem .3rem !important;font-size:9px !important;border-right:1px solid #000 !important;border-bottom:1px solid #000 !important}
+      .stack-panel-rail{writing-mode:vertical-rl !important;transform:rotate(180deg) !important;padding:.5rem .3rem !important;font-size:9px !important;border-right:1px solid #000 !important;border-bottom:1px solid #000 !important}
       .stack-panel-content{padding:.8rem .6rem !important}
       .stack-list li{font-size:16px !important;padding-left:1.2rem !important}
       .stack-list li::before{width:7px !important;height:7px !important;top:.7em !important}
@@ -1001,7 +1002,6 @@ document.querySelectorAll(".project-item,.cred-item,.beyond-desk").forEach(funct
 function toggleMobileMenu(){var m=document.getElementById("mobile-menu");var h=document.getElementById("nav-ham");if(!m||!h)return;m.classList.toggle("open");h.classList.toggle("open");}
 function closeMobileMenu(){var m=document.getElementById("mobile-menu");var h=document.getElementById("nav-ham");if(m)m.classList.remove("open");if(h)h.classList.remove("open");}
 
-// ===== PAGE LAST UPDATED dengan WIB (UTC+7) dari lastModified =====
 (function(){
   var lastMod = document.lastModified;
   var d = new Date(lastMod);
@@ -1017,6 +1017,17 @@ function closeMobileMenu(){var m=document.getElementById("mobile-menu");var h=do
   var formatted = d.toLocaleString('id-ID', options) + ' WIB';
   document.getElementById('last-updated').textContent = formatted;
 })();
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('img').forEach(function(img) {
+    img.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+    img.addEventListener('dragstart', function(e) { e.preventDefault(); return false; });
+  });
+  document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') { e.preventDefault(); return false; }
+  });
+});
+
 </script>
 </body>
 </html>
