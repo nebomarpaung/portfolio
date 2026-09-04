@@ -19,8 +19,11 @@
   <meta content="Nebo Yok Jonah Marpaung | Analis Geospasial" name="twitter:title"/>
   <meta content="Lulusan Geografi UI, IPK 3.60. Spesialis analisis spasial, pemodelan lingkungan, perencanaan tata ruang, dan validasi data geospasial." name="twitter:description"/>
   <meta content="https://nebomarpaung.github.io/portfolio/assets/images/sarjana/sidang.jpeg" name="twitter:image"/>
-  <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text x='50' y='72' text-anchor='middle' font-size='72' font-family='Playfair Display' fill='%232E5C40'&gt;N&lt;/text&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/>
+
+  <!-- ===== FAVICON & APPLE-TOUCH-ICON (Helvetica, tanpa background) ===== -->
+  <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text x='50' y='72' text-anchor='middle' font-size='72' font-family='Helvetica, Arial, sans-serif' font-weight='bold' fill='%232E5C40'&gt;N&lt;/text&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/>
   <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text x='50' y='72' text-anchor='middle' font-size='72' font-family='Helvetica, Arial, sans-serif' font-weight='bold' fill='%232E5C40'&gt;N&lt;/text&gt;&lt;/svg&gt;" rel="apple-touch-icon"/>
+
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&amp;family=Lora:ital,wght@0,400;0,700;1,400&amp;family=Montserrat:wght@600;700&amp;family=Playfair+Display:wght@700;900&amp;display=swap" rel="stylesheet"/>
@@ -68,7 +71,6 @@
       0% { background-position: -200% 0; }
       100% { background-position: 200% 0; }
     }
-    /* Hapus skeleton setelah gambar load */
     img:not(.skeleton) {
       animation: none !important;
       background: none !important;
@@ -318,7 +320,7 @@
       .front-page{grid-template-columns:1fr !important}
       .featured-story{grid-column:1 !important}
       .project-item{
-        display:block !important; /* override grid */
+        display:block !important;
         padding:1.2rem !important;
         border-right:0 !important;
         border-bottom:1px solid #000 !important;
@@ -1044,7 +1046,6 @@ function closeMobileMenu(){var m=document.getElementById("mobile-menu");var h=do
 document.addEventListener('DOMContentLoaded', function() {
   var imgs = document.querySelectorAll('img');
   imgs.forEach(function(img) {
-    // Jika gambar sudah selesai dimuat, langsung hapus skeleton
     if (img.complete && img.naturalWidth > 0) {
       return;
     }
