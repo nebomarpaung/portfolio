@@ -40,7 +40,7 @@
   <style>
     /* ===== RESET & VARIABEL ===== */
     :root{--paper:#fff;--ink:#000;--green:#2E5C40;--red:#C84630;--mustard:#D9A05B;--gold:#B8860B}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;border-radius:0;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
     html{scroll-behavior:smooth;background:#fff}
     body{width:100%;margin:0;background:#fff;color:#000;font-family:'Lora',serif;font-size:15px;line-height:1.5;font-weight:400;overflow-x:hidden}
     p,.pmi-text,.cred-sub,.section-desc{font-family:'Lora',serif;font-weight:400}
@@ -427,7 +427,7 @@
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   </style>
 </head>
-<body>
+<body oncontextmenu="return false" ondragstart="return false">
 <div id="lightbox" role="dialog" aria-labelledby="lightbox-caption" aria-modal="true">
   <button id="lightbox-close" onclick="closeLightbox()">✕ Tutup</button>
   <button id="lightbox-prev" onclick="lbNav(-1)">‹</button>
@@ -1028,6 +1028,19 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// --- Pencegahan shortcut copy, inspect, dll. ---
+document.addEventListener('keydown', function(e) {
+  // Ctrl+C / Ctrl+U
+  if (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U')) {
+    e.preventDefault();
+    return false;
+  }
+  // F12 atau Ctrl+Shift+I
+  if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I'))) {
+    e.preventDefault();
+    return false;
+  }
+});
 </script>
 </body>
 </html>
