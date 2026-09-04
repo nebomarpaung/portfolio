@@ -269,17 +269,17 @@
       .beyond-desk{height:345px;min-height:345px}
     }
 
+    /* ===== MOBILE (≤ 700px) — DIPERKUAT DENGAN !important ===== */
     @media(max-width:700px){
       /* NAV */
-      .site-nav{grid-template-columns:auto 1fr auto;padding:.65rem 1rem}
-      .nav-links{display:none}
-      .nav-hamburger{display:block}
-      .nav-brand{font-size:12px}
-      .section-inner{padding:1.25rem 1rem}
+      .site-nav{grid-template-columns:auto 1fr auto;padding:.65rem 1rem !important}
+      .nav-links{display:none !important}
+      .nav-hamburger{display:block !important}
+      .nav-brand{font-size:12px !important}
+      .section-inner{padding:1.25rem 1rem !important}
 
       /* ----- PERBESARAN FONT MOBILE ----- */
       body{font-size:17px !important;line-height:1.6 !important}
-
       .section-title,.display-title{font-size:clamp(2.4rem,6vw,3.2rem) !important}
       .section-desc{font-size:16px !important}
       .section-tag{font-size:12px !important}
@@ -289,19 +289,46 @@
       .hero-content .hero-title{font-size:clamp(1.2rem,4vw,1.8rem) !important}
       .hero-ticker-item .stat-number{font-size:2rem !important}
       .hero-ticker-item .stat-label{font-size:10px !important}
-      .hero-ticker{grid-template-columns:repeat(2,1fr);gap:.3rem}
-      .hero-ticker-item{padding:.6rem .2rem}
+      .hero-ticker{grid-template-columns:repeat(2,1fr) !important;gap:.3rem !important}
+      .hero-ticker-item{padding:.6rem .2rem !important}
 
-      /* PROJECT ITEM - layout satu kolom */
-      .project-item{grid-template-columns:1fr !important;gap:.5rem !important;padding:1.2rem !important}
-      .project-num{font-size:16px !important;padding-top:0 !important;margin-bottom:.2rem !important;display:block !important}
+      /* ----- PERBAIKAN PROJECT ITEM (kunci) ----- */
+      .front-page{grid-template-columns:1fr !important}
       .featured-story{grid-column:1 !important}
-      .project-title,.featured-story .project-title{font-size:2.2rem !important;max-width:100% !important}
-      .project-meta{gap:.6rem}
-      .project-tag,.badge-individu,.badge-kolaboratif,.project-loc{font-size:11px !important}
+      .project-item{
+        display:block !important; /* override grid */
+        padding:1.2rem !important;
+        border-right:0 !important;
+        border-bottom:1px solid #000 !important;
+      }
+      .project-num{
+        display:block !important;
+        font-size:16px !important;
+        padding-top:0 !important;
+        margin-bottom:0.5rem !important;
+        font-weight:700 !important;
+      }
+      .project-title,.featured-story .project-title{
+        font-size:2.2rem !important;
+        max-width:100% !important;
+        flex:0 0 auto !important;
+      }
+      .project-meta{
+        display:flex !important;
+        flex-wrap:wrap !important;
+        gap:0.6rem !important;
+        align-items:center !important;
+      }
+      .project-tag,.badge-individu,.badge-kolaboratif,.project-loc{
+        font-size:11px !important;
+      }
 
       /* KEY STATS */
-      .key-stats{grid-template-columns:1fr 1fr !important;gap:.6rem !important}
+      .key-stats{
+        display:grid !important;
+        grid-template-columns:1fr 1fr !important;
+        gap:0.6rem !important;
+      }
       .key-stats>div{padding:.6rem .4rem !important;min-height:64px !important}
       .key-stats .kn{font-size:clamp(1.4rem,5vw,1.8rem) !important}
       .key-stats .kl{font-size:9px !important}
@@ -316,16 +343,16 @@
       .kw{font-size:10px !important;padding:.2rem .7rem !important}
 
       /* STACK */
-      .stack-editorial{grid-template-columns:1fr}
-      .stack-panel,.stack-panel-wide{grid-column:auto;min-height:auto;border-right:0;border-top:0;border-bottom:1px solid #000}
-      .stack-panel:nth-child(2),.stack-panel:nth-child(3),.stack-panel:nth-child(4){border-top:0}
-      .stack-panel-wide{border-bottom:0}
+      .stack-editorial{grid-template-columns:1fr !important}
+      .stack-panel,.stack-panel-wide{grid-column:auto !important;min-height:auto !important;border-right:0 !important;border-top:0 !important;border-bottom:1px solid #000 !important}
+      .stack-panel:nth-child(2),.stack-panel:nth-child(3),.stack-panel:nth-child(4){border-top:0 !important}
+      .stack-panel-wide{border-bottom:0 !important}
       .stack-panel{grid-template-columns:40px minmax(0,1fr) !important}
       .stack-panel-rail{writing-mode:horizontal-tb !important;transform:none !important;padding:.5rem .3rem !important;font-size:9px !important;border-right:1px solid #000 !important;border-bottom:1px solid #000 !important}
       .stack-panel-content{padding:.8rem .6rem !important}
       .stack-list li{font-size:16px !important;padding-left:1.2rem !important}
       .stack-list li::before{width:7px !important;height:7px !important;top:.7em !important}
-      .competency-grid{grid-template-columns:1fr;gap:.7rem}
+      .competency-grid{grid-template-columns:1fr !important;gap:.7rem !important}
       .stack-language{font-size:11px !important}
 
       /* CREDENTIALS */
@@ -341,42 +368,47 @@
       .cred-sub-label{font-size:12px !important}
 
       /* BEYOND */
-      .beyond-desk{height:520px;min-height:520px}
-      .beyond-copy{position:absolute;width:100%;height:auto;bottom:0;top:auto;border-right:0;border-bottom:2px solid #000;padding:.8rem 1rem;background:rgba(217,160,91,0.92);backdrop-filter:blur(4px)}
-      .beyond-copy h2{width:auto;max-width:16ch;font-size:clamp(2rem,7vw,3.2rem)}
-      .beyond-copy p{width:auto;font-size:16px;margin-top:.5rem}
+      .beyond-desk{height:520px !important;min-height:520px !important}
+      .beyond-copy{position:absolute !important;width:100% !important;height:auto !important;bottom:0 !important;top:auto !important;border-right:0 !important;border-bottom:2px solid #000 !important;padding:.8rem 1rem !important;background:rgba(217,160,91,0.92) !important;backdrop-filter:blur(4px) !important}
+      .beyond-copy h2{width:auto !important;max-width:16ch !important;font-size:clamp(2rem,7vw,3.2rem) !important}
+      .beyond-copy p{width:auto !important;font-size:16px !important;margin-top:.5rem !important}
 
       /* DUAL MAP */
-      .dual-map-grid{grid-template-columns:1fr}
+      .dual-map-grid{grid-template-columns:1fr !important}
       .dual-map-item .map-wrap img{height:clamp(220px,50vw,300px) !important}
 
       /* MAP GALLERY */
       .map-gallery-main img{height:clamp(220px,55vw,340px) !important}
-      .map-thumbnails{gap:.3rem;padding:.3rem 0}
+      .map-thumbnails{gap:.3rem !important;padding:.3rem 0 !important}
       .map-thumb{flex:0 0 70px !important;width:70px !important;height:50px !important;min-height:50px !important}
       .map-caption{font-size:9px !important}
 
       /* PHOTO GALLERY */
-      .photo-gallery-grid{grid-template-columns:repeat(2,1fr)}
+      .photo-gallery-grid{grid-template-columns:repeat(2,1fr) !important}
 
       /* CLASSIFIED */
-      .classified{grid-template-columns:1fr}
-      .classified-block{min-height:130px;border-right:0;border-bottom:1px solid #000}
-      .classified-block:last-child{border-bottom:0}
+      .classified{grid-template-columns:1fr !important}
+      .classified-block{min-height:130px !important;border-right:0 !important;border-bottom:1px solid #000 !important}
+      .classified-block:last-child{border-bottom:0 !important}
       .classified-small{font-size:12px !important}
       .classified-big{font-size:clamp(2.2rem,8vw,3.6rem) !important}
 
       /* FOOTER */
-      .page-footer-inner{flex-direction:column;gap:.3rem;font-size:13px !important}
-      .footer-meta{flex-direction:column;align-items:center;gap:.2rem;font-size:11px !important;padding:.6rem 1rem}
-      .page-footer-inner span{flex-wrap:wrap;justify-content:center}
+      .page-footer-inner{flex-direction:column !important;gap:.3rem !important;font-size:13px !important}
+      .footer-meta{flex-direction:column !important;align-items:center !important;gap:.2rem !important;font-size:11px !important;padding:.6rem 1rem !important}
+      .page-footer-inner span{flex-wrap:wrap !important;justify-content:center !important}
 
       /* TOUCH TARGETS */
-      .nav-links a,.classified-block,.dual-map-btn,#lightbox-close,#lightbox-prev,#lightbox-next{min-height:44px !important;display:flex !important;align-items:center !important;justify-content:center !important}
+      .nav-links a,.classified-block,.dual-map-btn,#lightbox-close,#lightbox-prev,#lightbox-next{
+        min-height:44px !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+      }
       #lightbox-prev,#lightbox-next{display:none !important}
     }
 
-    /* ===== PERBAIKAN UNTUK HP SANGAT KECIL (≤ 375px) ===== */
+    /* ===== HP SANGAT KECIL (≤ 375px) ===== */
     @media (max-width: 375px) {
       body{font-size:16px !important}
       .hero-content .hero-name{font-size:clamp(2.8rem,14vw,3.6rem) !important}
@@ -971,9 +1003,8 @@ function closeMobileMenu(){var m=document.getElementById("mobile-menu");var h=do
 
 // ===== PAGE LAST UPDATED dengan WIB (UTC+7) dari lastModified =====
 (function(){
-  var lastMod = document.lastModified; // "MM/DD/YYYY HH:MM:SS" format (en-US)
+  var lastMod = document.lastModified;
   var d = new Date(lastMod);
-  // Format ke WIB (UTC+7) dengan toLocaleString
   var options = {
     year: 'numeric',
     month: 'long',
