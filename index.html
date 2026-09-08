@@ -47,7 +47,7 @@
     }
   </script>
   <style>
-    /* --- existing styles --- */
+    /* --- reset & base --- */
     :root {
       --paper: #fff;
       --ink: #000;
@@ -170,6 +170,10 @@
     #eng-content.active { display: block; }
     #idn-content { display: block; }
     #idn-content.hidden { display: none; }
+
+    /* --- bilingual helper (always hidden one of them) --- */
+    .lang-idn { display: inline; }
+    .lang-eng { display: none; }
 
     /* --- other styles (unchanged) --- */
     .page { width: 100%; background: #fff; }
@@ -332,23 +336,108 @@
     .beyond-desk>div:last-child { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; overflow: hidden; }
     .beyond-desk .portrait-crop { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; transform: scale(1.18); transform-origin: center center; }
 
-    .classified-head { padding: .7rem 1.5rem; border-top: 2px solid #000; border-bottom: 1px solid #000; background: #fff; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; }
-    .classified { border-top: 2px solid #000; display: grid; grid-template-columns: 1fr 1fr 1fr; }
-    .classified-block { min-height: 210px; padding: 1rem; border-right: 1px solid #000; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; min-height: 44px; }
+    .classified-head {
+      padding: .7rem 1.5rem;
+      border-top: 2px solid #000;
+      border-bottom: 1px solid #000;
+      background: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+    }
+    .classified {
+      border-top: 2px solid #000;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .classified-block {
+      min-height: 210px;
+      padding: 1rem;
+      border-right: 1px solid #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      min-height: 44px;
+    }
     .classified-block:last-child { border-right: 0; }
     .classified-block.email { background: var(--green); color: #fff; }
     .classified-block.whatsapp { background: var(--red); color: #fff; }
     .classified-block.linkedin { background: var(--mustard); color: #000; }
-    .classified-small { font-size: 10px; letter-spacing: .08em; }
-    .classified-big { font-size: clamp(2.4rem,6vw,6rem); line-height: .82; letter-spacing: -.045em; text-transform: uppercase; overflow-wrap: anywhere; }
+    .classified-small {
+      font-size: 10px;
+      letter-spacing: .08em;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .classified-big {
+      font-size: clamp(2.4rem,6vw,6rem);
+      line-height: .82;
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+      overflow-wrap: anywhere;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
 
-    .page-footer { border-top: 2px solid #000; border-bottom: 2px solid #000; padding: .6rem 1.5rem; background: #faf9f5; display: flex; justify-content: center; align-items: center; text-align: center; min-height: 60px; }
-    .page-footer-inner { display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: center; align-items: center; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: .04em; font-weight: 500; color: #000; }
-    .page-footer-inner span { display: inline-flex; align-items: center; gap: .3rem; }
-    .page-footer-inner .label { font-weight: 700; text-transform: uppercase; font-size: 9px; letter-spacing: .08em; color: #333; }
-    .page-footer-inner .value { font-weight: 500; }
-    footer { width: 100%; border-bottom: 3px solid #000; background: #fff; }
-    .footer-meta { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.5rem; font-size: 9px; letter-spacing: .06em; }
+    .page-footer {
+      border-top: 2px solid #000;
+      border-bottom: 2px solid #000;
+      padding: .6rem 1.5rem;
+      background: #faf9f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 60px;
+    }
+    .page-footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: .04em;
+      font-weight: 500;
+      color: #000;
+    }
+    .page-footer-inner span {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+    }
+    .page-footer-inner .label {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 9px;
+      letter-spacing: .08em;
+      color: #333;
+    }
+    .page-footer-inner .value {
+      font-weight: 500;
+    }
+    footer {
+      width: 100%;
+      border-bottom: 3px solid #000;
+      background: #fff;
+    }
+    .footer-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      font-size: 9px;
+      letter-spacing: .06em;
+    }
+    .footer-meta .footer-brand .lang-idn { display: inline; }
+    .footer-meta .footer-brand .lang-eng { display: none; }
+    .footer-meta .lang-idn { display: inline; }
+    .footer-meta .lang-eng { display: none; }
 
     #lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: #fff; align-items: center; justify-content: center; flex-direction: column; padding: 1.5rem; }
     #lightbox.active { display: flex; }
@@ -489,13 +578,16 @@
     <button id="lightbox-next" onclick="lbNav(1)">›</button>
   </div>
 
-  <!-- Navigation -->
+  <!-- Navigation (fully bilingual) -->
   <nav class="site-nav">
-    <div class="nav-brand">PORTOFOLIO</div>
+    <div class="nav-brand">
+      <span class="lang-idn">PORTOFOLIO</span>
+      <span class="lang-eng">PORTFOLIO</span>
+    </div>
     <ul class="nav-links">
-      <li><a href="#works" data-i18n="nav-works">Karya</a></li>
-      <li><a href="#stack" data-i18n="nav-tech">Teknis</a></li>
-      <li><a href="#credentials" data-i18n="nav-exp">Pengalaman</a></li>
+      <li><a href="#works"><span class="lang-idn">Karya</span><span class="lang-eng">Works</span></a></li>
+      <li><a href="#stack"><span class="lang-idn">Teknis</span><span class="lang-eng">Technical</span></a></li>
+      <li><a href="#credentials"><span class="lang-idn">Pengalaman</span><span class="lang-eng">Experience</span></a></li>
     </ul>
     <div class="lang-switch">
       <button class="lang-btn active" data-lang="idn" onclick="switchLang('idn')">IDN</button>
@@ -506,15 +598,15 @@
     </button>
   </nav>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="#works" onclick="closeMobileMenu()" data-i18n="nav-works">Karya</a>
-    <a href="#stack" onclick="closeMobileMenu()" data-i18n="nav-tech">Teknis</a>
-    <a href="#credentials" onclick="closeMobileMenu()" data-i18n="nav-exp">Pengalaman</a>
-    <a href="#" onclick="switchLang('idn'); closeMobileMenu();">IDN</a>
-    <a href="#" onclick="switchLang('eng'); closeMobileMenu();">ENG</a>
+    <a href="#works"><span class="lang-idn">Karya</span><span class="lang-eng">Works</span></a>
+    <a href="#stack"><span class="lang-idn">Teknis</span><span class="lang-eng">Technical</span></a>
+    <a href="#credentials"><span class="lang-idn">Pengalaman</span><span class="lang-eng">Experience</span></a>
+    <a href="#" onclick="switchLang('idn'); closeMobileMenu();"><span class="lang-idn">IDN</span><span class="lang-eng">IDN</span></a>
+    <a href="#" onclick="switchLang('eng'); closeMobileMenu();"><span class="lang-idn">ENG</span><span class="lang-eng">ENG</span></a>
   </div>
 
   <main class="page">
-    <!-- ======================== INDONESIAN CONTENT (italicized foreign terms) ======================== -->
+    <!-- ======================== INDONESIAN CONTENT ======================== -->
     <div id="idn-content">
       <section class="hero-full" id="hero">
         <div class="hero-bg"><img src="assets/images/diri/IMG_4828.JPG" alt="Nebo" loading="eager" /><div class="hero-overlay-dark"></div></div>
@@ -1019,7 +1111,7 @@
       </section>
     </div> <!-- end idn-content -->
 
-    <!-- ======================== ENGLISH CONTENT (no italics) ======================== -->
+    <!-- ======================== ENGLISH CONTENT ======================== -->
     <div id="eng-content" style="display:none;">
       <section class="hero-full" id="hero">
         <div class="hero-bg"><img src="assets/images/diri/IMG_4828.JPG" alt="Nebo" loading="eager" /><div class="hero-overlay-dark"></div></div>
@@ -1043,7 +1135,7 @@
               <h2 class="section-title">Five Projects<br /><em>That Shape</em><br />How I Work</h2>
             </div>
             <div>
-              <p class="section-desc">From coastal geomorphology, agricultural land suitability, disaster vulnerability, public service accessibility, to precision agriculture using hyperspectral sensors. A mix of individual and collaborative projects that reflect my ability to work independently and in crossdisciplinary teams.</p>
+              <p class="section-desc">From coastal geomorphology, agricultural land suitability, disaster vulnerability, public service accessibility, to precision agriculture using hyperspectral sensors. A mix of individual and collaborative projects that reflect my ability to work independently and in cross‑disciplinary teams.</p>
               <div class="works-legend"><span class="badge-individu">■ Individual</span><span class="badge-kolaboratif">■ Collaborative</span></div>
             </div>
           </div>
@@ -1088,11 +1180,11 @@
                 </div>
                 <div class="project-pmi">
                   <div><p class="pmi-label">Problem</p><p class="pmi-text">National rice consumption is projected to reach <strong>31.7 million tons by 2045</strong> while production dropped 2.05% to 30.90 million tons (2023). Conventional estimation methods fail to capture <strong>spatial variability in productivity</strong> efficiently and precisely.</p></div>
-                  <div><p class="pmi-label">Method</p><p class="pmi-text"><strong>ISE-PLS (Iterative Stepwise Elimination – Partial Least Squares)</strong> on BlackBird V2 hyperspectral UAV imagery (100 bands). Acquired at flowering (64 DAS) and grainfilling (73 DAS). Bands <strong>rededge (755–760 nm) and NIR (930–935 nm)</strong> were identified as dominant.</p></div>
-                  <div><p class="pmi-label">Impact</p><p class="pmi-text">ISE-PLS reduced 100 bands to <strong>8 bands without significant accuracy loss (R²=0.8335)</strong>. Spatial productivity estimates of 0.391–0.634 kg/m² reflect the influence of terraced irrigation and microtopography. Graduated with <strong>Distinction · July 2025</strong>.</p></div>
+                  <div><p class="pmi-label">Method</p><p class="pmi-text"><strong>ISE-PLS (Iterative Stepwise Elimination – Partial Least Squares)</strong> on BlackBird V2 hyperspectral UAV imagery (100 bands). Acquired at flowering (64 DAS) and grain‑filling (73 DAS). Bands <strong>red‑edge (755–760 nm) and NIR (930–935 nm)</strong> were identified as dominant.</p></div>
+                  <div><p class="pmi-label">Impact</p><p class="pmi-text">ISE-PLS reduced 100 bands to <strong>8 bands without significant accuracy loss (R²=0.8335)</strong>. Spatial productivity estimates of 0.391–0.634 kg/m² reflect the influence of terraced irrigation and micro‑topography. Graduated with <strong>Distinction · July 2025</strong>.</p></div>
                 </div>
                 <div class="keyword-strip">
-                  <span class="kw">Hyperspectral UAV</span><span class="kw">ISE-PLS</span><span class="kw">Vegetation Indices</span><span class="kw">Remote Sensing</span><span class="kw">BlackBird V2</span><span class="kw">Rice Productivity</span><span class="kw">Rededge NIR</span><span class="kw">UI 2025</span>
+                  <span class="kw">Hyperspectral UAV</span><span class="kw">ISE-PLS</span><span class="kw">Vegetation Indices</span><span class="kw">Remote Sensing</span><span class="kw">BlackBird V2</span><span class="kw">Rice Productivity</span><span class="kw">Red‑edge NIR</span><span class="kw">UI 2025</span>
                 </div>
               </div>
             </div>
@@ -1126,8 +1218,8 @@
                 </div>
                 <div class="project-pmi">
                   <div><p class="pmi-label">Problem</p><p class="pmi-text">The potential for pineapple agritourism in Purwakarta has not been spatially mapped – <strong>agricultural development planning lacks an optimal location database</strong> for both local government and farmers.</p></div>
-                  <div><p class="pmi-label">Method</p><p class="pmi-text"><strong>Spatial MultiCriteria Analysis (SMCA)</strong> with Intersection Analysis on 4 variables: elevation (DEMNAS BIG), slope, soil texture (FAOUNESCO), and land use (RBI BIG). FAO 1976 suitability matrix produced <strong>5 classes</strong> (S1s, S2, S2s, S3e, N). Done with ArcGIS Pro 3.1.1.</p></div>
-                  <div><p class="pmi-label">Impact</p><p class="pmi-text">Identified <strong>34.27% of the area as moderately suitable (S2s)</strong> and mapped the main limiting factors: steep slopes (>20%) and claydominated texture. Only the southern part with loamy texture shows potential. Published as a scientific paper.</p></div>
+                  <div><p class="pmi-label">Method</p><p class="pmi-text"><strong>Spatial Multi‑Criteria Analysis (SMCA)</strong> with Intersection Analysis on 4 variables: elevation (DEMNAS BIG), slope, soil texture (FAO‑UNESCO), and land use (RBI BIG). FAO 1976 suitability matrix produced <strong>5 classes</strong> (S1s, S2, S2s, S3e, N). Done with ArcGIS Pro 3.1.1.</p></div>
+                  <div><p class="pmi-label">Impact</p><p class="pmi-text">Identified <strong>34.27% of the area as moderately suitable (S2s)</strong> and mapped the main limiting factors: steep slopes (>20%) and clay‑dominated texture. Only the southern part with loamy texture shows potential. Published as a scientific paper.</p></div>
                 </div>
                 <div class="keyword-strip"><span class="kw">SMCA</span><span class="kw">Intersection Analysis</span><span class="kw">Land Suitability</span><span class="kw">ArcGIS Pro 3.1</span><span class="kw">FAO 1976</span><span class="kw">Pineapple</span></div>
               </div>
@@ -1162,9 +1254,9 @@
                   <div><p class="kn">ISBN + IPR</p><p class="kl">Publication &amp; Registered Map</p></div>
                 </div>
                 <div class="project-pmi">
-                  <div><p class="pmi-label">Problem</p><p class="pmi-text">Cimanggu Village, on the southern coast of Sukabumi, has diverse geomorphology (hills, coastal plains, river systems) but <strong>lacks scientific documentation and fieldvalidated spatial baseline data</strong> for local government use.</p></div>
-                  <div><p class="pmi-label">Method</p><p class="pmi-text">Landform interpretation using <strong>National DEM from BIG</strong> (5m resolution, IFSAR/TerraSARX/ALOS PALSAR) with ArcGIS Pro 3.0.2. Classification based on Zuidam (1983), Dessaunetes (1977), Verstappen (2011). Produced <strong>7 tentative maps</strong> validated during 5 days of fieldwork with a team of 22.</p></div>
-                  <div><p class="pmi-label">Impact</p><p class="pmi-text">As <strong>Class President and Geomorphology Focus Group researcher</strong>, I led logistics for 22 people and presented findings to <strong>135+ audience</strong> including 12 lecturers and regional officials. The report was published as an <strong>ISBNregistered book</strong> and the official map is registered under <strong>IPR</strong>.</p></div>
+                  <div><p class="pmi-label">Problem</p><p class="pmi-text">Cimanggu Village, on the southern coast of Sukabumi, has diverse geomorphology (hills, coastal plains, river systems) but <strong>lacks scientific documentation and field‑validated spatial baseline data</strong> for local government use.</p></div>
+                  <div><p class="pmi-label">Method</p><p class="pmi-text">Landform interpretation using <strong>National DEM from BIG</strong> (5m resolution, IFSAR/TerraSAR‑X/ALOS PALSAR) with ArcGIS Pro 3.0.2. Classification based on Zuidam (1983), Dessaunetes (1977), Verstappen (2011). Produced <strong>7 tentative maps</strong> validated during 5 days of fieldwork with a team of 22.</p></div>
+                  <div><p class="pmi-label">Impact</p><p class="pmi-text">As <strong>Class President and Geomorphology Focus Group researcher</strong>, I led logistics for 22 people and presented findings to <strong>135+ audience</strong> including 12 lecturers and regional officials. The report was published as an <strong>ISBN‑registered book</strong> and the official map is registered under <strong>IPR</strong>.</p></div>
                 </div>
                 <div class="keyword-strip"><span class="kw">National DEM BIG</span><span class="kw">Geomorphology</span><span class="kw">Zuidam 1983</span><span class="kw">ArcGIS Pro 3.0</span><span class="kw">Field Validation</span><span class="kw">IPR</span><span class="kw">ISBN</span></div>
               </div>
@@ -1174,7 +1266,7 @@
               <span class="project-num">03</span>
               <div>
                 <div class="project-meta">
-                  <h3 class="project-title">Spatial Study of DroughtProne Areas in Panggang District</h3>
+                  <h3 class="project-title">Spatial Study of Drought‑Prone Areas in Panggang District</h3>
                   <span class="project-tag">SMCA · Sturges Scoring</span>
                   <span class="badge-individu">Individual</span>
                   <span class="project-loc">Panggang, Gunungkidul · 2023</span>
@@ -1198,8 +1290,8 @@
                   <div><p class="kn">99.80 km²</p><p class="kl">Total Area · 6 Villages</p></div>
                 </div>
                 <div class="project-pmi">
-                  <div><p class="pmi-label">Problem</p><p class="pmi-text">Panggang District on the southern coast of Gunungkidul faces chronic meteorological drought, yet <strong>lacks a spatiallybased, validated vulnerability map</strong> to support mitigation policies and local BPBD reference.</p></div>
-                  <div><p class="pmi-label">Method</p><p class="pmi-text">SMCA with <strong>Intersection Analysis and Sturges Scoring</strong> on 4 variables: rainfall (BMKG 2022), slope (DEMNAS BIG), soil type (FAOUNESCO), and land use (RBI BIG). Formula <em>TKK = CH + PL + KT + JT</em>. Score range 140–205, class interval 13. Validated with <strong>30 field points over 3 days</strong>.</p></div>
+                  <div><p class="pmi-label">Problem</p><p class="pmi-text">Panggang District on the southern coast of Gunungkidul faces chronic meteorological drought, yet <strong>lacks a spatially‑based, validated vulnerability map</strong> to support mitigation policies and local BPBD reference.</p></div>
+                  <div><p class="pmi-label">Method</p><p class="pmi-text">SMCA with <strong>Intersection Analysis and Sturges Scoring</strong> on 4 variables: rainfall (BMKG 2022), slope (DEMNAS BIG), soil type (FAO‑UNESCO), and land use (RBI BIG). Formula <em>TKK = CH + PL + KT + JT</em>. Score range 140–205, class interval 13. Validated with <strong>30 field points over 3 days</strong>.</p></div>
                   <div><p class="pmi-label">Impact</p><p class="pmi-text"><strong>65.39% of the area classified as High vulnerability</strong>, concentrated in Girimulyo, Girisekar, Giriwungu, and Girisuko – triggered by low rainfall (1,000–1,500 mm/year), lithosol soil dominance, and steep slopes. Scientific paper and map ready as reference for disaster mitigation policy.</p></div>
                 </div>
                 <div class="keyword-strip"><span class="kw">SMCA</span><span class="kw">Sturges Scoring</span><span class="kw">Meteorological Drought</span><span class="kw">Intersection Analysis</span><span class="kw">DEMNAS BIG</span><span class="kw">Gunungkidul</span></div>
@@ -1241,7 +1333,7 @@
                   <div><p class="kn">9 Teams</p><p class="kl">Field Survey Teams</p></div>
                 </div>
                 <div class="project-pmi">
-                  <div><p class="pmi-label">Problem</p><p class="pmi-text">The gap in ambulance and Posyandu coverage in Depok City <strong>has not been spatially mapped</strong> – without locationbased coverage data, the city’s health resource distribution lacks a strong geographic foundation for policy making.</p></div>
+                  <div><p class="pmi-label">Problem</p><p class="pmi-text">The gap in ambulance and Posyandu coverage in Depok City <strong>has not been spatially mapped</strong> – without location‑based coverage data, the city’s health resource distribution lacks a strong geographic foundation for policy making.</p></div>
                   <div><p class="pmi-label">Method</p><p class="pmi-text">Coordinated <strong>9 field survey groups</strong> to map 33 Posyandu and 58 ambulance providers. Modelled coverage and spatial accessibility, provided geospatial training for <strong>81 participants</strong>, and held FGD with Depok City Health Office for policy validation. Results presented via StoryMaps.</p></div>
                   <div><p class="pmi-label">Impact</p><p class="pmi-text">Secured <strong>IDR 28,000,000</strong> in grants from two institutions (DPPM UI: IDR 20M, FMIPA UI: IDR 8M). Distribution maps became the <strong>basis for policy recommendations</strong> on redistributing Posyandu and ambulance services to the Depok Health Office. Published via StoryMaps.</p></div>
                 </div>
@@ -1266,7 +1358,7 @@
           <h2 class="section-title">Tools &amp; Frameworks<br /><em>I Use</em></h2>
           <div class="stack-editorial">
             <section class="stack-panel"><div class="stack-panel-rail">Geospatial Tools</div><div class="stack-panel-content"><ul class="stack-list"><li>ArcGIS Pro</li><li>ArcMap</li><li>QGIS</li><li>ENVI</li><li>StoryMaps</li><li>Survey123</li><li>Google Earth Engine (GEE)</li><li>GeoJSON</li><li>Python for Spatial Data Processing</li></ul></div></section>
-            <section class="stack-panel"><div class="stack-panel-rail">Spatial Analysis</div><div class="stack-panel-content"><ul class="stack-list"><li>Spatial MultiCriteria Analysis (SMCA)</li><li>Analytic Hierarchy Process (AHP)</li><li>Intersection &amp; Overlay Analysis</li><li>Spatial Modelling &amp; Geostatistics</li><li>Visual Grid Quality Control</li></ul></div></section>
+            <section class="stack-panel"><div class="stack-panel-rail">Spatial Analysis</div><div class="stack-panel-content"><ul class="stack-list"><li>Spatial Multi‑Criteria Analysis (SMCA)</li><li>Analytic Hierarchy Process (AHP)</li><li>Intersection &amp; Overlay Analysis</li><li>Spatial Modelling &amp; Geostatistics</li><li>Visual Grid Quality Control</li></ul></div></section>
             <section class="stack-panel"><div class="stack-panel-rail">Remote Sensing</div><div class="stack-panel-content"><ul class="stack-list"><li>Hyperspectral UAV Imagery</li><li>Multitemporal Remote Sensing</li><li>Deforestation Polygon Validation</li><li>National DEM BIG</li></ul></div></section>
             <section class="stack-panel"><div class="stack-panel-rail">Field &amp; Data</div><div class="stack-panel-content"><ul class="stack-list"><li>Survey &amp; Field Mapping</li><li>Focus Group Discussion (FGD)</li><li>Report Writing &amp; Scientific Papers</li></ul></div></section>
             <section class="stack-panel stack-panel-wide">
@@ -1274,7 +1366,7 @@
               <div class="stack-panel-content">
                 <div class="competency-grid">
                   <ul class="stack-list"><li>Project Management</li><li>Technical Communication</li></ul>
-                  <ul class="stack-list"><li>Crossfunctional Team Leadership</li><li>Adaptability &amp; Agility</li></ul>
+                  <ul class="stack-list"><li>Cross‑functional Team Leadership</li><li>Adaptability &amp; Agility</li></ul>
                   <ul class="stack-list"><li>Data Analysis &amp; Synthesis</li><li>Quality Assurance (QA)</li></ul>
                 </div>
               </div>
@@ -1329,12 +1421,12 @@
                     <p class="cred-sub" style="display:flex;justify-content:space-between;align-items:center;"><strong>MapBiomas Indonesia (Yayasan Auriga Nusantara)</strong><strong>South Jakarta</strong></p>
                     <div id="validator-dashboard" style="margin-top:0.2rem;">
                       <div class="grid">
-                        <div class="card"><h2 class="card-title">Dual-Axis: Approved vs Rejection Rate</h2><div class="chart-container"><canvas id="chartDual"></canvas></div><div class="insight"><strong>Nebo</strong> has the highest Approved (2,878) and the lowest Rejection Rate (20.2%).</div></div>
-                        <div class="card"><h2 class="card-title">Scatter Plot: Approved vs Rejection Rate</h2><div class="chart-container"><canvas id="chartScatter"></canvas></div><div class="insight"><strong>Nebo</strong> is in the lowerright quadrant (High Approved, Low Rejection), above the median Approved (2,000) and below the median Rejection Rate (33.2%) – a positive outlier.</div></div>
+                        <div class="card"><h2 class="card-title">Dual‑Axis: Approved vs Rejection Rate</h2><div class="chart-container"><canvas id="chartDual"></canvas></div><div class="insight"><strong>Nebo</strong> has the highest Approved (2,878) and the lowest Rejection Rate (20.2%).</div></div>
+                        <div class="card"><h2 class="card-title">Scatter Plot: Approved vs Rejection Rate</h2><div class="chart-container"><canvas id="chartScatter"></canvas></div><div class="insight"><strong>Nebo</strong> is in the lower‑right quadrant (High Approved, Low Rejection), above the median Approved (2,000) and below the median Rejection Rate (33.2%) – a positive outlier.</div></div>
                       </div>
                     </div>
                     <p style="margin-top:.8rem;">When I first joined MapBiomas Indonesia as a Technical Support, my task sounded simple: validate deforestation points detected by satellite across Indonesia. Every flagged polygon had to be checked one by one – does it truly show forest cover loss? The longer I worked, the more I realised that “simple” was misleading, because each polygon I validated could become part of a report used for national policy.</p>
-                    <p style="margin-top:.4rem;">My initial target was <strong>1,100 polygons</strong> – I completed it <strong>three months ahead of schedule</strong>, reaching a total of <strong>over 3,670 polygons</strong> throughout my tenure. This consistency earned me trust as a <strong>QA Auditor</strong>, reauditing <strong>over 2,500 polygons</strong> previously validated by teammates, and inspecting <strong>more than 1,300 polygons</strong> for the national deforestation status report as a secondlayer check before data reached decisionmakers. I learned that meticulous work at the data level, no matter how trivial it seems, often becomes the foundation for largescale climate policy.</p>
+                    <p style="margin-top:.4rem;">My initial target was <strong>1,100 polygons</strong> – I completed it <strong>three months ahead of schedule</strong>, reaching a total of <strong>over 3,670 polygons</strong> throughout my tenure. This consistency earned me trust as a <strong>QA Auditor</strong>, re‑auditing <strong>over 2,500 polygons</strong> previously validated by teammates, and inspecting <strong>more than 1,300 polygons</strong> for the national deforestation status report as a second‑layer check before data reached decision‑makers. I learned that meticulous work at the data level, no matter how trivial it seems, often becomes the foundation for large‑scale climate policy.</p>
                     <div class="photo-gallery">
                       <div class="photo-gallery-grid" data-images='[{"src":"assets/images/auriga/auriga1.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"},{"src":"assets/images/auriga/auriga2.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"},{"src":"assets/images/auriga/auriga3.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"},{"src":"assets/images/auriga/auriga4.jpeg","cap":"MapBiomas Indonesia · Yayasan Auriga Nusantara"}]'>
                         <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/auriga/auriga1.jpeg" alt="Auriga 1" loading="lazy" /></div>
@@ -1350,7 +1442,7 @@
                   <div>
                     <p class="cred-title">RDTR Drafting Team</p>
                     <p class="cred-sub" style="display:flex;justify-content:space-between;align-items:center;"><strong>Ministry of ATR/BPN · DPUPR Bima City</strong><strong>Bima City</strong></p>
-                    <p style="margin-top:.8rem;">Internship at DPUPR Bima City was my first time seeing how spatial data transforms into real policy decisions. I produced <strong>15 thematic and structural maps</strong> covering land use, transportation, and hazardprone areas – all feeding into the Detailed Spatial Plan, including zoning regulation revisions.</p>
+                    <p style="margin-top:.8rem;">Internship at DPUPR Bima City was my first time seeing how spatial data transforms into real policy decisions. I produced <strong>15 thematic and structural maps</strong> covering land use, transportation, and hazard‑prone areas – all feeding into the Detailed Spatial Plan, including zoning regulation revisions.</p>
                     <p style="margin-top:.4rem;">What stuck with me most wasn’t the maps themselves, but facilitating public consultation sessions with <strong>over 100 residents</strong>, and finalising the final report along with <strong>20 technical maps</strong> together with a team of <strong>11 interns</strong>. This taught me that good spatial planning is not just about map accuracy, but also about ensuring that the voices of affected communities are genuinely heard.</p>
                     <div class="photo-gallery">
                       <div class="photo-gallery-grid" data-images='[{"src":"assets/images/rdtr/msib1.jpeg","cap":"MSIB INSPIRING · Ministry of ATR/BPN · Bima City"},{"src":"assets/images/rdtr/msib2.jpeg","cap":"MSIB INSPIRING · Ministry of ATR/BPN · Bima City"},{"src":"assets/images/rdtr/msib3.jpeg","cap":"MSIB INSPIRING · Ministry of ATR/BPN · Bima City"},{"src":"assets/images/rdtr/msib4.jpeg","cap":"MSIB INSPIRING · Ministry of ATR/BPN · Bima City"}]'>
@@ -1367,8 +1459,8 @@
                   <div>
                     <p class="cred-title">Enumerator</p>
                     <p class="cred-sub" style="display:flex;justify-content:space-between;align-items:center;"><strong>Japan International Cooperation Agency (JICA)</strong><strong>Central Jakarta</strong></p>
-                    <p style="margin-top:.8rem;">As an Enumerator in JICA’s baseline survey on disaster risk management readiness in Indonesia, I collaborated with <strong>BNPB</strong> and <strong>BAPPENAS</strong>, helped design questionnaires, and conducted indepth interviews with key government stakeholders.</p>
-                    <p style="margin-top:.4rem;">This role taught me that good data collection is essentially an exercise in active listening. The gaps found in coordination, resources, and community preparedness were not just numbers in a report – they were realworld reflections of challenges that can determine how communities respond when disaster actually strikes.</p>
+                    <p style="margin-top:.8rem;">As an Enumerator in JICA’s baseline survey on disaster risk management readiness in Indonesia, I collaborated with <strong>BNPB</strong> and <strong>BAPPENAS</strong>, helped design questionnaires, and conducted in‑depth interviews with key government stakeholders.</p>
+                    <p style="margin-top:.4rem;">This role taught me that good data collection is essentially an exercise in active listening. The gaps found in coordination, resources, and community preparedness were not just numbers in a report – they were real‑world reflections of challenges that can determine how communities respond when disaster actually strikes.</p>
                     <div class="photo-gallery">
                       <div class="photo-gallery-grid cols2" data-images='[{"src":"assets/images/enumerator/jica1.jpeg","cap":"JICA · Enumerator DRR Survey · Jakarta 2023"},{"src":"assets/images/enumerator/jica2.jpeg","cap":"JICA · Enumerator DRR Survey · Jakarta 2023"}]'>
                         <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/enumerator/jica1.jpeg" alt="JICA 1" loading="lazy" /></div>
@@ -1388,9 +1480,9 @@
                   <div>
                     <p class="cred-title">Secretariat Team</p>
                     <p class="cred-sub" style="display:flex;justify-content:space-between;align-items:center;"><strong>GNSS Indonesia Summit & Expo 2025</strong><strong>Central Jakarta &amp; Depok</strong></p>
-                    <p style="margin-top:.8rem;" class="cred-sub">Served as <b>Secretary</b> for the <b>GNSS Indonesia Summit and Expo</b>, the first national GNSS event initiated by Universitas Indonesia – a role that demanded highlevel coordination. The event ran for <b>five days</b> in <b>bilingual</b> format, involving an organising committee of <b>over 80 members</b>.</p>
+                    <p style="margin-top:.8rem;" class="cred-sub">Served as <b>Secretary</b> for the <b>GNSS Indonesia Summit and Expo</b>, the first national GNSS event initiated by Universitas Indonesia – a role that demanded high‑level coordination. The event ran for <b>five days</b> in <b>bilingual</b> format, involving an organising committee of <b>over 80 members</b>.</p>
                     <p style="margin-top:.4rem;" class="cred-sub">In this role, I contributed to drafting the <b>event proposal in both languages</b> (Indonesian and English), ensuring accuracy and equivalence of meaning. I also helped structure <b>more than 20 sessions</b> across five days, while maintaining content consistency in both languages.</p>
-                    <p style="margin-top:.4rem;" class="cred-sub">This experience gave me a deep understanding that <b>structured documentation</b> is not merely administrative work – it is the foundation that keeps a large team aligned in a fastpaced, dynamic environment.</p>
+                    <p style="margin-top:.4rem;" class="cred-sub">This experience gave me a deep understanding that <b>structured documentation</b> is not merely administrative work – it is the foundation that keeps a large team aligned in a fast‑paced, dynamic environment.</p>
                     <div class="photo-gallery">
                       <div class="photo-gallery-grid" data-images='[{"src":"assets/images/gnss/815406_0.jpg","cap":"GNSS Indonesia Summit & Expo 2025 · Secretariat"},{"src":"assets/images/gnss/815407_0.jpg","cap":"GNSS Indonesia Summit & Expo 2025 · Secretariat"},{"src":"assets/images/gnss/815408_0.jpg","cap":"GNSS Indonesia Summit & Expo 2025 · Secretariat"},{"src":"assets/images/gnss/815409_0.jpg","cap":"GNSS Indonesia Summit & Expo 2025 · Secretariat"}]'>
                         <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/gnss/815406_0.jpg" alt="GNSS 1" loading="lazy" /></div>
@@ -1406,7 +1498,7 @@
                   <div>
                     <p class="cred-title">Head of Administration & Secretariat Bureau</p>
                     <p class="cred-sub" style="display:flex;justify-content:space-between;align-items:center;"><strong>HMD Geography FMIPA UI</strong><strong>Depok</strong></p>
-                    <p style="margin-top:.8rem;" class="cred-sub">Led a bureau of 8 staff, optimising administrative workflows across all HMD departments. Launched an integrated website (carrd.co) for document centralisation. Led a 2month project for 3 events (Work Meeting, Grand Launch, Team Building) as Project Coordinator. Served as Steering Committee for <strong>SEMTA 2023</strong> (120+ participants).</p>
+                    <p style="margin-top:.8rem;" class="cred-sub">Led a bureau of 8 staff, optimising administrative workflows across all HMD departments. Launched an integrated website (carrd.co) for document centralisation. Led a 2‑month project for 3 events (Work Meeting, Grand Launch, Team Building) as Project Coordinator. Served as Steering Committee for <strong>SEMTA 2023</strong> (120+ participants).</p>
                     <div class="photo-gallery">
                       <div class="photo-gallery-grid" data-images='[{"src":"assets/images/kepalahmd/kepala1.jpg","cap":"HMD Geography FMIPA UI · Head of Administration"},{"src":"assets/images/kepalahmd/kepala2.jpg","cap":"HMD Geography FMIPA UI · Head of Administration"},{"src":"assets/images/kepalahmd/kepala3.jpg","cap":"HMD Geography FMIPA UI · Head of Administration"},{"src":"assets/images/kepalahmd/kepala4.jpg","cap":"HMD Geography FMIPA UI · Head of Administration"},{"src":"assets/images/kepalahmd/kepala5.jpg","cap":"HMD Geography FMIPA UI · Head of Administration"},{"src":"assets/images/kepalahmd/kepala6.jpg","cap":"HMD Geography FMIPA UI · Head of Administration"},{"src":"assets/images/kepalahmd/kepala7.jpg","cap":"HMD Geography FMIPA UI · Head of Administration"},{"src":"assets/images/kepalahmd/kepala8.jpg","cap":"HMD Geography FMIPA UI · Head of Administration"}]'>
                         <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/images/kepalahmd/kepala1.jpg" alt="Kepala 1" loading="lazy" /></div>
@@ -1467,7 +1559,7 @@
                 <div class="cred-item"><span class="cred-year">Jul 2023 – Sep 2023</span><div><p class="cred-title">Secretary</p><p class="cred-sub">Grand Thanksgiving & Geography Graduation Party 2023</p><p class="cred-sub" style="margin-top:.4rem;">Managed <b>official documentation</b> for both the Grand Thanksgiving and Geography Graduation Party – essentially two events in one – teaching me just how much administrative weight lies behind a single celebration. Every detail, from attendance lists to official letters, had to be kept in order for both events. This role wasn’t the most visible on the day, but it was the kind of work that ensures nothing falls through the cracks for everyone involved.</p></div></div>
                 <div class="cred-item"><span class="cred-year">Aug 2023 – Sep 2023</span><div><p class="cred-title">Steering Committee</p><p class="cred-sub">Final Project Seminar (SEMTA) 2023</p><p class="cred-sub" style="margin-top:.4rem;">Serving on the <b>Steering Committee of SEMTA 2023</b> meant stepping back from technical work and providing strategic oversight and guidance to the Kestari Bureau – a different kind of leadership than I was used to, directing rather than executing. Helping ensure that the seminar reached <b>over 120 participants</b> taught me that sometimes the most valuable contribution is not being in the room running the event, but making sure the people running it have the support and direction they need.</p></div></div>
                 <div class="cred-item"><span class="cred-year">Feb 2023 – Jun 2023</span><div><p class="cred-title">Logistics Staff</p><p class="cred-sub">Field Study 2 (Gunungkidul Regency)</p><p class="cred-sub" style="margin-top:.4rem;">Logistics rarely gets the spotlight, but managing it for KKL 2 taught me how many unseen details go into a research trip. I handled <b>procurement and distribution</b> of banners and medical supplies, then coordinated daily meals and snacks – breakfast, lunch, and dinner – for <b>138 students and 13 lecturers</b> over five days, while also managing <b>24 cartons of mineral water</b>. Overseeing general supplies for the smooth running of fieldwork made me realise that good research often depends on logistics that no one notices – until something goes wrong.</p></div></div>
-                <div class="cred-item"><span class="cred-year">Feb 2023 – Mar 2023</span><div><p class="cred-title">Project Officer</p><p class="cred-sub">Work Meeting, Grand Launching, &amp; Team Building 2023</p><p class="cred-sub" style="margin-top:.4rem;">Coordinated three organisational events – Work Meeting, Grand Launching, and Team Building – within <b>two months</b> for the HMD Geography 2023 board, pushing me to think in parallel rather than handling one event at a time. What set this project apart was the implementation of a <b>performance measurement system</b> to evaluate each event’s outcomes against preset targets. This shifted my view of project success – not just whether the event happened, but whether it actually achieved what it set out to do.</p></div></div>
+                <div class="cred-item"><span class="cred-year">Feb 2023 – Mar 2023</span><div><p class="cred-title">Project Officer</p><p class="cred-sub">Work Meeting, Grand Launching, &amp; Team Building 2023</p><p class="cred-sub" style="margin-top:.4rem;">Coordinated three organisational events – Work Meeting, Grand Launching, and Team Building – within <b>two months</b> for the HMD Geography 2023 board, pushing me to think in parallel rather than handling one event at a time. What set this project apart was the implementation of a <b>performance measurement system</b> to evaluate each event’s outcomes against pre‑set targets. This shifted my view of project success – not just whether the event happened, but whether it actually achieved what it set out to do.</p></div></div>
                 <div class="cred-item"><span class="cred-year">Aug 2022 – Jan 2023</span><div><p class="cred-title">Class President</p><p class="cred-sub">Field Study 1 (Cimanggu Village)</p><p class="cred-sub" style="margin-top:.4rem;">Leading a class of <b>22 people</b> through five days of geography fieldwork meant wearing two hats at once: coordinator and researcher. As coordinator, I was the <b>main liaison and logistics lead</b> with the village, handling accommodation and logistics across four hamlets while also researching six different geography themes. As a Geomorphology researcher, I performed <b>spatial modelling and field validation</b>, then presented our findings to over <b>140 stakeholders</b> including government officials. What I’m most proud of is coordinating the six research themes into one <b>official publication</b>, the Cimanggu Village Publication Book, designing its cover, and developing a <b>standard geomorphological map layout</b> that could be used by the whole class. Having <b>our geomorphological map registered under IPR</b> made those five days of hard work feel like we had created something that would truly last.</p></div></div>
                 <div class="cred-item"><span class="cred-year">Apr 2022 – Jun 2022</span><div><p class="cred-title">Project Officer</p><p class="cred-sub">Secretariat Seminar 2022</p><p class="cred-sub" style="margin-top:.4rem;">Led the planning and execution of the Secretariat Seminar 2022 from start to finish – building a workshop from scratch with one specific goal: to <b>standardise administrative procedures</b> within the HMD Geography. Achieving <b>60% attendance</b> from officials across 12 different bureaus and departments showed that the content delivered was genuinely relevant, not just an obligatory administrative workshop.</p></div></div>
                 <div class="cred-item"><span class="cred-year">Jan 2020 – Feb 2020</span><div><p class="cred-title">Project Officer</p><p class="cred-sub">Grand Deliberation & Regeneration of ROHKRIS 2018/2019</p><p class="cred-sub" style="margin-top:.4rem;">Leading the Grand Deliberation and Regeneration of ROHKRIS meant overseeing <b>leadership succession itself</b>, not just executing a programme. I handled participant outreach and internal coordination challenges directly, then compiled a <b>comprehensive accountability report</b> covering execution, finances, and outcomes. Managing the leadership regeneration process, rather than leading the event directly, gave me a different perspective on success – not about how well I led, but about how ready the next person was to carry on.</p></div></div>
@@ -1497,7 +1589,7 @@
                   <div>
                     <p class="cred-title">Transit Oriented Development (TOD) Visualisation</p>
                     <p class="cred-sub" style="display:flex;justify-content:space-between;align-items:center;"><strong>Advanced GIS Class</strong><strong>Aksara Lab Indonesia</strong></p>
-                    <p style="margin-top:.8rem;" class="cred-sub">Completed an intensive Advanced GIS training on <strong>Transit Oriented Development (TOD) Mapping</strong>, covering spatial data processing of shapefiles for land use, roads, and railway lines, as well as <strong>3D visualisation of station areas</strong> using the QGIS2threejs plugin. The material also included measuring pedestrian catchment accessibility from stations – a competency directly relevant to transitbased transport and spatial planning. Achieved a cumulative assessment score of <strong>9/10 with a Very Good predicate</strong>.</p>
+                    <p style="margin-top:.8rem;" class="cred-sub">Completed an intensive Advanced GIS training on <strong>Transit Oriented Development (TOD) Mapping</strong>, covering spatial data processing of shapefiles for land use, roads, and railway lines, as well as <strong>3D visualisation of station areas</strong> using the QGIS2threejs plugin. The material also included measuring pedestrian catchment accessibility from stations – a competency directly relevant to transit‑based transport and spatial planning. Achieved a cumulative assessment score of <strong>9/10 with a Very Good predicate</strong>.</p>
                     <div class="photo-gallery certificate-gallery">
                       <div class="photo-gallery-grid cols2" data-images='[{"src":"assets/sertifikat/TOD.jpg","cap":"TOD Mapping Certificate · Aksara Lab Indonesia · 2026"}]'>
                         <div class="photo-item" onclick="openPhotoGallery(this.closest('.photo-gallery-grid'),0)"><img src="assets/sertifikat/TOD.jpg" alt="TOD Certificate" loading="lazy" /></div>
@@ -1526,19 +1618,55 @@
   </main>
 
   <footer>
-    <div class="classified-head">Contact &amp; Networks</div>
+    <div class="classified-head">
+      <span class="lang-idn">Kontak &amp; Jejaring</span>
+      <span class="lang-eng">Contact &amp; Networks</span>
+    </div>
     <div class="classified">
-      <a class="classified-block email" href="https://mail.google.com/mail/u/0/?fs=1&amp;to=neboyokjonah@gmail.com&amp;tf=cm" rel="noopener" target="_blank"><span class="classified-small">EMAIL</span><span class="classified-big">NEBOYOKJONAH@GMAIL.COM</span></a>
-      <a class="classified-block whatsapp" href="https://wa.me/6282122002990" rel="noopener" target="_blank"><span class="classified-small">WHATSAPP</span><span class="classified-big">(+62) 821-2200-2990</span></a>
-      <a class="classified-block linkedin" href="https://linkedin.com/in/neboyokjonah/" rel="noopener" target="_blank"><span class="classified-small">LINKEDIN</span><span class="classified-big">IN/NEBOYOKJONAH</span></a>
+      <a class="classified-block email" href="https://mail.google.com/mail/u/0/?fs=1&amp;to=neboyokjonah@gmail.com&amp;tf=cm" rel="noopener" target="_blank">
+        <span class="classified-small">
+          <span class="lang-idn">SUREL</span>
+          <span class="lang-eng">EMAIL</span>
+        </span>
+        <span class="classified-big">NEBOYOKJONAH@GMAIL.COM</span>
+      </a>
+      <a class="classified-block whatsapp" href="https://wa.me/6282122002990" rel="noopener" target="_blank">
+        <span class="classified-small">WHATSAPP</span>
+        <span class="classified-big">(+62) 821-2200-2990</span>
+      </a>
+      <a class="classified-block linkedin" href="https://linkedin.com/in/neboyokjonah/" rel="noopener" target="_blank">
+        <span class="classified-small">LINKEDIN</span>
+        <span class="classified-big">IN/NEBOYOKJONAH</span>
+      </a>
     </div>
     <div class="page-footer">
       <div class="page-footer-inner">
-        <span><span class="label">Page Last Updated:</span> <span class="value" id="last-updated"></span></span>
-        <span><span class="label">Page Editor:</span> <span class="value">Nebo</span></span>
+        <span>
+          <span class="label">
+            <span class="lang-idn">Pembaruan Terakhir:</span>
+            <span class="lang-eng">Page Last Updated:</span>
+          </span>
+          <span class="value" id="last-updated"></span>
+        </span>
+        <span>
+          <span class="label">
+            <span class="lang-idn">Penyunting Halaman:</span>
+            <span class="lang-eng">Page Editor:</span>
+          </span>
+          <span class="value">Nebo</span>
+        </span>
       </div>
     </div>
-    <div class="footer-meta"><span>Nebo Yok Jonah Marpaung</span><span>Bekasi, West Java</span></div>
+    <div class="footer-meta">
+      <span class="footer-brand">
+        <span class="lang-idn">PORTOFOLIO NEBO</span>
+        <span class="lang-eng">NEBO'S PORTFOLIO</span>
+      </span>
+      <span>
+        <span class="lang-idn">Bekasi, Jawa Barat</span>
+        <span class="lang-eng">Bekasi, West Java</span>
+      </span>
+    </div>
   </footer>
 
   <script>
@@ -1646,31 +1774,47 @@
       if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I'))) { e.preventDefault(); return false; }
     });
 
-    // --- Language toggle logic ---
+    // --- PERBAIKAN FUNGSI SWITCH LANG (EXPLICIT DISPLAY) ---
     function switchLang(lang) {
-      const idn = document.getElementById('idn-content');
-      const eng = document.getElementById('eng-content');
-      const btns = document.querySelectorAll('.lang-btn');
+      // Tampilkan/sembunyikan konten utama
+      const idnContent = document.getElementById('idn-content');
+      const engContent = document.getElementById('eng-content');
       if (lang === 'idn') {
-        idn.style.display = 'block';
-        eng.style.display = 'none';
-        btns.forEach(b => b.classList.toggle('active', b.dataset.lang === 'idn'));
-        localStorage.setItem('preferredLang', 'idn');
+        idnContent.style.display = 'block';
+        engContent.style.display = 'none';
       } else {
-        idn.style.display = 'none';
-        eng.style.display = 'block';
-        btns.forEach(b => b.classList.toggle('active', b.dataset.lang === 'eng'));
-        localStorage.setItem('preferredLang', 'eng');
+        idnContent.style.display = 'none';
+        engContent.style.display = 'block';
       }
+
+      // Atur semua elemen .lang-idn dan .lang-eng secara eksplisit
+      document.querySelectorAll('.lang-idn').forEach(el => {
+        el.style.display = (lang === 'idn') ? 'inline' : 'none';
+      });
+      document.querySelectorAll('.lang-eng').forEach(el => {
+        el.style.display = (lang === 'eng') ? 'inline' : 'none';
+      });
+
+      // Toggle tombol bahasa
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      // Simpan preferensi
+      localStorage.setItem('preferredLang', lang);
     }
 
-    // Restore saved language preference
+    // --- INISIALISASI ---
     (function() {
       const saved = localStorage.getItem('preferredLang') || 'idn';
+      // Set default: IDN terlihat, ENG tersembunyi
+      document.querySelectorAll('.lang-idn').forEach(el => el.style.display = 'inline');
+      document.querySelectorAll('.lang-eng').forEach(el => el.style.display = 'none');
+      // Terapkan bahasa tersimpan
       switchLang(saved);
     })();
 
-    // Chart.js scripts (unchanged)
+    // Chart.js scripts (tidak diubah)
     (function() {
       const w = window.innerWidth;
       const isTabletOrMobile = w < 900;
