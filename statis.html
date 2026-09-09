@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Nebo Portfolio · A4 Data Journalism Edition</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+<style>
+:root{--paper:#fff;--ink:#000;--green:#2E5C40;--red:#C84630;--mustard:#D9A05B;--soft:#F4F1EA;--line:#111;--muted:#656565}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#d7d5cf;color:var(--ink)}
+body{font-family:Lora,serif}
+button{font:inherit}
+.screen-tools{position:sticky;top:0;z-index:100;display:flex;justify-content:center;gap:6px;padding:10px;background:#111;color:#fff}
+.screen-tools button{border:1px solid #fff;background:#111;color:#fff;padding:8px 13px;cursor:pointer;text-transform:uppercase;font:700 10px Montserrat,sans-serif;letter-spacing:.06em}
+.screen-tools button.active{background:#fff;color:#000}
+.preview-wrap{display:flex;flex-direction:column;align-items:center;gap:20px;padding:20px}
+.page{width:297mm;height:210mm;background:#fff;position:relative;overflow:hidden;padding:10mm 11mm 8mm;box-shadow:0 10px 25px rgba(0,0,0,.12);page-break-after:always}
+.page.hidden-lang{display:none}
+.footer{position:absolute;left:11mm;right:11mm;bottom:3.2mm;display:flex;justify-content:space-between;font:600 7px Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:#222;gap:4mm;word-spacing:0.4em}
+.kicker,.smallcaps{font:700 8.5px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.18em;word-spacing:0.35em}
+.meta,.date,.project-code{font:700 7.5px Inter,sans-serif;text-transform:uppercase;letter-spacing:.10em;word-spacing:0.3em}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--line);padding-bottom:3.5mm;margin-bottom:4mm;flex:0 0 auto;min-height:0}
+.page-title{margin:0;font:700 15mm/.86 'Playfair Display',serif;letter-spacing:-.025em}
+.page-subtitle{font:700 8px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.08em;margin-top:2mm}
+.hero-cover{height:100%;border:2px solid var(--line);display:grid;grid-template-columns:41% 59%}
+.hero-copy{background:var(--mustard);padding:9mm;display:flex;flex-direction:column;justify-content:space-between}
+.hero-name{font:900 37mm/.78 'Playfair Display',serif;letter-spacing:-.05em;text-transform:uppercase}
+.hero-role{font:700 13px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.08em;margin-top:4mm}
+.hero-caption{font:400 11pt/1.4 Lora,serif;max-width:92%}
+.hero-photo,.closing-photo{overflow:hidden;min-height:0}
+.hero-photo img,.closing-photo img{width:100%;height:100%;object-fit:cover;object-position:center center}
+.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:5mm}
+.hero-stats b{display:block;font:700 20px Inter,sans-serif}
+.hero-stats span{display:block;margin-top:1mm;font:600 7px Inter,sans-serif;text-transform:uppercase;letter-spacing:.05em;word-spacing:0.25em}
+.intro-grid{display:grid;grid-template-columns:34% 66%;height:100%;border-top:2px solid var(--line);border-bottom:2px solid var(--line)}
+.intro-left{padding:6mm 7mm 6mm 0;border-right:2px solid var(--line)}
+.intro-left h2{font:900 31mm/.82 'Playfair Display',serif;letter-spacing:-.045em;text-transform:uppercase;margin:0 0 5mm}
+.intro-right{padding:6mm 0 6mm 7mm}
+.intro-right .lede{font:400 17pt/1.18 Lora,serif;margin:0 0 5mm;max-width:95%}
+.body{font:400 9.5pt/1.38 Lora,serif}
+.data-row{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin-top:5mm}
+.data-row>div{border-top:2px solid var(--line);padding-top:2mm}
+.data-row b{display:block;font:700 15px Inter,sans-serif}
+.data-row span{display:block;font:600 6.8px Inter,sans-serif;text-transform:uppercase;letter-spacing:.04em;margin-top:1mm;word-spacing:0.25em}
+.pmi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:3mm;flex:1 1 auto;min-height:0}
+.pmi{background:var(--soft);border-top:3px solid var(--green);padding:3mm 3.5mm}
+.pmi h3{font:700 8.5px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.06em;margin:0 0 1.2mm;word-spacing:0.3em}
+.pmi p{font:400 9.5pt/1.45 Lora,serif;margin:0;word-spacing:0.08em}
+.intro-pmi{margin-top:8mm}
+.project-layout{height:calc(100% - 20mm);display:grid;grid-template-columns:42% 58%;gap:6mm;align-items:stretch;min-height:0;flex:1 1 auto;max-height:100%}
+.project-copy{display:flex;flex-direction:column;min-width:0;height:100%;justify-content:flex-start;gap:2mm}
+.project-display{font:700 23px/1.02 'Playfair Display',serif;letter-spacing:-.02em;margin:1.5mm 0 2.5mm}
+.badge-row{display:flex;flex-wrap:wrap;gap:1.2mm;flex:0 0 auto}
+.badge{display:inline-block;border:1px solid var(--line);padding:1.2mm 1.7mm;font:700 6.5px Inter,sans-serif;text-transform:uppercase;letter-spacing:.04em;word-spacing:0.25em}
+.project-deck{font:400 9.5pt/1.4 Lora,serif;margin:3mm 0 2mm;flex:0 0 auto;word-spacing:0.06em}
+.project-map-frame{margin:0;border:2px solid var(--line);padding:3mm;display:flex;align-items:center;justify-content:center;background:#fff;min-width:0;min-height:0;overflow:hidden;height:100%}
+.project-map-frame img{width:100%;height:100%;object-fit:contain}
+.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5mm;margin-top:auto;padding-top:2mm;flex:0 0 auto}
+.metric{border:1.5px solid var(--line);padding:2.2mm 2.6mm;min-width:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.metric b{display:block;font:700 12px Inter,sans-serif}
+.metric span{display:block;font:600 6px Inter,sans-serif;text-transform:uppercase;letter-spacing:.03em;margin-top:0.8mm;word-spacing:0.25em}
+.map-grid{display:grid;grid-template-columns:repeat(var(--cols),1fr);grid-template-rows:repeat(var(--rows),1fr);gap:4mm;height:calc(100% - 30mm)}
+.map-grid.cols-2{--cols:2;--rows:2}.map-grid.cols-3{--cols:3;--rows:1;height:calc(100% - 14mm)}.geomorphology-evidence{height:calc(100% - 15mm)}.geomorphology-evidence .map-tile{min-height:0}.geomorphology-evidence .map-image{padding:3mm}
+.healthcare-evidence{gap:3mm}
+.healthcare-evidence .map-evidence-context{display:flex;justify-content:space-between;align-items:center;gap:5mm;border-left:4px solid var(--green);background:var(--soft);padding:2.5mm 3mm;min-height:15mm;flex:0 0 auto}
+.healthcare-evidence .map-evidence-context strong{display:block;font:700 7px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.07em;margin-bottom:1mm;word-spacing:0.3em}
+.healthcare-evidence .map-evidence-context span{display:block;font:400 7.6pt/1.3 Lora,serif;word-spacing:0.08em}
+.healthcare-evidence .health-metrics{display:flex;gap:3mm;flex-wrap:wrap;justify-content:flex-end}
+.healthcare-evidence .health-metrics span{display:inline-block;font:700 7px Inter,sans-serif;text-transform:uppercase;letter-spacing:.03em;padding:1.4mm 2mm;border:1px solid var(--line);background:#fff;word-spacing:0.25em}
+.healthcare-evidence .map-image-large{flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:2mm}
+.healthcare-evidence .map-image-large img{width:100%;height:100%;object-fit:contain;display:block}
+.healthcare-evidence .map-evidence-meta{grid-template-columns:1fr 1fr;display:grid;gap:2mm;flex:0 0 auto}
+.map-evidence-single{display:flex;flex-direction:column;gap:2mm;height:calc(100% - 18mm);min-height:0;flex:1 1 auto}
+.map-evidence-caption{border-top:3px solid var(--green);padding:2mm 2.5mm;background:var(--soft);font:400 7.5pt/1.35 Lora,serif;word-spacing:0.08em}
+.map-evidence-caption strong{display:block;font:700 7px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1mm;word-spacing:0.3em}
+.map-tile{margin:0;border:1.5px solid var(--line);display:grid;grid-template-rows:minmax(0,1fr) auto;min-width:0;min-height:0;overflow:hidden;background:#fff}
+.map-image{min-height:0;display:flex;align-items:center;justify-content:center;padding:2.5mm;overflow:hidden}
+.map-image img{display:block;max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain}
+.map-tile figcaption{border-top:1.5px solid var(--line);padding:1.5mm 2mm;font:700 7px Inter,sans-serif;text-transform:uppercase;letter-spacing:.04em;line-height:1.3;word-spacing:0.25em}
+.map-note{font:400 7.1pt/1.3 Lora,serif;color:#333;margin-top:1.8mm;border-left:3px solid var(--red);padding-left:2.5mm;word-spacing:0.08em}
+.path-grid{height:calc(100% - 18mm);display:flex;flex-direction:column;gap:3mm;min-height:0}
+.path-section-label{grid-column:1/-1;background:var(--green);color:#fff;padding:2mm 3mm;font:700 7.5px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.1em;word-spacing:0.3em}
+.path-section-label.work-label{margin-top:1mm}
+.trajectory-card{display:grid;grid-template-columns:27mm 1fr;gap:3mm;border-top:1.3px solid var(--line);padding:2.4mm 0;min-width:0}
+.trajectory-card h2,.org-card h2{margin:0;font:700 11.5px/1.05 'Playfair Display',serif}
+.trajectory-card .org,.org-card .org,.committee-card .org{font:700 7px/1.3 Inter,sans-serif;text-transform:uppercase;letter-spacing:.03em;margin-top:1mm;word-spacing:0.25em}
+.trajectory-card p,.org-card p,.committee-card p{font:400 7.6pt/1.35 Lora,serif;margin:1.3mm 0 0;word-spacing:0.08em}
+.education{flex:0 0 auto}
+.work-feature{border:1.5px solid var(--line);display:grid;grid-template-columns:31% 69%;grid-template-rows:1fr auto;flex:0 0 88mm;min-height:0;background:#fff}
+.work-summary{padding:4mm;border-right:1.5px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.work-summary h2{margin:1.2mm 0;font:700 17px/1.02 'Playfair Display',serif}
+.work-summary p{font:400 8.2pt/1.4 Lora,serif;margin:2mm 0 0;word-spacing:0.08em}
+.mini-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:2mm;margin-top:auto;padding-top:3mm;border-top:1px solid var(--line)}
+.mini-metrics b{font:700 11px Inter,sans-serif}
+.mini-metrics span{font:600 5.8px Inter,sans-serif;text-transform:uppercase;display:block;margin-top:.6mm;word-spacing:0.25em}
+.charts-inline{display:grid;grid-template-columns:1fr 1fr;gap:3mm;padding:3mm;min-height:0}
+.chart-card{border:1.5px solid var(--line);padding:3mm;min-width:0;min-height:0}
+.dual-svg{width:100%;height:100%;display:block}.chart-card h3{font:700 8px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.05em;margin:0 0 2.5mm;word-spacing:0.3em}
+.bar-list{display:grid;gap:1.25mm}
+.bar-row{display:grid;grid-template-columns:10mm 1fr 11mm;gap:1.5mm;align-items:center;font:600 6.2px Inter,sans-serif}
+.bar-bg{height:3.2mm;background:#e7e7e7;border:1px solid #bbb}
+.bar-fill{display:block;height:100%;background:var(--green)}
+.bar-row strong{font:700 6.2px Inter,sans-serif;text-align:right}
+.scatter{position:relative;height:44mm;border-left:1px solid var(--line);border-bottom:1px solid var(--line);margin:2mm 3mm 0 5mm}
+.scatter .vline,.scatter .hline{position:absolute;background:#bbb;opacity:.75;z-index:0}
+.scatter .vline{top:0;bottom:0;width:1px}
+.scatter .hline{left:0;right:0;height:1px}
+.point{position:absolute;width:5px;height:5px;border-radius:50%;background:#aaa;transform:translate(-50%,50%);z-index:2}
+.point.nebo{width:10px;height:10px;background:var(--mustard);border:2px solid var(--red)}
+.scatter-label{position:absolute;font:700 5.5px Inter,sans-serif;transform:translate(5px,-4px);z-index:3}
+.axis-x{position:absolute;left:50%;bottom:-4.5mm;transform:translateX(-50%);font:700 5.5px Inter,sans-serif;word-spacing:0.3em}
+.axis-y{position:absolute;left:-10mm;top:50%;transform:rotate(-90deg) translateX(50%);font:700 5.5px Inter,sans-serif;word-spacing:0.3em}
+.chart-note{grid-column:2;border-top:1px solid var(--line);padding:1.5mm 3mm;font:400 6.6pt/1.35 Lora,serif;word-spacing:0.08em}
+.other-work-grid{display:grid;grid-template-columns:1fr 1fr;gap:7mm;flex:1;min-height:0}
+.compact{border-top:1.3px solid var(--line)}
+.org-page{height:calc(100% - 18mm);display:flex;flex-direction:column;gap:2.5mm}
+.org-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 7mm}
+.org-card{display:grid;grid-template-columns:27mm 1fr;gap:3mm;border-top:1.2px solid var(--line);padding:2.2mm 0}
+.committee-label{margin-top:1mm}
+.committee-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 5mm;min-height:0}
+.committee-card{border-top:1px solid var(--line);padding:1.8mm 0;min-width:0}
+.committee-card h3{margin:0;font:700 8.7px/1.05 'Playfair Display',serif}
+.committee-card p{font-size:7pt;line-height:1.35;word-spacing:0.08em}
+.committee-card .org{font-size:6px;word-spacing:0.25em}
+.committee-card .date{font-size:5.8px;word-spacing:0.25em}
+.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:6mm;height:calc(100% - 20mm)}
+.cert-card{border:1.5px solid var(--line);padding:4mm;display:grid;grid-template-rows:auto auto auto auto 1fr;min-width:0;overflow:hidden}
+.cert-card h2{margin:1.5mm 0;font:700 15px/1.02 'Playfair Display',serif}
+.cert-card .org{font:700 7px/1.3 Inter,sans-serif;text-transform:uppercase;letter-spacing:.03em;word-spacing:0.25em}
+.cert-card p{font:400 8.3pt/1.4 Lora,serif;margin:2.2mm 0 0;word-spacing:0.08em}
+.cert-image{min-height:0;display:flex;align-items:flex-start;justify-content:center;overflow:hidden;border-top:0;padding-top:1mm}
+.cert-image img{max-width:100%;max-height:80mm;width:auto;height:auto;object-fit:contain}
+.tool-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:4mm;height:calc(100% - 18mm)}
+.tool-box{border:1.5px solid var(--line);padding:4mm;min-width:0;background:#fff}
+.tool-box:nth-child(1){background:var(--green);color:#fff}
+.tool-box h2{font:700 12px 'Playfair Display',serif;margin:0 0 2mm}
+.tool-box:nth-child(1) h2{font:700 8px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.07em;word-spacing:0.3em}
+.tool-box p{font:400 8.6pt/1.45 Lora,serif;margin:0;word-spacing:0.08em}
+.tool-box:nth-child(1) p{font-size:10pt}
+.closing{position:absolute;left:11mm;right:11mm;top:31mm;bottom:8mm;height:auto;min-height:0;break-inside:avoid;page-break-inside:avoid;border:2px solid var(--line);display:grid;grid-template-columns:40% 60%}
+.closing-copy{background:var(--mustard);padding:8mm;display:flex;flex-direction:column;min-width:0;min-height:0}
+.closing-title{font:900 22mm/.74 'Playfair Display',serif;letter-spacing:-.045em;text-transform:uppercase;overflow:hidden}
+.closing-copy>p{font:400 10pt/1.5 Lora,serif;margin-top:6mm;max-width:92%;word-spacing:0.06em}
+.contact-block{margin-top:auto}
+.contact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:4mm}
+.contact-card{border:1.5px solid var(--line);padding:3mm;min-width:0;color:inherit;text-decoration:none;display:block}
+.contact-card b{display:block;font:700 7px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.06em;word-spacing:0.3em}
+.contact-card span{display:block;margin-top:1.2mm;font:700 8.5px Inter,sans-serif;word-break:break-word}
+body.view-idn .page[data-lang="eng"],body.view-eng .page[data-lang="idn"]{display:none}
+@media screen and (max-width:1100px){.page{transform:scale(.68);transform-origin:top center;margin-bottom:-67mm}.preview-wrap{gap:0;padding-top:12px}.screen-tools{position:fixed;bottom:0;top:auto;left:0;right:0}}
+@media screen and (max-width:700px){.page{transform:scale(.42);margin-bottom:-117mm}.screen-tools{flex-wrap:wrap}}
+@media print{html,body{background:#fff}.screen-tools{display:none}.preview-wrap{display:block;padding:0}.page{display:none!important;width:297mm;height:210mm;margin:0;transform:none;box-shadow:none}body.view-idn .page[data-lang="idn"],body.view-eng .page[data-lang="eng"]{display:block!important}}
+@page{size:A4 landscape;margin:0}
+html, body { margin:0; padding:0; }
+.page{display:flex;flex-direction:column;width:297mm;height:210mm;min-height:210mm;max-height:210mm;padding:10mm 11mm 12mm;position:relative;overflow:hidden;page-break-after:always;break-after:page}
+.page > .section-head{flex:0 0 auto;min-height:0}
+.page > .footer{position:absolute;left:11mm;right:11mm;bottom:3.2mm;height:auto;z-index:20;pointer-events:none}
+.page > .hero-cover,.page > .intro-grid,.page > .project-layout,.page > .map-grid,.page > .path-grid,.page > .org-page,.page > .cert-grid,.page > .tool-grid,.page > .closing{flex:1 1 auto;min-height:0;max-height:100%}
+.page > .hero-cover{height:auto;}
+.page > .intro-grid{height:auto;}
+.page > .project-layout{height:auto;}
+.page > .map-grid{height:auto;}
+.page > .path-grid{height:auto;}
+.page > .org-page{height:auto;}
+.page > .cert-grid{height:auto;max-height:calc(100% - 32mm)}
+.page > .tool-grid{height:auto;}
+.page > .closing{position:relative;left:auto;right:auto;top:auto;bottom:auto;width:auto;height:auto;margin:0}
+.hero-cover,.intro-grid,.project-layout,.map-grid,.path-grid,.org-page,.cert-grid,.tool-grid,.closing{box-sizing:border-box;}
+.closing{grid-template-columns:46% 54%;overflow:hidden}
+.closing-title{font-size:22mm;line-height:.76;white-space:normal;overflow:visible}
+.closing-copy{overflow:hidden;}
+.closing-copy > p{font-size:10pt;line-height:1.4;}
+.contact-row{gap:2.5mm;}
+.contact-card{padding:2.5mm;}
+.contact-card span{font-size:8px;}
+@media print{.page{width:297mm !important;height:210mm !important;min-height:210mm !important;max-height:210mm !important;padding:10mm 11mm 12mm !important;margin:0 !important;transform:none !important;box-shadow:none !important;overflow:hidden !important;}}
+.path-section-label{background:var(--green);}
+.path-section-label.work-label{background:var(--red);}
+.committee-label{background:var(--mustard);color:var(--ink);}
+.trajectory-card h2,.org-card h2{font-size:13.2px;line-height:1.04;}
+.trajectory-card .org,.org-card .org{font-size:7px;line-height:1.25;}
+.trajectory-card p,.org-card p{font-size:8.2pt;line-height:1.35;}
+.trajectory-card .date,.org-card .date{font-size:7px;}
+.education{padding:2.4mm 0;}
+.education h2{font-size:13.8px;}
+.education p{font-size:8.5pt;}
+.work-feature{flex-basis:92mm;}
+.work-summary{background:var(--green);color:#fff;padding:4.2mm;}
+.work-summary .date,.work-summary .org,.work-summary h2,.work-summary p{color:#fff;}
+.work-summary h2{font-size:18px;}
+.work-summary p{font-size:8.4pt;line-height:1.4;}
+.mini-metrics{border-top-color:rgba(255,255,255,.75);}
+.mini-metrics b,.mini-metrics span{color:#fff;}
+.mini-metrics b:nth-of-type(2){color:var(--mustard);}
+.mini-metrics b:nth-of-type(3){color:#fff;}
+.other-work-grid{gap:7mm;}
+.other-work-grid .trajectory-card{padding:2.6mm 0;}
+.other-work-grid .trajectory-card h2{font-size:13.2px;}
+.other-work-grid .trajectory-card p{font-size:8.2pt;line-height:1.35;}
+.charts-inline .chart-card:first-child h3{color:var(--green);}
+.charts-inline .chart-card:last-child h3{color:var(--red);}
+.chart-note{border-left:3px solid var(--red);}
+.org-page{gap:2mm;}
+.org-grid{gap:0 6mm;}
+.org-card{padding:2.5mm 0;grid-template-columns:29mm 1fr;border-top-width:1.4px;}
+.org-card:nth-child(odd){border-left:3px solid var(--green);padding-left:2.5mm;}
+.org-card:nth-child(even){border-left:3px solid var(--mustard);padding-left:2.5mm;}
+.org-card h2{font-size:13.4px;}
+.org-card p{font-size:8pt;line-height:1.32;}
+.org-card .org{font-size:6.7px;line-height:1.25;}
+.org-card .date{font-size:6.9px;}
+.committee-grid{gap:0 4mm;}
+.committee-card{padding:2.2mm 0;border-top-width:1.2px;}
+.committee-card:nth-child(3n+1){border-left:2px solid var(--green);padding-left:2mm;}
+.committee-card:nth-child(3n+2){border-left:2px solid var(--mustard);padding-left:2mm;}
+.committee-card:nth-child(3n){border-left:2px solid var(--red);padding-left:2mm;}
+.committee-card h3{font-size:9.5px;line-height:1.06;}
+.committee-card .org{font-size:6.2px;line-height:1.22;}
+.committee-card .date{font-size:6.1px;}
+.committee-card p{font-size:7.2pt;line-height:1.3;}
+.pmi:nth-child(1){border-top-color:var(--green);}
+.pmi:nth-child(2){border-top-color:var(--red);}
+.pmi:nth-child(3){border-top-color:var(--mustard);}
+/* STORY LINK - Large, centered, middle */
+.story-link{font-size:16px !important;letter-spacing:.08em !important;padding:6mm 8mm !important;min-height:18mm;border-width:2px !important;line-height:1.2;word-spacing:0.2em;display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;text-align:center !important;text-decoration:none !important;font-weight:800 !important;font-family:'Montserrat',sans-serif !important;text-transform:uppercase !important}
+.story-link strong{font-size:26px;line-height:1;margin-top:2mm;display:block}
+.story-link span{font-size:14px;line-height:1.3;display:block}
+.story-link.story-posyandu{background:var(--green);border-color:var(--green);color:#fff}
+.story-link.story-posyandu strong{color:var(--mustard)}
+.story-link.story-ambulance{background:var(--red);border-color:var(--red);color:#fff}
+.story-link.story-ambulance strong{color:var(--mustard)}
+.story-link:hover{background:var(--mustard);border-color:var(--mustard);color:var(--ink)}
+.story-link:hover strong{color:var(--ink)}
+.map-grid.horizontal-pair{--cols:2;--rows:1;height:calc(100% - 14mm)}
+.map-grid.horizontal-pair .map-tile figcaption{padding:2mm 2.5mm;font-size:8px;word-spacing:0.3em}
+.map-grid.horizontal-pair .map-image{padding:3mm}
+.geomorph-page .map-grid{height:calc(100% - 14mm)}
+.geomorph-page .map-tile figcaption{font-size:8px;padding:2mm 2.5mm;word-spacing:0.3em}
+.geomorph-page.accent-green .section-head{border-bottom-color:var(--green)}
+.geomorph-page.accent-mustard .section-head{border-bottom-color:var(--mustard)}
+.geomorph-page.accent-red .section-head{border-bottom-color:var(--red)}
+.geomorph-page.accent-green .map-tile figcaption{border-top-color:var(--green)}
+.geomorph-page.accent-mustard .map-tile figcaption{border-top-color:var(--mustard)}
+.geomorph-page.accent-red .map-tile figcaption{border-top-color:var(--red)}
+.profile-journal{height:calc(100% - 20mm);display:grid;grid-template-rows:auto 1fr auto;gap:4mm;min-height:0}
+.profile-main{display:grid;grid-template-columns:35% 65%;gap:6mm;min-height:0}
+.profile-side{background:var(--green);color:#fff;padding:7mm;display:flex;flex-direction:column;justify-content:space-between;min-height:0}
+.profile-side .smallcaps{color:#fff;font-size:7.5px;opacity:.95;word-spacing:0.3em}
+.profile-side .big-index{font:900 52mm/.78 'Playfair Display',serif;letter-spacing:-.05em;color:var(--mustard);margin:2mm 0}
+.profile-side .side-title{font:700 12px/1.2 Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.09em;max-width:28ch;word-spacing:0.25em}
+.profile-side .side-note{font:400 8.5pt/1.4 Lora,serif;margin:0;max-width:31ch;word-spacing:0.08em}
+.profile-story{padding:2mm 0 0;display:flex;flex-direction:column;min-width:0;min-height:0}
+.profile-story .lede{font:400 19pt/1.2 Lora,serif;margin:0 0 3mm;max-width:96%;word-spacing:0.06em}
+.profile-story .body{font:400 9.2pt/1.45 Lora,serif;margin:0;max-width:94%;word-spacing:0.08em}
+/* PROJECT-CHIP - Pyramid layout - compact, no excessive gaps */
+.project-spectrum {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1.5mm;
+  margin-top: auto;
+  padding-top: 2mm;
+  width: 100%;
+}
+.project-chip {
+  min-height: 17mm;
+  padding: 2mm 2.2mm;
+  border-top: 3.5px solid var(--green);
+  background: var(--soft);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.project-chip:nth-child(2) {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  border-top-color: var(--mustard);
+  margin-right: 3mm;
+}
+.project-chip:nth-child(5) {
+  grid-column: 3 / 5;
+  grid-row: 1 / 2;
+  border-top-color: var(--mustard);
+  margin-right: 1mm;
+}
+.project-chip:nth-child(4) {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  border-top-color: var(--red);
+}
+.project-chip:nth-child(3) {
+  grid-column: 2 / 4;
+  grid-row: 2 / 3;
+  border-top-color: var(--green);
+  margin-left: 2mm;
+  margin-right: 3mm;
+}
+.project-chip:nth-child(1) {
+  grid-column: 4 / 6;
+  grid-row: 2 / 3;
+  border-top-color: var(--red);
+  margin-left: 1mm;
+}
+.project-chip .num{font:800 9.5px Inter,sans-serif;letter-spacing:.05em}
+.project-chip strong{font:700 9.5px/1.06 'Playfair Display',serif}
+.project-chip span{font:700 6px/1.15 Inter,sans-serif;text-transform:uppercase;letter-spacing:.04em;word-spacing:0.2em}
+/* PROFILE-STAT - Zigzag: kiri atas, kanan bawah, kiri bawah, kanan atas */
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  gap: 2mm;
+  align-items: start;
+}
+.profile-stat {
+  border-top: 2px solid var(--line);
+  padding: 2.4mm 2.6mm 1.6mm;
+  background: #fff;
+}
+/* Zigzag pattern */
+.profile-stat:nth-child(1) {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  border-top-color: var(--green);
+}
+.profile-stat:nth-child(2) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  border-top-color: var(--red);
+}
+.profile-stat:nth-child(3) {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  border-top-color: var(--mustard);
+}
+.profile-stat:nth-child(4) {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  border-top-color: var(--green);
+}
+.profile-stat b{display:block;font:800 27px/.95 Inter,sans-serif;letter-spacing:-.04em}
+.profile-stat span{display:block;margin-top:1.2mm;font:700 7.2px/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.05em;word-spacing:0.25em}
+.profile-evidence{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}
+.profile-evidence .pmi{min-height:31mm;padding:3.5mm;border-top-width:4px}
+.profile-evidence .pmi h3{font-size:7.5px;word-spacing:0.3em}
+.profile-evidence .pmi p{font-size:8.3pt;line-height:1.4;word-spacing:0.08em}
+@media screen and (max-width:900px){.profile-main{grid-template-columns:38% 62%}.profile-side{padding:5mm}.profile-side .big-index{font-size:40mm}.profile-story .lede{font-size:15pt}.profile-story .body{font-size:8.5pt}.project-chip strong{font-size:8px}}
+@media screen and (max-width:700px){.profile-main{grid-template-columns:1fr;grid-template-rows:auto 1fr}.profile-side{min-height:50mm}.profile-side .big-index{font-size:28mm}.project-spectrum{grid-template-columns:repeat(2,1fr)}.profile-stats{grid-template-columns:repeat(2,1fr)}.profile-evidence{grid-template-columns:1fr}.profile-journal{height:auto}}
+</style>
+<style>
+.closing-copy{padding:8mm;}
+.contact-block{margin-top:auto; margin-left:-8mm; margin-right:-8mm; margin-bottom:-8mm;}
+.contact-block > .smallcaps{padding:2.6mm 5mm 2.2mm;background:#fff;border-top:2px solid var(--line);font:800 8px/1 'Montserrat',sans-serif;letter-spacing:.12em;text-transform:uppercase;word-spacing:0.3em}
+.contact-row{display:grid;grid-template-columns:1fr;gap:0;margin:0;}
+.contact-card{min-height:18mm;padding:3.5mm 5mm;border:0;border-top:1.5px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;text-decoration:none;}
+.contact-card b{display:block;font:800 8.5px/1 'Montserrat',sans-serif;letter-spacing:.12em;text-transform:uppercase;margin:0;word-spacing:0.3em}
+.contact-card span{display:block;margin-top:2.2mm;font:900 13.5pt/.95 'Playfair Display',serif;letter-spacing:-.02em;word-break:normal;overflow-wrap:anywhere;text-decoration:none;}
+.contact-card:nth-child(1){background:var(--green);color:#fff;}
+.contact-card:nth-child(2){background:var(--red);color:#fff;}
+.contact-card:nth-child(3){background:var(--mustard);color:var(--ink);}
+.contact-card:nth-child(1) span{font-size:12.8pt;}
+.contact-card:nth-child(2) span{font-size:14pt;}
+.contact-card:nth-child(3) span{font-size:13.5pt;}
+@media screen and (max-width:700px){.contact-card span{font-size:12pt !important;}}
+</style>
+<style>
+.cover-dynamic{padding:0 !important;background:#000 !important;color:#fff;display:block;}
+.cover-dynamic .cover-bg{position:absolute;inset:0;overflow:hidden;}
+.cover-dynamic .cover-bg img{width:100%;height:100%;display:block;object-fit:cover;object-position:center center;filter:grayscale(100%) contrast(112%);}
+.cover-dynamic .cover-overlay{position:absolute;inset:0;background:rgba(0,0,0,.43);}
+.cover-topbar{position:absolute;left:10mm;right:10mm;top:8mm;display:flex;justify-content:space-between;align-items:center;z-index:3;font:700 7px/1 Montserrat,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#fff;word-spacing:0.4em}
+.cover-center{position:absolute;left:50%;top:50%;z-index:3;width:86%;transform:translate(-50%,-50%);text-align:center;}
+.cover-kicker{font-size:7.5px;color:#fff;letter-spacing:.18em;margin-bottom:3mm;word-spacing:0.35em}
+.cover-name{margin:0;font:900 39mm/.82 'Playfair Display',serif;letter-spacing:-.045em;text-transform:uppercase;text-shadow:0 4px 18px rgba(0,0,0,.65);}
+.cover-role{margin-top:10mm;font:700 12px/1 Montserrat,sans-serif;letter-spacing:.23em;text-transform:uppercase;color:var(--mustard);text-shadow:0 2px 10px rgba(0,0,0,.5);word-spacing:0.35em}
+.cover-rule{width:70px;border-top:2px solid var(--mustard);margin:5mm auto 4mm;}
+.cover-caption{max-width:155mm;margin:0 auto;font:400 10.5pt/1.45 Lora,serif;color:#fff;text-shadow:0 2px 9px rgba(0,0,0,.5);word-spacing:0.08em}
+.cover-ticker{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5mm;width:165mm;max-width:100%;margin:7mm auto 0;}
+.cover-ticker-item{min-height:24mm;padding:3mm 2mm;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.10);backdrop-filter:blur(5px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.cover-ticker-item:nth-child(1){border-top:3px solid var(--green);}
+.cover-ticker-item:nth-child(2){border-top:3px solid var(--red);}
+.cover-ticker-item:nth-child(3){border-top:3px solid var(--mustard);}
+.cover-ticker-item:nth-child(4){border-top:3px solid #fff;}
+.cover-stat-number{display:block;font:700 25px/1.05 Inter,sans-serif;color:#fff;letter-spacing:-.02em;}
+.cover-stat-label{display:block;margin-top:1.5mm;font:600 8px/1.25 Inter,sans-serif;color:#ddd;text-transform:uppercase;letter-spacing:.08em;word-spacing:0.3em}
+.cover-bottom{position:absolute;left:10mm;right:10mm;bottom:7mm;z-index:3;display:flex;justify-content:space-between;font:700 6.5px/1 Montserrat,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff;word-spacing:0.4em}
+@media screen and (max-width:900px){.cover-center{width:88%;}.cover-ticker{width:95%;}.cover-stat-number{font-size:25px;}}
+@media screen and (max-width:700px){.cover-name{font-size:clamp(26mm,18vw,34mm);}.cover-caption{font-size:9.5pt;}.cover-ticker{grid-template-columns:repeat(2,1fr);}.cover-ticker-item{min-height:20mm;}.cover-topbar,.cover-bottom{left:7mm;right:7mm;}.cover-center{width:90%;}.cover-role{font-size:9px;letter-spacing:.18em;}}
+@media screen and (max-width:375px){.cover-name{font-size:25mm;}.cover-caption{font-size:9pt;}.cover-stat-number{font-size:25px;}.cover-stat-label{font-size:6px;}}
+@media print{.cover-dynamic{box-shadow:none !important;}}
+</style>
+<style>
+.project-layout .metric-grid .metric{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.project-layout .metric-grid .metric b,.project-layout .metric-grid .metric span{width:100%;text-align:center;}
+</style>
+<style>
+/* FIX: Project copy stretch to fill height */
+.project-copy{flex:1 1 auto;height:100%;min-height:0;display:flex;flex-direction:column;}
+.project-copy .pmi-grid{flex:1 1 auto;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;align-content:start;}
+.project-copy .pmi-grid .pmi{min-height:0;overflow:hidden;}
+.project-copy .pmi-grid .pmi p{font-size:7.8pt;line-height:1.35;word-spacing:0.08em}
+.project-copy .project-deck{font-size:9pt;line-height:1.38;word-spacing:0.06em}
+.project-copy .metric-grid{margin-top:auto;padding-top:2.5mm;}
+.project-copy .project-display{font-size:21px;line-height:1.05;margin:1mm 0 2mm;}
+.project-copy .project-code{font-size:7px;word-spacing:0.3em}
+.project-copy .badge-row{margin-bottom:1mm;}
+.project-layout{height:calc(100% - 20mm);display:grid;grid-template-columns:42% 58%;gap:5mm;align-items:stretch;min-height:0;flex:1 1 auto;max-height:100%;overflow:hidden;}
+.project-layout .project-map-frame{height:100%;min-height:0;overflow:hidden;}
+.project-layout .project-map-frame img{width:100%;height:100%;object-fit:contain;display:block;}
+</style>
+<style>
+.footer{align-items:center;gap:6mm;}
+.footer > span:first-child{max-width:calc(100% - 18mm);}
+.footer .page-number{display:inline-flex;align-items:center;justify-content:center;min-width:11mm;height:7.5mm;padding:0 2.5mm;background:#111;color:#fff;border:1.5px solid #111;font:800 8.5px/1 Inter,sans-serif;letter-spacing:.05em;text-align:center;}
+</style>
+<style>
+.cover-topbar span:last-child{font-size:8px;letter-spacing:.12em;font-weight:700;text-align:right;word-spacing:0.3em}
+.cover-bottom span:first-child:empty{visibility:hidden}
+.cover-topbar span:last-child{display:block;text-align:right;font-size:8px;font-weight:800;letter-spacing:.12em;color:#fff;word-spacing:0.3em}
+</style>
+<style>
+.page.profile-page .profile-journal,
+.page.profile-page .profile-stats,
+.page.profile-page .profile-evidence { font-size: 1.15em; }
+.page.profile-page .page-title { font-size: 18mm; }
+.page.profile-page .profile-story .lede { font-size: 1.2em; }
+.page.profile-page .profile-story .body { font-size: 1.1em; }
+.page.profile-page .project-chip strong { font-size: 1.1em; }
+.page.profile-page .profile-stat b { font-size: 1.2em; }
+</style>
+<style>
+.page { padding-bottom: 14mm !important; overflow: hidden !important; box-sizing: border-box !important; }
+.page > .hero-cover, .page > .intro-grid, .page > .project-layout, .page > .map-grid, .page > .path-grid, .page > .org-page, .page > .cert-grid, .page > .tool-grid, .page > .closing, .page > .profile-journal, .page > .map-evidence-single { flex: 1 1 auto !important; min-height: 0 !important; max-height: calc(100% - 32mm) !important; overflow: hidden !important; }
+.footer { bottom: 3mm !important; z-index: 30 !important; }
+@media print { .page { padding: 10mm 11mm 14mm !important; } .page > .hero-cover, .page > .intro-grid, .page > .project-layout, .page > .map-grid, .page > .path-grid, .page > .org-page, .page > .cert-grid, .page > .tool-grid, .page > .closing, .page > .profile-journal, .page > .map-evidence-single { max-height: calc(100% - 32mm) !important; } }
+</style>
+<style>
+/* FIX: Ensure proper flex behavior for project pages */
+.page > .project-layout {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  gap: 6mm;
+  align-items: stretch;
+  min-height: 0;
+  flex: 1 1 auto;
+  max-height: calc(100% - 32mm);
+  overflow: hidden;
+}
+.page > .project-layout .project-copy {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.page > .project-layout .project-copy .pmi-grid {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3mm;
+  align-content: start;
+}
+.page > .project-layout .project-copy .pmi-grid .pmi {
+  min-height: 0;
+  overflow: hidden;
+  padding: 2.5mm 3mm;
+}
+.page > .project-layout .project-copy .pmi-grid .pmi p {
+  font-size: 7.8pt;
+  line-height: 1.35;
+  margin: 0;
+  word-spacing: 0.08em;
+}
+.page > .project-layout .project-copy .metric-grid {
+  margin-top: auto;
+  flex: 0 0 auto;
+  padding-top: 2.5mm;
+}
+.page > .project-layout .project-copy .project-deck {
+  flex: 0 0 auto;
+  font-size: 9pt;
+  line-height: 1.38;
+  margin: 2mm 0;
+  word-spacing: 0.06em;
+}
+.page > .project-layout .project-copy .project-display {
+  flex: 0 0 auto;
+  font-size: 21px;
+  line-height: 1.05;
+  margin: 1mm 0 1.5mm;
+}
+.page > .project-layout .project-copy .badge-row {
+  flex: 0 0 auto;
+}
+.page > .project-layout .project-copy .project-code {
+  flex: 0 0 auto;
+}
+/* Make sure page 3 and 9 use this properly */
+.page[data-lang] .project-layout {
+  align-items: stretch;
+}
+</style>
+<style>
+/* Additional word-spacing for small fonts */
+.section-head .meta,
+.section-head .kicker,
+.footer span,
+.trajectory-card .date,
+.org-card .date,
+.committee-card .date,
+.project-code,
+.badge,
+.metric span,
+.map-tile figcaption,
+.health-metrics span,
+.cert-card .org,
+.cert-card .date,
+.tool-box h2,
+.contact-card b,
+.cover-stat-label,
+.cover-topbar,
+.cover-bottom,
+.path-section-label,
+.chart-card h3,
+.axis-x,
+.axis-y,
+.mini-metrics span,
+.profile-stat span,
+.project-chip span {
+  word-spacing: 0.3em;
+}
+/* Body text with smaller fonts get slightly wider word spacing */
+.pmi p,
+.project-deck,
+.trajectory-card p,
+.org-card p,
+.committee-card p,
+.cert-card p,
+.tool-box p,
+.map-evidence-caption,
+.chart-note,
+.work-summary p,
+.closing-copy p,
+.profile-story .body,
+.profile-story .lede,
+.profile-side .side-note {
+  word-spacing: 0.08em;
+}
+</style>
+</head>
+<body class="view-idn">
+<div class="screen-tools"><button class="active" id="idnBtn">Indonesia</button><button id="engBtn">English</button><button id="printBtn">Print / PDF Preview</button></div>
+<div class="preview-wrap">
+<!-- COVER IDN -->
+<section class="page cover-dynamic" data-lang="idn">
+<div class="cover-bg"><img alt="Nebo" src="https://nebomarpaung.github.io/portfolio/assets/images/diri/IMG_4828.JPG"/><div class="cover-overlay"></div></div>
+<div class="cover-topbar"><span>PORTOFOLIO</span><span>BEKASI · JAWA BARAT</span></div>
+<div class="cover-center">
+<div class="kicker cover-kicker"></div>
+<h1 class="cover-name">NEBO</h1>
+<div class="cover-role">ANALIS GEOSPASIAL</div>
+<div class="cover-rule"></div>
+<p class="cover-caption">Analisis spasial, pemodelan lingkungan, perencanaan tata ruang, penginderaan jauh, dan validasi data geospasial. Peta ditempatkan sebagai bukti, bukan sekadar ilustrasi.</p>
+<div class="cover-ticker">
+<div class="cover-ticker-item"><span class="cover-stat-number">3.670+</span><span class="cover-stat-label">Poligon Tervalidasi</span></div>
+<div class="cover-ticker-item"><span class="cover-stat-number">2.500+</span><span class="cover-stat-label">Poligon Diaudit</span></div>
+<div class="cover-ticker-item"><span class="cover-stat-number">Rp28 Juta</span><span class="cover-stat-label">Hibah Penelitian</span></div>
+<div class="cover-ticker-item"><span class="cover-stat-number">3.60</span><span class="cover-stat-label">IPK Geografi UI</span></div>
+</div>
+</div>
+<div class="cover-bottom"><span></span><span></span></div>
+</section>
+<!-- COVER ENG -->
+<section class="page cover-dynamic" data-lang="eng">
+<div class="cover-bg"><img alt="Nebo" src="https://nebomarpaung.github.io/portfolio/assets/images/diri/IMG_4828.JPG"/><div class="cover-overlay"></div></div>
+<div class="cover-topbar"><span>PORTFOLIO</span><span>BEKASI · WEST JAVA</span></div>
+<div class="cover-center">
+<div class="kicker cover-kicker"></div>
+<h1 class="cover-name">NEBO</h1>
+<div class="cover-role">GEOSPATIAL ANALYST</div>
+<div class="cover-rule"></div>
+<p class="cover-caption">Spatial analysis, environmental modelling, spatial planning, remote sensing, and geospatial data validation. A portfolio that places maps as evidence, not merely illustration.</p>
+<div class="cover-ticker">
+<div class="cover-ticker-item"><span class="cover-stat-number">3,670+</span><span class="cover-stat-label">Validated Polygons</span></div>
+<div class="cover-ticker-item"><span class="cover-stat-number">2,500+</span><span class="cover-stat-label">Audited Polygons</span></div>
+<div class="cover-ticker-item"><span class="cover-stat-number">IDR 28M</span><span class="cover-stat-label">Research Grant</span></div>
+<div class="cover-ticker-item"><span class="cover-stat-number">3.60</span><span class="cover-stat-label">GPA · Geography UI</span></div>
+</div>
+</div>
+<div class="cover-bottom"><span></span><span></span></div>
+</section>
+<!-- PROFIL IDN -->
+<section class="page profile-page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Cara Saya Bekerja</h1></div><div class="meta">PRINSIP KERJA</div></div>
+<div class="profile-journal"><div class="profile-main"><aside class="profile-side"><div><div class="smallcaps">Karya Terpilih</div><div class="big-index">05</div><div class="side-title">Proyek yang Membentuk Cara Saya Bekerja</div></div></aside><div class="profile-story"><p class="lede">Dari geomorfologi pesisir, kesesuaian lahan pertanian, kerawanan bencana, aksesibilitas layanan publik, hingga presisi agrikultur berbasis sensor hiperspektral.</p><div class="project-spectrum"><div class="project-chip"><span class="num">05</span><strong>Produktivitas Padi</strong><span>UAV · Hiperspektral</span></div><div class="project-chip"><span class="num">02</span><strong>Geomorfologi</strong><span>DEM · Lapangan</span></div><div class="project-chip"><span class="num">03</span><strong>Kerawanan Kekeringan</strong><span>SMCA · Sturges</span></div><div class="project-chip"><span class="num">01</span><strong>Nanas</strong><span>SMCA · Pertanian</span></div><div class="project-chip"><span class="num">04</span><strong>Aksesibilitas Kesehatan</strong><span>Pemetaan Komunitas</span></div></div></div></div><div class="profile-stats"><div class="profile-stat"><b>05</b><span>Proyek Utama</span></div><div class="profile-stat"><b>33+</b><span>Peta Ditampilkan</span></div><div class="profile-stat"><b>03</b><span>Work Experience</span></div><div class="profile-stat"><b>15+</b><span>Peran Organisasi</span></div></div><div class="profile-evidence"><div class="pmi"><h3>Data</h3><p>DEMNAS BIG, RBI, BMKG, FAO-UNESCO, citra UAV hiperspektral, survei lapangan, dan data layanan publik.</p></div><div class="pmi"><h3>Metode</h3><p>SMCA, Analisis Intersection, Skor Sturges, Penginderaan Jauh, Pemodelan Spasial, Validasi Lapangan, dan QA.</p></div><div class="pmi"><h3>Output</h3><p>Peta tematik, model spasial, hasil validasi, StoryMaps, publikasi, laporan, dan evidence berbasis angka.</p></div></div></div>
+<div class="footer"><span>PROFIL · PRINSIP KERJA</span><span class="page-number">02</span></div>
+</section>
+<!-- PROFIL ENG -->
+<section class="page profile-page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">How I Work</h1></div><div class="meta">WORKING PRINCIPLE</div></div>
+<div class="profile-journal"><div class="profile-main"><aside class="profile-side"><div><div class="smallcaps">Selected Works</div><div class="big-index">05</div><div class="side-title">Projects That Shape How I Work</div></div></aside><div class="profile-story"><p class="lede">From coastal geomorphology, agricultural land suitability, disaster vulnerability, public service accessibility, to precision agriculture using hyperspectral sensors.</p><div class="project-spectrum"><div class="project-chip"><span class="num">05</span><strong>Rice Productivity</strong><span>UAV · Hyperspectral</span></div><div class="project-chip"><span class="num">02</span><strong>Geomorphology</strong><span>DEM · Fieldwork</span></div><div class="project-chip"><span class="num">03</span><strong>Drought Vulnerability</strong><span>SMCA · Sturges</span></div><div class="project-chip"><span class="num">01</span><strong>Pineapple</strong><span>SMCA · Agriculture</span></div><div class="project-chip"><span class="num">04</span><strong>Healthcare Accessibility</strong><span>Community Mapping</span></div></div></div></div><div class="profile-stats"><div class="profile-stat"><b>05</b><span>Core Projects</span></div><div class="profile-stat"><b>33+</b><span>Maps Presented</span></div><div class="profile-stat"><b>03</b><span>Work Experiences</span></div><div class="profile-stat"><b>15+</b><span>Organisational Roles</span></div></div><div class="profile-evidence"><div class="pmi"><h3>Data</h3><p>BIG DEMNAS, RBI, BMKG, FAO-UNESCO, hyperspectral UAV imagery, field surveys, and public service data.</p></div><div class="pmi"><h3>Method</h3><p>SMCA, Intersection Analysis, Sturges Scoring, remote sensing, spatial modelling, field validation, and QA.</p></div><div class="pmi"><h3>Output</h3><p>Thematic maps, spatial models, validation results, StoryMaps, publications, reports, and evidence-based metrics.</p></div></div></div>
+<div class="footer"><span>PROFILE · WORKING PRINCIPLE</span><span class="page-number">02</span></div>
+</section>
+<!-- PROJECT 05 (PADI) IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Estimasi Produktivitas Padi</h1></div><div class="meta">Citra UAV Hiperspektral · Desa Parakansalak, Sukabumi · 2024 - 2025 · Individual</div></div>
+<div class="project-layout"><article class="project-copy"><div class="project-code">05 / 05</div><h2 class="project-display">Estimasi Produktivitas Padi menggunakan Citra UAV Hiperspektral</h2><div class="badge-row"><span class="badge">Individu</span><span class="badge">Skripsi</span><span class="badge">BlackBird V2</span><span class="badge">ISE-PLS</span></div><p class="project-deck">Konsumsi beras nasional diproyeksikan mencapai 31,7 juta ton pada 2045 sementara produksi turun 2,05% menjadi 30,90 juta ton (2023). Metode estimasi konvensional tidak mampu menangkap variabilitas spasial produktivitas secara efisien dan presisi.</p><div class="pmi-grid"><div class="pmi"><h3>Metode</h3><p>Metode ISE-PLS (Iterative Stepwise Elimination - Partial Least Squares) pada citra UAV BlackBird V2 hiperspektral (100 band). Akuisisi fase pembungaan (64 HST) dan pengisian bulir (73 HST). Band red-edge (755-760 nm) dan NIR (930-935 nm) teridentifikasi sebagai band dominan.</p></div><div class="pmi"><h3>Akuisisi</h3><p>Akurasi model menunjukkan reduksi 100 band menjadi 8 band tanpa kehilangan akurasi signifikan. Estimasi spasial produktivitas 0,391-0,634 kg/m² mencerminkan pengaruh irigasi terasering dan mikrotopografi.</p></div><div class="pmi"><h3>Dampak</h3><p>ISE-PLS mereduksi 100 band menjadi 8 band tanpa kehilangan akurasi signifikan (R²=0,8335). Estimasi spasial produktivitas 0,391-0,634 kg/m² mencerminkan pengaruh irigasi terasering dan mikrotopografi. Predikat Sangat Memuaskan · Lulus Juli 2025.</p></div></div><div class="metric-grid"><div class="metric"><b>R² = 0,83</b><span>Akurasi Model ISE-PLS</span></div><div class="metric"><b>100 → 8 Band</b><span>Reduksi Dimensi (64 HST)</span></div><div class="metric"><b>90 Sampel</b><span>Grid 1×1m · 7 Petak</span></div><div class="metric"><b>RMSE 0,021</b><span>Batas Galat</span></div></div></article><figure class="project-map-frame"><img alt="Peta estimasi produktivitas padi" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/skripsi/Estimasi_kgm2.png"/></figure></div>
+<div class="footer"><span>PROYEK 05 · PRODUKTIVITAS PADI</span><span class="page-number">03</span></div>
+</section>
+<!-- PROJECT 05 ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Rice Productivity Estimation</h1></div><div class="meta">Hyperspectral UAV Imagery · Parakansalak, Sukabumi · 2024 - 2025 · Individual</div></div>
+<div class="project-layout"><article class="project-copy"><div class="project-code">05 / 05</div><h2 class="project-display">Rice Productivity Estimation using Hyperspectral UAV Imagery</h2><div class="badge-row"><span class="badge">Individual</span><span class="badge">Thesis</span><span class="badge">BlackBird V2</span><span class="badge">ISE-PLS</span></div><p class="project-deck">National rice consumption is projected to reach 31.7 million tons by 2045 while production dropped 2.05% to 30.90 million tons (2023). Conventional estimation methods fail to capture spatial variability in productivity efficiently and precisely.</p><div class="pmi-grid"><div class="pmi"><h3>Method</h3><p>ISE-PLS (Iterative Stepwise Elimination - Partial Least Squares) on BlackBird V2 hyperspectral UAV imagery (100 bands). Acquired at flowering (64 DAS) and grain-filling (73 DAS). Bands red-edge (755-760 nm) and NIR (930-935 nm) were identified as dominant.</p></div><div class="pmi"><h3>Acquisition</h3><p>ISE-PLS reduced 100 bands to 8 bands without significant accuracy loss (R²=0.8335). Spatial productivity estimates of 0.391-0.634 kg/m² reflect the influence of terraced irrigation and micro-topography.</p></div><div class="pmi"><h3>Impact</h3><p>ISE-PLS reduced 100 bands to 8 bands without significant accuracy loss (R²=0.8335). Spatial productivity estimates of 0.391-0.634 kg/m² reflect the influence of terraced irrigation and micro-topography. Graduated with Highly Satisfactory · July 2025.</p></div></div><div class="metric-grid"><div class="metric"><b>R² = 0.83</b><span>ISE-PLS Model Accuracy</span></div><div class="metric"><b>100 → 8 Bands</b><span>Dimension Reduction (64 DAS)</span></div><div class="metric"><b>90 Samples</b><span>1×1m Grid · 7 Plots</span></div><div class="metric"><b>RMSE 0.021</b><span>Error Margin</span></div></div></article><figure class="project-map-frame"><img alt="Rice productivity estimation map" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/skripsi/Estimasi_kgm2.png"/></figure></div>
+<div class="footer"><span>PROJECT 05 · RICE PRODUCTIVITY</span><span class="page-number">03</span></div>
+</section>
+<!-- SUPPORTING MAPS 04 IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Peta Pendukung</h1></div><div class="meta">2 peta · horizontal · panel setara</div></div>
+<div class="map-grid cols-2 horizontal-pair"><figure class="map-tile"><div class="map-image"><img alt="Produktivitas Aktual Lapangan" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/skripsi/Aktual_kgm2.png"/></div><figcaption>Produktivitas Aktual Lapangan</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Grid Sampel 1×1m · 7 Petak" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/skripsi/GRIDSAMPEL.png"/></div><figcaption>Grid Sampel 1×1m · 7 Petak</figcaption></figure></div>
+<div class="footer"><span>PROYEK 05 · PRODUKTIVITAS PADI · PETA PENDUKUNG</span><span class="page-number">04</span></div>
+</section>
+<!-- SUPPORTING MAPS 04 ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Supporting Maps</h1></div><div class="meta">2 maps · horizontal · equal panels</div></div>
+<div class="map-grid cols-2 horizontal-pair"><figure class="map-tile"><div class="map-image"><img alt="Actual Field Productivity" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/skripsi/Aktual_kgm2.png"/></div><figcaption>Actual Field Productivity</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="1×1m Sampling Grid · 7 Plots" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/skripsi/GRIDSAMPEL.png"/></div><figcaption>1×1m Sampling Grid · 7 Plots</figcaption></figure></div>
+<div class="footer"><span>PROJECT 05 · RICE PRODUCTIVITY · SUPPORTING MAPS</span><span class="page-number">04</span></div>
+</section>
+<!-- SUPPORTING MAPS 05 IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Peta Pendukung</h1></div><div class="meta">2 peta · horizontal · panel setara</div></div>
+<div class="map-grid cols-2 horizontal-pair"><figure class="map-tile"><div class="map-image"><img alt="NDVI Vegetation Index" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/skripsi/Layout NDVI 14x14.png"/></div><figcaption>NDVI Vegetation Index</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="GNDVI Vegetation Index" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/skripsi/Layout GNDVI 14x14.png"/></div><figcaption>GNDVI Vegetation Index</figcaption></figure></div>
+<div class="footer"><span>PROYEK 05 · PRODUKTIVITAS PADI · PETA PENDUKUNG</span><span class="page-number">05</span></div>
+</section>
+<!-- SUPPORTING MAPS 05 ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Supporting Maps</h1></div><div class="meta">2 maps · horizontal · equal panels</div></div>
+<div class="map-grid cols-2 horizontal-pair"><figure class="map-tile"><div class="map-image"><img alt="NDVI Vegetation Index" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/skripsi/Layout NDVI 14x14.png"/></div><figcaption>NDVI Vegetation Index</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="GNDVI Vegetation Index" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/skripsi/Layout GNDVI 14x14.png"/></div><figcaption>GNDVI Vegetation Index</figcaption></figure></div>
+<div class="footer"><span>PROJECT 05 · RICE PRODUCTIVITY · SUPPORTING MAPS</span><span class="page-number">05</span></div>
+</section>
+<!-- PROJECT 01 (NANAS) IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Kesesuaian Lahan Nanas</h1></div><div class="meta">Kabupaten Purwakarta · 2023 · SMCA · Individual</div></div>
+<div class="project-layout"><article class="project-copy"><div class="project-code">01 / 05</div><h2 class="project-display">Kesesuaian Lahan Tanaman Nanas di Kabupaten Purwakarta</h2><div class="badge-row"><span class="badge">Individu</span><span class="badge">SMCA</span><span class="badge">Intersection Analysis</span></div><p class="project-deck">Potensi agrowisata nanas di Kabupaten Purwakarta belum terpetakan secara spasial perencanaan pengembangan sektor pertanian tidak memiliki basis data lokasi optimal yang dapat digunakan pemerintah daerah maupun petani.</p><div class="pmi-grid"><div class="pmi"><h3>Data</h3><p>Analisis Multikriteria Spasial (SMCA) dengan Analisis Interseksi pada 4 variabel: elevasi (DEMNAS BIG), lereng, tekstur tanah (FAO-UNESCO), dan penggunaan lahan (RBI BIG).</p></div><div class="pmi"><h3>Metode</h3><p>Matriks kesesuaian FAO 1976 menghasilkan 5 kelas (S1s, S2, S2s, S3e, N). Dikerjakan dengan ArcGIS Pro 3.1.1.</p></div><div class="pmi"><h3>Dampak</h3><p>Mengidentifikasi 34,27% wilayah cukup sesuai (S2s) dan memetakan faktor pembatas utama: lereng curam (&gt;20%) dan dominasi tekstur liat. Hanya bagian selatan bertekstur lempung yang potensial. Diterbitkan sebagai makalah ilmiah.</p></div></div><div class="metric-grid"><div class="metric"><b>5 Kelas</b><span>Kesesuaian Lahan</span></div><div class="metric"><b>34,27%</b><span>Wilayah Cukup Sesuai (S2s)</span></div><div class="metric"><b>45,33%</b><span>Wilayah Tidak Sesuai (N)</span></div><div class="metric"><b>4 Variabel</b><span>Elevasi · Lereng · Tanah · Lahan</span></div></div></article><figure class="project-map-frame"><img alt="Peta kesesuaian lahan nanas" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/nanas/kesesuaian.jpg"/></figure></div>
+<div class="footer"><span>PROYEK 01 · KESESUAIAN LAHAN</span><span class="page-number">06</span></div>
+</section>
+<!-- PROJECT 01 ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Pineapple Land Suitability</h1></div><div class="meta">Purwakarta Regency · 2023 · SMCA · Individual</div></div>
+<div class="project-layout"><article class="project-copy"><div class="project-code">01 / 05</div><h2 class="project-display">Land Suitability for Pineapple in Purwakarta Regency</h2><div class="badge-row"><span class="badge">Individual</span><span class="badge">SMCA</span><span class="badge">Intersection Analysis</span></div><p class="project-deck">The potential for pineapple agritourism in Purwakarta had not been spatially mapped, while agricultural development planning required an optimal-location database for government and farmers.</p><div class="pmi-grid"><div class="pmi"><h3>Data</h3><p>DEMNAS BIG, slope, FAO-UNESCO soil texture, and RBI BIG land use.</p></div><div class="pmi"><h3>Method</h3><p>Spatial Multi-Criteria Analysis with Intersection Analysis and the FAO 1976 suitability matrix.</p></div><div class="pmi"><h3>Impact</h3><p>34.27% classified as moderately suitable (S2s); 45.33% not suitable; key constraints were steep slope and clay-dominated texture.</p></div></div><div class="metric-grid"><div class="metric"><b>5</b><span>Suitability Classes</span></div><div class="metric"><b>34.27%</b><span>S2s</span></div><div class="metric"><b>45.33%</b><span>N</span></div><div class="metric"><b>4</b><span>Variables</span></div></div></article><figure class="project-map-frame"><img alt="Pineapple land suitability map" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/nanas/kesesuaian.jpg"/></figure></div>
+<div class="footer"><span>PROJECT 01 · LAND SUITABILITY</span><span class="page-number">06</span></div>
+</section>
+<!-- SUPPORTING 07 IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Peta Input Kesesuaian</h1></div><div class="meta">4 peta · ukuran panel seragam</div></div>
+<div class="map-grid cols-2 rows-2"><figure class="map-tile"><div class="map-image"><img alt="Administrasi Purwakarta" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/nanas/adm.jpg"/></div><figcaption>Administrasi Purwakarta</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Elevasi" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/nanas/ketinggian.jpg"/></div><figcaption>Elevasi</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Lereng" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/nanas/lereng.jpg"/></div><figcaption>Lereng</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Penggunaan Lahan" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/nanas/penggunaanlahan.jpg"/></div><figcaption>Penggunaan Lahan</figcaption></figure></div>
+<div class="footer"><span>PROYEK 01 · PETA PENDUKUNG</span><span class="page-number">07</span></div>
+</section>
+<!-- SUPPORTING 07 ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Suitability Input Maps</h1></div><div class="meta">Purwakarta Regency · 2023 · SMCA · Individual</div></div>
+<div class="map-grid cols-2 rows-2"><figure class="map-tile"><div class="map-image"><img alt="Purwakarta Administration" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/nanas/adm.jpg"/></div><figcaption>Purwakarta Administration</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Elevation" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/nanas/ketinggian.jpg"/></div><figcaption>Elevation</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Slope" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/nanas/lereng.jpg"/></div><figcaption>Slope</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Land Use" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/nanas/penggunaanlahan.jpg"/></div><figcaption>Land Use</figcaption></figure></div>
+<div class="footer"><span>PROJECT 01 · SUPPORTING MAPS</span><span class="page-number">07</span></div>
+</section>
+<!-- SUPPORTING 08 IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Peta Input Kesesuaian</h1></div><div class="meta">2 peta · ukuran panel seragam</div></div>
+<div class="map-grid cols-2 rows-1"><figure class="map-tile"><div class="map-image"><img alt="Tekstur Tanah" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/nanas/tekstur tanah.jpg"/></div><figcaption>Tekstur Tanah</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Kesesuaian Lahan" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/nanas/kesesuaian.jpg"/></div><figcaption>Kesesuaian Lahan</figcaption></figure></div>
+<div class="footer"><span>PROYEK 01 · PETA PENDUKUNG</span><span class="page-number">08</span></div>
+</section>
+<!-- SUPPORTING 08 ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Suitability Input Maps</h1></div><div class="meta">2 maps · equal panel size</div></div>
+<div class="map-grid cols-2 rows-1"><figure class="map-tile"><div class="map-image"><img alt="Soil Texture" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/nanas/tekstur tanah.jpg"/></div><figcaption>Soil Texture</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Land Suitability" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/nanas/kesesuaian.jpg"/></div><figcaption>Land Suitability</figcaption></figure></div>
+<div class="footer"><span>PROJECT 01 · SUPPORTING MAPS</span><span class="page-number">08</span></div>
+</section>
+<!-- PROJECT 02 (GEOMORFOLOGI) IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Geomorfologi Cimanggu</h1></div><div class="meta">Desa Cimanggu, Palabuhanratu · 2022 · Field Mapping · Kolaboratif</div></div>
+<div class="project-layout"><article class="project-copy"><div class="project-code">02 / 05</div><h2 class="project-display">Kajian Geomorfologi Desa Cimanggu, Palabuhanratu</h2><div class="badge-row"><span class="badge">Kolaboratif</span><span class="badge">Field Validation</span><span class="badge">ArcGIS Pro</span></div><p class="project-deck">Desa Cimanggu, pesisir selatan Sukabumi, memiliki geomorfologi beragam (perbukitan, dataran pesisir, sistem sungai) namun belum terdokumentasi secara ilmiah dan tervalidasi lapangan sebagai basis data spasial awal wilayah yang dapat digunakan pemerintah daerah.</p><div class="pmi-grid"><div class="pmi"><h3>Data</h3><p>Interpretasi bentuk lahan dari DEM Nasional BIG (resolusi 5m, IFSAR/TerraSAR-X/ALOS PALSAR) menggunakan ArcGIS Pro 3.0.2.</p></div><div class="pmi"><h3>Metode</h3><p>Klasifikasi berdasarkan Zuidam (1983), Dessaunetes (1977), Verstappen (2011). Menghasilkan 7 peta tentatif yang divalidasi 5 hari di lapangan bersama tim 22 orang.</p></div><div class="pmi"><h3>Dampak</h3><p>Sebagai Ketua Kelas dan peneliti Kelompok Fokus Geomorfologi memimpin logistik tim 22 orang dan mempresentasikan temuan kepada 135+ audiens termasuk 12 dosen dan pejabat daerah. Laporan diterbitkan sebagai buku ber-ISBN dan peta resmi terdaftar di HAKI.</p></div></div><div class="metric-grid"><div class="metric"><b>7 Peta</b><span>Tematik Geomorfologi</span></div><div class="metric"><b>22 Orang</b><span>Tim (20 Mhs + 2 Dosen)</span></div><div class="metric"><b>135+</b><span>Audiens Presentasi</span></div><div class="metric"><b>ISBN + HAKI</b><span>Publikasi &amp; Peta Terdaftar</span></div></div></article><figure class="project-map-frame"><img alt="Peta geomorfologi Cimanggu" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl1/petageomorfologi.jpg"/></figure></div>
+<div class="footer"><span>PROYEK 02 · GEOMORFOLOGI</span><span class="page-number">09</span></div>
+</section>
+<!-- PROJECT 02 ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Cimanggu Geomorphology</h1></div><div class="meta">Cimanggu Village, Palabuhanratu · 2022 · Field Mapping · Collaborative</div></div>
+<div class="project-layout"><article class="project-copy"><div class="project-code">02 / 05</div><h2 class="project-display">Geomorphological Study of Cimanggu Village, Palabuhanratu</h2><div class="badge-row"><span class="badge">Collaborative</span><span class="badge">Field Validation</span><span class="badge">ArcGIS Pro</span></div><p class="project-deck">Cimanggu has diverse geomorphology but lacked scientific documentation and field-validated spatial baseline data.</p><div class="pmi-grid"><div class="pmi"><h3>Data</h3><p>National DEM from BIG at 5m resolution using IFSAR, TerraSAR-X, and ALOS PALSAR.</p></div><div class="pmi"><h3>Method</h3><p>Landform interpretation using classifications from Zuidam 1983, Dessaunetes 1977, and Verstappen 2011.</p></div><div class="pmi"><h3>Impact</h3><p>7 tentative maps were field-validated over 5 days; the report became an ISBN-registered book and the official map received IPR registration.</p></div></div><div class="metric-grid"><div class="metric"><b>7</b><span>Maps</span></div><div class="metric"><b>22</b><span>Team Members</span></div><div class="metric"><b>135+</b><span>Presentation Audience</span></div><div class="metric"><b>ISBN + IPR</b><span>Output</span></div></div></article><figure class="project-map-frame"><img alt="Cimanggu geomorphological map" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl1/petageomorfologi.jpg"/></figure></div>
+<div class="footer"><span>PROJECT 02 · GEOMORPHOLOGY</span><span class="page-number">09</span></div>
+</section>
+<!-- SUPPORTING 10 IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Peta Pendukung</h1></div><div class="meta">3 peta · horizontal ·</div></div>
+<div class="map-grid cols-3"><figure class="map-tile"><div class="map-image"><img alt="Beda Tinggi" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl1/petabedatinggi.jpg"/></div><figcaption>Beda Tinggi</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Bentuk Asal" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl1/petabentukanasal.jpg"/></div><figcaption>Bentuk Asal</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Lereng" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl1/petalereng.jpg"/></div><figcaption>Lereng</figcaption></figure></div>
+<div class="footer"><span>PROYEK 02 · GEOMORFOLOGI · PETA PENDUKUNG</span><span class="page-number">10</span></div>
+</section>
+<!-- SUPPORTING 10 ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Supporting Maps</h1></div><div class="meta">3 maps · horizontal ·</div></div>
+<div class="map-grid cols-3"><figure class="map-tile"><div class="map-image"><img alt="Relative Relief" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl1/petabedatinggi.jpg"/></div><figcaption>Relative Relief</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Landform Origin" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl1/petabentukanasal.jpg"/></div><figcaption>Landform Origin</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Slope" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl1/petalereng.jpg"/></div><figcaption>Slope</figcaption></figure></div>
+<div class="footer"><span>PROJECT 02 · GEOMORPHOLOGY · SUPPORTING MAPS</span><span class="page-number">10</span></div>
+</section>
+<!-- SUPPORTING 11 IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Peta Pendukung</h1></div><div class="meta">3 peta · horizontal ·</div></div>
+<div class="map-grid cols-3"><figure class="map-tile"><div class="map-image"><img alt="Litologi" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl1/petalitologi.jpg"/></div><figcaption>Litologi</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Pola Aliran" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl1/petapolaaliran.jpg"/></div><figcaption>Pola Aliran</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Relief" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl1/petarelief.jpg"/></div><figcaption>Relief</figcaption></figure></div>
+<div class="footer"><span>PROYEK 02 · GEOMORFOLOGI · PETA PENDUKUNG</span><span class="page-number">11</span></div>
+</section>
+<!-- SUPPORTING 11 ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Supporting Maps</h1></div><div class="meta">3 maps · horizontal ·</div></div>
+<div class="map-grid cols-3"><figure class="map-tile"><div class="map-image"><img alt="Lithology" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl1/petalitologi.jpg"/></div><figcaption>Lithology</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Drainage Pattern" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl1/petapolaaliran.jpg"/></div><figcaption>Drainage Pattern</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Relief" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl1/petarelief.jpg"/></div><figcaption>Relief</figcaption></figure></div>
+<div class="footer"><span>PROJECT 02 · GEOMORPHOLOGY · SUPPORTING MAPS</span><span class="page-number">11</span></div>
+</section>
+<!-- PROJECT 03 (KEKERINGAN) IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Kerawanan Kekeringan Panggang</h1></div><div class="meta">Panggang, Gunungkidul · 2023 · SMCA · Individual</div></div>
+<div class="project-layout"><article class="project-copy"><div class="project-code">03 / 05</div><h2 class="project-display">Kajian Spasial Wilayah Rawan Kekeringan Kecamatan Panggang</h2><div class="badge-row"><span class="badge">Individu</span><span class="badge">SMCA</span><span class="badge">Sturges Scoring</span></div><p class="project-deck">Kecamatan Panggang di pesisir selatan Gunungkidul menghadapi kekeringan meteorologis kronis, namun belum memiliki peta kerawanan berbasis spasial yang tervalidasi sebagai landasan kebijakan mitigasi dan referensi BPBD setempat.</p><div class="pmi-grid"><div class="pmi"><h3>Data</h3><p>SMCA dengan Analisis Interseksi dan Skoring Sturges pada 4 variabel: curah hujan (BMKG 2022), lereng (DEMNAS BIG), jenis tanah (FAO-UNESCO), penggunaan lahan (RBI BIG).</p></div><div class="pmi"><h3>Metode</h3><p>Formula TKK = CH + PL + KT + JT. Skor 140-205, interval kelas 13. Validasi 30 titik lapangan selama 3 hari.</p></div><div class="pmi"><h3>Dampak</h3><p>65,39% wilayah berkelas Tinggi terkonsentrasi di Girimulyo, Girisekar, Giriwungu, dan Girisuko dipicu curah hujan rendah (1.000 1.500 mm/tahun), dominasi tanah litosol, dan lereng curam. Makalah ilmiah dan peta siap sebagai referensi kebijakan mitigasi bencana.</p></div></div><div class="metric-grid"><div class="metric"><b>65,39%</b><span>Wilayah Tingkat Tinggi</span></div><div class="metric"><b>5 Kelas</b><span>Kerawanan menurut Sturges</span></div><div class="metric"><b>30 Titik</b><span>Validasi Lapangan · 3 Hari</span></div><div class="metric"><b>99,80 km²</b><span>Luas Area · 6 Desa</span></div></div></article><figure class="project-map-frame"><img alt="Peta kerawanan kekeringan Panggang" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl2/rawan.jpg"/></figure></div>
+<div class="footer"><span>PROYEK 03 · KERAWANAN KEKERINGAN</span><span class="page-number">12</span></div>
+</section>
+<!-- PROJECT 03 ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Panggang Drought Vulnerability</h1></div><div class="meta">Panggang, Gunungkidul · 2023 · SMCA · Individual</div></div>
+<div class="project-layout"><article class="project-copy"><div class="project-code">03 / 05</div><h2 class="project-display">Spatial Study of Drought-Prone Areas in Panggang District</h2><div class="badge-row"><span class="badge">Individual</span><span class="badge">SMCA</span><span class="badge">Sturges Scoring</span></div><p class="project-deck">Panggang faces chronic meteorological drought but lacked a spatially based, validated vulnerability map to support mitigation policy.</p><div class="pmi-grid"><div class="pmi"><h3>Data</h3><p>BMKG 2022 rainfall, DEMNAS BIG slope, FAO-UNESCO soil, and RBI BIG land use.</p></div><div class="pmi"><h3>Method</h3><p>SMCA, Intersection Analysis, Sturges Scoring; TKK = CH + PL + KT + JT; score 140-205, interval 13.</p></div><div class="pmi"><h3>Impact</h3><p>65.39% of the area was classed High; key drivers were low rainfall, lithosol soils, and steep slopes.</p></div></div><div class="metric-grid"><div class="metric"><b>65.39%</b><span>High Vulnerability</span></div><div class="metric"><b>5</b><span>Classes</span></div><div class="metric"><b>30</b><span>Validation Points</span></div><div class="metric"><b>99.80 km²</b><span>Total Area</span></div></div></article><figure class="project-map-frame"><img alt="Panggang drought vulnerability map" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl2/rawan.jpg"/></figure></div>
+<div class="footer"><span>PROJECT 03 · DROUGHT VULNERABILITY</span><span class="page-number">12</span></div>
+</section>
+<!-- SUPPORTING 13 IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Peta Input &amp; Kerawanan</h1></div><div class="meta">4 peta · ukuran panel seragam</div></div>
+<div class="map-grid cols-2 rows-2"><figure class="map-tile"><div class="map-image"><img alt="Administrasi" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl2/adm.jpg"/></div><figcaption>Administrasi</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Curah Hujan" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl2/hujan.jpg"/></div><figcaption>Curah Hujan</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Lereng" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl2/lereng.jpg"/></div><figcaption>Lereng</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Jenis Tanah" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl2/tanah.jpg"/></div><figcaption>Jenis Tanah</figcaption></figure></div>
+<div class="footer"><span>PROYEK 03 · PETA PENDUKUNG</span><span class="page-number">13</span></div>
+</section>
+<!-- SUPPORTING 13 ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Input &amp; Vulnerability Maps</h1></div><div class="meta">Panggang, Gunungkidul · 2023 · SMCA · Individual</div></div>
+<div class="map-grid cols-2 rows-2"><figure class="map-tile"><div class="map-image"><img alt="Administration" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl2/adm.jpg"/></div><figcaption>Administration</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Rainfall" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl2/hujan.jpg"/></div><figcaption>Rainfall</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Slope" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl2/lereng.jpg"/></div><figcaption>Slope</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Soil Type" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl2/tanah.jpg"/></div><figcaption>Soil Type</figcaption></figure></div>
+<div class="footer"><span>PROJECT 03 · SUPPORTING MAPS</span><span class="page-number">13</span></div>
+</section>
+<!-- SUPPORTING 14 IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Peta Input &amp; Kerawanan</h1></div><div class="meta">2 peta · ukuran panel seragam</div></div>
+<div class="map-grid cols-2 rows-1"><figure class="map-tile"><div class="map-image"><img alt="Penggunaan Lahan" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl2/pl.jpg"/></div><figcaption>Penggunaan Lahan</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Kerawanan Kekeringan" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl2/rawan.jpg"/></div><figcaption>Kerawanan Kekeringan</figcaption></figure></div>
+<div class="footer"><span>PROYEK 03 · PETA PENDUKUNG</span><span class="page-number">14</span></div>
+</section>
+<!-- SUPPORTING 14 ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Input &amp; Vulnerability Maps</h1></div><div class="meta">2 maps · equal panel size</div></div>
+<div class="map-grid cols-2 rows-1"><figure class="map-tile"><div class="map-image"><img alt="Land Use" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl2/pl.jpg"/></div><figcaption>Land Use</figcaption></figure><figure class="map-tile"><div class="map-image"><img alt="Drought Vulnerability" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/kkl2/rawan.jpg"/></div><figcaption>Drought Vulnerability</figcaption></figure></div>
+<div class="footer"><span>PROJECT 03 · SUPPORTING MAPS</span><span class="page-number">14</span></div>
+</section>
+<!-- POSYANDU IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Aksesibilitas Posyandu</h1></div><div class="meta">Proyek 04 · Peta 1 dari 2</div></div>
+<div class="map-evidence-single healthcare-evidence"><div class="map-evidence-context"><div><strong>PROYEK 04 · AKSESIBILITAS LAYANAN KESEHATAN</strong><span>Kota Depok · 2024 · Pemetaan Komunitas · Kolaboratif</span></div><div class="health-metrics"><span>33 Posyandu</span><span>58 Penyedia Layanan Ambulans</span><span>9 Tim Survei Lapangan</span><span>Rp28 juta</span></div></div><div class="map-image-large"><img alt="Peta aksesibilitas dan jangkauan Posyandu Kota Depok" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/pempar/Peta_Posyandu.png"/></div><div class="map-evidence-meta"><div class="map-evidence-caption" style="border-top-color:var(--green)"><strong>Posyandu</strong>Peta aksesibilitas dan jangkauan Posyandu di Kota Depok. Peta ini merupakan salah satu dari dua keluaran spasial utama dalam proyek aksesibilitas layanan kesehatan.</div><a class="story-link story-posyandu" href="https://arcg.is/1vKT9e2" rel="noopener noreferrer" target="_blank"><span>Buka StoryMaps Posyandu</span></a></div></div>
+<div class="footer"><span>PROYEK 04 · AKSESIBILITAS LAYANAN KESEHATAN</span><span class="page-number">15</span></div>
+</section>
+<!-- POSYANDU ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Posyandu Accessibility</h1></div><div class="meta">Project 04 · Map 1 of 2</div></div>
+<div class="map-evidence-single healthcare-evidence"><div class="map-evidence-context"><div><strong>PROJECT 04 · HEALTHCARE ACCESSIBILITY</strong><span>Depok City · 2024 · Community Mapping · Collaborative</span></div><div class="health-metrics"><span>33 Posyandu</span><span>58 Ambulance Providers</span><span>9 Field Survey Teams</span><span>Rp28 juta</span></div></div><div class="map-image-large"><img alt="Peta aksesibilitas dan jangkauan Posyandu Kota Depok" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/pempar/Peta_Posyandu.png"/></div><div class="map-evidence-meta"><div class="map-evidence-caption" style="border-top-color:var(--green)"><strong>Posyandu</strong>Accessibility and coverage map of Posyandu in Depok City. This is one of two primary spatial outputs from the healthcare accessibility project.</div><a class="story-link story-posyandu" href="https://arcg.is/1vKT9e2" rel="noopener noreferrer" target="_blank"><span>Open Posyandu StoryMaps</span></a></div></div>
+<div class="footer"><span>PROJECT 04 · HEALTHCARE ACCESSIBILITY</span><span class="page-number">15</span></div>
+</section>
+<!-- AMBULANS IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Aksesibilitas Ambulans</h1></div><div class="meta">Proyek 04 · Peta 2 dari 2</div></div>
+<div class="map-evidence-single healthcare-evidence"><div class="map-evidence-context"><div><strong>PROYEK 04 · AKSESIBILITAS LAYANAN KESEHATAN</strong><span>Kota Depok · 2024 · Pemetaan Komunitas · Kolaboratif</span></div><div class="health-metrics"><span>33 Posyandu</span><span>58 Penyedia Layanan Ambulans</span><span>9 Tim Survei Lapangan</span><span>Rp28 juta</span></div></div><div class="map-image-large"><img alt="Peta aksesibilitas dan jangkauan penyedia layanan ambulans Kota Depok" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/pempar/Peta_Ambulance.png"/></div><div class="map-evidence-meta"><div class="map-evidence-caption" style="border-top-color:var(--red)"><strong>Ambulans</strong>Peta aksesibilitas dan jangkauan penyedia layanan ambulans di Kota Depok. Peta ini melengkapi peta Posyandu sebagai keluaran spasial utama dari proyek yang sama.</div><a class="story-link story-ambulance" href="https://arcg.is/Tv9TX0" rel="noopener noreferrer" target="_blank"><span>Buka StoryMaps Ambulans</span></a></div></div>
+<div class="footer"><span>PROYEK 04 · AKSESIBILITAS LAYANAN KESEHATAN</span><span class="page-number">16</span></div>
+</section>
+<!-- AMBULANS ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Ambulance Accessibility</h1></div><div class="meta">Project 04 · Map 2 of 2</div></div>
+<div class="map-evidence-single healthcare-evidence"><div class="map-evidence-context"><div><strong>PROJECT 04 · HEALTHCARE ACCESSIBILITY</strong><span>Depok City · 2024 · Community Mapping · Collaborative</span></div><div class="health-metrics"><span>33 Posyandu</span><span>58 Ambulance Providers</span><span>9 Field Survey Teams</span><span>Rp28 juta</span></div></div><div class="map-image-large"><img alt="Peta aksesibilitas dan jangkauan penyedia layanan ambulans Kota Depok" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/map/pempar/Peta_Ambulance.png"/></div><div class="map-evidence-meta"><div class="map-evidence-caption" style="border-top-color:var(--red)"><strong>Ambulans</strong>Accessibility and coverage map of ambulance service providers in Depok City. This complements the Posyandu map as the second primary spatial output of the same project.</div><a class="story-link story-ambulance" href="https://arcg.is/Tv9TX0" rel="noopener noreferrer" target="_blank"><span>Open Ambulance StoryMaps</span></a></div></div>
+<div class="footer"><span>PROJECT 04 · HEALTHCARE ACCESSIBILITY</span><span class="page-number">16</span></div>
+</section>
+<!-- PROFESSIONAL IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Jenjang Profesional</h1></div><div class="meta">Education · Work Experience</div></div>
+<div class="path-grid"><div class="path-section-label">PENDIDIKAN</div><article class="trajectory-card education"><div class="date">Agu 2021 - Jul 2025</div><div><h2>Geografi (S.Si.)</h2><div class="org">FMIPA - Universitas Indonesia · Depok</div><p>IPK 3.60/4.00 · 126 SKS · Highly Satisfactory.</p></div></article><div class="path-section-label work-label">PENGALAMAN KERJA</div><div class="work-feature"><div class="work-summary"><div class="date">Mar 2025 - Sep 2026</div><h2>Technical Support</h2><div class="org">MapBiomas Indonesia (Yayasan Auriga Nusantara) · Jakarta Selatan</div><p>Memvalidasi titik deforestasi dari citra satelit di seluruh Indonesia. Target awal 1.100 poligon selesai tiga bulan lebih cepat, total lebih dari 3.670 poligon tervalidasi. Dipercaya menjadi Auditor QA, mengaudit ulang lebih dari 2.500 poligon dan menginspeksi lebih dari 1.300 poligon untuk laporan status deforestasi nasional.</p><div class="mini-metrics"><div class="metric"><b>1,300+</b><span>Inspected</span></div><div class="metric"><b>3,670+</b><span>Validated</span></div><div class="metric"><b>2,500+</b><span>Audited</span></div></div></div><div class="charts-inline"><div class="chart-card"><h3>Approved vs Rejection Rate</h3><svg aria-label="Approved versus Rejection Rate chart" class="dual-svg" preserveaspectratio="none" role="img" viewbox="0 0 620 285"><line stroke="#e5e1d8" stroke-width="1" x1="58" x2="584" y1="237.0" y2="237.0"></line><text fill="#222" font-family="Inter" font-size="10" text-anchor="end" x="51" y="240.0">0</text><line stroke="#e5e1d8" stroke-width="1" x1="58" x2="584" y1="164.7" y2="164.7"></line><text fill="#222" font-family="Inter" font-size="10" text-anchor="end" x="51" y="167.7">1,000</text><line stroke="#e5e1d8" stroke-width="1" x1="58" x2="584" y1="92.3" y2="92.3"></line><text fill="#222" font-family="Inter" font-size="10" text-anchor="end" x="51" y="95.3">2,000</text><line stroke="#e5e1d8" stroke-width="1" x1="58" x2="584" y1="20.0" y2="20.0"></line><text fill="#222" font-family="Inter" font-size="10" text-anchor="end" x="51" y="23.0">3,000</text><text fill="#C84630" font-family="Inter" font-size="10" x="591" y="240.0">0%</text><text fill="#C84630" font-family="Inter" font-size="10" x="591" y="178.0">20%</text><text fill="#C84630" font-family="Inter" font-size="10" x="591" y="116.0">40%</text><text fill="#C84630" font-family="Inter" font-size="10" x="591" y="54.0">60%</text><text fill="#C84630" font-family="Inter" font-size="10" x="591" y="23.0">70%</text><line stroke="#111" stroke-width="1.3" x1="58" x2="58" y1="20" y2="237"></line><line stroke="#111" stroke-width="1.3" x1="584" x2="584" y1="20" y2="237"></line><line stroke="#111" stroke-width="1.3" x1="58" x2="584" y1="237" y2="237"></line><rect fill="#D9A05B" height="208.2" stroke="#C84630" stroke-width="0.7" width="18.1" x="63.6" y="28.8"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 72.6 252)" x="72.6" y="252">Nebo</text><rect fill="#2E5C40" height="201.2" stroke="#1f4932" stroke-width="0.7" width="18.1" x="92.8" y="35.8"></rect><rect fill="#2E5C40" height="186.7" stroke="#1f4932" stroke-width="0.7" width="18.1" x="122.0" y="50.3"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 131.1 252)" x="131.1" y="252">V8</text><rect fill="#2E5C40" height="182.7" stroke="#1f4932" stroke-width="0.7" width="18.1" x="151.2" y="54.3"></rect><rect fill="#2E5C40" height="181.6" stroke="#1f4932" stroke-width="0.7" width="18.1" x="180.4" y="55.4"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 189.5 252)" x="189.5" y="252">V25</text><rect fill="#2E5C40" height="173.5" stroke="#1f4932" stroke-width="0.7" width="18.1" x="209.7" y="63.5"></rect><rect fill="#2E5C40" height="170.9" stroke="#1f4932" stroke-width="0.7" width="18.1" x="238.9" y="66.1"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 247.9 252)" x="247.9" y="252">V3</text><rect fill="#2E5C40" height="167.2" stroke="#1f4932" stroke-width="0.7" width="18.1" x="268.1" y="69.8"></rect><rect fill="#2E5C40" height="146.8" stroke="#1f4932" stroke-width="0.7" width="18.1" x="297.3" y="90.2"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 306.4 252)" x="306.4" y="252">V27</text><rect fill="#2E5C40" height="144.8" stroke="#1f4932" stroke-width="0.7" width="18.1" x="326.6" y="92.2"></rect><rect fill="#2E5C40" height="125.1" stroke="#1f4932" stroke-width="0.7" width="18.1" x="355.8" y="111.9"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 364.8 252)" x="364.8" y="252">V21</text><rect fill="#2E5C40" height="118.7" stroke="#1f4932" stroke-width="0.7" width="18.1" x="385.0" y="118.3"></rect><rect fill="#2E5C40" height="105.8" stroke="#1f4932" stroke-width="0.7" width="18.1" x="414.2" y="131.2"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 423.3 252)" x="423.3" y="252">V41</text><rect fill="#2E5C40" height="104.1" stroke="#1f4932" stroke-width="0.7" width="18.1" x="443.4" y="132.9"></rect><rect fill="#2E5C40" height="100.8" stroke="#1f4932" stroke-width="0.7" width="18.1" x="472.7" y="136.2"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 481.7 252)" x="481.7" y="252">V18</text><rect fill="#2E5C40" height="99.5" stroke="#1f4932" stroke-width="0.7" width="18.1" x="501.9" y="137.5"></rect><rect fill="#2E5C40" height="85.1" stroke="#1f4932" stroke-width="0.7" width="18.1" x="531.1" y="151.9"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 540.2 252)" x="540.2" y="252">V9</text><rect fill="#2E5C40" height="84.8" stroke="#1f4932" stroke-width="0.7" width="18.1" x="560.3" y="152.2"></rect><path d="M 72.6 174.4 L 101.8 136.2 L 131.1 142.1 L 160.3 134.4 L 189.5 139.7 L 218.7 138.4 L 247.9 173.8 L 277.2 137.5 L 306.4 75.5 L 335.6 110.8 L 364.8 73.0 L 394.1 85.4 L 423.3 134.1 L 452.5 40.5 L 481.7 115.5 L 510.9 118.9 L 540.2 91.9 L 569.4 90.4" fill="none" stroke="#C84630" stroke-width="2.5"></path><circle cx="72.6" cy="174.4" fill="#D9A05B" r="5.5" stroke="#C84630" stroke-width="2"></circle><circle cx="101.8" cy="136.2" fill="#C84630" r="2.3"></circle><circle cx="131.1" cy="142.1" fill="#C84630" r="2.3"></circle><circle cx="160.3" cy="134.4" fill="#C84630" r="2.3"></circle><circle cx="189.5" cy="139.7" fill="#C84630" r="2.3"></circle><circle cx="218.7" cy="138.4" fill="#C84630" r="2.3"></circle><circle cx="247.9" cy="173.8" fill="#C84630" r="2.3"></circle><circle cx="277.2" cy="137.5" fill="#C84630" r="2.3"></circle><circle cx="306.4" cy="75.5" fill="#C84630" r="2.3"></circle><circle cx="335.6" cy="110.8" fill="#C84630" r="2.3"></circle><circle cx="364.8" cy="73.0" fill="#C84630" r="2.3"></circle><circle cx="394.1" cy="85.4" fill="#C84630" r="2.3"></circle><circle cx="423.3" cy="134.1" fill="#C84630" r="2.3"></circle><circle cx="452.5" cy="40.5" fill="#C84630" r="2.3"></circle><circle cx="481.7" cy="115.5" fill="#C84630" r="2.3"></circle><circle cx="510.9" cy="118.9" fill="#C84630" r="2.3"></circle><circle cx="540.2" cy="91.9" fill="#C84630" r="2.3"></circle><circle cx="569.4" cy="90.4" fill="#C84630" r="2.3"></circle><text fill="#2E5C40" font-family="Montserrat" font-size="9" font-weight="700" x="58" y="12">APPROVED</text><text fill="#C84630" font-family="Montserrat" font-size="9" font-weight="700" text-anchor="end" x="584" y="12">REJECTION RATE (%)</text></svg></div><div class="chart-card"><h3>APPROVED VS REJECTION RATE</h3><div class="scatter"><span class="point nebo" style="left:93.9%;bottom:28.9%"></span><span class="scatter-label" style="left:93.9%;bottom:28.9%">Nebo</span><span class="point" style="left:68.2%;bottom:29.1%"></span><span class="point" style="left:79.0%;bottom:43.7%"></span><span class="point" style="left:75.5%;bottom:44.9%"></span><span class="point" style="left:65.5%;bottom:45.9%"></span><span class="point" style="left:89.1%;bottom:46.4%"></span><span class="point" style="left:76.3%;bottom:47.3%"></span><span class="point" style="left:70.0%;bottom:45.4%"></span><span class="point" style="left:23.2%;bottom:47.4%"></span><span class="point" style="left:18.8%;bottom:54.4%"></span><span class="point" style="left:19.7%;bottom:56.0%"></span><span class="point" style="left:50.1%;bottom:58.1%"></span><span class="point" style="left:8.8%;bottom:66.9%"></span><span class="point" style="left:8.6%;bottom:67.6%"></span><span class="point" style="left:32.0%;bottom:69.9%"></span><span class="point" style="left:51.4%;bottom:74.4%"></span><span class="point" style="left:36.4%;bottom:75.6%"></span><span class="point" style="left:21.9%;bottom:90.6%"></span><span class="vline" style="left:50.8%"></span><span class="hline" style="bottom:50.9%"></span><span class="axis-x">TOTAL APPROVED</span><span class="axis-y">REJECTION RATE</span></div></div></div><div class="chart-note">Bukti kinerja: 2.878 Approved dan Rejection Rate 20,2%, kombinasi volume tinggi dan rejection rendah dalam dataset validator. Median dataset: 2.015,5 Approved dan 35,7% Rejection Rate.</div></div><div class="other-work-grid"><article class="trajectory-card compact"><div class="date">Agu 2023 - Jan 2024</div><div><h2>Tim Penyusun RDTR</h2><div class="org">Kementerian ATR/BPN · DPUPR Kota Bima · Kota Bima</div><p>Menyusun 15 peta tematik dan struktural untuk RDTR, memfasilitasi konsultasi publik dengan lebih dari 100 warga, serta menyelesaikan laporan akhir dan 20 peta teknis bersama tim 11 peserta magang.</p></div></article><article class="trajectory-card compact"><div class="date">Jul 2023 - Okt 2023</div><div><h2>Enumerator</h2><div class="org">Japan International Cooperation Agency (JICA) · Jakarta Pusat</div><p>Survei baseline kesiapan manajemen risiko bencana bersama BNPB dan BAPPENAS, ikut menyusun kuesioner dan melakukan wawancara mendalam dengan pemangku kepentingan pemerintah.</p></div></article></div></div>
+<div class="footer"><span>JENJANG PROFESIONAL · PENDIDIKAN + PENGALAMAN KERJA</span><span class="page-number">17</span></div>
+</section>
+<!-- PROFESSIONAL ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Professional Path</h1></div><div class="meta">Education · Work Experience</div></div>
+<div class="path-grid"><div class="path-section-label">EDUCATION</div><article class="trajectory-card education"><div class="date">Aug 2021 - Jul 2025</div><div><h2>Geography (S.Si.)</h2><div class="org">FMIPA - Universitas Indonesia · Depok</div><p>GPA 3.60/4.00 · 126 credits · Highly Satisfactory.</p></div></article><div class="path-section-label work-label">WORK EXPERIENCE</div><div class="work-feature"><div class="work-summary"><div class="date">Mar 2025 - Sep 2026</div><h2>Technical Support</h2><div class="org">MapBiomas Indonesia (Yayasan Auriga Nusantara) · South Jakarta</div><p>Validated satellite-detected deforestation points across Indonesia. Completed the initial 1,100-polygon target three months early, reaching over 3,670 polygons. Trusted as QA Auditor, re-auditing over 2,500 polygons and inspecting more than 1,300 for the national deforestation status report.</p><div class="mini-metrics"><div class="metric"><b>1,300+</b><span>Inspected</span></div><div class="metric"><b>3,670+</b><span>Validated</span></div><div class="metric"><b>2,500+</b><span>Audited</span></div></div></div><div class="charts-inline"><div class="chart-card"><h3>Approved vs Rejection Rate</h3><svg aria-label="Approved versus Rejection Rate chart" class="dual-svg" preserveaspectratio="none" role="img" viewbox="0 0 620 285"><line stroke="#e5e1d8" stroke-width="1" x1="58" x2="584" y1="237.0" y2="237.0"></line><text fill="#222" font-family="Inter" font-size="10" text-anchor="end" x="51" y="240.0">0</text><line stroke="#e5e1d8" stroke-width="1" x1="58" x2="584" y1="164.7" y2="164.7"></line><text fill="#222" font-family="Inter" font-size="10" text-anchor="end" x="51" y="167.7">1,000</text><line stroke="#e5e1d8" stroke-width="1" x1="58" x2="584" y1="92.3" y2="92.3"></line><text fill="#222" font-family="Inter" font-size="10" text-anchor="end" x="51" y="95.3">2,000</text><line stroke="#e5e1d8" stroke-width="1" x1="58" x2="584" y1="20.0" y2="20.0"></line><text fill="#222" font-family="Inter" font-size="10" text-anchor="end" x="51" y="23.0">3,000</text><text fill="#C84630" font-family="Inter" font-size="10" x="591" y="240.0">0%</text><text fill="#C84630" font-family="Inter" font-size="10" x="591" y="178.0">20%</text><text fill="#C84630" font-family="Inter" font-size="10" x="591" y="116.0">40%</text><text fill="#C84630" font-family="Inter" font-size="10" x="591" y="54.0">60%</text><text fill="#C84630" font-family="Inter" font-size="10" x="591" y="23.0">70%</text><line stroke="#111" stroke-width="1.3" x1="58" x2="58" y1="20" y2="237"></line><line stroke="#111" stroke-width="1.3" x1="584" x2="584" y1="20" y2="237"></line><line stroke="#111" stroke-width="1.3" x1="58" x2="584" y1="237" y2="237"></line><rect fill="#D9A05B" height="208.2" stroke="#C84630" stroke-width="0.7" width="18.1" x="63.6" y="28.8"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 72.6 252)" x="72.6" y="252">Nebo</text><rect fill="#2E5C40" height="201.2" stroke="#1f4932" stroke-width="0.7" width="18.1" x="92.8" y="35.8"></rect><rect fill="#2E5C40" height="186.7" stroke="#1f4932" stroke-width="0.7" width="18.1" x="122.0" y="50.3"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 131.1 252)" x="131.1" y="252">V8</text><rect fill="#2E5C40" height="182.7" stroke="#1f4932" stroke-width="0.7" width="18.1" x="151.2" y="54.3"></rect><rect fill="#2E5C40" height="181.6" stroke="#1f4932" stroke-width="0.7" width="18.1" x="180.4" y="55.4"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 189.5 252)" x="189.5" y="252">V25</text><rect fill="#2E5C40" height="173.5" stroke="#1f4932" stroke-width="0.7" width="18.1" x="209.7" y="63.5"></rect><rect fill="#2E5C40" height="170.9" stroke="#1f4932" stroke-width="0.7" width="18.1" x="238.9" y="66.1"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 247.9 252)" x="247.9" y="252">V3</text><rect fill="#2E5C40" height="167.2" stroke="#1f4932" stroke-width="0.7" width="18.1" x="268.1" y="69.8"></rect><rect fill="#2E5C40" height="146.8" stroke="#1f4932" stroke-width="0.7" width="18.1" x="297.3" y="90.2"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 306.4 252)" x="306.4" y="252">V27</text><rect fill="#2E5C40" height="144.8" stroke="#1f4932" stroke-width="0.7" width="18.1" x="326.6" y="92.2"></rect><rect fill="#2E5C40" height="125.1" stroke="#1f4932" stroke-width="0.7" width="18.1" x="355.8" y="111.9"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 364.8 252)" x="364.8" y="252">V21</text><rect fill="#2E5C40" height="118.7" stroke="#1f4932" stroke-width="0.7" width="18.1" x="385.0" y="118.3"></rect><rect fill="#2E5C40" height="105.8" stroke="#1f4932" stroke-width="0.7" width="18.1" x="414.2" y="131.2"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 423.3 252)" x="423.3" y="252">V41</text><rect fill="#2E5C40" height="104.1" stroke="#1f4932" stroke-width="0.7" width="18.1" x="443.4" y="132.9"></rect><rect fill="#2E5C40" height="100.8" stroke="#1f4932" stroke-width="0.7" width="18.1" x="472.7" y="136.2"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 481.7 252)" x="481.7" y="252">V18</text><rect fill="#2E5C40" height="99.5" stroke="#1f4932" stroke-width="0.7" width="18.1" x="501.9" y="137.5"></rect><rect fill="#2E5C40" height="85.1" stroke="#1f4932" stroke-width="0.7" width="18.1" x="531.1" y="151.9"></rect><text fill="#222" font-family="Inter" font-size="9" text-anchor="end" transform="rotate(-45 540.2 252)" x="540.2" y="252">V9</text><rect fill="#2E5C40" height="84.8" stroke="#1f4932" stroke-width="0.7" width="18.1" x="560.3" y="152.2"></rect><path d="M 72.6 174.4 L 101.8 136.2 L 131.1 142.1 L 160.3 134.4 L 189.5 139.7 L 218.7 138.4 L 247.9 173.8 L 277.2 137.5 L 306.4 75.5 L 335.6 110.8 L 364.8 73.0 L 394.1 85.4 L 423.3 134.1 L 452.5 40.5 L 481.7 115.5 L 510.9 118.9 L 540.2 91.9 L 569.4 90.4" fill="none" stroke="#C84630" stroke-width="2.5"></path><circle cx="72.6" cy="174.4" fill="#D9A05B" r="5.5" stroke="#C84630" stroke-width="2"></circle><circle cx="101.8" cy="136.2" fill="#C84630" r="2.3"></circle><circle cx="131.1" cy="142.1" fill="#C84630" r="2.3"></circle><circle cx="160.3" cy="134.4" fill="#C84630" r="2.3"></circle><circle cx="189.5" cy="139.7" fill="#C84630" r="2.3"></circle><circle cx="218.7" cy="138.4" fill="#C84630" r="2.3"></circle><circle cx="247.9" cy="173.8" fill="#C84630" r="2.3"></circle><circle cx="277.2" cy="137.5" fill="#C84630" r="2.3"></circle><circle cx="306.4" cy="75.5" fill="#C84630" r="2.3"></circle><circle cx="335.6" cy="110.8" fill="#C84630" r="2.3"></circle><circle cx="364.8" cy="73.0" fill="#C84630" r="2.3"></circle><circle cx="394.1" cy="85.4" fill="#C84630" r="2.3"></circle><circle cx="423.3" cy="134.1" fill="#C84630" r="2.3"></circle><circle cx="452.5" cy="40.5" fill="#C84630" r="2.3"></circle><circle cx="481.7" cy="115.5" fill="#C84630" r="2.3"></circle><circle cx="510.9" cy="118.9" fill="#C84630" r="2.3"></circle><circle cx="540.2" cy="91.9" fill="#C84630" r="2.3"></circle><circle cx="569.4" cy="90.4" fill="#C84630" r="2.3"></circle><text fill="#2E5C40" font-family="Montserrat" font-size="9" font-weight="700" x="58" y="12">APPROVED</text><text fill="#C84630" font-family="Montserrat" font-size="9" font-weight="700" text-anchor="end" x="584" y="12">REJECTION RATE (%)</text></svg></div><div class="chart-card"><h3>APPROVED VS REJECTION RATE</h3><div class="scatter"><span class="point nebo" style="left:93.9%;bottom:28.9%"></span><span class="scatter-label" style="left:93.9%;bottom:28.9%">Nebo</span><span class="point" style="left:68.2%;bottom:29.1%"></span><span class="point" style="left:79.0%;bottom:43.7%"></span><span class="point" style="left:75.5%;bottom:44.9%"></span><span class="point" style="left:65.5%;bottom:45.9%"></span><span class="point" style="left:89.1%;bottom:46.4%"></span><span class="point" style="left:76.3%;bottom:47.3%"></span><span class="point" style="left:70.0%;bottom:45.4%"></span><span class="point" style="left:23.2%;bottom:47.4%"></span><span class="point" style="left:18.8%;bottom:54.4%"></span><span class="point" style="left:19.7%;bottom:56.0%"></span><span class="point" style="left:50.1%;bottom:58.1%"></span><span class="point" style="left:8.8%;bottom:66.9%"></span><span class="point" style="left:8.6%;bottom:67.6%"></span><span class="point" style="left:32.0%;bottom:69.9%"></span><span class="point" style="left:51.4%;bottom:74.4%"></span><span class="point" style="left:36.4%;bottom:75.6%"></span><span class="point" style="left:21.9%;bottom:90.6%"></span><span class="vline" style="left:50.8%"></span><span class="hline" style="bottom:50.9%"></span><span class="axis-x">TOTAL APPROVED</span><span class="axis-y">REJECTION RATE</span></div></div></div><div class="chart-note">Performance evidence: 2,878 Approved and a 20.2% Rejection Rate, combining high volume with low rejection in this validator dataset. Dataset median: 2015.5 Approved and 35.7% Rejection Rate.</div></div><div class="other-work-grid"><article class="trajectory-card compact"><div class="date">Aug 2023 - Jan 2024</div><div><h2>RDTR Drafting Team</h2><div class="org">Ministry of ATR/BPN · DPUPR Bima City · Bima City</div><p>Produced 15 thematic and structural maps for the RDTR, facilitated public consultation with more than 100 residents, and finalised the report and 20 technical maps with a team of 11 interns.</p></div></article><article class="trajectory-card compact"><div class="date">Jul 2023 - Oct 2023</div><div><h2>Enumerator</h2><div class="org">Japan International Cooperation Agency (JICA) · Central Jakarta</div><p>Worked on JICA's baseline survey of disaster-risk-management readiness with BNPB and BAPPENAS, contributed to questionnaire design, and conducted in-depth interviews with government stakeholders.</p></div></article></div></div>
+<div class="footer"><span>PROFESSIONAL TRAJECTORY · EDUCATION + WORK EXPERIENCE</span><span class="page-number">17</span></div>
+</section>
+<!-- ORGANISASI IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Jenjang Organisasi</h1></div><div class="meta">Organizations · Kepemimpinan · Committees</div></div>
+<div class="org-page"><div class="path-section-label">ORGANISASI &amp; KEPEMIMPINAN</div><div class="org-grid"><article class="org-card"><div class="date">Jul 2025 - Des 2025</div><div><h2>Tim Sekretaris</h2><div class="org">GNSS Indonesia Summit &amp; Expo 2025 · Jakarta Pusat &amp; Depok City</div><p>Sekretaris acara GNSS nasional perdana yang digagas UI. Lima hari, format dwibahasa, komite lebih dari 80 anggota, lebih dari 20 sesi, dan proposal dalam dua bahasa.</p></div></article><article class="org-card"><div class="date">Feb 2023 - Feb 2024</div><div><h2>Kepala Biro Administrasi dan Kesekretariatan</h2><div class="org">HMD Geografi FMIPA UI · Depok</div><p>Memimpin 8 staf, mengoptimalkan alur administrasi, meluncurkan website terintegrasi untuk sentralisasi dokumen, dan memimpin proyek tiga kegiatan dalam dua bulan. Steering Committee SEMTA 2023 dengan 120+ peserta.</p></div></article><article class="org-card"><div class="date">Mar 2022 - Feb 2023</div><div><h2>Staf Biro Administrasi dan Kesekretariatan</h2><div class="org">HMD Geografi FMIPA UI · Depok</div><p>Merintis Seminar Kesekretariatan 2022, memproses dan mengaudit 25+ dokumen administratif untuk 3 departemen, dengan kehadiran 60% fungsionaris dari 12 biro dan departemen.</p></div></article><article class="org-card"><div class="date">Jul 2019 - Feb 2020</div><div><h2>Team Leader</h2><div class="org">Rohani Kristen SMAN 6 Bekasi · Bekasi</div><p>Memimpin kegiatan mingguan untuk lebih dari 120 siswa, membimbing 8 anggota melalui Kelompok Tumbuh Bersama, mengelola penggalangan dana rata-rata Rp250.000 per minggu, serta mengawasi Perayaan Natal dan Retreat 2019.</p></div></article></div><div class="path-section-label committee-label">JENJANG KEPANITIAAN</div><div class="committee-grid"><article class="committee-card"><div class="date">Jul 2023 - Sep 2023</div><h3>Sekretaris</h3><div class="org">Syukuran Akbar dan Pesta Kelulusan Geografi 2023</div><p>Mengelola dokumentasi resmi dua acara sekaligus, dari daftar kehadiran hingga surat resmi.</p></article><article class="committee-card"><div class="date">Agu 2023 - Sep 2023</div><h3>Steering Committee</h3><div class="org">Seminar Tugas Akhir (SEMTA) 2023</div><p>Memberikan pengawasan strategis dan bimbingan kepada Biro Kestari serta membantu memastikan seminar menjangkau 120+ peserta.</p></article><article class="committee-card"><div class="date">Feb 2023 - Jun 2023</div><h3>Staf Logistik</h3><div class="org">Kuliah Kerja Lapang 2 · Kabupaten Gunungkidul</div><p>Pengadaan dan distribusi perlengkapan, koordinasi makan harian untuk 138 mahasiswa dan 13 dosen selama lima hari, serta pengelolaan 24 dus air mineral.</p></article><article class="committee-card"><div class="date">Feb 2023 - Mar 2023</div><h3>Project Officer</h3><div class="org">Musyawarah Kerja, Grand Launching, &amp; Team Building 2023</div><p>Mengoordinasikan tiga acara dalam dua bulan dan menerapkan sistem pengukuran kinerja untuk mengevaluasi hasil setiap kegiatan.</p></article><article class="committee-card"><div class="date">Agu 2022 - Jan 2023</div><h3>Ketua Kelas</h3><div class="org">Kuliah Kerja Lapang 1 · Desa Cimanggu</div><p>Memimpin 22 orang selama lima hari, menjadi penghubung dan penanggung jawab logistik, meneliti tema geomorfologi, melakukan validasi, mempresentasikan temuan, dan membantu menghasilkan publikasi resmi serta peta terdaftar HAKI.</p></article><article class="committee-card"><div class="date">Apr 2022 - Jun 2022</div><h3>Project Officer</h3><div class="org">Seminar Kesekretariatan 2022</div><p>Memimpin perencanaan dan pelaksanaan workshop untuk menstandardisasi prosedur administrasi HMD Geografi, mencapai 60% kehadiran dari 12 biro dan departemen.</p></article><article class="committee-card"><div class="date">Jan 2020 - Feb 2020</div><h3>Project Officer</h3><div class="org">Musyawarah Besar dan Regenerasi ROHKRIS 2018/2019</div><p>Mengawasi proses regenerasi kepemimpinan, menangani sosialisasi peserta dan koordinasi internal, serta menyusun laporan pertanggungjawaban lengkap.</p></article><article class="committee-card"><div class="date">Nov 2019 - Jan 2020</div><h3>Sekretaris</h3><div class="org">Ibadah dan Perayaan Natal SMAN 6 Bekasi Tahun 2019</div><p>Mengelola administrasi, dokumentasi resmi, rapat, korespondensi, dan arsip terpusat untuk memastikan kepanitiaan tetap selaras.</p></article><article class="committee-card"><div class="date">Okt 2019 - Des 2019</div><h3>Staf Logistik</h3><div class="org">Retreat Rohkris SMAN 6 Bekasi Tahun 2019</div><p>Mengelola anggaran pengadaan perlengkapan dan memastikan kesiapan logistik tepat waktu, termasuk pengeluaran total Rp290.400 dari anggaran Rp1.000.000.</p></article></div></div>
+<div class="footer"><span>JENJANG ORGANISASI · KEPEMIMPINAN + KEPANITIAAN</span><span class="page-number">18</span></div>
+</section>
+<!-- ORGANISASI ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Organisational Path</h1></div><div class="meta">Organizations · Leadership · Committees</div></div>
+<div class="org-page"><div class="path-section-label">ORGANIZATIONS &amp; LEADERSHIP</div><div class="org-grid"><article class="org-card"><div class="date">Jul 2025 - Dec 2025</div><div><h2>Secretariat Team</h2><div class="org">GNSS Indonesia Summit &amp; Expo 2025 · Central Jakarta &amp; Depok</div><p>Secretary for the first national GNSS event initiated by UI. Five days, bilingual format, an organising committee of 80+ members, more than 20 sessions, and bilingual proposal documentation.</p></div></article><article class="org-card"><div class="date">Feb 2023 - Feb 2024</div><div><h2>Head of Administration &amp; Secretariat Bureau</h2><div class="org">HMD Geography FMIPA UI · Depok</div><p>Led 8 staff, improved administrative workflows, launched an integrated website for document centralisation, and led three organisational events within two months. Steering Committee for SEMTA 2023 with 120+ participants.</p></div></article><article class="org-card"><div class="date">Mar 2022 - Feb 2023</div><div><h2>Staff of Administration &amp; Secretariat Bureau</h2><div class="org">HMD Geography FMIPA UI · Depok</div><p>Pioneered Secretariat Seminar 2022, processed and audited 25+ administrative documents for 3 departments, and achieved 60% attendance from officials across 12 bureaus and departments.</p></div></article><article class="org-card"><div class="date">Jul 2019 - Feb 2020</div><div><h2>Team Leader</h2><div class="org">Christian Fellowship of SMAN 6 Bekasi · Bekasi</div><p>Led weekly activities attended by more than 120 students, mentored 8 members through Kelompok Tumbuh Bersama, managed fundraising averaging IDR 250,000 per week, and oversaw Christmas Celebration and Retreat 2019.</p></div></article></div><div class="path-section-label committee-label">COMMITTEE TRAJECTORY</div><div class="committee-grid"><article class="committee-card"><div class="date">Jul 2023 - Sep 2023</div><h3>Secretary</h3><div class="org">Grand Thanksgiving &amp; Geography Graduation Party 2023</div><p>Managed official documentation for two events running as one programme, from attendance records to official letters.</p></article><article class="committee-card"><div class="date">Aug 2023 - Sep 2023</div><h3>Steering Committee</h3><div class="org">Final Project Seminar (SEMTA) 2023</div><p>Provided strategic oversight and guidance to the Kestari Bureau and helped ensure the seminar reached 120+ participants.</p></article><article class="committee-card"><div class="date">Feb 2023 - Jun 2023</div><h3>Logistics Staff</h3><div class="org">Field Study 2 · Gunungkidul Regency</div><p>Handled procurement and distribution, coordinated daily meals for 138 students and 13 lecturers over five days, and managed 24 cartons of mineral water.</p></article><article class="committee-card"><div class="date">Feb 2023 - Mar 2023</div><h3>Project Officer</h3><div class="org">Work Meeting, Grand Launching, &amp; Team Building 2023</div><p>Coordinated three events within two months and implemented performance measurement to evaluate outcomes against predefined targets.</p></article><article class="committee-card"><div class="date">Aug 2022 - Jan 2023</div><h3>Class President</h3><div class="org">Field Study 1 · Cimanggu Village</div><p>Led 22 people through five days of fieldwork, coordinated village liaison and logistics, conducted geomorphology research and validation, presented findings, and helped produce an official publication and IPR-registered map.</p></article><article class="committee-card"><div class="date">Apr 2022 - Jun 2022</div><h3>Project Officer</h3><div class="org">Secretariat Seminar 2022</div><p>Led planning and delivery of a workshop designed to standardise administrative procedures within HMD Geography, achieving 60% attendance across 12 bureaus and departments.</p></article><article class="committee-card"><div class="date">Jan 2020 - Feb 2020</div><h3>Project Officer</h3><div class="org">Grand Deliberation &amp; Regeneration of ROHKRIS 2018/2019</div><p>Oversaw the leadership regeneration process, handled participant outreach and internal coordination, and compiled a comprehensive accountability report.</p></article><article class="committee-card"><div class="date">Nov 2019 - Jan 2020</div><h3>Secretary</h3><div class="org">Christmas Worship and Celebration of SMAN 6 Bekasi 2019</div><p>Managed administration, official documentation, meetings, correspondence, and a central archive to keep the committee aligned.</p></article><article class="committee-card"><div class="date">Oct 2019 - Dec 2019</div><h3>Logistics Staff</h3><div class="org">Retreat ROHKRIS SMAN 6 Bekasi 2019</div><p>Managed procurement budgets and logistics readiness, including total spending of IDR 290,400 from an IDR 1,000,000 allocation.</p></article></div></div>
+<div class="footer"><span>ORGANISATIONAL TRAJECTORY · LEADERSHIP + COMMITTEES</span><span class="page-number">18</span></div>
+</section>
+<!-- SERTIFIKASI IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Sertifikasi &amp; Pelatihan</h1></div><div class="meta">Pengembangan Profesional</div></div>
+<div class="cert-grid"><article class="cert-card"><div class="date">2024</div><h2>Perencana Detail Tata Ruang (RDTR) Bersertifikat</h2><div class="org">MSIB INSPIRING Program · Kementerian ATR/BPN</div><p>Menyelesaikan 15 modul kompetensi penyusunan RDTR, analisis kebijakan spasial dan sektoral, peta pola dan struktur ruang, peraturan zonasi, serta GIS. Nilai 80/100 pada seluruh modul.</p><div class="cert-image"><img alt="Sertifikat RDTR Planner" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/sertifikat/inspiring.jpg"/></div></article><article class="cert-card"><div class="date">2026</div><h2>Visualisasi Transit Oriented Development (TOD)</h2><div class="org">Kelas GIS Lanjut · Aksara Lab Indonesia</div><p>Pelatihan TOD Mapping, pengolahan shapefile penggunaan lahan, jalan, rel, visualisasi 3D menggunakan QGIS2threejs, dan pengukuran aksesibilitas catchment pejalan kaki. Nilai kumulatif 9/10 dengan predikat Sangat Baik.</p><div class="cert-image"><img alt="Sertifikat TOD" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/sertifikat/TOD.jpg"/></div></article></div>
+<div class="footer"><span>SERTIFIKASI · PENGEMBANGAN PROFESIONAL</span><span class="page-number">19</span></div>
+</section>
+<!-- SERTIFIKASI ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Certifications &amp; Training</h1></div><div class="meta">Professional Development</div></div>
+<div class="cert-grid"><article class="cert-card"><div class="date">2024</div><h2>Certified Detailed Spatial Plan (RDTR) Planner</h2><div class="org">MSIB INSPIRING Program · Ministry of ATR/BPN</div><p>Completed 15 competency modules covering RDTR preparation, spatial and sectoral policy analysis, spatial pattern and structure plans, zoning regulations, and GIS. Scored 80/100 across all modules.</p><div class="cert-image"><img alt="RDTR Planner Certificate" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/sertifikat/inspiring.jpg"/></div></article><article class="cert-card"><div class="date">2026</div><h2>Transit Oriented Development (TOD) Visualisation</h2><div class="org">Advanced GIS Class · Aksara Lab Indonesia</div><p>Training in TOD mapping, shapefile processing for land use, roads and railways, 3D station visualisation using QGIS2threejs, and pedestrian catchment accessibility. Cumulative score 9/10 with Very Good predicate.</p><div class="cert-image"><img alt="TOD Certificate" loading="lazy" src="https://nebomarpaung.github.io/portfolio/assets/sertifikat/TOD.jpg"/></div></article></div>
+<div class="footer"><span>CERTIFICATIONS · PROFESSIONAL DEVELOPMENT</span><span class="page-number">19</span></div>
+</section>
+<!-- TOOLS IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Alat &amp; Kerangka Kerja<br/><em>yang Saya Gunakan</em></h1></div><div class="meta">Bukti Teknis</div></div>
+<div class="tool-grid"><article class="tool-box"><h2>Instrumen Geospasial</h2><p>ArcGIS Pro · ArcMap · QGIS · ENVI · StoryMaps · Survey123 · Google Earth Engine (GEE) · GeoJSON · Python untuk Pemrosesan Data Spasial</p></article><article class="tool-box"><h2>Analisis Spasial</h2><p>Analisis Multikriteria Spasial (SMCA) · Analytic Hierarchy Process (AHP) · Analisis Interseksi &amp; Tumpangsusun · Pemodelan Spasial &amp; Geostatistik · Inspeksi Visual Kendali Grid</p></article><article class="tool-box"><h2>Penginderaan Jauh</h2><p>Citra UAV Hiperspektral · Penginderaan Jauh Multitemporal · Validasi Poligon Deforestasi · DEM Nasional BIG</p></article><article class="tool-box"><h2>Lapangan &amp; Data</h2><p>Survei &amp; Pemetaan Lapangan · Diskusi Kelompok Terarah (FGD) · Penulisan Laporan &amp; Makalah Ilmiah</p></article><article class="tool-box"><h2>Kompetensi</h2><p>Manajemen Proyek · Komunikasi Teknis · Kepemimpinan Tim Lintas Fungsi · Adaptabilitas &amp; Agility · Analisis &amp; Sintesis Data · Quality Assurance (QA)</p></article><article class="tool-box"><h2>Bahasa</h2><p>BAHASA: INDONESIA (BAHASA IBU) · INGGRIS (KEMAMPUAN KERJA PROFESIONAL)</p></article></div>
+<div class="footer"><span>INSTRUMEN TEKNIS · KETERAMPILAN + METODE</span><span class="page-number">20</span></div>
+</section>
+<!-- TOOLS ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Tools &amp; Competencies</h1></div><div class="meta">Technical Evidence</div></div>
+<div class="tool-grid"><article class="tool-box"><h2>Geospatial Tools</h2><p>ArcGIS Pro · ArcMap · QGIS · ENVI · StoryMaps · Survey123 · Google Earth Engine · GeoJSON · Python for Spatial Data Processing</p></article><article class="tool-box"><h2>Spatial Analysis</h2><p>SMCA · Analytic Hierarchy Process (AHP) · Intersection &amp; Overlay Analysis · Spatial Modelling &amp; Geostatistics · Visual Grid Quality Control</p></article><article class="tool-box"><h2>Remote Sensing</h2><p>Hyperspectral UAV Imagery · Multitemporal Remote Sensing · Deforestation Polygon Validation · National DEM BIG</p></article><article class="tool-box"><h2>Field &amp; Data</h2><p>Survey &amp; Field Mapping · Focus Group Discussion · Report Writing · Scientific Papers</p></article><article class="tool-box"><h2>Competencies</h2><p>Project Management · Technical Communication · Cross-functional Team Leadership · Data Analysis &amp; Synthesis · Quality Assurance · Adaptability &amp; Agility</p></article><article class="tool-box"><h2>Languages</h2><p>Indonesian (native) · English (professional working proficiency)</p></article></div>
+<div class="footer"><span>TECHNICAL TOOLS · SKILLS + METHODS</span><span class="page-number">20</span></div>
+</section>
+<!-- CLOSING IDN -->
+<section class="page" data-lang="idn">
+<div class="section-head"><div><h1 class="page-title">Kontak</h1></div><div class="meta">Analis Geospasial</div></div>
+<div class="closing"><div class="closing-copy"><div class="kicker">EKSPEDISI LAPANGAN</div><div class="closing-title">EKSPEDISI<br/>LAPANGAN</div><p>Kerja lapangan menuntut navigasi, logistik, koordinasi, dan ketangguhan. Peta menjadi rekaman fisik ketika medan menggantikan meja kerja.</p><div class="contact-block"><div class="smallcaps">Contact</div><div class="contact-row"><a class="contact-card" href="https://mail.google.com/mail/u/0/?fs=1&amp;to=neboyokjonah@gmail.com&amp;tf=cm" rel="noopener noreferrer" target="_blank"><b>Surel</b><span>neboyokjonah@gmail.com</span></a><a class="contact-card" href="https://wa.me/6282122002990" rel="noopener noreferrer" target="_blank"><b>WhatsApp</b><span>+62 821-2200-2990</span></a><a class="contact-card" href="https://linkedin.com/in/neboyokjonah/" rel="noopener noreferrer" target="_blank"><b>LinkedIn</b><span>linkedin.com/in/neboyokjonah/</span></a></div></div></div><div class="closing-photo"><img alt="Field expedition" src="https://nebomarpaung.github.io/portfolio/assets/images/diri/IMG_5193.JPG"/></div></div>
+<div class="footer"><span>NEBO · ANALIS GEOSPASIAL</span><span class="page-number">21</span></div>
+</section>
+<!-- CLOSING ENG -->
+<section class="page" data-lang="eng">
+<div class="section-head"><div><h1 class="page-title">Contact</h1></div><div class="meta">Geospatial Analyst</div></div>
+<div class="closing"><div class="closing-copy"><div class="kicker">FIELD EXPEDITIONS</div><div class="closing-title">FIELD<br/>EXPEDITIONS</div><p>Fieldwork demands navigation, logistics, coordination, and resilience. Maps become physical records when the terrain replaces the desk.</p><div class="contact-block"><div class="smallcaps">Contact</div><div class="contact-row"><a class="contact-card" href="https://mail.google.com/mail/u/0/?fs=1&amp;to=neboyokjonah@gmail.com&amp;tf=cm" rel="noopener noreferrer" target="_blank"><b>Email</b><span>neboyokjonah@gmail.com</span></a><a class="contact-card" href="https://wa.me/6282122002990" rel="noopener noreferrer" target="_blank"><b>WhatsApp</b><span>+62 821-2200-2990</span></a><a class="contact-card" href="https://linkedin.com/in/neboyokjonah/" rel="noopener noreferrer" target="_blank"><b>LinkedIn</b><span>linkedin.com/in/neboyokjonah/</span></a></div></div></div><div class="closing-photo"><img alt="Field expedition" src="https://nebomarpaung.github.io/portfolio/assets/images/diri/IMG_5193.JPG"/></div></div>
+<div class="footer"><span>NEBO · GEOSPATIAL ANALYST</span><span class="page-number">21</span></div>
+</section>
+<!-- BUFFER PAGES -->
+<section class="page" data-lang="idn" style="background:#fff;display:flex;align-items:center;justify-content:center;border:1px solid #eee;color:#ccc;font-family:Inter,sans-serif;font-size:8px;text-transform:uppercase;letter-spacing:.1em;"></section>
+<section class="page" data-lang="eng" style="background:#fff;display:flex;align-items:center;justify-content:center;border:1px solid #eee;color:#ccc;font-family:Inter,sans-serif;font-size:8px;text-transform:uppercase;letter-spacing:.1em;"></section>
+</div>
+<script>
+const idnBtn=document.getElementById('idnBtn');
+const engBtn=document.getElementById('engBtn');
+const body=document.body;
+function setLang(lang){
+  body.classList.toggle('view-idn',lang==='idn');
+  body.classList.toggle('view-eng',lang==='eng');
+  idnBtn.classList.toggle('active',lang==='idn');
+  engBtn.classList.toggle('active',lang==='eng');
+  document.documentElement.lang=lang==='idn'?'id':'en';
+  document.title=lang==='idn'?'Nebo Portfolio · Bahasa Indonesia':'Nebo Portfolio · English';
+}
+idnBtn.addEventListener('click',()=>setLang('idn'));
+engBtn.addEventListener('click',()=>setLang('eng'));
+document.getElementById('printBtn').addEventListener('click',()=>window.print());
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('dragstart',e=>e.preventDefault());
+document.addEventListener('selectstart',e=>e.preventDefault());
+document.addEventListener('copy',e=>e.preventDefault());
+document.addEventListener('cut',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{
+  const k=e.key.toLowerCase();
+  if(e.key==='F12'||(e.ctrlKey&&(k==='u'||k==='s'||k==='p'||k==='c'))||(e.ctrlKey&&e.shiftKey&&(k==='i'||k==='j'||k==='c'))){
+    e.preventDefault();
+    e.stopPropagation();
+  }
+});
+</script>
+<style>
+@media print {
+  .page .map-evidence-single { height: 100% !important; max-height: 100% !important; overflow: hidden !important; flex: 1 1 auto !important; display: flex !important; flex-direction: column !important; gap: 1.5mm !important; }
+  .page .map-evidence-single .map-evidence-context { flex: 0 0 auto !important; min-height: 0 !important; padding: 2mm 3mm !important; font-size: 6.8pt !important; }
+  .page .map-evidence-single .map-evidence-context strong { font-size: 6.5px !important; }
+  .page .map-evidence-single .health-metrics span { font-size: 6px !important; padding: 1mm 1.5mm !important; }
+  .page .map-evidence-single .map-image-large { flex: 1 1 auto !important; min-height: 0 !important; max-height: 65% !important; overflow: hidden !important; padding: 2mm !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+  .page .map-evidence-single .map-image-large img { width: 100% !important; height: 100% !important; max-height: 100% !important; max-width: 100% !important; object-fit: contain !important; display: block !important; }
+  .page .map-evidence-single .map-evidence-meta { flex: 0 0 auto !important; min-height: 0 !important; display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 2mm !important; margin-top: 0.5mm !important; }
+  .page .map-evidence-single .map-evidence-meta .map-evidence-caption,
+  .page .map-evidence-single .map-evidence-meta .story-link { height: auto !important; min-height: 14mm !important; font-size: 6.5pt !important; padding: 1.8mm 2.5mm !important; }
+  .page .map-evidence-single .map-evidence-meta .story-link { font-size: 12px !important; padding: 3mm 2.5mm !important; min-height: 16mm !important; }
+  .page .section-head + .map-evidence-single { margin-top: 0 !important; }
+  .page .closing { display: grid !important; grid-template-columns: 46% 54% !important; height: 100% !important; max-height: 85% !important; overflow: hidden !important; border: 2px solid var(--line) !important; margin: 0 !important; padding: 0 !important; position: relative !important; box-sizing: border-box !important; flex: 1 1 auto !important; }
+  .page > .project-layout { height: calc(100% - 32mm) !important; max-height: calc(100% - 32mm) !important; overflow: hidden !important; }
+  .page > .project-layout .project-copy { overflow: hidden !important; }
+  .page > .project-layout .project-copy .pmi-grid { overflow: hidden !important; }
+  .page > .project-layout .project-copy .pmi-grid .pmi { overflow: hidden !important; }
+  .page > .project-layout .project-copy .pmi-grid .pmi p { font-size: 7.5pt !important; line-height: 1.32 !important; word-spacing: 0.08em !important; }
+  .page > .project-layout .project-copy .project-deck { font-size: 8.5pt !important; line-height: 1.32 !important; word-spacing: 0.06em !important; }
+  .page > .project-layout .project-copy .project-display { font-size: 19px !important; }
+  .page > .cert-grid { height: calc(100% - 32mm) !important; max-height: calc(100% - 32mm) !important; overflow: hidden !important; }
+}
+</style>
+</body>
+</html>
