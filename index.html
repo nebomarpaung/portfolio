@@ -133,7 +133,20 @@
       padding: .8rem 1rem; border-bottom: 1px solid #000;
       font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
       text-decoration: none; text-transform: uppercase; letter-spacing: .1em;
-    }
+      display: flex; align-items: center; gap: .7rem;
+}
+.mobile-menu a::before {
+  content: "";
+  flex: 0 0 12px;
+  width: 12px; height: 12px;
+  border-radius: 50% !important;
+  border: 1px solid #000;
+  background: transparent;
+  display: block;
+}
+.mobile-menu a:nth-child(1)::before { background: var(--green); }
+.mobile-menu a:nth-child(2)::before { background: var(--mustard); }
+.mobile-menu a:nth-child(3)::before { background: var(--red); }
     .lang-switch {
       display: flex;
       gap: 0;
@@ -465,7 +478,8 @@
       .beyond-desk { height:345px; min-height:345px; }
     }
     @media (max-width:700px) {
-      .site-nav { grid-template-columns: auto 1fr auto; padding:.65rem 1rem !important; }
+      .site-nav { grid-template-columns: auto 1fr auto; padding:.65rem 1rem !important; position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 1000; }
+      .page { padding-top: 66px !important; }
       .nav-links { display:none !important; }
       .nav-hamburger { display:block !important; }
       .nav-brand { font-size:12px !important; }
@@ -618,6 +632,30 @@
     }
 
   </style>
+<style>
+  @media (max-width: 700px) {
+    .site-nav {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 9000 !important;
+    }
+    .mobile-menu {
+      position: fixed !important;
+      top: 66px !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 8999 !important;
+      max-height: calc(100vh - 66px) !important;
+      overflow-y: auto !important;
+    }
+    main.page {
+      padding-top: 66px !important;
+    }
+  }
+</style>
 </head>
 <body oncontextmenu="return false" ondragstart="return false">
 <a class="sr-only" href="#main-content">Lewati ke konten utama</a>
@@ -1794,7 +1832,11 @@
       hamburger.setAttribute('aria-label', shouldOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi');
     }
 
-    function closeMobileMenu() { toggleMobileMenu(false); }
+        function closeMobileMenu() { toggleMobileMenu(false); }
+
+    window.addEventListener('scroll', () => {
+      if (mobileMenu.classList.contains('open')) closeMobileMenu();
+    }, { passive: true });
 
 
     function parseGalleryItems(container) {
