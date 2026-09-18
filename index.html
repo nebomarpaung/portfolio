@@ -173,8 +173,8 @@
     .lang-btn:hover:not(.active) {
       background: #d0cdc4;
     }
-    .lang-idn { display: inline; }
-    .lang-eng { display: none; }
+    .lang-idn { display: inline !important; }
+    .lang-eng { display: none !important; }
     .page { width: 100%; background: #fff; }
     .section { width: 100%; background: #fff; border-bottom: 2px solid #000; }
     .section-inner { width: 100%; max-width: none; margin: 0; padding: 2rem 1.5rem; }
@@ -1772,31 +1772,47 @@
     }
 
     function updateGlobalLanguageUI(lang) {
-      currentLanguage = lang;
-      document.documentElement.lang = LANGUAGE_META[lang].htmlLang;
-      document.title = LANGUAGE_META[lang].title;
-      document.querySelector('meta[name="description"]').setAttribute('content', LANGUAGE_META[lang].description);
-      document.querySelector('meta[property="og:title"]').setAttribute('content', LANGUAGE_META[lang].title);
-      document.querySelector('meta[property="og:description"]').setAttribute('content', LANGUAGE_META[lang].description);
-      document.querySelector('meta[name="twitter:title"]').setAttribute('content', LANGUAGE_META[lang].title);
-      document.querySelector('meta[name="twitter:description"]').setAttribute('content', LANGUAGE_META[lang].description);
+  currentLanguage = lang;
+  document.documentElement.lang = LANGUAGE_META[lang].htmlLang;
+  document.title = LANGUAGE_META[lang].title;
 
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        const active = btn.dataset.lang === lang;
-        btn.classList.toggle('active', active);
-        btn.setAttribute('aria-pressed', String(active));
-      });
-      const closeText = document.querySelector('.lb-close-text');
-      if (closeText) closeText.textContent = lang === 'idn' ? 'Tutup' : 'Close';
-      const closeButton = document.getElementById('lightbox-close');
-      if (closeButton) closeButton.setAttribute('aria-label', lang === 'idn' ? 'Tutup penampil gambar' : 'Close image viewer');
-      document.querySelectorAll('.lang-idn').forEach(el => {
-  el.style.setProperty('display', lang === 'idn' ? 'inline' : 'none', 'important');
-});
-document.querySelectorAll('.lang-eng').forEach(el => {
-  el.style.setProperty('display', lang === 'eng' ? 'inline' : 'none', 'important');
-});
-    }
+  // Null-safe: hanya update jika elemen ada
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute('content', LANGUAGE_META[lang].description);
+
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', LANGUAGE_META[lang].title);
+
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.setAttribute('content', LANGUAGE_META[lang].description);
+
+  const twTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twTitle) twTitle.setAttribute('content', LANGUAGE_META[lang].title);
+
+  const twDesc = document.querySelector('meta[name="twitter:description"]');
+  if (twDesc) twDesc.setAttribute('content', LANGUAGE_META[lang].description);
+
+  // Toggle tombol bahasa
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const active = btn.dataset.lang === lang;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', String(active));
+  });
+
+  // Toggle label bahasa di header & footer
+  document.querySelectorAll('.lang-idn').forEach(el => {
+    el.style.setProperty('display', lang === 'idn' ? 'inline' : 'none', 'important');
+  });
+  document.querySelectorAll('.lang-eng').forEach(el => {
+    el.style.setProperty('display', lang === 'eng' ? 'inline' : 'none', 'important');
+  });
+
+  // Lightbox close text
+  const closeText = document.querySelector('.lb-close-text');
+  if (closeText) closeText.textContent = lang === 'idn' ? 'Tutup' : 'Close';
+  const closeButton = document.getElementById('lightbox-close');
+  if (closeButton) closeButton.setAttribute('aria-label', lang === 'idn' ? 'Tutup penampil gambar' : 'Close image viewer');
+}
 
     function renderLanguage(lang, preserveFocus = true) {
   if (!(lang in LANGUAGE_META)) return;
@@ -2265,9 +2281,30 @@ document.querySelectorAll('.lang-eng').forEach(el => {
     }, true);
 
     const savedLanguage = safeStorageGet('preferredLang');
-    const initialLanguage = savedLanguage === 'eng' ? 'eng' : 'idn';
+const initialLanguage = savedLanguage === 'eng' ? 'eng' : 'idn';
+
+// Panggil updateGlobalLanguageUI SETELAH semua fungsi terdefinisi
+// dan pastikan tidak error
+try {
+  if (initialLanguage === 'eng') {
+    renderLanguage('eng', false);
+  } else {
     updateGlobalLanguageUI('idn');
-    if (initialLanguage === 'eng') renderLanguage('eng', false);
+    hydrateInteractiveContent();
+    initCharts();
+    setupRevealAnimations();
+    updateLastUpdated();
+  }
+} catch (err) {
+  console.error('Init error:', err);
+  // Fallback: pastikan minimal IDN tampil
+  document.querySelectorAll('.lang-eng').forEach(el => {
+    el.style.setProperty('display', 'none', 'important');
+  });
+  document.querySelectorAll('.lang-idn').forEach(el => {
+    el.style.setProperty('display', 'inline', 'important');
+  });
+}
     else {
       hydrateInteractiveContent();
       initCharts();
