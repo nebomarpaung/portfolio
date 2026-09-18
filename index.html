@@ -166,7 +166,7 @@
       color: #555;
       letter-spacing: 0.05em;
     }
-    .lang-btn.active {
+    .lang-switch .lang-btn.active {
       background: var(--green);
       color: #fff;
     }
@@ -1799,31 +1799,42 @@
     }
 
     function renderLanguage(lang, preserveFocus = true) {
-      if (!(lang in LANGUAGE_META)) return;
-      safeStorageSet('preferredLang', lang);
-      destroyCharts();
-      if (revealObserver) revealObserver.disconnect();
-      closeMobileMenu();
+  if (!(lang in LANGUAGE_META)) return;
+  safeStorageSet('preferredLang', lang);
+  destroyCharts();
+  if (revealObserver) revealObserver.disconnect();
+  closeMobileMenu();
 
-      if (lang === 'idn') {
-        app.innerHTML = idnHTML;
-      } else {
-        const fragment = restoreEnglishIds(engTemplate.content.cloneNode(true));
-        app.replaceChildren(fragment);
-      }
+  if (lang === 'idn') {
+    app.innerHTML = idnHTML;
+  } else {
+    const fragment = restoreEnglishIds(engTemplate.content.cloneNode(true));
+    app.replaceChildren(fragment);
+  }
 
-      updateGlobalLanguageUI(lang);
-      hydrateInteractiveContent();
-      initCharts();
-      setupRevealAnimations();
-      updateLastUpdated();
+  updateGlobalLanguageUI(lang);
+  hydrateInteractiveContent();
+  initCharts();
+  setupRevealAnimations();
+  updateLastUpdated();
 
-      if (preserveFocus && document.activeElement) {
-        const target = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
-        if (target) target.focus({ preventScroll: true });
-      }
-    }
+  // ============================================
+  // REVISI 2: Paksa update toggle bahasa di frame berikutnya
+  // ============================================
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isActive = btn.dataset.lang === lang;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
+    });
+  });
+  // ============================================
 
+  if (preserveFocus && document.activeElement) {
+    const target = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
+    if (target) target.focus({ preventScroll: true });
+  }
+}
     function toggleMobileMenu(force) {
       const shouldOpen = typeof force === 'boolean' ? force : !mobileMenu.classList.contains('open');
       mobileMenu.classList.toggle('open', shouldOpen);
@@ -1968,8 +1979,18 @@
     }
 
     document.addEventListener('click', e => {
-      const langButton = e.target.closest('.lang-btn');
-      if (langButton) { renderLanguage(langButton.dataset.lang); return; }
+  const langButton = e.target.closest('.lang-btn');
+  if (langButton) {
+    const newLang = langButton.dataset.lang;
+    // Update visual toggle DULU, sebelum render
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isActive = btn.dataset.lang === newLang;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
+    });
+    renderLanguage(newLang);
+    return;
+  }
       if (e.target.closest('#nav-ham')) { toggleMobileMenu(); return; }
       if (e.target.closest('#lightbox-close')) { closeLightbox(); return; }
       if (e.target.closest('#lightbox-prev')) { navigateLightbox(-1); return; }
