@@ -433,10 +433,6 @@
       font-size: 9px;
       letter-spacing: .06em;
     }
-    .footer-meta .footer-brand .lang-idn { display: inline; }
-    .footer-meta .footer-brand .lang-eng { display: none; }
-    .footer-meta .lang-idn { display: inline; }
-    .footer-meta .lang-eng { display: none; }
 
     #lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: #fff; align-items: center; justify-content: center; flex-direction: column; padding: 1.5rem; }
     #lightbox.active { display: flex; }
@@ -1794,8 +1790,12 @@
       if (closeText) closeText.textContent = lang === 'idn' ? 'Tutup' : 'Close';
       const closeButton = document.getElementById('lightbox-close');
       if (closeButton) closeButton.setAttribute('aria-label', lang === 'idn' ? 'Tutup penampil gambar' : 'Close image viewer');
-      document.querySelectorAll('.lang-idn').forEach(el => el.style.display = lang === 'idn' ? 'inline' : 'none');
-      document.querySelectorAll('.lang-eng').forEach(el => el.style.display = lang === 'eng' ? 'inline' : 'none');
+      document.querySelectorAll('.lang-idn').forEach(el => {
+  el.style.setProperty('display', lang === 'idn' ? 'inline' : 'none', 'important');
+});
+document.querySelectorAll('.lang-eng').forEach(el => {
+  el.style.setProperty('display', lang === 'eng' ? 'inline' : 'none', 'important');
+});
     }
 
     function renderLanguage(lang, preserveFocus = true) {
