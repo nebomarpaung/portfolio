@@ -2280,11 +2280,9 @@
       }
     }, true);
 
-    const savedLanguage = safeStorageGet('preferredLang');
+        const savedLanguage = safeStorageGet('preferredLang');
 const initialLanguage = savedLanguage === 'eng' ? 'eng' : 'idn';
 
-// Panggil updateGlobalLanguageUI SETELAH semua fungsi terdefinisi
-// dan pastikan tidak error
 try {
   if (initialLanguage === 'eng') {
     renderLanguage('eng', false);
@@ -2305,12 +2303,6 @@ try {
     el.style.setProperty('display', 'inline', 'important');
   });
 }
-    else {
-      hydrateInteractiveContent();
-      initCharts();
-      setupRevealAnimations();
-      updateLastUpdated();
-    }
 
 </script>
 </body>
